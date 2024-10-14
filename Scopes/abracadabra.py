@@ -1,0 +1,22 @@
+AuditScopes = [
+    'BlastDapp.sol',
+    'BlastBox.sol',
+    'BlastGovernor.sol',
+    'BlastMagicLP.sol',
+    'BlastOnboarding.sol',
+    'BlastOnboardingBoot.sol',
+    'BlastTokenRegistry.sol',
+    'BlastWrappers.sol',
+    'BlastPoints.sol',
+    'BlastYields.sol',
+    'MagicLP.sol',
+    'FeeRateModel.sol',
+    'FeeRateModelImpl.sol',
+    'DecimalMath.sol',
+    'Math.sol',
+    'PMMPricing.sol',
+    'Factory.sol',
+    'Router.sol',
+    'MagicLpAggregator.sol',
+    'LockingMultiRewards.sol'
+]

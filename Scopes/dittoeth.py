@@ -1,0 +1,14 @@
+AuditScopes=[
+    'BidOrdersFacet.sol',
+    'ShortOrdersFacet.sol',
+    'PrimaryLiquidationFacet.sol',
+    'BridgeRouterFacet.sol',
+    'ExitShortFacet.sol',
+    'RedemptionFacet.sol',
+    'LibBridgeRouter.sol',
+    'LibBytes.sol',
+    'LibOracle.sol',
+    'LibOrders.sol',
+    'LibSRUtil.sol',
+    'UniswapOracleLibrary.sol'
+]

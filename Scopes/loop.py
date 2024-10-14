@@ -1,0 +1,12 @@
+AuditScopes=[
+    'PrelaunchPoints.s.sol',
+    'ILpETH.sol',
+    'ILpETHVault.sol',
+    'IWETH.sol',
+    'AttackContract.sol',
+    'MockERC20.sol',
+    'MockLRT.sol',
+    'MockLpETH.sol',
+    'MockLpETHVault.sol',
+    'PrelaunchPoints.t.sol'
+]

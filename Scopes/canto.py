@@ -1,0 +1,3 @@
+AuditScopes = [
+    'LendingLedger.sol'
+]
