@@ -1,0 +1,10 @@
+
+/g4b/packages/protocol/contracts/signal/SignalService.sol
+  17:19  error  Parse error: extraneous input 'chainId' expecting '=>'
+  17:46  error  Parse error: extraneous input 'kind' expecting '=>'
+  17:61  error  Parse error: extraneous input 'blockId' expecting ')'
+  21:20  error  Parse error: extraneous input 'addr' expecting '=>'
+  21:33  error  Parse error: extraneous input 'authorized' expecting ')'
+
+✖ 5 problems (5 errors, 0 warnings)
+

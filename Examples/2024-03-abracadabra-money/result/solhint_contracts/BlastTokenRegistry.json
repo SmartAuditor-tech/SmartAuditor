@@ -1,0 +1,30 @@
+{
+    "success": true,
+    "finding_length": 3,
+    "findings": [
+        {
+            "filename": "BlastTokenRegistry.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version >=0.8.0 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "BlastTokenRegistry.sol",
+            "line": 12,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "BlastTokenRegistry.sol",
+            "line": 12,
+            "column": 47,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        }
+    ]
+}

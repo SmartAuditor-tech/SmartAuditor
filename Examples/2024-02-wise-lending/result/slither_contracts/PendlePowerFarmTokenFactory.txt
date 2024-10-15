@@ -1,0 +1,163 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmTokenFactory.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20 --evm-version shanghai --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/PowerFarms/PendlePowerFarmController' running
+INFO:Detectors:
+PendlePowerFarmToken.previewDistribution() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#386-414) performs a multiplication on the result of a division:
+	- currentRate = totalLpAssetsToDistribute / ONE_WEEK (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#403-404)
+	- additonalAssets = currentRate * (block.timestamp - lastInteraction) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#406-407)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+IPendleMarket (contracts/InterfaceHub/IPendle.sol#139-251) has incorrect ERC20 function interface:IPendleMarket.transferFrom(address,address,uint256) (contracts/InterfaceHub/IPendle.sol#157-162)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+INFO:Detectors:
+PendlePowerFarmToken._syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#334-345) uses a dangerous strict equality:
+	- additonalAssets == 0 (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#339)
+PendlePowerFarmToken.previewDistribution() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#386-414) uses a dangerous strict equality:
+	- totalLpAssetsToDistribute == 0 (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#391)
+PendlePowerFarmToken.previewDistribution() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#386-414) uses a dangerous strict equality:
+	- block.timestamp == lastInteraction (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#395)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+Reentrancy in PendlePowerFarmToken.addCompoundRewards(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#502-524):
+	External calls:
+	- syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#506)
+		- PENDLE_CONTROLLER.overWriteAmounts(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#191-193)
+		- PENDLE_CONTROLLER.overWriteIndex(UNDERLYING_PENDLE_MARKET,_index) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#182-185)
+		- PENDLE_CONTROLLER.overWriteIndexAll(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#172-174)
+		- PENDLE_CONTROLLER.updateRewardTokens(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#164-166)
+		- PENDLE_CONTROLLER.withdrawLp(UNDERLYING_PENDLE_MARKET,_to,_amount) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#365-369)
+		- PENDLE_MARKET.increaseObservationsCardinalityNext(storageMarket.observationCardinalityNext + 1) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#353-355)
+		- PENDLE_CONTROLLER.increaseReservedForCompound(UNDERLYING_PENDLE_MARKET,rewardsOutsideArray) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#206-209)
+		- PENDLE_MARKET.redeemRewards(PENDLE_POWER_FARM_CONTROLLER) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#243-245)
+	State variables written after the call(s):
+	- totalLpAssetsToDistribute += _amount (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#512)
+	PendlePowerFarmToken.totalLpAssetsToDistribute (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#35) can be used in cross function reentrancies:
+	- PendlePowerFarmToken._syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#334-345)
+	- PendlePowerFarmToken.addCompoundRewards(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#502-524)
+	- PendlePowerFarmToken.previewDistribution() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#386-414)
+	- PendlePowerFarmToken.totalLpAssets() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#434-441)
+	- PendlePowerFarmToken.totalLpAssetsToDistribute (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#35)
+Reentrancy in PendlePowerFarmToken.depositExactAmount(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#529-590):
+	External calls:
+	- syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#533)
+		- PENDLE_CONTROLLER.overWriteAmounts(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#191-193)
+		- PENDLE_CONTROLLER.overWriteIndex(UNDERLYING_PENDLE_MARKET,_index) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#182-185)
+		- PENDLE_CONTROLLER.overWriteIndexAll(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#172-174)
+		- PENDLE_CONTROLLER.updateRewardTokens(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#164-166)
+		- PENDLE_CONTROLLER.withdrawLp(UNDERLYING_PENDLE_MARKET,_to,_amount) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#365-369)
+		- PENDLE_MARKET.increaseObservationsCardinalityNext(storageMarket.observationCardinalityNext + 1) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#353-355)
+		- PENDLE_CONTROLLER.increaseReservedForCompound(UNDERLYING_PENDLE_MARKET,rewardsOutsideArray) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#206-209)
+		- PENDLE_MARKET.redeemRewards(PENDLE_POWER_FARM_CONTROLLER) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#243-245)
+	State variables written after the call(s):
+	- _mint(msg.sender,reducedShares) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#567-570)
+		- _totalSupply += _amount (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#122)
+	SimpleERC20._totalSupply (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#20) can be used in cross function reentrancies:
+	- SimpleERC20._burn(address,uint256) (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#135-163)
+	- SimpleERC20._mint(address,uint256) (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#112-133)
+	- PendlePowerFarmToken.initialize(address,address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#682-732)
+	- SimpleERC20.totalSupply() (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#65-71)
+	- _mint(PENDLE_POWER_FARM_CONTROLLER,feeShares) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#572-575)
+		- _totalSupply += _amount (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#122)
+	SimpleERC20._totalSupply (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#20) can be used in cross function reentrancies:
+	- SimpleERC20._burn(address,uint256) (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#135-163)
+	- SimpleERC20._mint(address,uint256) (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#112-133)
+	- PendlePowerFarmToken.initialize(address,address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#682-732)
+	- SimpleERC20.totalSupply() (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#65-71)
+	- underlyingLpAssetsCurrent += _underlyingLpAssetAmount (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#577)
+	PendlePowerFarmToken.underlyingLpAssetsCurrent (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#32) can be used in cross function reentrancies:
+	- PendlePowerFarmToken._syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#334-345)
+	- PendlePowerFarmToken.depositExactAmount(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#529-590)
+	- PendlePowerFarmToken.initialize(address,address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#682-732)
+	- PendlePowerFarmToken.previewUnderlyingLpAssets() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#443-450)
+	- PendlePowerFarmToken.totalLpAssets() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#434-441)
+	- PendlePowerFarmToken.underlyingLpAssetsCurrent (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#32)
+	- PendlePowerFarmToken.withdrawExactAmount(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#647-680)
+	- PendlePowerFarmToken.withdrawExactShares(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#608-645)
+Reentrancy in PendlePowerFarmToken.syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#81-96):
+	External calls:
+	- _triggerIndexUpdate() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#83)
+		- PENDLE_CONTROLLER.withdrawLp(UNDERLYING_PENDLE_MARKET,_to,_amount) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#365-369)
+	- _overWriteCheck() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#84)
+		- PENDLE_CONTROLLER.overWriteIndexAll(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#172-174)
+		- PENDLE_CONTROLLER.overWriteAmounts(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#191-193)
+		- PENDLE_CONTROLLER.updateRewardTokens(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#164-166)
+	- _updateRewards() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#86)
+		- PENDLE_CONTROLLER.overWriteIndex(UNDERLYING_PENDLE_MARKET,_index) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#182-185)
+		- PENDLE_CONTROLLER.increaseReservedForCompound(UNDERLYING_PENDLE_MARKET,rewardsOutsideArray) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#206-209)
+		- PENDLE_MARKET.redeemRewards(PENDLE_POWER_FARM_CONTROLLER) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#243-245)
+	State variables written after the call(s):
+	- _setLastInteraction() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#87)
+		- lastInteraction = block.timestamp (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#419)
+	PendlePowerFarmToken.lastInteraction (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#50) can be used in cross function reentrancies:
+	- PendlePowerFarmToken._setLastInteraction() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#416-420)
+	- PendlePowerFarmToken.initialize(address,address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#682-732)
+	- PendlePowerFarmToken.lastInteraction (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#50)
+	- PendlePowerFarmToken.previewDistribution() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#386-414)
+Reentrancy in PendlePowerFarmToken.withdrawExactAmount(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#647-680):
+	External calls:
+	- syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#651)
+		- PENDLE_CONTROLLER.overWriteAmounts(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#191-193)
+		- PENDLE_CONTROLLER.overWriteIndex(UNDERLYING_PENDLE_MARKET,_index) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#182-185)
+		- PENDLE_CONTROLLER.overWriteIndexAll(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#172-174)
+		- PENDLE_CONTROLLER.updateRewardTokens(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#164-166)
+		- PENDLE_CONTROLLER.withdrawLp(UNDERLYING_PENDLE_MARKET,_to,_amount) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#365-369)
+		- PENDLE_MARKET.increaseObservationsCardinalityNext(storageMarket.observationCardinalityNext + 1) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#353-355)
+		- PENDLE_CONTROLLER.increaseReservedForCompound(UNDERLYING_PENDLE_MARKET,rewardsOutsideArray) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#206-209)
+		- PENDLE_MARKET.redeemRewards(PENDLE_POWER_FARM_CONTROLLER) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#243-245)
+	State variables written after the call(s):
+	- _burn(msg.sender,shares) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#667-670)
+		- _totalSupply -= _amount (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#155)
+	SimpleERC20._totalSupply (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#20) can be used in cross function reentrancies:
+	- SimpleERC20._burn(address,uint256) (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#135-163)
+	- SimpleERC20._mint(address,uint256) (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#112-133)
+	- PendlePowerFarmToken.initialize(address,address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#682-732)
+	- SimpleERC20.totalSupply() (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#65-71)
+	- underlyingLpAssetsCurrent -= _underlyingLpAssetAmount (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#672)
+	PendlePowerFarmToken.underlyingLpAssetsCurrent (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#32) can be used in cross function reentrancies:
+	- PendlePowerFarmToken._syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#334-345)
+	- PendlePowerFarmToken.depositExactAmount(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#529-590)
+	- PendlePowerFarmToken.initialize(address,address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#682-732)
+	- PendlePowerFarmToken.previewUnderlyingLpAssets() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#443-450)
+	- PendlePowerFarmToken.totalLpAssets() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#434-441)
+	- PendlePowerFarmToken.underlyingLpAssetsCurrent (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#32)
+	- PendlePowerFarmToken.withdrawExactAmount(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#647-680)
+	- PendlePowerFarmToken.withdrawExactShares(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#608-645)
+Reentrancy in PendlePowerFarmToken.withdrawExactShares(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#608-645):
+	External calls:
+	- syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#612)
+		- PENDLE_CONTROLLER.overWriteAmounts(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#191-193)
+		- PENDLE_CONTROLLER.overWriteIndex(UNDERLYING_PENDLE_MARKET,_index) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#182-185)
+		- PENDLE_CONTROLLER.overWriteIndexAll(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#172-174)
+		- PENDLE_CONTROLLER.updateRewardTokens(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#164-166)
+		- PENDLE_CONTROLLER.withdrawLp(UNDERLYING_PENDLE_MARKET,_to,_amount) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#365-369)
+		- PENDLE_MARKET.increaseObservationsCardinalityNext(storageMarket.observationCardinalityNext + 1) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#353-355)
+		- PENDLE_CONTROLLER.increaseReservedForCompound(UNDERLYING_PENDLE_MARKET,rewardsOutsideArray) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#206-209)
+		- PENDLE_MARKET.redeemRewards(PENDLE_POWER_FARM_CONTROLLER) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#243-245)
+	State variables written after the call(s):
+	- _burn(msg.sender,_shares) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#630-633)
+		- _totalSupply -= _amount (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#155)
+	SimpleERC20._totalSupply (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#20) can be used in cross function reentrancies:
+	- SimpleERC20._burn(address,uint256) (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#135-163)
+	- SimpleERC20._mint(address,uint256) (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#112-133)
+	- PendlePowerFarmToken.initialize(address,address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#682-732)
+	- SimpleERC20.totalSupply() (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#65-71)
+	- underlyingLpAssetsCurrent -= tokenAmount (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#628)
+	PendlePowerFarmToken.underlyingLpAssetsCurrent (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#32) can be used in cross function reentrancies:
+	- PendlePowerFarmToken._syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#334-345)
+	- PendlePowerFarmToken.depositExactAmount(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#529-590)
+	- PendlePowerFarmToken.initialize(address,address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#682-732)
+	- PendlePowerFarmToken.previewUnderlyingLpAssets() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#443-450)
+	- PendlePowerFarmToken.totalLpAssets() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#434-441)
+	- PendlePowerFarmToken.underlyingLpAssetsCurrent (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#32)
+	- PendlePowerFarmToken.withdrawExactAmount(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#647-680)
+	- PendlePowerFarmToken.withdrawExactShares(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#608-645)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+INFO:Detectors:
+PendlePowerFarmToken._updateRewards().i (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#201) is a local variable never initialized
+PendlePowerFarmToken._calculateRewardsClaimedOutside().i (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#233) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+INFO:Detectors:
+PendlePowerFarmToken._calculateRewardsClaimedOutside() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#218-303) ignores return value by PENDLE_MARKET.redeemRewards(PENDLE_POWER_FARM_CONTROLLER) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#243-245)
+PendlePowerFarmToken.initialize(address,address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#682-732) ignores return value by (pendleSyAddress,None,None) = PENDLE_MARKET.readTokens() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#715-718)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmTokenFactory.sol analyzed (17 contracts with 58 detectors), 14 result(s) found

@@ -1,0 +1,34 @@
+
+/g4b/src/dao/Proposals.sol
+    2:1   error    Compiler version =0.8.22 does not satisfy the ^0.5.8 semver requirement                            compiler-version
+   67:2   warning  Explicitly mark visibility of state                                                                state-visibility
+   67:53  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+   67:53  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+   70:5   warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+   83:3   warning  Error message for require is too long                                                              reason-string
+   83:12  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+   95:4   warning  Error message for require is too long                                                              reason-string
+   98:4   warning  Error message for require is too long                                                              reason-string
+  102:3   warning  Error message for require is too long                                                              reason-string
+  103:3   warning  Error message for require is too long                                                              reason-string
+  105:34  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  124:3   warning  Error message for require is too long                                                              reason-string
+  132:3   warning  Error message for require is too long                                                              reason-string
+  165:3   warning  Error message for require is too long                                                              reason-string
+  167:3   warning  Error message for require is too long                                                              reason-string
+  168:3   warning  Error message for require is too long                                                              reason-string
+  169:3   warning  Error message for require is too long                                                              reason-string
+  182:3   warning  Error message for require is too long                                                              reason-string
+  203:3   warning  Error message for require is too long                                                              reason-string
+  215:3   warning  Error message for require is too long                                                              reason-string
+  224:3   warning  Error message for require is too long                                                              reason-string
+  233:3   warning  Error message for require is too long                                                              reason-string
+  242:3   warning  Error message for require is too long                                                              reason-string
+  264:3   warning  Error message for require is too long                                                              reason-string
+  268:4   warning  Error message for require is too long                                                              reason-string
+  270:4   warning  Error message for require is too long                                                              reason-string
+  321:3   warning  Error message for require is too long                                                              reason-string
+  392:13  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+
+✖ 29 problems (1 error, 28 warnings)
+

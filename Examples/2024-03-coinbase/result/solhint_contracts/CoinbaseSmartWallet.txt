@@ -1,0 +1,14 @@
+
+/g4b/src/SmartWallet/CoinbaseSmartWallet.sol
+    2:1   error    Compiler version 0.8.23 does not satisfy the ^0.5.8 semver requirement                             compiler-version
+   94:9   warning  Avoid to use inline assembly. It is acceptable only in rare cases                                  no-inline-assembly
+  102:5   warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+  241:52  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  242:9   warning  Avoid to use inline assembly. It is acceptable only in rare cases                                  no-inline-assembly
+  273:47  warning  Avoid to use low level calls                                                                       avoid-low-level-calls
+  275:13  warning  Avoid to use inline assembly. It is acceptable only in rare cases                                  no-inline-assembly
+  309:13  warning  Avoid to use inline assembly. It is acceptable only in rare cases                                  no-inline-assembly
+  330:99  warning  Code contains empty blocks                                                                         no-empty-blocks
+
+✖ 9 problems (1 error, 8 warnings)
+

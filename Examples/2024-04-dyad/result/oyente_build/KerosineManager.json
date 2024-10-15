@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "KerosineManager.sol",
+        "incomplete instruction": "3023",
+        "coverage": "4.1%",
+        "warnings": []
+    }
+}

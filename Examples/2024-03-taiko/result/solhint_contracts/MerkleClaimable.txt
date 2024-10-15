@@ -1,0 +1,7 @@
+
+/g4b/packages/protocol/contracts/team/airdrop/MerkleClaimable.sol
+  12:20  error  Parse error: extraneous input 'hash' expecting '=>'
+  12:33  error  Parse error: extraneous input 'claimed' expecting ')'
+
+✖ 2 problems (2 errors, 0 warnings)
+

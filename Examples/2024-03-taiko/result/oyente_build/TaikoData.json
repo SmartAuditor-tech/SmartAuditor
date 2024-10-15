@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "TaikoData.sol",
+        "incomplete instruction": "151",
+        "coverage": "30.8%",
+        "warnings": []
+    }
+}

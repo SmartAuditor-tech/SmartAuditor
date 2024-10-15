@@ -1,0 +1,142 @@
+{
+    "success": true,
+    "finding_length": 17,
+    "findings": [
+        {
+            "filename": "Staking.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version =0.8.22 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "Staking.sol",
+            "line": 33,
+            "column": 2,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "Staking.sol",
+            "line": 35,
+            "column": 3,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        },
+        {
+            "filename": "Staking.sol",
+            "line": 43,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Staking.sol",
+            "line": 62,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Staking.sol",
+            "line": 65,
+            "column": 28,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "Staking.sol",
+            "line": 88,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Staking.sol",
+            "line": 89,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Staking.sol",
+            "line": 89,
+            "column": 12,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "Staking.sol",
+            "line": 90,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Staking.sol",
+            "line": 104,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Staking.sol",
+            "line": 105,
+            "column": 12,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "Staking.sol",
+            "line": 106,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Staking.sol",
+            "line": 132,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Staking.sol",
+            "line": 153,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Staking.sol",
+            "line": 157,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Staking.sol",
+            "line": 158,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        }
+    ]
+}

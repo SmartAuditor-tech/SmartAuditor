@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "/g4b/contracts/.cache/OpenZeppelin-Upgradeable/v4.9.3/proxy/utils/Initializable.sol" not found: File not found. Searched the following locations: "".
+  --> /g4b/contracts/core/Config.sol:12:1:
+   |
+12 | import  {Initializable} from "../.cache/OpenZeppelin-Upgradeable/v4.9.3/proxy/utils/Initializable.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

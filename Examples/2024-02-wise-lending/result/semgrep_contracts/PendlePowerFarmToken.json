@@ -1,0 +1,139 @@
+{
+    "success": true,
+    "finding_length": 19,
+    "findings": [
+        {
+            "classification": [],
+            "name": "inefficient-state-variable-increment",
+            "category": "performance",
+            "message": "te-variable-increment <x> += <y> costs more gas than <x> = <x> + <y> for state variables. Details: https://sg.run/bp9v",
+            "line": 343
+        },
+        {
+            "classification": [],
+            "name": "inefficient-state-variable-increment",
+            "category": "performance",
+            "message": "te-variable-increment <x> += <y> costs more gas than <x> = <x> + <y> for state variables. Details: https://sg.run/bp9v",
+            "line": 512
+        },
+        {
+            "classification": [],
+            "name": "inefficient-state-variable-increment",
+            "category": "performance",
+            "message": "te-variable-increment <x> += <y> costs more gas than <x> = <x> + <y> for state variables. Details: https://sg.run/bp9v",
+            "line": 577
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 206
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 207
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 239
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 243
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 244
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 249
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 255
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 256
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 257
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 258
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 259
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 260
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 261
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 262
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 263
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 264
+        }
+    ]
+}

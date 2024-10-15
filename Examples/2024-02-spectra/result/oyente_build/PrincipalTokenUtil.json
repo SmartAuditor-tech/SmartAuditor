@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "PrincipalTokenUtil.sol",
+        "incomplete instruction": "3966",
+        "coverage": "0.7%",
+        "warnings": []
+    }
+}

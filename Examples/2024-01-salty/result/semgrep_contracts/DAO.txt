@@ -1,0 +1,116 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 15 Code Findings │
+└──────────────────┘
+                         
+    /g4b/src/dao/DAO.sol 
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           70┆  ... constructor( IPools _pools, IProposals _proposals,          
+  IExchangeConfig _exchangeConfig, IPoolsConfig _poolsConfig, IStakingConfig    
+  _stakingConfig, IRewardsConfig _re ... [0m                                    
+           71┆  
+  {             
+           72┆                
+  pools = _pools;             
+           73┆            proposals = 
+  _proposals;                         
+           74┆            exchangeConfig =      
+  _exchangeConfig;                              
+           75┆            poolsConfig =   
+  _poolsConfig;                           
+           76┆            stakingConfig =     
+  _stakingConfig;                             
+           77┆            rewardsConfig =     
+  _rewardsConfig;                             
+           78┆            stableConfig =    
+  _stableConfig;                            
+           79┆            daoConfig = 
+  _daoConfig;                         
+            [shortened a long line from output, adjust with                     
+  --max-chars-per-line]                                                         
+             [hid 30 additional lines, adjust with --max-lines-per-finding] 
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+          247┆ require( saltBalance >= bootstrappingRewards * 2, "Whitelisting  
+  is not currently possible due to insufficient bootstrapping rewards" );       
+            ⋮┆----------------------------------------
+          251┆ require( bestWhitelistingBallotID == ballotID, "Only the token   
+  whitelisting ballot with the most votes can be finalized" );                  
+            ⋮┆----------------------------------------
+          281┆ require( proposals.canFinalizeBallot(ballotID), "The ballot is   
+  not yet able to be finalized" );                                              
+            ⋮┆----------------------------------------
+          297┆ require( msg.sender == address(exchangeConfig.upkeep()),         
+  "DAO.withdrawArbitrageProfits is only callable from the Upkeep contract" );   
+            ⋮┆----------------------------------------
+          318┆ require( msg.sender == address(exchangeConfig.upkeep()),         
+  "DAO.formPOL is only callable from the Upkeep contract" );                    
+            ⋮┆----------------------------------------
+          329┆ require( msg.sender == address(exchangeConfig.upkeep()),         
+  "DAO.processRewardsFromPOL is only callable from the Upkeep contract" );      
+            ⋮┆----------------------------------------
+          362┆ require(msg.sender == address(liquidizer),                       
+  "DAO.withdrawProtocolOwnedLiquidity is only callable from the Liquidizer      
+  contract" );                                                                  
+            ⋮┆----------------------------------------
+       solidity.performance.use-short-revert-string.use-short-revert-string     
+          Shortening revert strings to fit in 32 bytes will decrease gas costs  
+  for deployment and  gas                                                       
+          costs when the revert condition has been met.                         
+          Details: https://sg.run/E9LB                                          
+                                                                                
+          247┆ require( saltBalance >= bootstrappingRewards * 2, "Whitelisting  
+  is not currently possible due to insufficient bootstrapping rewards" );       
+            ⋮┆----------------------------------------
+          251┆ require( bestWhitelistingBallotID == ballotID, "Only the token   
+  whitelisting ballot with the most votes can be finalized" );                  
+            ⋮┆----------------------------------------
+          281┆ require( proposals.canFinalizeBallot(ballotID), "The ballot is   
+  not yet able to be finalized" );                                              
+            ⋮┆----------------------------------------
+          297┆ require( msg.sender == address(exchangeConfig.upkeep()),         
+  "DAO.withdrawArbitrageProfits is only callable from the Upkeep contract" );   
+            ⋮┆----------------------------------------
+          318┆ require( msg.sender == address(exchangeConfig.upkeep()),         
+  "DAO.formPOL is only callable from the Upkeep contract" );                    
+            ⋮┆----------------------------------------
+          329┆ require( msg.sender == address(exchangeConfig.upkeep()),         
+  "DAO.processRewardsFromPOL is only callable from the Upkeep contract" );      
+            ⋮┆----------------------------------------
+          362┆ require(msg.sender == address(liquidizer),                       
+  "DAO.withdrawProtocolOwnedLiquidity is only callable from the Liquidizer      
+  contract" );                                                                  
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 15 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

@@ -1,0 +1,67 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 11 Code Findings │
+└──────────────────┘
+                                                                              
+    /g4b/packages/protocol/contracts/automata-attestation/utils/RsaVerify.sol 
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+          174┆ for (uint256 i; i < _sha256.length; ++i) {
+            ⋮┆----------------------------------------
+          283┆ for (uint256 i; i < sha1Prefix.length; ++i) {
+            ⋮┆----------------------------------------
+          290┆ for (uint256 i; i < _sha1.length; ++i) {
+            ⋮┆----------------------------------------
+          291┆ if (decipher[3 + paddingLen + sha1Prefix.length + i] != _sha1[i])
+  {                                                                             
+            ⋮┆----------------------------------------
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+          140┆ for (uint256 i = 2; i < 2 + paddingLen; ++i) {
+            ⋮┆----------------------------------------
+          152┆ for (uint256 i; i < digestAlgoWithParamLen; ++i) {
+            ⋮┆----------------------------------------
+          158┆ for (uint256 i; i < digestAlgoWithParamLen; ++i) {
+            ⋮┆----------------------------------------
+          174┆ for (uint256 i; i < _sha256.length; ++i) {
+            ⋮┆----------------------------------------
+          273┆ for (uint256 i = 2; i < 2 + paddingLen; ++i) {
+            ⋮┆----------------------------------------
+          283┆ for (uint256 i; i < sha1Prefix.length; ++i) {
+            ⋮┆----------------------------------------
+          290┆ for (uint256 i; i < _sha1.length; ++i) {
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 11 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

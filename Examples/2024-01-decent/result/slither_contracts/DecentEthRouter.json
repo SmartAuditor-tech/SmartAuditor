@@ -1,0 +1,161 @@
+{
+    "success": true,
+    "finding_length": 14,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "DecentEthRouter.removeLiquidityEth(uint256) (lib/decent-bridge/src/DecentEthRouter.sol#313-319) sends eth to arbitrary user\n\tDangerous calls:\n\t- address(msg.sender).transfer(amount) (lib/decent-bridge/src/DecentEthRouter.sol#318)\n",
+            "filename": "DecentEthRouter.sol",
+            "classification": [],
+            "function": "removeLiquidityEth",
+            "contract": "DecentEthRouter",
+            "line": 318
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "DecentEthRouter.redeemWeth(uint256) (lib/decent-bridge/src/DecentEthRouter.sol#294-299) ignores return value by dcntEth.transferFrom(msg.sender,address(this),amount) (lib/decent-bridge/src/DecentEthRouter.sol#297)\n",
+            "filename": "DecentEthRouter.sol",
+            "classification": [],
+            "function": "redeemWeth",
+            "contract": "DecentEthRouter",
+            "line": 297
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "DecentEthRouter.redeemWeth(uint256) (lib/decent-bridge/src/DecentEthRouter.sol#294-299) ignores return value by weth.transfer(msg.sender,amount) (lib/decent-bridge/src/DecentEthRouter.sol#298)\n",
+            "filename": "DecentEthRouter.sol",
+            "classification": [],
+            "function": "redeemWeth",
+            "contract": "DecentEthRouter",
+            "line": 298
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "DecentEthRouter._bridgeWithPayload(uint8,uint16,address,uint256,uint64,bytes,bool) (lib/decent-bridge/src/DecentEthRouter.sol#148-194) ignores return value by weth.transferFrom(msg.sender,address(this),_amount) (lib/decent-bridge/src/DecentEthRouter.sol#181)\n",
+            "filename": "DecentEthRouter.sol",
+            "classification": [],
+            "function": "_bridgeWithPayload",
+            "contract": "DecentEthRouter",
+            "line": 181
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "DecentEthRouter.addLiquidityWeth(uint256) (lib/decent-bridge/src/DecentEthRouter.sol#322-327) ignores return value by weth.transferFrom(msg.sender,address(this),amount) (lib/decent-bridge/src/DecentEthRouter.sol#325)\n",
+            "filename": "DecentEthRouter.sol",
+            "classification": [],
+            "function": "addLiquidityWeth",
+            "contract": "DecentEthRouter",
+            "line": 325
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "DecentEthRouter.removeLiquidityWeth(uint256) (lib/decent-bridge/src/DecentEthRouter.sol#330-335) ignores return value by weth.transfer(msg.sender,amount) (lib/decent-bridge/src/DecentEthRouter.sol#334)\n",
+            "filename": "DecentEthRouter.sol",
+            "classification": [],
+            "function": "removeLiquidityWeth",
+            "contract": "DecentEthRouter",
+            "line": 334
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "DecentEthRouter.redeemEth(uint256) (lib/decent-bridge/src/DecentEthRouter.sol#285-291) ignores return value by dcntEth.transferFrom(msg.sender,address(this),amount) (lib/decent-bridge/src/DecentEthRouter.sol#288)\n",
+            "filename": "DecentEthRouter.sol",
+            "classification": [],
+            "function": "redeemEth",
+            "contract": "DecentEthRouter",
+            "line": 288
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "DecentEthRouter.onOFTReceived(uint16,bytes,uint64,bytes32,uint256,bytes) (lib/decent-bridge/src/DecentEthRouter.sol#237-282) ignores return value by weth.transfer(_to,_amount) (lib/decent-bridge/src/DecentEthRouter.sol#273)\n",
+            "filename": "DecentEthRouter.sol",
+            "classification": [],
+            "function": "onOFTReceived",
+            "contract": "DecentEthRouter",
+            "line": 273
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "DecentEthRouter.onOFTReceived(uint16,bytes,uint64,bytes32,uint256,bytes) (lib/decent-bridge/src/DecentEthRouter.sol#237-282) ignores return value by dcntEth.transfer(_to,_amount) (lib/decent-bridge/src/DecentEthRouter.sol#267)\n",
+            "filename": "DecentEthRouter.sol",
+            "classification": [],
+            "function": "onOFTReceived",
+            "contract": "DecentEthRouter",
+            "line": 267
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "DecentEthRouter.onOFTReceived(uint16,bytes,uint64,bytes32,uint256,bytes) (lib/decent-bridge/src/DecentEthRouter.sol#237-282) ignores return value by weth.approve(address(executor),_amount) (lib/decent-bridge/src/DecentEthRouter.sol#279)\n",
+            "filename": "DecentEthRouter.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onOFTReceived",
+            "contract": "DecentEthRouter",
+            "line": 279
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "DecentEthRouter.estimateSendAndCallFee(uint8,uint16,address,uint256,uint64,bool,bytes) (lib/decent-bridge/src/DecentEthRouter.sol#113-146) ignores return value by dcntEth.estimateSendAndCallFee(_dstChainId,destinationBridge,_amount,_payload,_dstGasForCall,false,adapterParams) (lib/decent-bridge/src/DecentEthRouter.sol#135-145)\n",
+            "filename": "DecentEthRouter.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "estimateSendAndCallFee",
+            "contract": "DecentEthRouter",
+            "line": 135,
+            "line_end": 145
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "DecentEthRouter.gasCurrencyIsEth (lib/decent-bridge/src/DecentEthRouter.sol#22) should be immutable \n",
+            "filename": "DecentEthRouter.sol",
+            "classification": [],
+            "line": 22
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "DecentEthRouter.weth (lib/decent-bridge/src/DecentEthRouter.sol#13) should be immutable \n",
+            "filename": "DecentEthRouter.sol",
+            "classification": [],
+            "line": 13
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "DecentEthRouter.executor (lib/decent-bridge/src/DecentEthRouter.sol#15) should be immutable \n",
+            "filename": "DecentEthRouter.sol",
+            "classification": [],
+            "line": 15
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "LibTrieProof.sol",
+        "coverage": "22.9%",
+        "warnings": []
+    }
+}

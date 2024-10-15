@@ -1,0 +1,206 @@
+INFO:Detectors:
+ThrusterTreasure._claimPrize(ThrusterTreasure.Prize,address,uint256) (contracts/ThrusterTreasure.sol#127-133) ignores return value by WETH.transfer(_receiver,amountETH) (contracts/ThrusterTreasure.sol#130)
+ThrusterTreasure._claimPrize(ThrusterTreasure.Prize,address,uint256) (contracts/ThrusterTreasure.sol#127-133) ignores return value by USDB.transfer(_receiver,amountUSDB) (contracts/ThrusterTreasure.sol#131)
+ThrusterTreasure.depositPrize(address,uint256,uint256) (contracts/ThrusterTreasure.sol#180-184) ignores return value by WETH.transferFrom(_from,address(this),_amountWETH) (contracts/ThrusterTreasure.sol#181)
+ThrusterTreasure.depositPrize(address,uint256,uint256) (contracts/ThrusterTreasure.sol#180-184) ignores return value by USDB.transferFrom(_from,address(this),_amountUSDB) (contracts/ThrusterTreasure.sol#182)
+ThrusterTreasure.retrieveTokens(address,address,uint256) (contracts/ThrusterTreasure.sol#192-199) ignores return value by token.transfer(_recipient,_amount) (contracts/ThrusterTreasure.sol#197)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+INFO:Detectors:
+Reentrancy in ThrusterTreasure.claimPrizesForRound(uint256) (contracts/ThrusterTreasure.sol#102-120):
+	External calls:
+	- _claimPrize(prize,msg.sender,winningTicket) (contracts/ThrusterTreasure.sol#114)
+		- WETH.transfer(_receiver,amountETH) (contracts/ThrusterTreasure.sol#130)
+		- USDB.transfer(_receiver,amountUSDB) (contracts/ThrusterTreasure.sol#131)
+	State variables written after the call(s):
+	- entered[msg.sender][roundToClaim] = Round(0,0,roundToClaim) (contracts/ThrusterTreasure.sol#118)
+	ThrusterTreasure.entered (contracts/ThrusterTreasure.sol#46) can be used in cross function reentrancies:
+	- ThrusterTreasure.claimPrizesForRound(uint256) (contracts/ThrusterTreasure.sol#102-120)
+	- ThrusterTreasure.enterTickets(uint256,bytes32[]) (contracts/ThrusterTreasure.sol#83-96)
+	- ThrusterTreasure.entered (contracts/ThrusterTreasure.sol#46)
+Reentrancy in ThrusterTreasure.setWinningTickets(uint256,uint256,uint64[],bytes32[],bytes32[]) (contracts/ThrusterTreasure.sol#269-292):
+	External calls:
+	- _winningTickets[i] = revealRandomNumber(sequenceNumbers[i],userRandoms[i],providerRandoms[i]) (contracts/ThrusterTreasure.sol#287)
+		- randomNumber = entropy.reveal(entropyProvider,sequenceNumber,userRandom,providerRandom) (contracts/ThrusterTreasure.sol#309)
+	State variables written after the call(s):
+	- winningTickets[_round][_prizeIndex] = _winningTickets (contracts/ThrusterTreasure.sol#290)
+	ThrusterTreasure.winningTickets (contracts/ThrusterTreasure.sol#48) can be used in cross function reentrancies:
+	- ThrusterTreasure.claimPrizesForRound(uint256) (contracts/ThrusterTreasure.sol#102-120)
+	- ThrusterTreasure.enterTickets(uint256,bytes32[]) (contracts/ThrusterTreasure.sol#83-96)
+	- ThrusterTreasure.setWinningTickets(uint256,uint256,uint64[],bytes32[],bytes32[]) (contracts/ThrusterTreasure.sol#269-292)
+	- ThrusterTreasure.winningTickets (contracts/ThrusterTreasure.sol#48)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+INFO:Detectors:
+ThrusterTreasure.constructor(address,address,address,address,address,uint256) (contracts/ThrusterTreasure.sol#58-76) ignores return value by WETH.configure(YieldMode.CLAIMABLE) (contracts/ThrusterTreasure.sol#74)
+ThrusterTreasure.constructor(address,address,address,address,address,uint256) (contracts/ThrusterTreasure.sol#58-76) ignores return value by USDB.configure(YieldMode.CLAIMABLE) (contracts/ThrusterTreasure.sol#75)
+ThrusterTreasure.claimYield(address,uint256,uint256) (contracts/ThrusterTreasure.sol#150-153) ignores return value by WETH.claim(_recipient,_amountWETH) (contracts/ThrusterTreasure.sol#151)
+ThrusterTreasure.claimYield(address,uint256,uint256) (contracts/ThrusterTreasure.sol#150-153) ignores return value by USDB.claim(_recipient,_amountUSDB) (contracts/ThrusterTreasure.sol#152)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Detectors:
+ThrusterTreasure.constructor(address,address,address,address,address,uint256)._entropyProvider (contracts/ThrusterTreasure.sol#60) lacks a zero-check on :
+		- entropyProvider = _entropyProvider (contracts/ThrusterTreasure.sol#67)
+ThrusterTreasure.retrieveETH(address,uint256)._recipient (contracts/ThrusterTreasure.sol#206) lacks a zero-check on :
+		- _recipient.transfer(_amount) (contracts/ThrusterTreasure.sol#210)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+INFO:Detectors:
+ThrusterTreasure._claimPrize(ThrusterTreasure.Prize,address,uint256) (contracts/ThrusterTreasure.sol#127-133) has external calls inside a loop: WETH.transfer(_receiver,amountETH) (contracts/ThrusterTreasure.sol#130)
+ThrusterTreasure._claimPrize(ThrusterTreasure.Prize,address,uint256) (contracts/ThrusterTreasure.sol#127-133) has external calls inside a loop: USDB.transfer(_receiver,amountUSDB) (contracts/ThrusterTreasure.sol#131)
+ThrusterTreasure.requestRandomNumberMany(bytes32[]) (contracts/ThrusterTreasure.sol#218-232) has external calls inside a loop: sequenceNumber = entropy.request{value: fee}(entropyProvider,userCommitments[i],true) (contracts/ThrusterTreasure.sol#227)
+ThrusterTreasure.revealRandomNumber(uint64,bytes32,bytes32) (contracts/ThrusterTreasure.sol#301-314) has external calls inside a loop: randomNumber = entropy.reveal(entropyProvider,sequenceNumber,userRandom,providerRandom) (contracts/ThrusterTreasure.sol#309)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+INFO:Detectors:
+Reentrancy in ThrusterTreasure.requestRandomNumber(bytes32) (contracts/ThrusterTreasure.sol#238-247):
+	External calls:
+	- sequenceNumber = entropy.request{value: fee}(entropyProvider,userCommitment,true) (contracts/ThrusterTreasure.sol#242)
+	State variables written after the call(s):
+	- requestedRandomNumber[sequenceNumber] = msg.sender (contracts/ThrusterTreasure.sol#243)
+Reentrancy in ThrusterTreasure.requestRandomNumberMany(bytes32[]) (contracts/ThrusterTreasure.sol#218-232):
+	External calls:
+	- sequenceNumber = entropy.request{value: fee}(entropyProvider,userCommitments[i],true) (contracts/ThrusterTreasure.sol#227)
+	State variables written after the call(s):
+	- requestedRandomNumber[sequenceNumber] = msg.sender (contracts/ThrusterTreasure.sol#229)
+Reentrancy in ThrusterTreasure.setPrize(uint256,uint64,uint256,uint256,uint64) (contracts/ThrusterTreasure.sol#163-171):
+	External calls:
+	- depositPrize(msg.sender,_amountWETH,_amountUSDB) (contracts/ThrusterTreasure.sol#169)
+		- WETH.transferFrom(_from,address(this),_amountWETH) (contracts/ThrusterTreasure.sol#181)
+		- USDB.transferFrom(_from,address(this),_amountUSDB) (contracts/ThrusterTreasure.sol#182)
+	State variables written after the call(s):
+	- prizes[_round][_prizeIndex] = Prize(_amountWETH,_amountUSDB,_numWinners,_prizeIndex,uint64(_round)) (contracts/ThrusterTreasure.sol#170)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+INFO:Detectors:
+Reentrancy in ThrusterTreasure._claimPrize(ThrusterTreasure.Prize,address,uint256) (contracts/ThrusterTreasure.sol#127-133):
+	External calls:
+	- WETH.transfer(_receiver,amountETH) (contracts/ThrusterTreasure.sol#130)
+	- USDB.transfer(_receiver,amountUSDB) (contracts/ThrusterTreasure.sol#131)
+	Event emitted after the call(s):
+	- ClaimedPrize(_receiver,_prize.round,_prize.prizeIndex,amountETH,amountUSDB,_winningTicket) (contracts/ThrusterTreasure.sol#132)
+Reentrancy in ThrusterTreasure.claimGas(address,uint256) (contracts/ThrusterTreasure.sol#321-328):
+	External calls:
+	- amount = BLAST.claimMaxGas(address(this),_recipient) (contracts/ThrusterTreasure.sol#323)
+	- amount = BLAST.claimGasAtMinClaimRate(address(this),_recipient,_minClaimRateBips) (contracts/ThrusterTreasure.sol#325)
+	Event emitted after the call(s):
+	- ClaimGas(_recipient,amount) (contracts/ThrusterTreasure.sol#327)
+Reentrancy in ThrusterTreasure.claimPrizesForRound(uint256) (contracts/ThrusterTreasure.sol#102-120):
+	External calls:
+	- _claimPrize(prize,msg.sender,winningTicket) (contracts/ThrusterTreasure.sol#114)
+		- WETH.transfer(_receiver,amountETH) (contracts/ThrusterTreasure.sol#130)
+		- USDB.transfer(_receiver,amountUSDB) (contracts/ThrusterTreasure.sol#131)
+	Event emitted after the call(s):
+	- CheckedPrizesForRound(msg.sender,roundToClaim) (contracts/ThrusterTreasure.sol#119)
+Reentrancy in ThrusterTreasure.depositPrize(address,uint256,uint256) (contracts/ThrusterTreasure.sol#180-184):
+	External calls:
+	- WETH.transferFrom(_from,address(this),_amountWETH) (contracts/ThrusterTreasure.sol#181)
+	- USDB.transferFrom(_from,address(this),_amountUSDB) (contracts/ThrusterTreasure.sol#182)
+	Event emitted after the call(s):
+	- DepositedPrizes(_amountWETH,_amountUSDB) (contracts/ThrusterTreasure.sol#183)
+Reentrancy in ThrusterTreasure.requestRandomNumber(bytes32) (contracts/ThrusterTreasure.sol#238-247):
+	External calls:
+	- sequenceNumber = entropy.request{value: fee}(entropyProvider,userCommitment,true) (contracts/ThrusterTreasure.sol#242)
+	Event emitted after the call(s):
+	- RandomNumberRequest(sequenceNumber,userCommitment) (contracts/ThrusterTreasure.sol#245)
+Reentrancy in ThrusterTreasure.requestRandomNumberMany(bytes32[]) (contracts/ThrusterTreasure.sol#218-232):
+	External calls:
+	- sequenceNumber = entropy.request{value: fee}(entropyProvider,userCommitments[i],true) (contracts/ThrusterTreasure.sol#227)
+	Event emitted after the call(s):
+	- RandomNumberRequest(sequenceNumber,userCommitments[i]) (contracts/ThrusterTreasure.sol#230)
+Reentrancy in ThrusterTreasure.retrieveTokens(address,address,uint256) (contracts/ThrusterTreasure.sol#192-199):
+	External calls:
+	- token.transfer(_recipient,_amount) (contracts/ThrusterTreasure.sol#197)
+	Event emitted after the call(s):
+	- WithdrawPrizes(_recipient,_token,_amount) (contracts/ThrusterTreasure.sol#198)
+Reentrancy in ThrusterTreasure.revealRandomNumber(uint64,bytes32,bytes32) (contracts/ThrusterTreasure.sol#301-314):
+	External calls:
+	- randomNumber = entropy.reveal(entropyProvider,sequenceNumber,userRandom,providerRandom) (contracts/ThrusterTreasure.sol#309)
+	Event emitted after the call(s):
+	- RandomNumberResult(randomTicket_,sequenceNumber) (contracts/ThrusterTreasure.sol#312)
+Reentrancy in ThrusterTreasure.setWinningTickets(uint256,uint256,uint64[],bytes32[],bytes32[]) (contracts/ThrusterTreasure.sol#269-292):
+	External calls:
+	- _winningTickets[i] = revealRandomNumber(sequenceNumbers[i],userRandoms[i],providerRandoms[i]) (contracts/ThrusterTreasure.sol#287)
+		- randomNumber = entropy.reveal(entropyProvider,sequenceNumber,userRandom,providerRandom) (contracts/ThrusterTreasure.sol#309)
+	Event emitted after the call(s):
+	- SetWinningTicket(_round,_prizeIndex,_winningTickets[i],i) (contracts/ThrusterTreasure.sol#288)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+INFO:Detectors:
+ThrusterTreasure.claimPrizesForRound(uint256) (contracts/ThrusterTreasure.sol#102-120) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(roundStart[roundToClaim] + MAX_ROUND_TIME >= block.timestamp,ICT) (contracts/ThrusterTreasure.sol#103)
+ThrusterTreasure.setWinningTickets(uint256,uint256,uint64[],bytes32[],bytes32[]) (contracts/ThrusterTreasure.sol#269-292) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(roundStart[_round] + MAX_ROUND_TIME >= block.timestamp,ICT) (contracts/ThrusterTreasure.sol#276)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+INFO:Detectors:
+MerkleProof._efficientHash(bytes32,bytes32) (lib/openzeppelin-contracts/contracts/utils/cryptography/MerkleProof.sol#224-231) uses assembly
+	- INLINE ASM (lib/openzeppelin-contracts/contracts/utils/cryptography/MerkleProof.sol#226-230)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+INFO:Detectors:
+Different versions of Solidity are used:
+	- Version used: ['>=0.8.20', '^0.8.0', '^0.8.20', '^0.8.23']
+	- >=0.8.20 (interfaces/IBlast.sol#2)
+	- >=0.8.20 (interfaces/IERC20Rebasing.sol#2)
+	- >=0.8.20 (interfaces/IThrusterTreasure.sol#2)
+	- ^0.8.0 (node_modules/@pythnetwork/entropy-sdk-solidity/EntropyEvents.sol#2)
+	- ^0.8.0 (node_modules/@pythnetwork/entropy-sdk-solidity/EntropyStructs.sol#3)
+	- ^0.8.0 (node_modules/@pythnetwork/entropy-sdk-solidity/IEntropy.sol#2)
+	- ^0.8.20 (lib/openzeppelin-contracts/contracts/access/Ownable.sol#4)
+	- ^0.8.20 (lib/openzeppelin-contracts/contracts/utils/Context.sol#4)
+	- ^0.8.20 (lib/openzeppelin-contracts/contracts/utils/cryptography/MerkleProof.sol#4)
+	- ^0.8.23 (contracts/ThrusterTreasure.sol#2)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#different-pragma-directives-are-used
+INFO:Detectors:
+Pragma version^0.8.23 (contracts/ThrusterTreasure.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version>=0.8.20 (interfaces/IBlast.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version>=0.8.20 (interfaces/IERC20Rebasing.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version>=0.8.20 (interfaces/IThrusterTreasure.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version^0.8.20 (lib/openzeppelin-contracts/contracts/access/Ownable.sol#4) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version^0.8.20 (lib/openzeppelin-contracts/contracts/utils/Context.sol#4) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version^0.8.20 (lib/openzeppelin-contracts/contracts/utils/cryptography/MerkleProof.sol#4) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version^0.8.0 (node_modules/@pythnetwork/entropy-sdk-solidity/EntropyEvents.sol#2) allows old versions
+Pragma version^0.8.0 (node_modules/@pythnetwork/entropy-sdk-solidity/EntropyStructs.sol#3) allows old versions
+Pragma version^0.8.0 (node_modules/@pythnetwork/entropy-sdk-solidity/IEntropy.sol#2) allows old versions
+solc-0.8.23 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+INFO:Detectors:
+Parameter ThrusterTreasure.enterTickets(uint256,bytes32[])._amount (contracts/ThrusterTreasure.sol#83) is not in mixedCase
+Parameter ThrusterTreasure.enterTickets(uint256,bytes32[])._proof (contracts/ThrusterTreasure.sol#83) is not in mixedCase
+Parameter ThrusterTreasure.setMaxPrizeCount(uint256)._maxPrizeCount (contracts/ThrusterTreasure.sol#139) is not in mixedCase
+Parameter ThrusterTreasure.claimYield(address,uint256,uint256)._recipient (contracts/ThrusterTreasure.sol#150) is not in mixedCase
+Parameter ThrusterTreasure.claimYield(address,uint256,uint256)._amountWETH (contracts/ThrusterTreasure.sol#150) is not in mixedCase
+Parameter ThrusterTreasure.claimYield(address,uint256,uint256)._amountUSDB (contracts/ThrusterTreasure.sol#150) is not in mixedCase
+Parameter ThrusterTreasure.setPrize(uint256,uint64,uint256,uint256,uint64)._round (contracts/ThrusterTreasure.sol#163) is not in mixedCase
+Parameter ThrusterTreasure.setPrize(uint256,uint64,uint256,uint256,uint64)._prizeIndex (contracts/ThrusterTreasure.sol#163) is not in mixedCase
+Parameter ThrusterTreasure.setPrize(uint256,uint64,uint256,uint256,uint64)._amountWETH (contracts/ThrusterTreasure.sol#163) is not in mixedCase
+Parameter ThrusterTreasure.setPrize(uint256,uint64,uint256,uint256,uint64)._amountUSDB (contracts/ThrusterTreasure.sol#163) is not in mixedCase
+Parameter ThrusterTreasure.setPrize(uint256,uint64,uint256,uint256,uint64)._numWinners (contracts/ThrusterTreasure.sol#163) is not in mixedCase
+Parameter ThrusterTreasure.depositPrize(address,uint256,uint256)._from (contracts/ThrusterTreasure.sol#180) is not in mixedCase
+Parameter ThrusterTreasure.depositPrize(address,uint256,uint256)._amountWETH (contracts/ThrusterTreasure.sol#180) is not in mixedCase
+Parameter ThrusterTreasure.depositPrize(address,uint256,uint256)._amountUSDB (contracts/ThrusterTreasure.sol#180) is not in mixedCase
+Parameter ThrusterTreasure.retrieveTokens(address,address,uint256)._recipient (contracts/ThrusterTreasure.sol#192) is not in mixedCase
+Parameter ThrusterTreasure.retrieveTokens(address,address,uint256)._token (contracts/ThrusterTreasure.sol#192) is not in mixedCase
+Parameter ThrusterTreasure.retrieveTokens(address,address,uint256)._amount (contracts/ThrusterTreasure.sol#192) is not in mixedCase
+Parameter ThrusterTreasure.retrieveETH(address,uint256)._recipient (contracts/ThrusterTreasure.sol#206) is not in mixedCase
+Parameter ThrusterTreasure.retrieveETH(address,uint256)._amount (contracts/ThrusterTreasure.sol#206) is not in mixedCase
+Parameter ThrusterTreasure.setRoot(bytes32)._root (contracts/ThrusterTreasure.sol#253) is not in mixedCase
+Parameter ThrusterTreasure.setWinningTickets(uint256,uint256,uint64[],bytes32[],bytes32[])._round (contracts/ThrusterTreasure.sol#270) is not in mixedCase
+Parameter ThrusterTreasure.setWinningTickets(uint256,uint256,uint64[],bytes32[],bytes32[])._prizeIndex (contracts/ThrusterTreasure.sol#271) is not in mixedCase
+Parameter ThrusterTreasure.claimGas(address,uint256)._recipient (contracts/ThrusterTreasure.sol#321) is not in mixedCase
+Parameter ThrusterTreasure.claimGas(address,uint256)._minClaimRateBips (contracts/ThrusterTreasure.sol#321) is not in mixedCase
+Variable ThrusterTreasure.BLAST (contracts/ThrusterTreasure.sol#33) is not in mixedCase
+Variable ThrusterTreasure.WETH (contracts/ThrusterTreasure.sol#34) is not in mixedCase
+Variable ThrusterTreasure.USDB (contracts/ThrusterTreasure.sol#35) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+INFO:Detectors:
+Reentrancy in ThrusterTreasure.retrieveETH(address,uint256) (contracts/ThrusterTreasure.sol#206-212):
+	External calls:
+	- _recipient.transfer(_amount) (contracts/ThrusterTreasure.sol#210)
+	Event emitted after the call(s):
+	- WithdrawPrizes(_recipient,address(0),_amount) (contracts/ThrusterTreasure.sol#211)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+INFO:Detectors:
+Variable ThrusterTreasure.setMaxPrizeCount(uint256)._maxPrizeCount (contracts/ThrusterTreasure.sol#139) is too similar to ThrusterTreasure.claimPrizesForRound(uint256).maxPrizeCount_ (contracts/ThrusterTreasure.sol#107)
+Variable ThrusterTreasure._claimPrize(ThrusterTreasure.Prize,address,uint256)._winningTicket (contracts/ThrusterTreasure.sol#127) is too similar to ThrusterTreasure.winningTickets (contracts/ThrusterTreasure.sol#48)
+Variable ThrusterTreasure.constructor(address,address,address,address,address,uint256)._maxPrizeCount (contracts/ThrusterTreasure.sol#64) is too similar to ThrusterTreasure.claimPrizesForRound(uint256).maxPrizeCount_ (contracts/ThrusterTreasure.sol#107)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+INFO:Detectors:
+ThrusterTreasure.entropy (contracts/ThrusterTreasure.sol#37) should be immutable 
+ThrusterTreasure.entropyProvider (contracts/ThrusterTreasure.sol#38) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:. analyzed (10 contracts with 93 detectors), 77 result(s) found

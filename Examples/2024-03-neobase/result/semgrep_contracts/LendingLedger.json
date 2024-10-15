@@ -1,0 +1,174 @@
+{
+    "success": true,
+    "finding_length": 24,
+    "findings": [
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 51
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 52
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 53
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 54
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 55
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 56
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 77
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 78
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 78
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 82
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 83
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 147
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 65
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 115
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 132
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 145
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 159
+        },
+        {
+            "classification": [],
+            "name": "use-multiple-require",
+            "category": "performance",
+            "message": "Using multiple require statements is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/vGA0",
+            "line": 145
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 160
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 161
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 162
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 163
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 164
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 165
+        }
+    ]
+}

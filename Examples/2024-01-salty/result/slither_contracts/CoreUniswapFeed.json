@@ -1,0 +1,340 @@
+{
+    "success": true,
+    "finding_length": 30,
+    "findings": [
+        {
+            "name": "incorrect-exp",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "FullMath.mulDiv(uint256,uint256,uint256) (lib/v3-core/contracts/libraries/FullMath.sol#14-108) has bitwise-xor operator ^ instead of the exponentiation operator **: \n\t - inv = (3 * denominator) ^ 2 (lib/v3-core/contracts/libraries/FullMath.sol#88)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "FullMath",
+            "line": 88
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0x48a170391f7dc42444e8fa2) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#52)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FullMath.mulDiv(uint256,uint256,uint256) (lib/v3-core/contracts/libraries/FullMath.sol#14-108) performs a multiplication on the result of a division:\n\t- prod0 = prod0 / twos (lib/v3-core/contracts/libraries/FullMath.sol#73)\n\t- result = prod0 * inv (lib/v3-core/contracts/libraries/FullMath.sol#105)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "FullMath",
+            "line": 105
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xa9f746462d870fdf8a65dc1f90e061e5) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#46)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FullMath.mulDiv(uint256,uint256,uint256) (lib/v3-core/contracts/libraries/FullMath.sol#14-108) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/v3-core/contracts/libraries/FullMath.sol#68)\n\t- inv *= 2 - denominator * inv (lib/v3-core/contracts/libraries/FullMath.sol#97)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "FullMath",
+            "line": 97
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xff2ea16466c96a3843ec78b326b52861) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#39)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xf987a7253ac413176f2b074cf7815e54) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#42)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xfe5dee046a99a2a811c461f1969c3053) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#40)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xfff2e50f5f656932ef12357cf3c7fdcc) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#35)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xfff97272373d413259a46990580e213a) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#34)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0x31be135f97d08fd981231505542fcfa6) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#48)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0x5d6af8dedb81196699c329225ee604) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#50)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FullMath.mulDiv(uint256,uint256,uint256) (lib/v3-core/contracts/libraries/FullMath.sol#14-108) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/v3-core/contracts/libraries/FullMath.sol#68)\n\t- inv *= 2 - denominator * inv (lib/v3-core/contracts/libraries/FullMath.sol#95)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "FullMath",
+            "line": 95
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xffe5caca7e10e4e61c3624eaa0941cd0) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#36)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xffcb9843d60f6159c9db58835c926644) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#37)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FullMath.mulDiv(uint256,uint256,uint256) (lib/v3-core/contracts/libraries/FullMath.sol#14-108) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/v3-core/contracts/libraries/FullMath.sol#68)\n\t- inv *= 2 - denominator * inv (lib/v3-core/contracts/libraries/FullMath.sol#94)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "FullMath",
+            "line": 94
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FullMath.mulDiv(uint256,uint256,uint256) (lib/v3-core/contracts/libraries/FullMath.sol#14-108) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/v3-core/contracts/libraries/FullMath.sol#68)\n\t- inv = (3 * denominator) ^ 2 (lib/v3-core/contracts/libraries/FullMath.sol#88)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "FullMath",
+            "line": 88
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FullMath.mulDiv(uint256,uint256,uint256) (lib/v3-core/contracts/libraries/FullMath.sol#14-108) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/v3-core/contracts/libraries/FullMath.sol#68)\n\t- inv *= 2 - denominator * inv (lib/v3-core/contracts/libraries/FullMath.sol#92)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "FullMath",
+            "line": 92
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xe7159475a2c29b7443b29c7fa6e889d9) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#44)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xf3392b0822b70005940c7a398e4b70f3) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#43)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FullMath.mulDiv(uint256,uint256,uint256) (lib/v3-core/contracts/libraries/FullMath.sol#14-108) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/v3-core/contracts/libraries/FullMath.sol#68)\n\t- inv *= 2 - denominator * inv (lib/v3-core/contracts/libraries/FullMath.sol#96)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "FullMath",
+            "line": 96
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0x2216e584f5fa1ea926041bedfe98) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#51)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0x70d869a156d2a1b890bb3df62baf32f7) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#47)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xd097f3bdfd2022b8845ad8f792aa5825) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#45)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xfcbe86c7900a88aedcffc83b479aa3a4) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#41)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0x9aa508b5b7a84e1c677de54f3e99bc9) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#49)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xff973b41fa98c081472e6896dfb254c0) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#38)\n\t- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FullMath.mulDiv(uint256,uint256,uint256) (lib/v3-core/contracts/libraries/FullMath.sol#14-108) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/v3-core/contracts/libraries/FullMath.sol#68)\n\t- inv *= 2 - denominator * inv (lib/v3-core/contracts/libraries/FullMath.sol#93)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "FullMath",
+            "line": 93
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "CoreUniswapFeed._getUniswapTwapWei(IUniswapV3Pool,uint256) (src/price_feed/CoreUniswapFeed.sol#50-73) ignores return value by (tickCumulatives,None) = pool.observe(secondsAgo) (src/price_feed/CoreUniswapFeed.sol#57)\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_getUniswapTwapWei",
+            "contract": "CoreUniswapFeed",
+            "line": 57
+        },
+        {
+            "name": "var-read-using-this",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "The function CoreUniswapFeed.getUniswapTwapWei(IUniswapV3Pool,uint256) (src/price_feed/CoreUniswapFeed.sol#79-93) reads result = this._getUniswapTwapWei(pool,twapInterval) (src/price_feed/CoreUniswapFeed.sol#83-90) with `this` which adds an extra STATICCALL.\n",
+            "filename": "CoreUniswapFeed.sol",
+            "classification": [],
+            "function": "getUniswapTwapWei",
+            "contract": "CoreUniswapFeed",
+            "line": 83,
+            "line_end": 90
+        }
+    ]
+}

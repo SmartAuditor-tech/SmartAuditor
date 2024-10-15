@@ -1,0 +1,293 @@
+{
+    "success": true,
+    "finding_length": 22,
+    "findings": [
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "BaseConnector._updateTokenInRegistry(address) (contracts/helpers/BaseConnector.sol#158-160) uses a dangerous strict equality:\n\t- _updateTokenInRegistry(token,IERC20(token).balanceOf(address(this)) == 0) (contracts/helpers/BaseConnector.sol#159)\n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [],
+            "function": "_updateTokenInRegistry",
+            "contract": "BaseConnector",
+            "line": 159
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyGovernance() (contracts/governance/NoyaGovernanceBase.sol#85-89) ignores return value by (governer,None,None,None,None,None) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#86)\n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyGovernance",
+            "contract": "NoyaGovernanceBase",
+            "line": 86
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector.sendTokensToTrustedAddress(address,uint256,address,bytes) (contracts/helpers/BaseConnector.sol#84-108) ignores return value by (None,None,None,None,watcherContract,None) = registry.getGovernanceAddresses(vaultId) (contracts/helpers/BaseConnector.sol#91)\n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "sendTokensToTrustedAddress",
+            "contract": "BaseConnector",
+            "line": 91
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyMaintainer() (contracts/governance/NoyaGovernanceBase.sol#75-79) ignores return value by (None,maintainer,None,None,None,None) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#76)\n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyMaintainer",
+            "contract": "NoyaGovernanceBase",
+            "line": 76
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyEmergency() (contracts/governance/NoyaGovernanceBase.sol#43-47) ignores return value by (None,None,None,None,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#44)\n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyEmergency",
+            "contract": "NoyaGovernanceBase",
+            "line": 44
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyMaintainerOrEmergency() (contracts/governance/NoyaGovernanceBase.sol#65-69) ignores return value by (None,maintainer,None,None,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#66)\n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyMaintainerOrEmergency",
+            "contract": "NoyaGovernanceBase",
+            "line": 66
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MorphoBlueConnector.withdraw(uint256,Id,bool) (contracts/connectors/MorphoBlueConnector.sol#58-73) ignores return value by registry.updateHoldingPosition(vaultId,registry.calculatePositionId(address(this),MORPHO_POSITION_ID,abi.encode(id)),,,true) (contracts/connectors/MorphoBlueConnector.sol#67-69)\n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "withdraw",
+            "contract": "MorphoBlueConnector",
+            "line": 67,
+            "line_end": 69
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector.addLiquidity(address[],uint256[],bytes) (contracts/helpers/BaseConnector.sol#169-193) ignores return value by ITokenTransferCallBack(msg.sender).sendTokensToTrustedAddress(tokens[i],amounts[i],msg.sender,) (contracts/helpers/BaseConnector.sol#181)\n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "addLiquidity",
+            "contract": "BaseConnector",
+            "line": 181
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector._updateTokenInRegistry(address,bool) (contracts/helpers/BaseConnector.sol#135-146) ignores return value by registry.updateHoldingPosition(vaultId,positionId,abi.encode(address(this)),,remove) (contracts/helpers/BaseConnector.sol#144)\n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_updateTokenInRegistry",
+            "contract": "BaseConnector",
+            "line": 144
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector.sendTokensToTrustedAddress(address,uint256,address,bytes) (contracts/helpers/BaseConnector.sol#84-108) ignores return value by (accountingManager,None) = registry.getVaultAddresses(vaultId) (contracts/helpers/BaseConnector.sol#89)\n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "sendTokensToTrustedAddress",
+            "contract": "BaseConnector",
+            "line": 89
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MorphoBlueConnector.withdraw(uint256,Id,bool) (contracts/connectors/MorphoBlueConnector.sol#58-73) ignores return value by morphoBlue.withdraw(params,amount,0,address(this),address(this)) (contracts/connectors/MorphoBlueConnector.sol#61)\n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "withdraw",
+            "contract": "MorphoBlueConnector",
+            "line": 61
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector._updateTokenInRegistry(address,bool) (contracts/helpers/BaseConnector.sol#135-146) ignores return value by (accountingManager,None) = registry.getVaultAddresses(vaultId) (contracts/helpers/BaseConnector.sol#136)\n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_updateTokenInRegistry",
+            "contract": "BaseConnector",
+            "line": 136
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MorphoBlueConnector.supply(uint256,Id,bool) (contracts/connectors/MorphoBlueConnector.sol#35-50) ignores return value by registry.updateHoldingPosition(vaultId,registry.calculatePositionId(address(this),MORPHO_POSITION_ID,abi.encode(id)),,,false) (contracts/connectors/MorphoBlueConnector.sol#46-48)\n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "supply",
+            "contract": "MorphoBlueConnector",
+            "line": 46,
+            "line_end": 48
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MorphoBlueConnector.repay(uint256,Id) (contracts/connectors/MorphoBlueConnector.sol#95-101) ignores return value by morphoBlue.repay(params,amount,0,address(this),) (contracts/connectors/MorphoBlueConnector.sol#98)\n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "repay",
+            "contract": "MorphoBlueConnector",
+            "line": 98
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyManager() (contracts/governance/NoyaGovernanceBase.sol#31-37) ignores return value by (None,None,None,keeperContract,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#32)\n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyManager",
+            "contract": "NoyaGovernanceBase",
+            "line": 32
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MorphoBlueConnector.supply(uint256,Id,bool) (contracts/connectors/MorphoBlueConnector.sol#35-50) ignores return value by morphoBlue.supply(params,amount,0,address(this),) (contracts/connectors/MorphoBlueConnector.sol#39)\n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "supply",
+            "contract": "MorphoBlueConnector",
+            "line": 39
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyEmergencyOrWatcher() (contracts/governance/NoyaGovernanceBase.sol#53-59) ignores return value by (None,None,None,None,watcherContract,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#54)\n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyEmergencyOrWatcher",
+            "contract": "NoyaGovernanceBase",
+            "line": 54
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MorphoBlueConnector.borrow(uint256,Id) (contracts/connectors/MorphoBlueConnector.sol#80-88) ignores return value by morphoBlue.borrow(market,amount,0,address(this),address(this)) (contracts/connectors/MorphoBlueConnector.sol#82)\n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "borrow",
+            "contract": "MorphoBlueConnector",
+            "line": 82
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "BaseConnector.DUST_LEVEL (contracts/helpers/BaseConnector.sol#31) should be constant \n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [],
+            "line": 31
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "BaseConnector.MINIMUM_HEALTH_FACTOR (contracts/helpers/BaseConnector.sol#28) should be constant \n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [],
+            "line": 28
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "NoyaGovernanceBase.vaultId (contracts/governance/NoyaGovernanceBase.sol#8) should be immutable \n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [],
+            "line": 8
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "NoyaGovernanceBase.registry (contracts/governance/NoyaGovernanceBase.sol#7) should be immutable \n",
+            "filename": "MorphoBlueConnector.sol",
+            "classification": [],
+            "line": 7
+        }
+    ]
+}

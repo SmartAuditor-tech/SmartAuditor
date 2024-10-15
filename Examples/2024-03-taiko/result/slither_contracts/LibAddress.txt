@@ -1,0 +1,36 @@
+'solc --version' running
+'solc /Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-taiko/packages/protocol/contracts/libs/LibAddress.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-taiko/packages/protocol/contracts/libs' running
+INFO:Detectors:
+Math.mulDiv(uint256,uint256,uint256) (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#55-135) has bitwise-xor operator ^ instead of the exponentiation operator **: 
+	 - inverse = (3 * denominator) ^ 2 (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#117)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-exponentiation
+INFO:Detectors:
+Math.mulDiv(uint256,uint256,uint256) (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#55-135) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#102)
+	- inverse = (3 * denominator) ^ 2 (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#117)
+Math.mulDiv(uint256,uint256,uint256) (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#55-135) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#102)
+	- inverse *= 2 - denominator * inverse (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#121)
+Math.mulDiv(uint256,uint256,uint256) (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#55-135) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#102)
+	- inverse *= 2 - denominator * inverse (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#122)
+Math.mulDiv(uint256,uint256,uint256) (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#55-135) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#102)
+	- inverse *= 2 - denominator * inverse (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#123)
+Math.mulDiv(uint256,uint256,uint256) (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#55-135) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#102)
+	- inverse *= 2 - denominator * inverse (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#124)
+Math.mulDiv(uint256,uint256,uint256) (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#55-135) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#102)
+	- inverse *= 2 - denominator * inverse (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#125)
+Math.mulDiv(uint256,uint256,uint256) (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#55-135) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#102)
+	- inverse *= 2 - denominator * inverse (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#126)
+Math.mulDiv(uint256,uint256,uint256) (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#55-135) performs a multiplication on the result of a division:
+	- prod0 = prod0 / twos (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#105)
+	- result = prod0 * inverse (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#132)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+LibAddress.sendEther(address,uint256,uint256) (packages/protocol/contracts/libs/LibAddress.sol#22-37) ignores return value by (success,None) = ExcessivelySafeCall.excessivelySafeCall(_to,_gasLimit,_amount,64,) (packages/protocol/contracts/libs/LibAddress.sol#27-33)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-taiko/packages/protocol/contracts/libs/LibAddress.sol analyzed (8 contracts with 58 detectors), 10 result(s) found

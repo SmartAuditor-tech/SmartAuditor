@@ -1,0 +1,307 @@
+{
+    "success": true,
+    "finding_length": 43,
+    "findings": [
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 341
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 342
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 343
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 372
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 576
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 632
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 633
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 637
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 641
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 644
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 645
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 647
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 648
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 787
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 788
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 789
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 790
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 791
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 792
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 793
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 794
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 795
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 796
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 402
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 403
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 404
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 405
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 406
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 407
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 408
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 409
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 410
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 411
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 435
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 436
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 437
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 438
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 439
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 440
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 441
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 442
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 443
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 444
+        }
+    ]
+}

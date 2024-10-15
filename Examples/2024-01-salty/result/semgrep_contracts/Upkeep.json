@@ -1,0 +1,90 @@
+{
+    "success": true,
+    "finding_length": 12,
+    "findings": [
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 67
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 68
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 69
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 70
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 71
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 72
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 73
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 74
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 75
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 76
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 97
+        },
+        {
+            "classification": [],
+            "name": "use-short-revert-string",
+            "category": "performance",
+            "message": "Shortening revert strings to fit in 32 bytes will decrease gas costs for deployment and  gas costs when the revert condition has been met. Details: https://sg.run/E9LB",
+            "line": 97
+        }
+    ]
+}

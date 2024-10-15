@@ -1,0 +1,66 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 @forge-std/=lib/forge-std/src/ @openzeppelin-contracts/=contracts/.cache/OpenZeppelin/v4.9.3/ @openzeppelin-contracts-upgradeable/=contracts/.cache/OpenZeppelin-Upgradeable/v4.9.3/ ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-init-capital-invitational/contracts/wrapper/WLpMoeMasterChef.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 200 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-init-capital-invitational/contracts/wrapper' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-init-capital-invitational/contracts/wrapper/WLpMoeMasterChef.sol:
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/token/ERC721/ERC721.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/wrapper/WLpMoeMasterChef.sol:14:1:
+   |
+14 | import  {ERC721} from "../.cache/OpenZeppelin/v4.9.3/token/ERC721/ERC721.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/token/ERC20/IERC20.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/wrapper/WLpMoeMasterChef.sol:15:1:
+   |
+15 | import  {IERC20} from "../.cache/OpenZeppelin/v4.9.3/token/ERC20/IERC20.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/token/ERC20/utils/SafeERC20.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/wrapper/WLpMoeMasterChef.sol:16:1:
+   |
+16 | import  {SafeERC20} from "../.cache/OpenZeppelin/v4.9.3/token/ERC20/utils/SafeERC20.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/utils/math/Math.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/wrapper/WLpMoeMasterChef.sol:17:1:
+   |
+17 | import  {Math} from "../.cache/OpenZeppelin/v4.9.3/utils/math/Math.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/utils/structs/EnumerableSet.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/wrapper/WLpMoeMasterChef.sol:18:1:
+   |
+18 | import  {EnumerableSet} from "../.cache/OpenZeppelin/v4.9.3/utils/structs/EnumerableSet.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin-Upgradeable/v4.9.3/token/ERC721/ERC721Upgradeable.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/wrapper/WLpMoeMasterChef.sol:19:1:
+   |
+19 | import  {ERC721Upgradeable} from "../.cache/OpenZeppelin-Upgradeable/v4.9.3/token/ERC721/ERC721Upgradeable.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/token/ERC20/IERC20.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/interfaces/common/IWNative.sol:4:1:
+  |
+4 | import  {IERC20} from "../../.cache/OpenZeppelin/v4.9.3/token/ERC20/IERC20.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin-Upgradeable/v4.9.3/token/ERC721/IERC721Upgradeable.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/interfaces/wrapper/IBaseWrapLpUpgradeable.sol:4:1:
+  |
+4 | import  {IERC721Upgradeable} from "../../.cache/OpenZeppelin-Upgradeable/v4.9.3/token/ERC721/IERC721Upgradeable.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/token/ERC20/IERC20.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/interfaces/wrapper/moe/IMoe.sol:4:1:
+  |
+4 | import  {IERC20} from "../../../.cache/OpenZeppelin/v4.9.3/token/ERC20/IERC20.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/token/ERC20/IERC20.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/interfaces/wrapper/moe/IBaseRewarder.sol:4:1:
+  |
+4 | import  {IERC20} from "../../../.cache/OpenZeppelin/v4.9.3/token/ERC20/IERC20.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+ERROR:Slither:Unable to compile all targets.

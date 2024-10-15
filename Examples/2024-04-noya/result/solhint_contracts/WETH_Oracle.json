@@ -1,0 +1,30 @@
+{
+    "success": true,
+    "finding_length": 3,
+    "findings": [
+        {
+            "filename": "WETH_Oracle.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version 0.8.20 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "WETH_Oracle.sol",
+            "line": 4,
+            "column": 1,
+            "message": "Contract name must be in CamelCase",
+            "level": "warning",
+            "name": "contract-name-camelcase"
+        },
+        {
+            "filename": "WETH_Oracle.sol",
+            "line": 10,
+            "column": 29,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        }
+    ]
+}

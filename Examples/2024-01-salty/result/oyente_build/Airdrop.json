@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "Airdrop.sol",
+        "incomplete instruction": "5247",
+        "coverage": "0.7%",
+        "warnings": []
+    }
+}

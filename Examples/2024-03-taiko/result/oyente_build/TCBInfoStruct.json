@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "TCBInfoStruct.sol",
+        "incomplete instruction": "140",
+        "coverage": "23.9%",
+        "warnings": []
+    }
+}

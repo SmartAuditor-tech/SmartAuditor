@@ -1,0 +1,136 @@
+{
+    "success": true,
+    "finding_length": 12,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "WrapperHelper._wrapETH(uint256) (contracts/TransferHub/WrapperHelper.sol#24-32) sends eth to arbitrary user\n\tDangerous calls:\n\t- WETH.deposit{value: _value}() (contracts/TransferHub/WrapperHelper.sol#29-31)\n",
+            "filename": "MainHelper.sol",
+            "classification": [],
+            "function": "_wrapETH",
+            "contract": "WrapperHelper",
+            "line": 29,
+            "line_end": 31
+        },
+        {
+            "name": "uninitialized-state",
+            "impact": "High",
+            "confidence": "High",
+            "message": "WiseLendingDeclaration.verifiedIsolationPool (contracts/WiseLendingDeclaration.sol#288) is never initialized. It is used in:\n\t- WiseLowLevelHelper._byPassCase(address) (contracts/WiseLowLevelHelper.sol#393-405)\n\t- MainHelper._onlyIsolationPool(address) (contracts/MainHelper.sol#217-226)\n",
+            "filename": "MainHelper.sol",
+            "classification": [
+                "SWC-109"
+            ],
+            "line": 217,
+            "line_end": 226
+        },
+        {
+            "name": "uninitialized-state",
+            "impact": "High",
+            "confidence": "High",
+            "message": "WiseLendingDeclaration.pureCollateralAmount (contracts/WiseLendingDeclaration.sol#274) is never initialized. It is used in:\n\t- WiseLowLevelHelper.getPureCollateralAmount(uint256,address) (contracts/WiseLowLevelHelper.sol#121-130)\n\t- MainHelper._checkLendingDataEmpty(uint256,address) (contracts/MainHelper.sol#830-840)\n",
+            "filename": "MainHelper.sol",
+            "classification": [
+                "SWC-109"
+            ],
+            "line": 830,
+            "line_end": 840
+        },
+        {
+            "name": "uninitialized-state",
+            "impact": "High",
+            "confidence": "High",
+            "message": "WiseLendingDeclaration.positionLocked (contracts/WiseLendingDeclaration.sol#286) is never initialized. It is used in:\n\t- MainHelper._validateIsolationPoolLiquidation(address,uint256,uint256) (contracts/MainHelper.sol#232-256)\n\t- MainHelper._checkLiquidatorNft(uint256,uint256) (contracts/MainHelper.sol#258-276)\n",
+            "filename": "MainHelper.sol",
+            "classification": [
+                "SWC-109"
+            ],
+            "line": 258,
+            "line_end": 276
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MainHelper._updatePseudoTotalAmounts(address) (contracts/MainHelper.sol#500-577) performs a multiplication on the result of a division:\n\t- amountInterest = bareIncrease / PRECISION_FACTOR_YEAR (contracts/MainHelper.sol#525-526)\n\t- feeAmount = amountInterest * globalPoolData[_poolToken].poolFee / PRECISION_FACTOR_E18 (contracts/MainHelper.sol#528-530)\n",
+            "filename": "MainHelper.sol",
+            "classification": [],
+            "function": "_updatePseudoTotalAmounts",
+            "contract": "MainHelper",
+            "line": 528,
+            "line_end": 530
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MainHelper._updatePseudoTotalAmounts(address) (contracts/MainHelper.sol#500-577) performs a multiplication on the result of a division:\n\t- feeAmount = amountInterest * globalPoolData[_poolToken].poolFee / PRECISION_FACTOR_E18 (contracts/MainHelper.sol#528-530)\n\t- feeShares = feeAmount * lendingPoolData[_poolToken].totalDepositShares / (lendingPoolData[_poolToken].pseudoTotalPool - feeAmount) (contracts/MainHelper.sol#550-552)\n",
+            "filename": "MainHelper.sol",
+            "classification": [],
+            "function": "_updatePseudoTotalAmounts",
+            "contract": "MainHelper",
+            "line": 550,
+            "line_end": 552
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "MainHelper._updatePseudoTotalAmounts(address) (contracts/MainHelper.sol#500-577) uses a dangerous strict equality:\n\t- feeShares == 0 (contracts/MainHelper.sol#554)\n",
+            "filename": "MainHelper.sol",
+            "classification": [],
+            "function": "_updatePseudoTotalAmounts",
+            "contract": "MainHelper",
+            "line": 554
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "MainHelper._updatePseudoTotalAmounts(address) (contracts/MainHelper.sol#500-577) uses a dangerous strict equality:\n\t- feeAmount == 0 (contracts/MainHelper.sol#542)\n",
+            "filename": "MainHelper.sol",
+            "classification": [],
+            "function": "_updatePseudoTotalAmounts",
+            "contract": "MainHelper",
+            "line": 542
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MainHelper._removePositionData(uint256,address,function(uint256) returns(uint256),function(uint256,uint256) returns(address),function(uint256,address),bool).i (contracts/MainHelper.sol#690) is a local variable never initialized\n",
+            "filename": "MainHelper.sol",
+            "classification": [],
+            "line": 690
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MainHelper._whileLoopCurveSecurity(address[]).i (contracts/MainHelper.sol#478) is a local variable never initialized\n",
+            "filename": "MainHelper.sol",
+            "classification": [],
+            "line": 478
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MainHelper._prepareTokens(address,address[]).i (contracts/MainHelper.sol#425) is a local variable never initialized\n",
+            "filename": "MainHelper.sol",
+            "classification": [],
+            "line": 425
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "WiseLendingDeclaration.powerFarmCheck (contracts/WiseLendingDeclaration.sol#186) should be constant \n",
+            "filename": "MainHelper.sol",
+            "classification": [],
+            "line": 186
+        }
+    ]
+}

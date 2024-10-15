@@ -1,0 +1,62 @@
+{
+    "success": true,
+    "finding_length": 7,
+    "findings": [
+        {
+            "filename": "PtOraclePure.sol",
+            "line": 3,
+            "column": 1,
+            "message": "Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "PtOraclePure.sol",
+            "line": 24,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "PtOraclePure.sol",
+            "line": 44,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "PtOraclePure.sol",
+            "line": 47,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "PtOraclePure.sol",
+            "line": 48,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "PtOraclePure.sol",
+            "line": 50,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "PtOraclePure.sol",
+            "line": 57,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        }
+    ]
+}

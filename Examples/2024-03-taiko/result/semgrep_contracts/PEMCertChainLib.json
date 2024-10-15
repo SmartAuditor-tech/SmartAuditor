@@ -1,0 +1,83 @@
+{
+    "success": true,
+    "finding_length": 11,
+    "findings": [
+        {
+            "classification": [],
+            "name": "array-length-outside-loop",
+            "category": "performance",
+            "message": "Caching the array length outside a loop saves reading it on each iteration, as long as the array's length is not changed during the loop. Details: https://sg.run/r4LJ",
+            "line": 244
+        },
+        {
+            "classification": [],
+            "name": "array-length-outside-loop",
+            "category": "performance",
+            "message": "Caching the array length outside a loop saves reading it on each iteration, as long as the array's length is not changed during the loop. Details: https://sg.run/r4LJ",
+            "line": 358
+        },
+        {
+            "classification": [],
+            "name": "unnecessary-checked-arithmetic-in-loop",
+            "category": "performance",
+            "message": "hecked-arithmetic-in-loop A lot of times there is no risk that the loop counter can overflow. Using Solidity's unchecked block saves the overflow checks. Details: https://sg.run/OvDk",
+            "line": 54
+        },
+        {
+            "classification": [],
+            "name": "unnecessary-checked-arithmetic-in-loop",
+            "category": "performance",
+            "message": "hecked-arithmetic-in-loop A lot of times there is no risk that the loop counter can overflow. Using Solidity's unchecked block saves the overflow checks. Details: https://sg.run/OvDk",
+            "line": 244
+        },
+        {
+            "classification": [],
+            "name": "unnecessary-checked-arithmetic-in-loop",
+            "category": "performance",
+            "message": "hecked-arithmetic-in-loop A lot of times there is no risk that the loop counter can overflow. Using Solidity's unchecked block saves the overflow checks. Details: https://sg.run/OvDk",
+            "line": 354
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 134
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 135
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 136
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 137
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 138
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 139
+        }
+    ]
+}

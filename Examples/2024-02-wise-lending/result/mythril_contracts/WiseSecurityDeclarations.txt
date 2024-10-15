@@ -1,0 +1,89 @@
+==== Exception State ====
+SWC ID: 110
+Severity: Medium
+Contract: WiseSecurityDeclarations
+Function name: constructor
+PC address: 19
+Estimated Gas Usage: 5045 - 25140
+An assertion violation was triggered.
+It is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).
+--------------------
+In file: /g4b/contracts/WiseSecurity/WiseSecurityDeclarations.sol:52
+
+constructor(
+        address _master,
+        address _wiseLendingAddress,
+        address _aaveHubAddress
+    )
+        OwnableMaster(
+            _master
+        )
+    {
+        if (_wiseLendingAddress == ZERO_ADDRESS) {
+            revert NoValue();
+        }
+
+        if (_aaveHubAddress == ZERO_ADDRESS) {
+            revert NoValue();
+        }
+
+        securityWorker[_master] = true;
+
+        WISE_LENDING = IWiseLending(
+            _wiseLendingAddress
+        );
+
+        AAVE_HUB = _aaveHubAddress;
+
+        address lendingMaster = WISE_LENDING.master();
+        address oracleHubAddress = WISE_LENDING.WISE_ORACLE();
+        address positionNFTAddress = WISE_LENDING.POSITION_NFT();
+
+        FeeManager feeManagerContract = new FeeManager(
+            lendingMaster,
+            IAaveHubWiseSecurity(AAVE_HUB).AAVE_ADDRESS(),
+            _wiseLendingAddress,
+            oracleHubAddress,
+            address(this),
+            positionNFTAddress
+        );
+
+        WISE_ORACLE = IWiseOracleHub(
+            oracleHubAddress
+        );
+
+        FEE_MANAGER = IFeeManager(
+            address(feeManagerContract)
+        );
+
+        WISE_LIQUIDATION = IWiseLiquidation(
+            _wiseLendingAddress
+        );
+
+        POSITION_NFTS = IPositionNFTs(
+            positionNFTAddress
+        );
+
+        IS_ETH_MAINNET = block.chainid == 1;
+
+        _setLiquidationSettings(
+            {
+                _baseReward: 10 * PRECISION_FACTOR_E16,
+                _baseRewardFarm: 3 * PRECISION_FACTOR_E16,
+                _newMaxFeeETH: 3 * PRECISION_FACTOR_E18,
+                _newMaxFeeFarmETH: 3 * PRECISION_FACTOR_E18
+            }
+        );
+    }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x1
+
+

@@ -1,0 +1,20 @@
+{
+    "success": true,
+    "finding_length": 2,
+    "findings": [
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 16
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 75
+        }
+    ]
+}

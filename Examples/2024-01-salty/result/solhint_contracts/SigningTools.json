@@ -1,0 +1,22 @@
+{
+    "success": true,
+    "finding_length": 2,
+    "findings": [
+        {
+            "filename": "SigningTools.sol",
+            "line": 1,
+            "column": 1,
+            "message": "Compiler version =0.8.22 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "SigningTools.sol",
+            "line": 19,
+            "column": 3,
+            "message": "Avoid to use inline assembly. It is acceptable only in rare cases",
+            "level": "warning",
+            "name": "no-inline-assembly"
+        }
+    ]
+}

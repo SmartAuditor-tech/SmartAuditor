@@ -1,0 +1,8 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.20/solc-0.8.20 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.20/solc-0.8.20 /=src/ openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/ BoringSolidity/=lib/BoringSolidity/contracts/ ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ solmate/=lib/solmate/src/ utils/=utils/ libraries/=src/libraries/ interfaces/=src/interfaces/ cauldrons/=src/cauldrons/ staking/=src/staking/ oracles/=src/oracles/ tokens/=src/tokens/ mixins/=src/mixins/ solady/=lib/solady/src/ forge-deploy/=lib/forge-deploy/contracts/ /Users/tanzezhong/Desktop/tzz/Research/GPT4Bugs-main/Examples/2024-03-abracadabra-money/src/blast/libraries/BlastYields.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 400 --evm-version paris --allow-paths .,/Users/tanzezhong/Desktop/tzz/Research/GPT4Bugs-main/Examples/2024-03-abracadabra-money/src/blast/libraries' running
+INFO:Detectors:
+BlastYields.enableTokenClaimable(address) (src/blast/libraries/BlastYields.sol#20-27) ignores return value by IERC20Rebasing(token).configure(YieldMode.CLAIMABLE) (src/blast/libraries/BlastYields.sol#25)
+BlastYields.callPrecompile(bytes) (src/blast/libraries/BlastYields.sol#86-88) ignores return value by Address.functionCall(address(BLAST_YIELD_PRECOMPILE),data) (src/blast/libraries/BlastYields.sol#87)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Slither:/Users/tanzezhong/Desktop/tzz/Research/GPT4Bugs-main/Examples/2024-03-abracadabra-money/src/blast/libraries/BlastYields.sol analyzed (5 contracts with 58 detectors), 2 result(s) found

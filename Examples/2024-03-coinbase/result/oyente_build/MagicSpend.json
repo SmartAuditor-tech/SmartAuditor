@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "MagicSpend.sol",
+        "incomplete instruction": "8346",
+        "coverage": "0.4%",
+        "warnings": []
+    }
+}

@@ -1,0 +1,48 @@
+'forge config --json' running
+Could not detect solc version from Foundry config. Falling back to system version...
+'solc --version' running
+'solc @openzeppelin/=node_modules/@openzeppelin/ eth-gas-reporter/=node_modules/eth-gas-reporter/ hardhat/=node_modules/hardhat/ forge-std/=lib/forge-std/src/ ds-test/=node_modules/ds-test/src/ @uniswap/=node_modules/@uniswap/ @gearbox-protocol/=node_modules/@gearbox-protocol/ @balancer-labs/=node_modules/@balancer-labs/ @layerzerolabs/=node_modules/@layerzerolabs/ base64-sol/=node_modules/base64-sol/ hardhat-deploy/=node_modules/hardhat-deploy/ solidity-bytes-utils/=node_modules/solidity-bytes-utils/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-noya/contracts/connectors/MaverickConnector.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 200 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-noya/contracts/connectors' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-noya/contracts/connectors/MaverickConnector.sol:
+Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> contracts/connectors/MaverickConnector.sol:161:35:
+    |
+161 |     function _getUnderlyingTokens(uint256 id, bytes memory data) public view override returns (address[] memory) {
+    |                                   ^^^^^^^^^^
+
+
+INFO:Detectors:
+BaseConnector._updateTokenInRegistry(address) (contracts/helpers/BaseConnector.sol#158-160) uses a dangerous strict equality:
+	- _updateTokenInRegistry(token,IERC20(token).balanceOf(address(this)) == 0) (contracts/helpers/BaseConnector.sol#159)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+BaseConnector.sendTokensToTrustedAddress(address,uint256,address,bytes) (contracts/helpers/BaseConnector.sol#84-108) ignores return value by (accountingManager,None) = registry.getVaultAddresses(vaultId) (contracts/helpers/BaseConnector.sol#89)
+BaseConnector.sendTokensToTrustedAddress(address,uint256,address,bytes) (contracts/helpers/BaseConnector.sol#84-108) ignores return value by (None,None,None,None,watcherContract,None) = registry.getGovernanceAddresses(vaultId) (contracts/helpers/BaseConnector.sol#91)
+BaseConnector._updateTokenInRegistry(address,bool) (contracts/helpers/BaseConnector.sol#135-146) ignores return value by (accountingManager,None) = registry.getVaultAddresses(vaultId) (contracts/helpers/BaseConnector.sol#136)
+BaseConnector._updateTokenInRegistry(address,bool) (contracts/helpers/BaseConnector.sol#135-146) ignores return value by registry.updateHoldingPosition(vaultId,positionId,abi.encode(address(this)),,remove) (contracts/helpers/BaseConnector.sol#144)
+BaseConnector.addLiquidity(address[],uint256[],bytes) (contracts/helpers/BaseConnector.sol#169-193) ignores return value by ITokenTransferCallBack(msg.sender).sendTokensToTrustedAddress(tokens[i],amounts[i],msg.sender,) (contracts/helpers/BaseConnector.sol#181)
+MaverickConnector.addLiquidityInMaverickPool(MavericAddLiquidityParams) (contracts/connectors/MaverickConnector.sol#91-108) ignores return value by (tokenId,None,None,None) = IMaverickRouter(maverickRouter).addLiquidityToPool{value: sendEthAmount}(p.pool,0,p.params,p.minTokenAAmount,p.minTokenBAmount,p.deadline) (contracts/connectors/MaverickConnector.sol#98-100)
+MaverickConnector.addLiquidityInMaverickPool(MavericAddLiquidityParams) (contracts/connectors/MaverickConnector.sol#91-108) ignores return value by registry.updateHoldingPosition(vaultId,registry.calculatePositionId(address(this),MAVERICK_LP,abi.encode(p.pool)),,,false) (contracts/connectors/MaverickConnector.sol#102-104)
+MaverickConnector.removeLiquidityFromMaverickPool(MavericRemoveLiquidityParams) (contracts/connectors/MaverickConnector.sol#115-131) ignores return value by IMaverickRouter(maverickRouter).removeLiquidity(p.pool,address(this),p.tokenId,p.params,p.minTokenAAmount,p.minTokenBAmount,p.deadline) (contracts/connectors/MaverickConnector.sol#122-124)
+MaverickConnector.removeLiquidityFromMaverickPool(MavericRemoveLiquidityParams) (contracts/connectors/MaverickConnector.sol#115-131) ignores return value by registry.updateHoldingPosition(vaultId,registry.calculatePositionId(address(this),MAVERICK_LP,abi.encode(p.pool)),,,true) (contracts/connectors/MaverickConnector.sol#125-127)
+MaverickConnector.claimBoostedPositionRewards(IMaverickReward) (contracts/connectors/MaverickConnector.sol#137-147) ignores return value by rewardContract.getReward(address(this),tokenIndex) (contracts/connectors/MaverickConnector.sol#143)
+NoyaGovernanceBase.onlyManager() (contracts/governance/NoyaGovernanceBase.sol#31-37) ignores return value by (None,None,None,keeperContract,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#32)
+NoyaGovernanceBase.onlyEmergency() (contracts/governance/NoyaGovernanceBase.sol#43-47) ignores return value by (None,None,None,None,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#44)
+NoyaGovernanceBase.onlyEmergencyOrWatcher() (contracts/governance/NoyaGovernanceBase.sol#53-59) ignores return value by (None,None,None,None,watcherContract,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#54)
+NoyaGovernanceBase.onlyMaintainerOrEmergency() (contracts/governance/NoyaGovernanceBase.sol#65-69) ignores return value by (None,maintainer,None,None,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#66)
+NoyaGovernanceBase.onlyMaintainer() (contracts/governance/NoyaGovernanceBase.sol#75-79) ignores return value by (None,maintainer,None,None,None,None) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#76)
+NoyaGovernanceBase.onlyGovernance() (contracts/governance/NoyaGovernanceBase.sol#85-89) ignores return value by (governer,None,None,None,None,None) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#86)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Detectors:
+BaseConnector.DUST_LEVEL (contracts/helpers/BaseConnector.sol#31) should be constant 
+BaseConnector.MINIMUM_HEALTH_FACTOR (contracts/helpers/BaseConnector.sol#28) should be constant 
+MaverickConnector.MAVERICK_LP (contracts/connectors/MaverickConnector.sol#35) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+INFO:Detectors:
+MaverickConnector.mav (contracts/connectors/MaverickConnector.sol#30) should be immutable 
+MaverickConnector.maverickRouter (contracts/connectors/MaverickConnector.sol#32) should be immutable 
+MaverickConnector.positionInspector (contracts/connectors/MaverickConnector.sol#33) should be immutable 
+MaverickConnector.veMav (contracts/connectors/MaverickConnector.sol#31) should be immutable 
+NoyaGovernanceBase.registry (contracts/governance/NoyaGovernanceBase.sol#7) should be immutable 
+NoyaGovernanceBase.vaultId (contracts/governance/NoyaGovernanceBase.sol#8) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-noya/contracts/connectors/MaverickConnector.sol analyzed (43 contracts with 58 detectors), 26 result(s) found

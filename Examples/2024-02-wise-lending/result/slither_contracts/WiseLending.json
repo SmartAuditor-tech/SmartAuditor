@@ -1,0 +1,190 @@
+{
+    "success": true,
+    "finding_length": 17,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "WrapperHelper._wrapETH(uint256) (contracts/TransferHub/WrapperHelper.sol#24-32) sends eth to arbitrary user\n\tDangerous calls:\n\t- WETH.deposit{value: _value}() (contracts/TransferHub/WrapperHelper.sol#29-31)\n",
+            "filename": "WiseLending.sol",
+            "classification": [],
+            "function": "_wrapETH",
+            "contract": "WrapperHelper",
+            "line": 29,
+            "line_end": 31
+        },
+        {
+            "name": "reentrancy-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "Reentrancy in WiseLending.paybackExactAmountETH(uint256) (contracts/WiseLending.sol#1088-1155):\n\tExternal calls:\n\t- _wrapETH(requiredAmount) (contracts/WiseLending.sol#1143-1145)\n\t\t- WETH.deposit{value: _value}() (contracts/TransferHub/WrapperHelper.sol#29-31)\n\t- _sendValue(msg.sender,refundAmount) (contracts/WiseLending.sol#1148-1151)\n\t\t- (success,None) = address(_recipient).call{value: _amount}() (contracts/TransferHub/SendValueHelper.sol#24-29)\n\tState variables written after the call(s):\n\t- _sendValue(msg.sender,refundAmount) (contracts/WiseLending.sol#1148-1151)\n\t\t- sendingProgress = true (contracts/TransferHub/SendValueHelper.sol#22)\n\t\t- sendingProgress = false (contracts/TransferHub/SendValueHelper.sol#31)\n\tSendValueHelper.sendingProgress (contracts/TransferHub/SendValueHelper.sol#10) can be used in cross function reentrancies:\n\t- WiseLowLevelHelper._checkReentrancy() (contracts/WiseLowLevelHelper.sol#350-361)\n\t- SendValueHelper._sendValue(address,uint256) (contracts/TransferHub/SendValueHelper.sol#12-36)\n\t- SendValueHelper.sendingProgress (contracts/TransferHub/SendValueHelper.sol#10)\n",
+            "filename": "WiseLending.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "paybackExactAmountETH",
+            "contract": "WiseLending",
+            "line": 10
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MainHelper._updatePseudoTotalAmounts(address) (contracts/MainHelper.sol#500-577) performs a multiplication on the result of a division:\n\t- amountInterest = bareIncrease / PRECISION_FACTOR_YEAR (contracts/MainHelper.sol#525-526)\n\t- feeAmount = amountInterest * globalPoolData[_poolToken].poolFee / PRECISION_FACTOR_E18 (contracts/MainHelper.sol#528-530)\n",
+            "filename": "WiseLending.sol",
+            "classification": [],
+            "function": "_updatePseudoTotalAmounts",
+            "contract": "MainHelper",
+            "line": 528,
+            "line_end": 530
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MainHelper._updatePseudoTotalAmounts(address) (contracts/MainHelper.sol#500-577) performs a multiplication on the result of a division:\n\t- feeAmount = amountInterest * globalPoolData[_poolToken].poolFee / PRECISION_FACTOR_E18 (contracts/MainHelper.sol#528-530)\n\t- feeShares = feeAmount * lendingPoolData[_poolToken].totalDepositShares / (lendingPoolData[_poolToken].pseudoTotalPool - feeAmount) (contracts/MainHelper.sol#550-552)\n",
+            "filename": "WiseLending.sol",
+            "classification": [],
+            "function": "_updatePseudoTotalAmounts",
+            "contract": "MainHelper",
+            "line": 550,
+            "line_end": 552
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "MainHelper._updatePseudoTotalAmounts(address) (contracts/MainHelper.sol#500-577) uses a dangerous strict equality:\n\t- feeShares == 0 (contracts/MainHelper.sol#554)\n",
+            "filename": "WiseLending.sol",
+            "classification": [],
+            "function": "_updatePseudoTotalAmounts",
+            "contract": "MainHelper",
+            "line": 554
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "CallOptionalReturn._callOptionalReturn(address,bytes) (contracts/TransferHub/CallOptionalReturn.sol#12-38) uses a dangerous strict equality:\n\t- success == false (contracts/TransferHub/CallOptionalReturn.sol#31)\n",
+            "filename": "WiseLending.sol",
+            "classification": [],
+            "function": "_callOptionalReturn",
+            "contract": "CallOptionalReturn",
+            "line": 31
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "MainHelper._updatePseudoTotalAmounts(address) (contracts/MainHelper.sol#500-577) uses a dangerous strict equality:\n\t- feeAmount == 0 (contracts/MainHelper.sol#542)\n",
+            "filename": "WiseLending.sol",
+            "classification": [],
+            "function": "_updatePseudoTotalAmounts",
+            "contract": "MainHelper",
+            "line": 542
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "CallOptionalReturn._callOptionalReturn(address,bytes) (contracts/TransferHub/CallOptionalReturn.sol#12-38) uses a dangerous strict equality:\n\t- results = returndata.length == 0 || abi.decode(returndata,(bool)) (contracts/TransferHub/CallOptionalReturn.sol#26-29)\n",
+            "filename": "WiseLending.sol",
+            "classification": [],
+            "function": "_callOptionalReturn",
+            "contract": "CallOptionalReturn",
+            "line": 26,
+            "line_end": 29
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "WiseLending._syncPoolBeforeCodeExecution(address) (contracts/WiseLending.sol#275-302) uses a dangerous strict equality:\n\t- _aboveThreshold(_poolToken) == true (contracts/WiseLending.sol#290)\n",
+            "filename": "WiseLending.sol",
+            "classification": [],
+            "function": "_syncPoolBeforeCodeExecution",
+            "contract": "WiseLending",
+            "line": 290
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "WiseLending.coreLiquidationIsolationPools(uint256,uint256,address,address,address,uint256,uint256).data (contracts/WiseLending.sol#1328) is a local variable never initialized\n",
+            "filename": "WiseLending.sol",
+            "classification": [],
+            "line": 1328
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MainHelper._removePositionData(uint256,address,function(uint256) returns(uint256),function(uint256,uint256) returns(address),function(uint256,address),bool).i (contracts/MainHelper.sol#690) is a local variable never initialized\n",
+            "filename": "WiseLending.sol",
+            "classification": [],
+            "line": 690
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "WiseCore._calculateReceiveAmount(uint256,uint256,address,uint256).potentialPureExtraCashout (contracts/WiseCore.sol#560) is a local variable never initialized\n",
+            "filename": "WiseLending.sol",
+            "classification": [],
+            "line": 560
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "WiseLending.paybackExactAmountETH(uint256).refundAmount (contracts/WiseLending.sol#1119) is a local variable never initialized\n",
+            "filename": "WiseLending.sol",
+            "classification": [],
+            "line": 1119
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MainHelper._whileLoopCurveSecurity(address[]).i (contracts/MainHelper.sol#478) is a local variable never initialized\n",
+            "filename": "WiseLending.sol",
+            "classification": [],
+            "line": 478
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "WiseLending.liquidatePartiallyFromTokens(uint256,uint256,address,address,uint256).data (contracts/WiseLending.sol#1262) is a local variable never initialized\n",
+            "filename": "WiseLending.sol",
+            "classification": [],
+            "line": 1262
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MainHelper._prepareTokens(address,address[]).i (contracts/MainHelper.sol#425) is a local variable never initialized\n",
+            "filename": "WiseLending.sol",
+            "classification": [],
+            "line": 425
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "WiseCore._checkDeposit(uint256,address,address,uint256) (contracts/WiseCore.sol#236-269) ignores return value by WISE_SECURITY.checkPoolWithMinDeposit(_poolToken,_amount) (contracts/WiseCore.sol#260-263)\n",
+            "filename": "WiseLending.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_checkDeposit",
+            "contract": "WiseCore",
+            "line": 260,
+            "line_end": 263
+        }
+    ]
+}

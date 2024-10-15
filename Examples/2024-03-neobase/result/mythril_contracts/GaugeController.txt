@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+CompilerError: Stack too deep. Try compiling with `--via-ir` (cli) or the equivalent `viaIR: true` (standard JSON) while enabling the optimizer. Otherwise, try removing local variables.
+   --> /g4b/src/GaugeController.sol:425:47:
+    |
+425 |         uint256 old_weight_bias = _get_weight(_gauge_addr);
+    |                                               ^^^^^^^^^^^
+
+

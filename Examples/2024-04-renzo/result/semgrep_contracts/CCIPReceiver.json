@@ -1,0 +1,83 @@
+{
+    "success": true,
+    "finding_length": 11,
+    "findings": [
+        {
+            "classification": [],
+            "name": "use-ownable2step",
+            "category": "best-practice",
+            "message": "By demanding that the receiver of the owner permissions actively accept via a contract call of its own,  `Ownable2Step` and `Ownable2StepUpgradeable` prevent the contract ownership from accidentally being transferred  to an address that cannot handle it. Details: https://sg.run/yBAA",
+            "line": 14
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 43
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 44
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 45
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 46
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 47
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 48
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 49
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 50
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 51
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 52
+        }
+    ]
+}

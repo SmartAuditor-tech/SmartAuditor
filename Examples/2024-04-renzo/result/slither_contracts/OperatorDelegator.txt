@@ -1,0 +1,41 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 @chainlink/=node_modules/@chainlink/ @eth-optimism/=node_modules/@chainlink/contracts/node_modules/@eth-optimism/ @openzeppelin/=node_modules/@openzeppelin/ ds-test/=lib/forge-std/lib/ds-test/src/ eth-gas-reporter/=node_modules/eth-gas-reporter/ forge-std/=lib/forge-std/src/ hardhat-deploy/=node_modules/hardhat-deploy/ hardhat/=node_modules/hardhat/ prb/test/=lib/prb-test/src/ solmate/=lib/solmate/src/ @connext/=node_modules/@connext/ prb-test/=lib/prb-test/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-renzo/contracts/Delegation/OperatorDelegator.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 10000 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-renzo/contracts/Delegation' running
+INFO:Detectors:
+OperatorDelegator._refundGas() (contracts/Delegation/OperatorDelegator.sol#481-493) sends eth to arbitrary user
+	Dangerous calls:
+	- success = address(tx.origin).send(gasRefund) (contracts/Delegation/OperatorDelegator.sol#485)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+INFO:Detectors:
+Reentrancy in OperatorDelegator.completeQueuedWithdrawal(IDelegationManager.Withdrawal,IERC20[],uint256) (contracts/Delegation/OperatorDelegator.sol#265-324):
+	External calls:
+	- delegationManager.completeQueuedWithdrawal(withdrawal,tokens,middlewareTimesIndex,true) (contracts/Delegation/OperatorDelegator.sol#274)
+	- tokens[i].safeApprove(address(restakeManager.depositQueue()),bufferToFill) (contracts/Delegation/OperatorDelegator.sol#297)
+	- restakeManager.depositQueue().fillERC20withdrawBuffer(address(tokens[i]),bufferToFill) (contracts/Delegation/OperatorDelegator.sol#300-303)
+	- _deposit(tokens[i],balanceOfToken) (contracts/Delegation/OperatorDelegator.sol#308)
+		- _token.safeApprove(address(strategyManager),_tokenAmount) (contracts/Delegation/OperatorDelegator.sol#164)
+		- returndata = address(token).functionCall(data,SafeERC20: low-level call failed) (node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol#122)
+		- strategyManager.depositIntoStrategy(tokenStrategyMapping[_token],_token,_tokenAmount) (contracts/Delegation/OperatorDelegator.sol#167-168)
+		- (success,returndata) = target.call{value: value}(data) (node_modules/@openzeppelin/contracts/utils/Address.sol#135)
+	External calls sending eth:
+	- _deposit(tokens[i],balanceOfToken) (contracts/Delegation/OperatorDelegator.sol#308)
+		- (success,returndata) = target.call{value: value}(data) (node_modules/@openzeppelin/contracts/utils/Address.sol#135)
+	State variables written after the call(s):
+	- queuedShares[address(tokens[i])] -= withdrawal.shares[i] (contracts/Delegation/OperatorDelegator.sol#281)
+	OperatorDelegatorStorageV4.queuedShares (contracts/Delegation/OperatorDelegatorStorage.sol#61) can be used in cross function reentrancies:
+	- OperatorDelegator.getStakedETHBalance() (contracts/Delegation/OperatorDelegator.sol#338-345)
+	- OperatorDelegator.getTokenBalanceFromStrategy(IERC20) (contracts/Delegation/OperatorDelegator.sol#327-335)
+	- OperatorDelegatorStorageV4.queuedShares (contracts/Delegation/OperatorDelegatorStorage.sol#61)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+INFO:Detectors:
+OperatorDelegator.receive() (contracts/Delegation/OperatorDelegator.sol#501-525) uses a dangerous strict equality:
+	- remainingAmount == 0 (contracts/Delegation/OperatorDelegator.sol#514)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+OperatorDelegator._refundGas() (contracts/Delegation/OperatorDelegator.sol#481-493) uses tx.origin for authorization: address(this).balance >= adminGasSpentInWei[tx.origin] (contracts/Delegation/OperatorDelegator.sol#482-484)
+OperatorDelegator.receive() (contracts/Delegation/OperatorDelegator.sol#501-525) uses tx.origin for authorization: adminGasSpentInWei[tx.origin] > 0 (contracts/Delegation/OperatorDelegator.sol#509)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin
+INFO:Detectors:
+OperatorDelegatorStorageV2.pendingUnstakedDelayedWithdrawalAmount (contracts/Delegation/OperatorDelegatorStorage.sol#48) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-renzo/contracts/Delegation/OperatorDelegator.sol analyzed (33 contracts with 58 detectors), 6 result(s) found

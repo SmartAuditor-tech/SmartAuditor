@@ -1,0 +1,38 @@
+{
+    "success": true,
+    "finding_length": 4,
+    "findings": [
+        {
+            "filename": "WiseOracleHub.sol",
+            "line": 3,
+            "column": 1,
+            "message": "Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "WiseOracleHub.sol",
+            "line": 33,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "WiseOracleHub.sol",
+            "line": 388,
+            "column": 9,
+            "message": "Avoid to use letters 'I', 'l', 'O' as identifiers",
+            "level": "warning",
+            "name": "use-forbidden-name"
+        },
+        {
+            "filename": "WiseOracleHub.sol",
+            "line": 507,
+            "column": 9,
+            "message": "Avoid to use letters 'I', 'l', 'O' as identifiers",
+            "level": "warning",
+            "name": "use-forbidden-name"
+        }
+    ]
+}

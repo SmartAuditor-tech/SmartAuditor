@@ -1,0 +1,75 @@
+{
+    "success": true,
+    "finding_length": 6,
+    "findings": [
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "UTBExecutor.execute(address,address,bytes,address,uint256,address,uint256) (src/UTBExecutor.sol#41-81) ignores return value by IERC20(token).transferFrom(msg.sender,address(this),amount) (src/UTBExecutor.sol#61)\n",
+            "filename": "UTBExecutor.sol",
+            "classification": [],
+            "function": "execute",
+            "contract": "UTBExecutor",
+            "line": 61
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "UTBExecutor.execute(address,address,bytes,address,uint256,address,uint256) (src/UTBExecutor.sol#41-81) ignores return value by IERC20(token).transfer(refund,remainingBalance) (src/UTBExecutor.sol#80)\n",
+            "filename": "UTBExecutor.sol",
+            "classification": [],
+            "function": "execute",
+            "contract": "UTBExecutor",
+            "line": 80
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "UTBExecutor.execute(address,address,bytes,address,uint256,address,uint256) (src/UTBExecutor.sol#41-81) uses a dangerous strict equality:\n\t- remainingBalance == 0 (src/UTBExecutor.sol#76)\n",
+            "filename": "UTBExecutor.sol",
+            "classification": [],
+            "function": "execute",
+            "contract": "UTBExecutor",
+            "line": 76
+        },
+        {
+            "name": "unchecked-lowlevel",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "UTBExecutor.execute(address,address,bytes,address,uint256,address,uint256) (src/UTBExecutor.sol#41-81) ignores return value by (refund.call{value: extraNative}()) (src/UTBExecutor.sol#67)\n",
+            "filename": "UTBExecutor.sol",
+            "classification": [],
+            "function": "execute",
+            "contract": "UTBExecutor",
+            "line": 67
+        },
+        {
+            "name": "unchecked-lowlevel",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "UTBExecutor.execute(address,address,bytes,address,uint256,address,uint256) (src/UTBExecutor.sol#41-81) ignores return value by (refund.call{value: amount}()) (src/UTBExecutor.sol#54)\n",
+            "filename": "UTBExecutor.sol",
+            "classification": [],
+            "function": "execute",
+            "contract": "UTBExecutor",
+            "line": 54
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "UTBExecutor.execute(address,address,bytes,address,uint256,address,uint256) (src/UTBExecutor.sol#41-81) ignores return value by IERC20(token).approve(paymentOperator,amount) (src/UTBExecutor.sol#62)\n",
+            "filename": "UTBExecutor.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "execute",
+            "contract": "UTBExecutor",
+            "line": 62
+        }
+    ]
+}

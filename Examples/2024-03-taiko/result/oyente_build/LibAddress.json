@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "LibAddress.sol",
+        "coverage": "20.5%",
+        "warnings": []
+    }
+}

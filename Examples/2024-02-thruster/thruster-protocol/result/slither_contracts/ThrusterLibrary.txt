@@ -1,0 +1,8 @@
+'solc --version' running
+'solc /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-cfmm/contracts/libraries/ThrusterLibrary.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-cfmm/contracts/libraries' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-cfmm/contracts/libraries/ThrusterLibrary.sol:
+/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-clmm/lib/openzeppelin-contracts/contracts/math/SafeMath.sol:3:1: Error: Source file requires different compiler version (current compiler is 0.5.16+commit.9c3226ce.Darwin.appleclang - note that nightly builds are considered to be strictly less than the released version
+pragma solidity ^0.7.0;
+^---------------------^
+
+ERROR:Slither:Unable to compile all targets.

@@ -1,0 +1,69 @@
+{
+    "success": true,
+    "finding_length": 9,
+    "findings": [
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 42
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 85
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 124
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 148
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 159
+        },
+        {
+            "classification": [],
+            "name": "use-short-revert-string",
+            "category": "performance",
+            "message": "Shortening revert strings to fit in 32 bytes will decrease gas costs for deployment and  gas costs when the revert condition has been met. Details: https://sg.run/E9LB",
+            "line": 85
+        },
+        {
+            "classification": [],
+            "name": "use-short-revert-string",
+            "category": "performance",
+            "message": "Shortening revert strings to fit in 32 bytes will decrease gas costs for deployment and  gas costs when the revert condition has been met. Details: https://sg.run/E9LB",
+            "line": 124
+        },
+        {
+            "classification": [],
+            "name": "use-short-revert-string",
+            "category": "performance",
+            "message": "Shortening revert strings to fit in 32 bytes will decrease gas costs for deployment and  gas costs when the revert condition has been met. Details: https://sg.run/E9LB",
+            "line": 148
+        },
+        {
+            "classification": [],
+            "name": "use-short-revert-string",
+            "category": "performance",
+            "message": "Shortening revert strings to fit in 32 bytes will decrease gas costs for deployment and  gas costs when the revert condition has been met. Details: https://sg.run/E9LB",
+            "line": 159
+        }
+    ]
+}

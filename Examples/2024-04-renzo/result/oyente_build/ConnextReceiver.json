@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "ConnextReceiver.sol",
+        "incomplete instruction": "6362",
+        "coverage": "0.6%",
+        "warnings": []
+    }
+}

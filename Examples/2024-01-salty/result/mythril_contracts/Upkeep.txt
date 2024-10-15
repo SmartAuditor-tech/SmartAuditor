@@ -1,0 +1,50 @@
+==== Exception State ====
+SWC ID: 110
+Severity: Medium
+Contract: Upkeep
+Function name: constructor
+PC address: 14
+Estimated Gas Usage: 39 - 134
+An assertion violation was triggered.
+It is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).
+--------------------
+In file: /g4b/src/Upkeep.sol:67
+
+constructor( IPools _pools, IExchangeConfig _exchangeConfig, IPoolsConfig _poolsConfig, IDAOConfig _daoConfig, IStableConfig _stableConfig, IPriceAggregator _priceAggregator, ISaltRewards _saltRewards, ICollateralAndLiquidity _collateralAndLiquidity, IEmissions _emissions, IDAO _dao )
+		{
+		pools = _pools;
+		exchangeConfig = _exchangeConfig;
+		poolsConfig = _poolsConfig;
+		daoConfig = _daoConfig;
+		stableConfig = _stableConfig;
+		priceAggregator = _priceAggregator;
+		saltRewards = _saltRewards;
+		collateralAndLiquidity = _collateralAndLiquidity;
+		emissions = _emissions;
+		dao = _dao;
+
+		// Cached for efficiency
+		weth = _exchangeConfig.weth();
+		salt = _exchangeConfig.salt();
+		usds = _exchangeConfig.usds();
+		dai = _exchangeConfig.dai();
+
+		lastUpkeepTimeEmissions = block.timestamp;
+		lastUpkeepTimeRewardsEmitters = block.timestamp;
+
+		// Approve for future WETH swaps.
+		// This contract only has a temporary WETH balance within the performUpkeep() function itself.
+		weth.approve( address(pools), type(uint256).max );
+		}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x1
+
+

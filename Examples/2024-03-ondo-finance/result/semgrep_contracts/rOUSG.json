@@ -1,0 +1,230 @@
+{
+    "success": true,
+    "finding_length": 32,
+    "findings": [
+        {
+            "classification": [],
+            "name": "inefficient-state-variable-increment",
+            "category": "performance",
+            "message": "te-variable-increment <x> += <y> costs more gas than <x> = <x> + <y> for state variables. Details: https://sg.run/bp9v",
+            "line": 537
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 98
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 99
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 100
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 282
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 333
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 334
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 335
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 336
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 416
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 432
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 477
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 478
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 506
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 507
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 512
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 513
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 514
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 515
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 533
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 558
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 563
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 594
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 599
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 604
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 593
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 594
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 595
+        },
+        {
+            "classification": [],
+            "name": "use-short-revert-string",
+            "category": "performance",
+            "message": "Shortening revert strings to fit in 32 bytes will decrease gas costs for deployment and  gas costs when the revert condition has been met. Details: https://sg.run/E9LB",
+            "line": 282
+        },
+        {
+            "classification": [],
+            "name": "use-short-revert-string",
+            "category": "performance",
+            "message": "Shortening revert strings to fit in 32 bytes will decrease gas costs for deployment and  gas costs when the revert condition has been met. Details: https://sg.run/E9LB",
+            "line": 416
+        },
+        {
+            "classification": [],
+            "name": "use-short-revert-string",
+            "category": "performance",
+            "message": "Shortening revert strings to fit in 32 bytes will decrease gas costs for deployment and  gas costs when the revert condition has been met. Details: https://sg.run/E9LB",
+            "line": 432
+        },
+        {
+            "classification": [],
+            "name": "use-short-revert-string",
+            "category": "performance",
+            "message": "Shortening revert strings to fit in 32 bytes will decrease gas costs for deployment and  gas costs when the revert condition has been met. Details: https://sg.run/E9LB",
+            "line": 594
+        }
+    ]
+}

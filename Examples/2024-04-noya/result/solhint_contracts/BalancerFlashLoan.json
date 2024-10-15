@@ -1,0 +1,78 @@
+{
+    "success": true,
+    "finding_length": 9,
+    "findings": [
+        {
+            "filename": "BalancerFlashLoan.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version 0.8.20 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "BalancerFlashLoan.sol",
+            "line": 17,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "BalancerFlashLoan.sol",
+            "line": 24,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "BalancerFlashLoan.sol",
+            "line": 25,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "BalancerFlashLoan.sol",
+            "line": 26,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "BalancerFlashLoan.sol",
+            "line": 61,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "BalancerFlashLoan.sol",
+            "line": 81,
+            "column": 35,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        },
+        {
+            "filename": "BalancerFlashLoan.sol",
+            "line": 82,
+            "column": 17,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "BalancerFlashLoan.sol",
+            "line": 92,
+            "column": 13,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+
+/g4b/src/rollup/BOLDUpgradeAction.sol
+    5:1  error    Compiler version ^0.8.0 does not satisfy the ^0.5.8 semver requirement                             compiler-version
+  126:5  warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+  167:5  warning  Explicitly mark visibility of state                                                                state-visibility
+  169:5  warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+  185:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  186:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  187:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  188:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  190:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  191:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  192:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  193:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  194:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  195:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  196:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  198:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  199:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  200:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  201:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  202:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  203:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  204:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  205:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  206:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  207:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  209:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  210:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  211:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  213:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  215:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  216:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  217:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  218:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  219:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  220:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  221:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  224:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  225:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  226:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  227:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  228:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  230:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  231:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  232:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  233:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  287:5  warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+  453:9  warning  Error message for require is too long                                                              reason-string
+  457:9  warning  Error message for require is too long                                                              reason-string
+
+✖ 48 problems (1 error, 47 warnings)
+

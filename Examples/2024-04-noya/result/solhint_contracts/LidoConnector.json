@@ -1,0 +1,70 @@
+{
+    "success": true,
+    "finding_length": 8,
+    "findings": [
+        {
+            "filename": "LidoConnector.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version 0.8.20 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "LidoConnector.sol",
+            "line": 13,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "LidoConnector.sol",
+            "line": 20,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "LidoConnector.sol",
+            "line": 23,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "LidoConnector.sol",
+            "line": 24,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "LidoConnector.sol",
+            "line": 25,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "LidoConnector.sol",
+            "line": 26,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "LidoConnector.sol",
+            "line": 89,
+            "column": 32,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        }
+    ]
+}

@@ -1,0 +1,246 @@
+{
+    "success": true,
+    "finding_length": 30,
+    "findings": [
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version ^0.8.18 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 89,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 93,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 96,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 99,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 102,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 109,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 112,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 115,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 121,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 124,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 131,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 131,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 136,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 136,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 141,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 141,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 145,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 145,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 149,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 149,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 154,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 154,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 158,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 158,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 162,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 162,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 178,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 185,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CollateralTracker.sol",
+            "line": 773,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        }
+    ]
+}

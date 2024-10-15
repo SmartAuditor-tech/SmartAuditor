@@ -1,0 +1,124 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 14 Code Findings │
+└──────────────────┘
+                                                   
+    /g4b/contracts/SemiFungiblePositionManager.sol 
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+          341┆ constructor(IUniswapV3Factory _factory) {
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+Some files were skipped or only partially analyzed.
+  Partially scanned: 1 files only partially analyzed due to parsing or internal Semgrep errors
+
+Ran 50 rules on 1 file: 14 findings.
+          342┆     FACTORY = _factory;
+          343┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+          372┆ while (address(s_poolContext[poolId].pool) != address(0)) {
+            ⋮┆----------------------------------------
+          576┆ if (s_poolContext[TokenId.wrap(ids[i]).poolId()].locked) revert  
+  Errors.ReentrantCall();                                                       
+            ⋮┆----------------------------------------
+          632┆ (LeftRightUnsigned.unwrap(s_accountLiquidity[positionKey_to]) != 
+  0) ||                                                                         
+            ⋮┆----------------------------------------
+          633┆ (LeftRightSigned.unwrap(s_accountFeesBase[positionKey_to]) != 0)
+            ⋮┆----------------------------------------
+          637┆ LeftRightUnsigned fromLiq = s_accountLiquidity[positionKey_from];
+            ⋮┆----------------------------------------
+          641┆ LeftRightSigned fromBase = s_accountFeesBase[positionKey_from];
+            ⋮┆----------------------------------------
+          644┆ s_accountLiquidity[positionKey_to] = fromLiq;
+            ⋮┆----------------------------------------
+          645┆ s_accountLiquidity[positionKey_from] = LeftRightUnsigned.wrap(0);
+            ⋮┆----------------------------------------
+          647┆ s_accountFeesBase[positionKey_to] = fromBase;
+            ⋮┆----------------------------------------
+          648┆ s_accountFeesBase[positionKey_from] = LeftRightSigned.wrap(0);
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          787┆ if ((itm0 != 0) && (itm1 != 0)) {
+          788┆     (uint160 sqrtPriceX96, , , , , , ) = _univ3pool.slot0();
+          789┆ 
+          790┆     // implement a single "netting" swap. Thank you @danrobinson 
+  for this puzzle/idea                                                          
+          791┆     // note: negative ITM amounts denote a surplus of tokens     
+  (burning liquidity), while positive amounts denote a shortage of tokens       
+  (minting liquidity)                                                           
+          792┆     // compute the approximate delta of token0 that should be    
+  resolved in the swap at the current tick                                      
+          793┆     // we do this by flipping the signs on the token1 ITM amount 
+  converting+deducting it against the token0 ITM amount                         
+          794┆     // couple examples (price = 2 1/0):
+          795┆     //  - 100 surplus 0, 100 surplus 1 (itm0 = -100, itm1 = -100)
+          796┆     //    normal swap 0: 100 0 => 200 1
+             [hid 33 additional lines, adjust with --max-lines-per-finding] 
+       solidity.security.uniswap-callback-not-protected.uniswap-callback-not-pro
+  tected                                                                        
+          Uniswap callback is not protected                                     
+          Details: https://sg.run/r4JJ                                          
+                                                                                
+          402┆ function uniswapV3MintCallback(
+          403┆     uint256 amount0Owed,
+          404┆     uint256 amount1Owed,
+          405┆     bytes calldata data
+          406┆ ) external {
+          407┆     // Decode the mint callback data
+          408┆     CallbackLib.CallbackData memory decoded = abi.decode(data,   
+  (CallbackLib.CallbackData));                                                  
+          409┆     // Validate caller to ensure we got called from the AMM pool
+          410┆     CallbackLib.validateCallback(msg.sender, FACTORY,            
+  decoded.poolFeatures);                                                        
+          411┆     // Sends the amount0Owed and amount1Owed quantities provided
+             [hid 15 additional lines, adjust with --max-lines-per-finding] 
+          435┆ function uniswapV3SwapCallback(
+          436┆     int256 amount0Delta,
+          437┆     int256 amount1Delta,
+          438┆     bytes calldata data
+          439┆ ) external {
+          440┆     // Decode the swap callback data, checks that the            
+  UniswapV3Pool has the correct address.                                        
+          441┆     CallbackLib.CallbackData memory decoded = abi.decode(data,   
+  (CallbackLib.CallbackData));                                                  
+          442┆     // Validate caller to ensure we got called from the AMM pool
+          443┆     CallbackLib.validateCallback(msg.sender, FACTORY,            
+  decoded.poolFeatures);                                                        
+          444┆ 
+             [hid 13 additional lines, adjust with --max-lines-per-finding] 
+
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

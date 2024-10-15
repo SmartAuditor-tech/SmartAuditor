@@ -1,0 +1,22 @@
+
+/g4b/src/staking/Staking.sol
+    2:1   error    Compiler version =0.8.22 does not satisfy the ^0.5.8 semver requirement                            compiler-version
+   33:2   warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+   35:3   warning  Code contains empty blocks                                                                         no-empty-blocks
+   43:3   warning  Error message for require is too long                                                              reason-string
+   62:3   warning  Error message for require is too long                                                              reason-string
+   65:28  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+   88:3   warning  Error message for require is too long                                                              reason-string
+   89:3   warning  Error message for require is too long                                                              reason-string
+   89:12  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+   90:3   warning  Error message for require is too long                                                              reason-string
+  104:3   warning  Error message for require is too long                                                              reason-string
+  105:12  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  106:3   warning  Error message for require is too long                                                              reason-string
+  132:3   warning  Error message for require is too long                                                              reason-string
+  153:9   warning  Error message for require is too long                                                              reason-string
+  157:9   warning  Error message for require is too long                                                              reason-string
+  158:9   warning  Error message for require is too long                                                              reason-string
+
+✖ 17 problems (1 error, 16 warnings)
+

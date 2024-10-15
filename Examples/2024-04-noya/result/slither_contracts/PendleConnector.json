@@ -1,0 +1,513 @@
+{
+    "success": true,
+    "finding_length": 39,
+    "findings": [
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "BaseConnector._updateTokenInRegistry(address) (contracts/helpers/BaseConnector.sol#158-160) uses a dangerous strict equality:\n\t- _updateTokenInRegistry(token,IERC20(token).balanceOf(address(this)) == 0) (contracts/helpers/BaseConnector.sol#159)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [],
+            "function": "_updateTokenInRegistry",
+            "contract": "BaseConnector",
+            "line": 159
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "PendleConnector.isMarketEmpty(IPMarket) (contracts/connectors/PendleConnector.sol#303-309) uses a dangerous strict equality:\n\t- (_SY.balanceOf(address(this)) == 0 && _PT.balanceOf(address(this)) == 0 && _YT.balanceOf(address(this)) == 0 && market.balanceOf(address(this)) == 0) (contracts/connectors/PendleConnector.sol#305-308)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [],
+            "function": "isMarketEmpty",
+            "contract": "PendleConnector",
+            "line": 305,
+            "line_end": 308
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyGovernance() (contracts/governance/NoyaGovernanceBase.sol#85-89) ignores return value by (governer,None,None,None,None,None) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#86)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyGovernance",
+            "contract": "NoyaGovernanceBase",
+            "line": 86
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector.sendTokensToTrustedAddress(address,uint256,address,bytes) (contracts/helpers/BaseConnector.sol#84-108) ignores return value by (None,None,None,None,watcherContract,None) = registry.getGovernanceAddresses(vaultId) (contracts/helpers/BaseConnector.sol#91)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "sendTokensToTrustedAddress",
+            "contract": "BaseConnector",
+            "line": 91
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyMaintainer() (contracts/governance/NoyaGovernanceBase.sol#75-79) ignores return value by (None,maintainer,None,None,None,None) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#76)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyMaintainer",
+            "contract": "NoyaGovernanceBase",
+            "line": 76
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector.decreasePosition(IPMarket,uint256,bool) (contracts/connectors/PendleConnector.sol#216-233) ignores return value by (SY,None,None) = market.readTokens() (contracts/connectors/PendleConnector.sol#217)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "decreasePosition",
+            "contract": "PendleConnector",
+            "line": 217
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyEmergency() (contracts/governance/NoyaGovernanceBase.sol#43-47) ignores return value by (None,None,None,None,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#44)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyEmergency",
+            "contract": "NoyaGovernanceBase",
+            "line": 44
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyMaintainerOrEmergency() (contracts/governance/NoyaGovernanceBase.sol#65-69) ignores return value by (None,maintainer,None,None,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#66)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyMaintainerOrEmergency",
+            "contract": "NoyaGovernanceBase",
+            "line": 66
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector.addLiquidity(address[],uint256[],bytes) (contracts/helpers/BaseConnector.sol#169-193) ignores return value by ITokenTransferCallBack(msg.sender).sendTokensToTrustedAddress(tokens[i],amounts[i],msg.sender,) (contracts/helpers/BaseConnector.sol#181)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "addLiquidity",
+            "contract": "BaseConnector",
+            "line": 181
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector.decreasePosition(IPMarket,uint256,bool) (contracts/connectors/PendleConnector.sol#216-233) ignores return value by registry.updateHoldingPosition(vaultId,registry.calculatePositionId(address(this),PENDLE_POSITION_ID,abi.encode(market)),,,true) (contracts/connectors/PendleConnector.sol#224-230)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "decreasePosition",
+            "contract": "PendleConnector",
+            "line": 224,
+            "line_end": 230
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector._getUnderlyingTokens(uint256,bytes) (contracts/connectors/PendleConnector.sol#311-317) ignores return value by (SY,None,None) = IPMarket(market).readTokens() (contracts/connectors/PendleConnector.sol#313)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_getUnderlyingTokens",
+            "contract": "PendleConnector",
+            "line": 313
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector.decreasePosition(IPMarket,uint256,bool) (contracts/connectors/PendleConnector.sol#216-233) ignores return value by IPStandardizedYield(address(SY)).redeem(address(this),_amount,_underlyingToken,1,true) (contracts/connectors/PendleConnector.sol#222)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "decreasePosition",
+            "contract": "PendleConnector",
+            "line": 222
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector.supply(address,uint256) (contracts/connectors/PendleConnector.sol#78-90) ignores return value by registry.updateHoldingPosition(vaultId,positionId,,,false) (contracts/connectors/PendleConnector.sol#88)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "supply",
+            "contract": "PendleConnector",
+            "line": 88
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector.claimRewards(IPMarket) (contracts/connectors/PendleConnector.sol#241-248) ignores return value by market.redeemRewards(address(this)) (contracts/connectors/PendleConnector.sol#242)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "claimRewards",
+            "contract": "PendleConnector",
+            "line": 242
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector.burnLP(IPMarket,uint256) (contracts/connectors/PendleConnector.sol#203-208) ignores return value by market.burn(address(this),address(market),amount) (contracts/connectors/PendleConnector.sol#205)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "burnLP",
+            "contract": "PendleConnector",
+            "line": 205
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector._updateTokenInRegistry(address,bool) (contracts/helpers/BaseConnector.sol#135-146) ignores return value by registry.updateHoldingPosition(vaultId,positionId,abi.encode(address(this)),,remove) (contracts/helpers/BaseConnector.sol#144)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_updateTokenInRegistry",
+            "contract": "BaseConnector",
+            "line": 144
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector.decreasePosition(IPMarket,uint256,bool) (contracts/connectors/PendleConnector.sol#216-233) ignores return value by (None,_underlyingToken,None) = SY.assetInfo() (contracts/connectors/PendleConnector.sol#218)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "decreasePosition",
+            "contract": "PendleConnector",
+            "line": 218
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector.swapExactPTForSY(IPMarket,uint256,bytes,uint256) (contracts/connectors/PendleConnector.sol#183-196) ignores return value by (_SY,_PT,None) = IPMarket(market).readTokens() (contracts/connectors/PendleConnector.sol#188)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "swapExactPTForSY",
+            "contract": "PendleConnector",
+            "line": 188
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector.depositIntoMarket(IPMarket,uint256,uint256) (contracts/connectors/PendleConnector.sol#112-119) ignores return value by market.mint(address(this),SYamount,PTamount) (contracts/connectors/PendleConnector.sol#116)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "depositIntoMarket",
+            "contract": "PendleConnector",
+            "line": 116
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector._getPositionTVL(HoldingPI,address) (contracts/connectors/PendleConnector.sol#257-285) ignores return value by (None,_underlyingToken,None) = _SY.assetInfo() (contracts/connectors/PendleConnector.sol#263)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_getPositionTVL",
+            "contract": "PendleConnector",
+            "line": 263
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector.sendTokensToTrustedAddress(address,uint256,address,bytes) (contracts/helpers/BaseConnector.sol#84-108) ignores return value by (accountingManager,None) = registry.getVaultAddresses(vaultId) (contracts/helpers/BaseConnector.sol#89)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "sendTokensToTrustedAddress",
+            "contract": "BaseConnector",
+            "line": 89
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector.swapYTForPT(address,uint256,uint256,ApproxParams) (contracts/connectors/PendleConnector.sol#149-157) ignores return value by pendleRouter.swapExactYtForPt(address(this),market,exactYTIn,min,guess) (contracts/connectors/PendleConnector.sol#155)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "swapYTForPT",
+            "contract": "PendleConnector",
+            "line": 155
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector._updateTokenInRegistry(address,bool) (contracts/helpers/BaseConnector.sol#135-146) ignores return value by (accountingManager,None) = registry.getVaultAddresses(vaultId) (contracts/helpers/BaseConnector.sol#136)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_updateTokenInRegistry",
+            "contract": "BaseConnector",
+            "line": 136
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector.depositIntoMarket(IPMarket,uint256,uint256) (contracts/connectors/PendleConnector.sol#112-119) ignores return value by (_SY,_PT,None) = IPMarket(market).readTokens() (contracts/connectors/PendleConnector.sol#113)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "depositIntoMarket",
+            "contract": "PendleConnector",
+            "line": 113
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector.mintPTAndYT(address,uint256) (contracts/connectors/PendleConnector.sol#97-102) ignores return value by _YT.mintPY(address(this),address(this)) (contracts/connectors/PendleConnector.sol#100)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "mintPTAndYT",
+            "contract": "PendleConnector",
+            "line": 100
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector.supply(address,uint256) (contracts/connectors/PendleConnector.sol#78-90) ignores return value by (_SY,_PT,None) = IPMarket(market).readTokens() (contracts/connectors/PendleConnector.sol#79)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "supply",
+            "contract": "PendleConnector",
+            "line": 79
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyManager() (contracts/governance/NoyaGovernanceBase.sol#31-37) ignores return value by (None,None,None,keeperContract,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#32)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyManager",
+            "contract": "NoyaGovernanceBase",
+            "line": 32
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector.swapYTForSY(address,uint256,uint256,LimitOrderData) (contracts/connectors/PendleConnector.sol#166-174) ignores return value by pendleRouter.swapExactYtForSy(address(this),market,exactYTIn,min,orderData) (contracts/connectors/PendleConnector.sol#172)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "swapYTForSY",
+            "contract": "PendleConnector",
+            "line": 172
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyEmergencyOrWatcher() (contracts/governance/NoyaGovernanceBase.sol#53-59) ignores return value by (None,None,None,None,watcherContract,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#54)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyEmergencyOrWatcher",
+            "contract": "NoyaGovernanceBase",
+            "line": 54
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector.supply(address,uint256) (contracts/connectors/PendleConnector.sol#78-90) ignores return value by (None,_underlyingToken,None) = _SY.assetInfo() (contracts/connectors/PendleConnector.sol#81)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "supply",
+            "contract": "PendleConnector",
+            "line": 81
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector._getUnderlyingTokens(uint256,bytes) (contracts/connectors/PendleConnector.sol#311-317) ignores return value by (None,tokens[0],None) = SY.assetInfo() (contracts/connectors/PendleConnector.sol#315)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_getUnderlyingTokens",
+            "contract": "PendleConnector",
+            "line": 315
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendleConnector.getYTValue(address,uint256) (contracts/connectors/PendleConnector.sol#293-296) ignores return value by (netSyOut,None,None,None,None,None,None) = staticRouter.swapExactYtForSyStatic(market,balance) (contracts/connectors/PendleConnector.sol#294)\n",
+            "filename": "PendleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "getYTValue",
+            "contract": "PendleConnector",
+            "line": 294
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "BaseConnector.DUST_LEVEL (contracts/helpers/BaseConnector.sol#31) should be constant \n",
+            "filename": "PendleConnector.sol",
+            "classification": [],
+            "line": 31
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "BaseConnector.MINIMUM_HEALTH_FACTOR (contracts/helpers/BaseConnector.sol#28) should be constant \n",
+            "filename": "PendleConnector.sol",
+            "classification": [],
+            "line": 28
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "PendleConnector.pendleMarketDepositHelper (contracts/connectors/PendleConnector.sol#22) should be immutable \n",
+            "filename": "PendleConnector.sol",
+            "classification": [],
+            "line": 22
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "PendleConnector.pendleRouter (contracts/connectors/PendleConnector.sol#23) should be immutable \n",
+            "filename": "PendleConnector.sol",
+            "classification": [],
+            "line": 23
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "NoyaGovernanceBase.vaultId (contracts/governance/NoyaGovernanceBase.sol#8) should be immutable \n",
+            "filename": "PendleConnector.sol",
+            "classification": [],
+            "line": 8
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "NoyaGovernanceBase.registry (contracts/governance/NoyaGovernanceBase.sol#7) should be immutable \n",
+            "filename": "PendleConnector.sol",
+            "classification": [],
+            "line": 7
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "PendleConnector.staticRouter (contracts/connectors/PendleConnector.sol#24) should be immutable \n",
+            "filename": "PendleConnector.sol",
+            "classification": [],
+            "line": 24
+        }
+    ]
+}

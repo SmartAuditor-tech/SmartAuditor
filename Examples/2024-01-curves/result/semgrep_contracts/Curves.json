@@ -1,0 +1,132 @@
+{
+    "success": true,
+    "finding_length": 18,
+    "findings": [
+        {
+            "classification": [],
+            "name": "array-length-outside-loop",
+            "category": "performance",
+            "message": "Caching the array length outside a loop saves reading it on each iteration, as long as the array's length is not changed during the loop. Details: https://sg.run/r4LJ",
+            "line": 305
+        },
+        {
+            "classification": [],
+            "name": "array-length-outside-loop",
+            "category": "performance",
+            "message": "Caching the array length outside a loop saves reading it on each iteration, as long as the array's length is not changed during the loop. Details: https://sg.run/r4LJ",
+            "line": 330
+        },
+        {
+            "classification": [],
+            "name": "inefficient-state-variable-increment",
+            "category": "performance",
+            "message": "te-variable-increment <x> += <y> costs more gas than <x> = <x> + <y> for state variables. Details: https://sg.run/bp9v",
+            "line": 345
+        },
+        {
+            "classification": [],
+            "name": "init-variables-with-default-value",
+            "category": "performance",
+            "message": "h-default-value Uninitialized variables are assigned with the types default value. Explicitly initializing a variable with its default value costs unnecessary gas. Details: https://sg.run/Ne5N",
+            "line": 47
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 108
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 109
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 110
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 111
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 306
+        },
+        {
+            "classification": [],
+            "name": "unnecessary-checked-arithmetic-in-loop",
+            "category": "performance",
+            "message": "hecked-arithmetic-in-loop A lot of times there is no risk that the loop counter can overflow. Using Solidity's unchecked block saves the overflow checks. Details: https://sg.run/OvDk",
+            "line": 305
+        },
+        {
+            "classification": [],
+            "name": "unnecessary-checked-arithmetic-in-loop",
+            "category": "performance",
+            "message": "hecked-arithmetic-in-loop A lot of times there is no risk that the loop counter can overflow. Using Solidity's unchecked block saves the overflow checks. Details: https://sg.run/OvDk",
+            "line": 330
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 213
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 246
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 247
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 248
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 249
+        },
+        {
+            "classification": [],
+            "name": "use-prefix-increment-not-postfix",
+            "category": "performance",
+            "message": "t-not-postfix Consider using the prefix increment expression whenever the return value is not needed. The prefix increment expression is cheaper in terms of gas. Details: https://sg.run/nxLr",
+            "line": 305
+        },
+        {
+            "classification": [],
+            "name": "use-prefix-increment-not-postfix",
+            "category": "performance",
+            "message": "t-not-postfix Consider using the prefix increment expression whenever the return value is not needed. The prefix increment expression is cheaper in terms of gas. Details: https://sg.run/nxLr",
+            "line": 330
+        }
+    ]
+}

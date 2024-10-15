@@ -1,0 +1,28 @@
+{
+    "success": true,
+    "finding_length": 2,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "RewardHandler._forwardETH() (contracts/Rewards/RewardHandler.sol#62-70) sends eth to arbitrary user\n\tDangerous calls:\n\t- (success,None) = rewardDestination.call{value: balance}() (contracts/Rewards/RewardHandler.sol#68)\n",
+            "filename": "RewardHandler.sol",
+            "classification": [],
+            "function": "_forwardETH",
+            "contract": "RewardHandler",
+            "line": 68
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "RewardHandler._forwardETH() (contracts/Rewards/RewardHandler.sol#62-70) uses a dangerous strict equality:\n\t- balance == 0 (contracts/Rewards/RewardHandler.sol#64)\n",
+            "filename": "RewardHandler.sol",
+            "classification": [],
+            "function": "_forwardETH",
+            "contract": "RewardHandler",
+            "line": 64
+        }
+    ]
+}

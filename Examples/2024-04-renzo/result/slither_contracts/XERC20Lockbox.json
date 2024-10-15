@@ -1,0 +1,17 @@
+{
+    "success": true,
+    "finding_length": 1,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "XERC20Lockbox._withdraw(address,uint256) (contracts/Bridge/xERC20/contracts/XERC20Lockbox.sol#125-136) sends eth to arbitrary user\n\tDangerous calls:\n\t- (_success,None) = address(_to).call{value: _amount}() (contracts/Bridge/xERC20/contracts/XERC20Lockbox.sol#131)\n",
+            "filename": "XERC20Lockbox.sol",
+            "classification": [],
+            "function": "_withdraw",
+            "contract": "XERC20Lockbox",
+            "line": 131
+        }
+    ]
+}

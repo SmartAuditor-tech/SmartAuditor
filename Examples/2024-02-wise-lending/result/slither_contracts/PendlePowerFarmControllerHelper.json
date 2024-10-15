@@ -1,0 +1,109 @@
+{
+    "success": true,
+    "finding_length": 10,
+    "findings": [
+        {
+            "name": "uninitialized-state",
+            "impact": "High",
+            "confidence": "High",
+            "message": "PendlePowerFarmControllerBase.activePendleMarkets (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#61) is never initialized. It is used in:\n\t- PendlePowerFarmControllerBase.syncAllSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#272-286)\n\t- PendlePowerFarmControllerHelper.activePendleMarketsLength() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerHelper.sol#125-131)\n",
+            "filename": "PendlePowerFarmControllerHelper.sol",
+            "classification": [
+                "SWC-109"
+            ],
+            "line": 125,
+            "line_end": 131
+        },
+        {
+            "name": "uninitialized-state",
+            "impact": "High",
+            "confidence": "High",
+            "message": "PendlePowerFarmControllerBase.pendleChildAddress (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#58) is never initialized. It is used in:\n\t- PendlePowerFarmControllerBase._onlyChildContract(address) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#245-254)\n\t- PendlePowerFarmControllerBase._syncSupply(address) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#256-270)\n",
+            "filename": "PendlePowerFarmControllerHelper.sol",
+            "classification": [
+                "SWC-109"
+            ],
+            "line": 256,
+            "line_end": 270
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmControllerHelper._calcExpiry(uint128) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerHelper.sol#32-43) performs a multiplication on the result of a division:\n\t- startTime = uint128((block.timestamp / WEEK) * WEEK) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerHelper.sol#39-40)\n",
+            "filename": "PendlePowerFarmControllerHelper.sol",
+            "classification": [],
+            "function": "_calcExpiry",
+            "contract": "PendlePowerFarmControllerHelper",
+            "line": 39,
+            "line_end": 40
+        },
+        {
+            "name": "erc20-interface",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "IPendleMarket (contracts/InterfaceHub/IPendle.sol#139-251) has incorrect ERC20 function interface:IPendleMarket.transferFrom(address,address,uint256) (contracts/InterfaceHub/IPendle.sol#157-162)\n",
+            "filename": "PendlePowerFarmControllerHelper.sol",
+            "classification": [],
+            "line": 157,
+            "line_end": 162
+        },
+        {
+            "name": "locked-ether",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "Contract locking ether found:\n\tContract PendlePowerFarmControllerHelper (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerHelper.sol#7-260) has payable functions:\n\t - PendlePowerFarmControllerBase.receive() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#125-133)\n\tBut does not have a function to withdraw the ether\n",
+            "filename": "PendlePowerFarmControllerHelper.sol",
+            "classification": [
+                "DASP-5"
+            ],
+            "line": 125,
+            "line_end": 133
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmControllerHelper._findIndex(address[],address).i (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerHelper.sol#17) is a local variable never initialized\n",
+            "filename": "PendlePowerFarmControllerHelper.sol",
+            "classification": [],
+            "line": 17
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmControllerBase.syncAllSupply().i (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#275) is a local variable never initialized\n",
+            "filename": "PendlePowerFarmControllerHelper.sol",
+            "classification": [],
+            "line": 275
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "PendlePowerFarmControllerBase.reservedPendleForLocking (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#56) should be constant \n",
+            "filename": "PendlePowerFarmControllerHelper.sol",
+            "classification": [],
+            "line": 56
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "PendlePowerFarmControllerBase.exchangeIncentive (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#66) should be immutable \n",
+            "filename": "PendlePowerFarmControllerHelper.sol",
+            "classification": [],
+            "line": 66
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "PendlePowerFarmControllerBase.ARB_REWARDS (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#72) should be immutable \n",
+            "filename": "PendlePowerFarmControllerHelper.sol",
+            "classification": [],
+            "line": 72
+        }
+    ]
+}

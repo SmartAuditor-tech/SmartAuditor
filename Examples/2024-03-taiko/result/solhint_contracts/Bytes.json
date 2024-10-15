@@ -1,0 +1,30 @@
+{
+    "success": true,
+    "finding_length": 3,
+    "findings": [
+        {
+            "filename": "Bytes.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version 0.8.24 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "Bytes.sol",
+            "line": 32,
+            "column": 9,
+            "message": "Avoid to use inline assembly. It is acceptable only in rare cases",
+            "level": "warning",
+            "name": "no-inline-assembly"
+        },
+        {
+            "filename": "Bytes.sol",
+            "line": 104,
+            "column": 9,
+            "message": "Avoid to use inline assembly. It is acceptable only in rare cases",
+            "level": "warning",
+            "name": "no-inline-assembly"
+        }
+    ]
+}

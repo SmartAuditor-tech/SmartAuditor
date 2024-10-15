@@ -1,0 +1,207 @@
+{
+    "success": true,
+    "finding_length": 18,
+    "findings": [
+        {
+            "name": "incorrect-exp",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) has bitwise-xor operator ^ instead of the exponentiation operator **: \n\t - inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)\n",
+            "filename": "Pools.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 116
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123)\n",
+            "filename": "Pools.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 123
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)\n",
+            "filename": "Pools.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 116
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PoolMath._zapSwapAmount(uint256,uint256,uint256,uint256) (src/pools/PoolMath.sol#152-207) performs a multiplication on the result of a division:\n\t- C = r0 * (r1 * z0 - r0 * z1) / (r1 + z1) (src/pools/PoolMath.sol#192)\n\t- discriminant = B * B + 4 * A * C (src/pools/PoolMath.sol#193)\n",
+            "filename": "Pools.sol",
+            "classification": [],
+            "function": "_zapSwapAmount",
+            "contract": "PoolMath",
+            "line": 193
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#120)\n",
+            "filename": "Pools.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 120
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#121)\n",
+            "filename": "Pools.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 121
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#122)\n",
+            "filename": "Pools.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 122
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- prod0 = prod0 / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#104)\n\t- result = prod0 * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#131)\n",
+            "filename": "Pools.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 131
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "ArbitrageSearch._rightMoreProfitable(uint256,uint256,uint256,uint256,uint256,uint256,uint256) (src/arbitrage/ArbitrageSearch.sol#63-90) performs a multiplication on the result of a division:\n\t- amountOut = (reservesA1 * midpoint) / (reservesA0 + midpoint) (src/arbitrage/ArbitrageSearch.sol#68)\n\t- amountOut = (reservesB1 * amountOut) / (reservesB0 + amountOut) (src/arbitrage/ArbitrageSearch.sol#69)\n",
+            "filename": "Pools.sol",
+            "classification": [],
+            "function": "_rightMoreProfitable",
+            "contract": "ArbitrageSearch",
+            "line": 69
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Pools._addLiquidity(bytes32,uint256,uint256,uint256) (src/pools/Pools.sol#90-135) performs a multiplication on the result of a division:\n\t- proportionalB = (maxAmount0 * reserve1) / reserve0 (src/pools/Pools.sol#109)\n\t- addedAmount1 = proportionalB (src/pools/Pools.sol#121)\n\t- addedLiquidity = (totalLiquidity * addedAmount1) / reserve1 (src/pools/Pools.sol#134)\n",
+            "filename": "Pools.sol",
+            "classification": [],
+            "function": "_addLiquidity",
+            "contract": "Pools",
+            "line": 134
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#125)\n",
+            "filename": "Pools.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 125
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "ArbitrageSearch._rightMoreProfitable(uint256,uint256,uint256,uint256,uint256,uint256,uint256) (src/arbitrage/ArbitrageSearch.sol#63-90) performs a multiplication on the result of a division:\n\t- amountOut = (reservesA1 * midpoint) / (reservesA0 + midpoint) (src/arbitrage/ArbitrageSearch.sol#82)\n\t- amountOut = (reservesB1 * amountOut) / (reservesB0 + amountOut) (src/arbitrage/ArbitrageSearch.sol#83)\n",
+            "filename": "Pools.sol",
+            "classification": [],
+            "function": "_rightMoreProfitable",
+            "contract": "ArbitrageSearch",
+            "line": 83
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#124)\n",
+            "filename": "Pools.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 124
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "ArbitrageSearch._bisectionSearch(uint256,uint256,uint256,uint256,uint256,uint256,uint256) (src/arbitrage/ArbitrageSearch.sol#101-136) performs a multiplication on the result of a division:\n\t- amountOut = (reservesB1 * amountOut) / (reservesB0 + amountOut) (src/arbitrage/ArbitrageSearch.sol#130)\n\t- amountOut = (reservesC1 * amountOut) / (reservesC0 + amountOut) (src/arbitrage/ArbitrageSearch.sol#131)\n",
+            "filename": "Pools.sol",
+            "classification": [],
+            "function": "_bisectionSearch",
+            "contract": "ArbitrageSearch",
+            "line": 131
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "ArbitrageSearch._rightMoreProfitable(uint256,uint256,uint256,uint256,uint256,uint256,uint256) (src/arbitrage/ArbitrageSearch.sol#63-90) performs a multiplication on the result of a division:\n\t- amountOut = (reservesB1 * amountOut) / (reservesB0 + amountOut) (src/arbitrage/ArbitrageSearch.sol#69)\n\t- amountOut = (reservesC1 * amountOut) / (reservesC0 + amountOut) (src/arbitrage/ArbitrageSearch.sol#70)\n",
+            "filename": "Pools.sol",
+            "classification": [],
+            "function": "_rightMoreProfitable",
+            "contract": "ArbitrageSearch",
+            "line": 70
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "ArbitrageSearch._rightMoreProfitable(uint256,uint256,uint256,uint256,uint256,uint256,uint256) (src/arbitrage/ArbitrageSearch.sol#63-90) performs a multiplication on the result of a division:\n\t- amountOut = (reservesB1 * amountOut) / (reservesB0 + amountOut) (src/arbitrage/ArbitrageSearch.sol#83)\n\t- amountOut = (reservesC1 * amountOut) / (reservesC0 + amountOut) (src/arbitrage/ArbitrageSearch.sol#84)\n",
+            "filename": "Pools.sol",
+            "classification": [],
+            "function": "_rightMoreProfitable",
+            "contract": "ArbitrageSearch",
+            "line": 84
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "ArbitrageSearch._bisectionSearch(uint256,uint256,uint256,uint256,uint256,uint256,uint256) (src/arbitrage/ArbitrageSearch.sol#101-136) performs a multiplication on the result of a division:\n\t- amountOut = (reservesA1 * bestArbAmountIn) / (reservesA0 + bestArbAmountIn) (src/arbitrage/ArbitrageSearch.sol#129)\n\t- amountOut = (reservesB1 * amountOut) / (reservesB0 + amountOut) (src/arbitrage/ArbitrageSearch.sol#130)\n",
+            "filename": "Pools.sol",
+            "classification": [],
+            "function": "_bisectionSearch",
+            "contract": "ArbitrageSearch",
+            "line": 130
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PoolUtils._placeInternalSwap(IPools,IERC20,IERC20,uint256,uint256) (src/pools/PoolUtils.sol#54-68) ignores return value by (reservesIn,None) = pools.getPoolReserves(tokenIn,tokenOut) (src/pools/PoolUtils.sol#59)\n",
+            "filename": "Pools.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_placeInternalSwap",
+            "contract": "PoolUtils",
+            "line": 59
+        }
+    ]
+}

@@ -1,0 +1,294 @@
+{
+    "success": true,
+    "finding_length": 23,
+    "findings": [
+        {
+            "name": "incorrect-exp",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) has bitwise-xor operator ^ instead of the exponentiation operator **: \n\t - inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)\n",
+            "filename": "DAO.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 116
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123)\n",
+            "filename": "DAO.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 123
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)\n",
+            "filename": "DAO.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 116
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#120)\n",
+            "filename": "DAO.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 120
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#121)\n",
+            "filename": "DAO.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 121
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#122)\n",
+            "filename": "DAO.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 122
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- prod0 = prod0 / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#104)\n\t- result = prod0 * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#131)\n",
+            "filename": "DAO.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 131
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#125)\n",
+            "filename": "DAO.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 125
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#124)\n",
+            "filename": "DAO.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 124
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "Upkeep.step3() (src/Upkeep.sol#145-154) uses a dangerous strict equality:\n\t- wethBalance == 0 (src/Upkeep.sol#148)\n",
+            "filename": "DAO.sol",
+            "classification": [],
+            "function": "step3",
+            "contract": "Upkeep",
+            "line": 148
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "Upkeep.step4() (src/Upkeep.sol#158-167) uses a dangerous strict equality:\n\t- wethBalance == 0 (src/Upkeep.sol#161)\n",
+            "filename": "DAO.sol",
+            "classification": [],
+            "function": "step4",
+            "contract": "Upkeep",
+            "line": 161
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "Upkeep.step5() (src/Upkeep.sol#171-180) uses a dangerous strict equality:\n\t- wethBalance == 0 (src/Upkeep.sol#174)\n",
+            "filename": "DAO.sol",
+            "classification": [],
+            "function": "step5",
+            "contract": "Upkeep",
+            "line": 174
+        },
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in Upkeep.step8() (src/Upkeep.sol#205-213):\n\tExternal calls:\n\t- saltRewards.stakingRewardsEmitter().performUpkeep(timeSinceLastUpkeep) (src/Upkeep.sol#209)\n\t- saltRewards.liquidityRewardsEmitter().performUpkeep(timeSinceLastUpkeep) (src/Upkeep.sol#210)\n\tState variables written after the call(s):\n\t- lastUpkeepTimeRewardsEmitters = block.timestamp (src/Upkeep.sol#212)\n\tUpkeep.lastUpkeepTimeRewardsEmitters (src/Upkeep.sol#64) can be used in cross function reentrancies:\n\t- Upkeep.constructor(IPools,IExchangeConfig,IPoolsConfig,IDAOConfig,IStableConfig,IPriceAggregator,ISaltRewards,ICollateralAndLiquidity,IEmissions,IDAO) (src/Upkeep.sol#67-92)\n\t- Upkeep.lastUpkeepTimeRewardsEmitters (src/Upkeep.sol#64)\n\t- Upkeep.step8() (src/Upkeep.sol#205-213)\n",
+            "filename": "DAO.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "step8",
+            "contract": "Upkeep",
+            "line": 205,
+            "line_end": 213
+        },
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in Upkeep.step6() (src/Upkeep.sol#184-190):\n\tExternal calls:\n\t- emissions.performUpkeep(timeSinceLastUpkeep) (src/Upkeep.sol#187)\n\tState variables written after the call(s):\n\t- lastUpkeepTimeEmissions = block.timestamp (src/Upkeep.sol#189)\n\tUpkeep.lastUpkeepTimeEmissions (src/Upkeep.sol#63) can be used in cross function reentrancies:\n\t- Upkeep.constructor(IPools,IExchangeConfig,IPoolsConfig,IDAOConfig,IStableConfig,IPriceAggregator,ISaltRewards,ICollateralAndLiquidity,IEmissions,IDAO) (src/Upkeep.sol#67-92)\n\t- Upkeep.lastUpkeepTimeEmissions (src/Upkeep.sol#63)\n\t- Upkeep.step6() (src/Upkeep.sol#184-190)\n",
+            "filename": "DAO.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "step6",
+            "contract": "Upkeep",
+            "line": 184,
+            "line_end": 190
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "DAO._executeApproval(Ballot) (src/dao/DAO.sol#155-215) ignores return value by proposals.createConfirmationProposal(string.concat(ballot.ballotName,_confirm),BallotType.CONFIRM_SET_WEBSITE_URL,address(0),ballot.string1,ballot.description) (src/dao/DAO.sol#208)\n",
+            "filename": "DAO.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_executeApproval",
+            "contract": "DAO",
+            "line": 208
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "DAO.constructor(IPools,IProposals,IExchangeConfig,IPoolsConfig,IStakingConfig,IRewardsConfig,IStableConfig,IDAOConfig,IPriceAggregator,IRewardsEmitter,ICollateralAndLiquidity) (src/dao/DAO.sol#70-109) ignores return value by usds.approve(address(collateralAndLiquidity),type()(uint256).max) (src/dao/DAO.sol#91)\n",
+            "filename": "DAO.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "constructor",
+            "contract": "DAO",
+            "line": 91
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "DAO._executeApproval(Ballot) (src/dao/DAO.sol#155-215) ignores return value by proposals.createConfirmationProposal(string.concat(ballot.ballotName,_confirm),BallotType.CONFIRM_SET_CONTRACT,ballot.address1,,ballot.description) (src/dao/DAO.sol#204)\n",
+            "filename": "DAO.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_executeApproval",
+            "contract": "DAO",
+            "line": 204
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "DAO._finalizeTokenWhitelisting(uint256) (src/dao/DAO.sol#235-273) ignores return value by exchangeConfig.salt().approve(address(liquidityRewardsEmitter),bootstrappingRewards * 2) (src/dao/DAO.sol#265)\n",
+            "filename": "DAO.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_finalizeTokenWhitelisting",
+            "contract": "DAO",
+            "line": 265
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "DAO.constructor(IPools,IProposals,IExchangeConfig,IPoolsConfig,IStakingConfig,IRewardsConfig,IStableConfig,IDAOConfig,IPriceAggregator,IRewardsEmitter,ICollateralAndLiquidity) (src/dao/DAO.sol#70-109) ignores return value by salt.approve(address(collateralAndLiquidity),type()(uint256).max) (src/dao/DAO.sol#90)\n",
+            "filename": "DAO.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "constructor",
+            "contract": "DAO",
+            "line": 90
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PoolUtils._placeInternalSwap(IPools,IERC20,IERC20,uint256,uint256) (src/pools/PoolUtils.sol#54-68) ignores return value by (reservesIn,None) = pools.getPoolReserves(tokenIn,tokenOut) (src/pools/PoolUtils.sol#59)\n",
+            "filename": "DAO.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_placeInternalSwap",
+            "contract": "PoolUtils",
+            "line": 59
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "DAO.formPOL(IERC20,IERC20,uint256,uint256) (src/dao/DAO.sol#316-324) ignores return value by collateralAndLiquidity.depositLiquidityAndIncreaseShare(tokenA,tokenB,amountA,amountB,0,block.timestamp,true) (src/dao/DAO.sol#321)\n",
+            "filename": "DAO.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "formPOL",
+            "contract": "DAO",
+            "line": 321
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "DAO.constructor(IPools,IProposals,IExchangeConfig,IPoolsConfig,IStakingConfig,IRewardsConfig,IStableConfig,IDAOConfig,IPriceAggregator,IRewardsEmitter,ICollateralAndLiquidity) (src/dao/DAO.sol#70-109) ignores return value by dai.approve(address(collateralAndLiquidity),type()(uint256).max) (src/dao/DAO.sol#92)\n",
+            "filename": "DAO.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "constructor",
+            "contract": "DAO",
+            "line": 92
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Upkeep.constructor(IPools,IExchangeConfig,IPoolsConfig,IDAOConfig,IStableConfig,IPriceAggregator,ISaltRewards,ICollateralAndLiquidity,IEmissions,IDAO) (src/Upkeep.sol#67-92) ignores return value by weth.approve(address(pools),type()(uint256).max) (src/Upkeep.sol#91)\n",
+            "filename": "DAO.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "constructor",
+            "contract": "Upkeep",
+            "line": 91
+        }
+    ]
+}

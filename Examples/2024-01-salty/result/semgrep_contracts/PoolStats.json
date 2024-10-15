@@ -1,0 +1,188 @@
+{
+    "success": true,
+    "finding_length": 26,
+    "findings": [
+        {
+            "classification": [],
+            "name": "array-length-outside-loop",
+            "category": "performance",
+            "message": "Caching the array length outside a loop saves reading it on each iteration, as long as the array's length is not changed during the loop. Details: https://sg.run/r4LJ",
+            "line": 65
+        },
+        {
+            "classification": [],
+            "name": "array-length-outside-loop",
+            "category": "performance",
+            "message": "Caching the array length outside a loop saves reading it on each iteration, as long as the array's length is not changed during the loop. Details: https://sg.run/r4LJ",
+            "line": 81
+        },
+        {
+            "classification": [],
+            "name": "array-length-outside-loop",
+            "category": "performance",
+            "message": "Caching the array length outside a loop saves reading it on each iteration, as long as the array's length is not changed during the loop. Details: https://sg.run/r4LJ",
+            "line": 106
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 94
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 96
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 112
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 115
+        },
+        {
+            "classification": [],
+            "name": "unnecessary-checked-arithmetic-in-loop",
+            "category": "performance",
+            "message": "hecked-arithmetic-in-loop A lot of times there is no risk that the loop counter can overflow. Using Solidity's unchecked block saves the overflow checks. Details: https://sg.run/OvDk",
+            "line": 65
+        },
+        {
+            "classification": [],
+            "name": "unnecessary-checked-arithmetic-in-loop",
+            "category": "performance",
+            "message": "hecked-arithmetic-in-loop A lot of times there is no risk that the loop counter can overflow. Using Solidity's unchecked block saves the overflow checks. Details: https://sg.run/OvDk",
+            "line": 81
+        },
+        {
+            "classification": [],
+            "name": "unnecessary-checked-arithmetic-in-loop",
+            "category": "performance",
+            "message": "hecked-arithmetic-in-loop A lot of times there is no risk that the loop counter can overflow. Using Solidity's unchecked block saves the overflow checks. Details: https://sg.run/OvDk",
+            "line": 106
+        },
+        {
+            "classification": [],
+            "name": "use-custom-error-not-require",
+            "category": "performance",
+            "message": "quire Consider using custom errors as they are more gas efficient while allowing developers  to describe the error in detail using NatSpec. Details: https://sg.run/ej3L",
+            "line": 49
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 87
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 88
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 89
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 90
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 91
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 92
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 93
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 94
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 95
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 96
+        },
+        {
+            "classification": [],
+            "name": "use-prefix-increment-not-postfix",
+            "category": "performance",
+            "message": "t-not-postfix Consider using the prefix increment expression whenever the return value is not needed. The prefix increment expression is cheaper in terms of gas. Details: https://sg.run/nxLr",
+            "line": 53
+        },
+        {
+            "classification": [],
+            "name": "use-prefix-increment-not-postfix",
+            "category": "performance",
+            "message": "t-not-postfix Consider using the prefix increment expression whenever the return value is not needed. The prefix increment expression is cheaper in terms of gas. Details: https://sg.run/nxLr",
+            "line": 65
+        },
+        {
+            "classification": [],
+            "name": "use-prefix-increment-not-postfix",
+            "category": "performance",
+            "message": "t-not-postfix Consider using the prefix increment expression whenever the return value is not needed. The prefix increment expression is cheaper in terms of gas. Details: https://sg.run/nxLr",
+            "line": 81
+        },
+        {
+            "classification": [],
+            "name": "use-prefix-increment-not-postfix",
+            "category": "performance",
+            "message": "t-not-postfix Consider using the prefix increment expression whenever the return value is not needed. The prefix increment expression is cheaper in terms of gas. Details: https://sg.run/nxLr",
+            "line": 106
+        },
+        {
+            "classification": [],
+            "name": "use-short-revert-string",
+            "category": "performance",
+            "message": "Shortening revert strings to fit in 32 bytes will decrease gas costs for deployment and  gas costs when the revert condition has been met. Details: https://sg.run/E9LB",
+            "line": 49
+        }
+    ]
+}

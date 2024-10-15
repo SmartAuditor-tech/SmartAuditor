@@ -1,0 +1,208 @@
+{
+    "success": true,
+    "finding_length": 17,
+    "findings": [
+        {
+            "name": "incorrect-exp",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) has bitwise-xor operator ^ instead of the exponentiation operator **: \n\t - inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)\n",
+            "filename": "Proposals.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 116
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123)\n",
+            "filename": "Proposals.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 123
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)\n",
+            "filename": "Proposals.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 116
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#120)\n",
+            "filename": "Proposals.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 120
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#121)\n",
+            "filename": "Proposals.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 121
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#122)\n",
+            "filename": "Proposals.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 122
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- prod0 = prod0 / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#104)\n\t- result = prod0 * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#131)\n",
+            "filename": "Proposals.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 131
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#125)\n",
+            "filename": "Proposals.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 125
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#124)\n",
+            "filename": "Proposals.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 124
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "Proposals.totalVotesCastForBallot(uint256) (src/dao/Proposals.sol#342-351) uses a dangerous strict equality:\n\t- ballot.ballotType == BallotType.PARAMETER (src/dao/Proposals.sol#347)\n",
+            "filename": "Proposals.sol",
+            "classification": [],
+            "function": "totalVotesCastForBallot",
+            "contract": "Proposals",
+            "line": 347
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "Proposals.requiredQuorumForBallotType(BallotType) (src/dao/Proposals.sol#317-339) uses a dangerous strict equality:\n\t- ballotType == BallotType.PARAMETER (src/dao/Proposals.sol#323)\n",
+            "filename": "Proposals.sol",
+            "classification": [],
+            "function": "requiredQuorumForBallotType",
+            "contract": "Proposals",
+            "line": 323
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "Proposals.requiredQuorumForBallotType(BallotType) (src/dao/Proposals.sol#317-339) uses a dangerous strict equality:\n\t- (ballotType == BallotType.WHITELIST_TOKEN) || (ballotType == BallotType.UNWHITELIST_TOKEN) (src/dao/Proposals.sol#325)\n",
+            "filename": "Proposals.sol",
+            "classification": [],
+            "function": "requiredQuorumForBallotType",
+            "contract": "Proposals",
+            "line": 325
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Proposals.markBallotAsFinalized(uint256) (src/dao/Proposals.sol#130-152) ignores return value by _allOpenBallots.remove(ballotID) (src/dao/Proposals.sol#141)\n",
+            "filename": "Proposals.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "markBallotAsFinalized",
+            "contract": "Proposals",
+            "line": 141
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Proposals.markBallotAsFinalized(uint256) (src/dao/Proposals.sol#130-152) ignores return value by _openBallotsForTokenWhitelisting.remove(ballotID) (src/dao/Proposals.sol#138)\n",
+            "filename": "Proposals.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "markBallotAsFinalized",
+            "contract": "Proposals",
+            "line": 138
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PoolUtils._placeInternalSwap(IPools,IERC20,IERC20,uint256,uint256) (src/pools/PoolUtils.sol#54-68) ignores return value by (reservesIn,None) = pools.getPoolReserves(tokenIn,tokenOut) (src/pools/PoolUtils.sol#59)\n",
+            "filename": "Proposals.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_placeInternalSwap",
+            "contract": "PoolUtils",
+            "line": 59
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Proposals._possiblyCreateProposal(string,BallotType,address,uint256,string,string) (src/dao/Proposals.sol#81-118) ignores return value by _allOpenBallots.add(ballotID) (src/dao/Proposals.sol#111)\n",
+            "filename": "Proposals.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_possiblyCreateProposal",
+            "contract": "Proposals",
+            "line": 111
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Proposals.proposeTokenWhitelisting(IERC20,string,string) (src/dao/Proposals.sol#162-177) ignores return value by _openBallotsForTokenWhitelisting.add(ballotID) (src/dao/Proposals.sol#174)\n",
+            "filename": "Proposals.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "proposeTokenWhitelisting",
+            "contract": "Proposals",
+            "line": 174
+        }
+    ]
+}

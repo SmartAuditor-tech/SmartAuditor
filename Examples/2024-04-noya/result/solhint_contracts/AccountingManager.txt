@@ -1,0 +1,53 @@
+
+/g4b/contracts/accountingManager/AccountingManager.sol
+    2:1    error    Compiler version 0.8.20 does not satisfy the ^0.5.8 semver requirement                             compiler-version
+   16:1    warning  Contract has 24 states declarations but allowed no more than 15                                    max-states-count
+   94:5    warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+  101:35   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  106:9    warning  Provide an error message for require                                                               reason-string
+  107:9    warning  Provide an error message for require                                                               reason-string
+  108:9    warning  Provide an error message for require                                                               reason-string
+  109:9    warning  Provide an error message for require                                                               reason-string
+  110:9    warning  Provide an error message for require                                                               reason-string
+  125:9    warning  Provide an error message for require                                                               reason-string
+  140:9    warning  Provide an error message for require                                                               reason-string
+  141:9    warning  Provide an error message for require                                                               reason-string
+  142:9    warning  Provide an error message for require                                                               reason-string
+  215:74   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  216:57   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  241:36   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  243:44   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  269:90   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  275:43   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  313:89   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  314:78   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  346:36   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  349:96   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  361:9    warning  Provide an error message for require                                                               reason-string
+  371:9    warning  Provide an error message for require                                                               reason-string
+  408:92   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  430:93   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  477:28   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  486:100  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  496:62   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  506:13   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  509:30   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  521:35   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  528:64   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  529:20   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  549:9    warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  627:5    warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  685:31   warning  Avoid to use low level calls                                                                       avoid-low-level-calls
+  693:19   warning  Variable "shares" is unused                                                                        no-unused-vars
+  693:35   warning  Variable "receiver" is unused                                                                      no-unused-vars
+  697:23   warning  Variable "assets" is unused                                                                        no-unused-vars
+  697:39   warning  Variable "receiver" is unused                                                                      no-unused-vars
+  697:57   warning  Variable "owner" is unused                                                                         no-unused-vars
+  701:21   warning  Variable "shares" is unused                                                                        no-unused-vars
+  701:37   warning  Variable "receiver" is unused                                                                      no-unused-vars
+  701:55   warning  Variable "shareOwner" is unused                                                                    no-unused-vars
+  705:22   warning  Variable "assets" is unused                                                                        no-unused-vars
+  705:38   warning  Variable "receiver" is unused                                                                      no-unused-vars
+
+✖ 48 problems (1 error, 47 warnings)
+

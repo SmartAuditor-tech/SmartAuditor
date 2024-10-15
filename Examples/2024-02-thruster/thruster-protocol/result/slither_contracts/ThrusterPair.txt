@@ -1,0 +1,20 @@
+'solc --version' running
+'solc /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-cfmm/contracts/ThrusterPair.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-cfmm/contracts' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-cfmm/contracts/ThrusterPair.sol:
+/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-cfmm/contracts/ThrusterPair.sol:10:1: Error: Source "ThrusterYield.sol" not found: File not found.
+import "ThrusterYield.sol";
+^-------------------------^
+/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-cfmm/contracts/ThrusterPair.sol:13:1: Error: Source "libraries/UQ112x112.sol" not found: File not found.
+import "libraries/UQ112x112.sol";
+^-------------------------------^
+/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-clmm/lib/openzeppelin-contracts/contracts/math/SafeMath.sol:3:1: Error: Source file requires different compiler version (current compiler is 0.5.16+commit.9c3226ce.Darwin.appleclang - note that nightly builds are considered to be strictly less than the released version
+pragma solidity ^0.7.0;
+^---------------------^
+/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-treasure/lib/forge-std/src/interfaces/IERC20.sol:2:1: Error: Source file requires different compiler version (current compiler is 0.5.16+commit.9c3226ce.Darwin.appleclang - note that nightly builds are considered to be strictly less than the released version
+pragma solidity >=0.6.2;
+^----------------------^
+/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-treasure/lib/openzeppelin-contracts/contracts/utils/math/Math.sol:4:1: Error: Source file requires different compiler version (current compiler is 0.5.16+commit.9c3226ce.Darwin.appleclang - note that nightly builds are considered to be strictly less than the released version
+pragma solidity ^0.8.20;
+^----------------------^
+
+ERROR:Slither:Unable to compile all targets.

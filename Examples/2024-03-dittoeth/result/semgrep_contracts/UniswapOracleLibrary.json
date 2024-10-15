@@ -1,0 +1,34 @@
+{
+    "success": true,
+    "finding_length": 4,
+    "findings": [
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 65
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 66
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 67
+        },
+        {
+            "classification": [],
+            "name": "use-prefix-decrement-not-postfix",
+            "category": "performance",
+            "message": "t-not-postfix Consider using the prefix decrement expression whenever the return value is not needed. The prefix decrement expression is cheaper in terms of gas. Details: https://sg.run/Z024",
+            "line": 66
+        }
+    ]
+}

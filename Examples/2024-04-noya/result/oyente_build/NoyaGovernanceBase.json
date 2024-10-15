@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "NoyaGovernanceBase.sol",
+        "coverage": "16.3%",
+        "warnings": []
+    }
+}

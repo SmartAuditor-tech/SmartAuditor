@@ -1,0 +1,24 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/WrapperHub/AaveHelper.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20 --evm-version shanghai --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/WrapperHub' running
+INFO:Detectors:
+WrapperHelper._wrapETH(uint256) (contracts/TransferHub/WrapperHelper.sol#24-32) sends eth to arbitrary user
+	Dangerous calls:
+	- WETH.deposit{value: _value}() (contracts/TransferHub/WrapperHelper.sol#29-31)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+INFO:Detectors:
+Declarations.aaveTokenAddress (contracts/WrapperHub/Declarations.sol#41) is never initialized. It is used in:
+	- AaveHelper._wrapDepositExactAmount(uint256,address,uint256) (contracts/WrapperHub/AaveHelper.sol#56-81)
+	- AaveHelper._wrapWithdrawExactAmount(uint256,address,address,uint256) (contracts/WrapperHub/AaveHelper.sol#83-111)
+	- AaveHelper._wrapWithdrawExactShares(uint256,address,address,uint256) (contracts/WrapperHub/AaveHelper.sol#113-139)
+	- AaveHelper._wrapBorrowExactAmount(uint256,address,address,uint256) (contracts/WrapperHub/AaveHelper.sol#141-163)
+	- AaveHelper._wrapAaveReturnValueDeposit(address,uint256,address) (contracts/WrapperHub/AaveHelper.sol#165-194)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+INFO:Detectors:
+AaveHelper._prepareCollaterals(uint256,address).i (contracts/WrapperHub/AaveHelper.sol#249) is a local variable never initialized
+AaveHelper._prepareBorrows(uint256,address).i (contracts/WrapperHub/AaveHelper.sol#285) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+INFO:Detectors:
+AaveHelper._wrapBorrowExactAmount(uint256,address,address,uint256) (contracts/WrapperHub/AaveHelper.sol#141-163) ignores return value by AAVE.withdraw(_underlyingAsset,_borrowAmount,_underlyingAssetRecipient) (contracts/WrapperHub/AaveHelper.sol#156-160)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/WrapperHub/AaveHelper.sol analyzed (11 contracts with 58 detectors), 5 result(s) found

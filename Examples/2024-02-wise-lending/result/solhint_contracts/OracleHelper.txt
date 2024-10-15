@@ -1,0 +1,12 @@
+
+/g4b/contracts/WiseOracleHub/OracleHelper.sol
+    3:1   error    Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement  compiler-version
+   68:9   warning  Avoid to use inline assembly. It is acceptable only in rare cases        no-inline-assembly
+   78:28  warning  Avoid to use low level calls                                             avoid-low-level-calls
+  541:31  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+  580:19  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+  581:19  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+  582:19  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+
+✖ 7 problems (1 error, 6 warnings)
+

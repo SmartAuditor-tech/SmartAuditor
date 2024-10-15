@@ -1,0 +1,11 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.20/solc-0.8.20 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.20/solc-0.8.20 forge-std/=lib/forge-std/src/ @openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/ ds-test/=lib/forge-std/lib/ds-test/src/ erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/ openzeppelin-contracts/=lib/openzeppelin-contracts/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-05-loop/src/mock/MockLpETH.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 100 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-05-loop/src/mock' running
+INFO:Detectors:
+Contract locking ether found:
+	Contract MockLpETH (src/mock/MockLpETH.sol#7-14) has payable functions:
+	 - ILpETH.deposit(address) (src/interfaces/ILpETH.sol#7)
+	 - MockLpETH.deposit(address) (src/mock/MockLpETH.sol#10-13)
+	But does not have a function to withdraw the ether
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#contracts-that-lock-ether
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-05-loop/src/mock/MockLpETH.sol analyzed (9 contracts with 58 detectors), 1 result(s) found

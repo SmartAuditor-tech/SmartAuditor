@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "FeeRateModel.sol",
+        "incomplete instruction": "2345",
+        "coverage": "2.4%",
+        "warnings": []
+    }
+}

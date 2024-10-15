@@ -1,0 +1,8 @@
+usage: slither target [flag]
+
+target can be:
+	- file.sol // a Solidity file
+	- project_directory // a project directory. See https://github.com/crytic/crytic-compile/#crytic-compile for the supported platforms
+	- 0x.. // a contract on mainnet
+	- NETWORK:0x.. // a contract on a different network. Supported networks: mainet,optim,goerli,sepolia,tobalaba,bsc,testnet.bsc,arbi,testnet.arbi,poly,mumbai,avax,testnet.avax,ftm,goerli.base,base,gno,polyzk,blast
+slither: error: unrecognized arguments: --timeout 600

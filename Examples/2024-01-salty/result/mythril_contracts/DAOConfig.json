@@ -1,0 +1,27 @@
+{
+    "success": true,
+    "finding_length": 2,
+    "findings": [
+        {
+            "filaname": "DAOConfig.sol",
+            "SWC ID": " 110",
+            "Severity": " Low",
+            "Contract": " DAOConfig",
+            "Function name": " constructor",
+            "PC address": " 65",
+            "Estimated Gas Usage": " 40087 - 200182",
+            "description": "It is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values). This issue is reported for internal compiler generated code."
+        },
+        {
+            "filaname": "DAOConfig.sol",
+            "SWC ID": " 110",
+            "Severity": " Medium",
+            "Contract": " DAOConfig",
+            "Function name": " constructor",
+            "PC address": " 103",
+            "Estimated Gas Usage": " 40120 - 200215",
+            "description": "It is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).",
+            "line": "29"
+        }
+    ]
+}

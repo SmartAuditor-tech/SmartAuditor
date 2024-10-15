@@ -1,0 +1,30 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.20/solc-0.8.20 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.20/solc-0.8.20 forge-std/=lib/forge-std/src/ solmate/=lib/solmate/src/ @uniswap/v3-periphery/=lib/v3-periphery/ @uniswap/v3-core/=lib/v3-core/ @uniswap/swap-contracts/=lib/swap-router-contracts/contracts/ decent-bridge/=lib/decent-bridge/ better-deployer/=lib/decent-bridge/lib/better-deployer/src/ forge-toolkit/=lib/forge-toolkit/src/ openzeppelin-contracts/=lib/decent-bridge/lib/openzeppelin-contracts/contracts/ @openzeppelin/=lib/decent-bridge/lib/openzeppelin-contracts/ @openzeppelin/contracts/=lib/decent-bridge/lib/openzeppelin-contracts/contracts/ LayerZero/=lib/forge-toolkit/lib/LayerZero/contracts/ ds-test/=lib/forge-std/lib/ds-test/src/ erc4626-tests/=lib/decent-bridge/lib/openzeppelin-contracts/lib/erc4626-tests/ openzeppelin/=lib/decent-bridge/lib/openzeppelin-contracts/contracts/ solidity-examples/=lib/decent-bridge/lib/solidity-examples/contracts/ solidity-stringutils/=lib/decent-bridge/lib/solidity-stringutils/ swap-router-contracts/=lib/swap-router-contracts/contracts/ v3-core/=lib/v3-core/ v3-periphery/=lib/v3-periphery/contracts/ lib/forge-std:ds-test/=lib/decent-bridge/lib/forge-std/lib/ds-test/src/ lib/openzeppelin-contracts:ds-test/=lib/decent-bridge/lib/openzeppelin-contracts/lib/forge-std/lib/ds-test/src/ lib/openzeppelin-contracts:erc4626-tests/=lib/decent-bridge/lib/openzeppelin-contracts/lib/erc4626-tests/ lib/openzeppelin-contracts:forge-std/=lib/decent-bridge/lib/openzeppelin-contracts/lib/forge-std/src/ lib/openzeppelin-contracts:openzeppelin/=lib/decent-bridge/lib/openzeppelin-contracts/contracts/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-decent/lib/decent-bridge/src/DecentBridgeExecutor.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 200 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-decent/lib/decent-bridge/src' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-decent/lib/decent-bridge/src/DecentBridgeExecutor.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> lib/decent-bridge/src/interfaces/IDecentBridgeExecutor.sol
+
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> lib/decent-bridge/src/interfaces/IWETH.sol
+
+
+INFO:Detectors:
+DecentBridgeExecutor._executeEth(address,address,uint256,bytes) (lib/decent-bridge/src/DecentBridgeExecutor.sol#54-65) sends eth to arbitrary user
+	Dangerous calls:
+	- (success,None) = target.call{value: amount}(callPayload) (lib/decent-bridge/src/DecentBridgeExecutor.sol#61)
+	- address(from).transfer(amount) (lib/decent-bridge/src/DecentBridgeExecutor.sol#63)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+INFO:Detectors:
+DecentBridgeExecutor._executeWeth(address,address,uint256,bytes) (lib/decent-bridge/src/DecentBridgeExecutor.sol#24-45) ignores return value by weth.transfer(from,amount) (lib/decent-bridge/src/DecentBridgeExecutor.sol#36)
+DecentBridgeExecutor._executeWeth(address,address,uint256,bytes) (lib/decent-bridge/src/DecentBridgeExecutor.sol#24-45) ignores return value by weth.transfer(from,remainingAfterCall) (lib/decent-bridge/src/DecentBridgeExecutor.sol#44)
+DecentBridgeExecutor.execute(address,address,bool,uint256,bytes) (lib/decent-bridge/src/DecentBridgeExecutor.sol#68-82) ignores return value by weth.transferFrom(msg.sender,address(this),amount) (lib/decent-bridge/src/DecentBridgeExecutor.sol#75)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+INFO:Detectors:
+DecentBridgeExecutor._executeWeth(address,address,uint256,bytes) (lib/decent-bridge/src/DecentBridgeExecutor.sol#24-45) ignores return value by weth.approve(target,amount) (lib/decent-bridge/src/DecentBridgeExecutor.sol#31)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Detectors:
+DecentBridgeExecutor.gasCurrencyIsEth (lib/decent-bridge/src/DecentBridgeExecutor.sol#10) should be immutable 
+DecentBridgeExecutor.weth (lib/decent-bridge/src/DecentBridgeExecutor.sol#9) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-decent/lib/decent-bridge/src/DecentBridgeExecutor.sol analyzed (8 contracts with 58 detectors), 7 result(s) found

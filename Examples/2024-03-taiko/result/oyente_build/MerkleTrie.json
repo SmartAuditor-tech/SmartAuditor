@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "MerkleTrie.sol",
+        "coverage": "25.0%",
+        "warnings": []
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "RayMath.sol",
+        "incomplete instruction": "173",
+        "coverage": "14.9%",
+        "warnings": []
+    }
+}

@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "/g4b/node_modules/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol" not found: File not found. Searched the following locations: "".
+ --> /g4b/src/bridge/Bridge.sol:8:1:
+  |
+8 | import "../../node_modules/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

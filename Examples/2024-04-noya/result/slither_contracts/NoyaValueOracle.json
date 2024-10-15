@@ -1,0 +1,15 @@
+{
+    "success": true,
+    "finding_length": 1,
+    "findings": [
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "NoyaValueOracle.registry (contracts/helpers/valueOracle/NoyaValueOracle.sol#11) should be immutable \n",
+            "filename": "NoyaValueOracle.sol",
+            "classification": [],
+            "line": 11
+        }
+    ]
+}

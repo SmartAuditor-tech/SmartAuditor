@@ -1,0 +1,48 @@
+{
+    "success": true,
+    "finding_length": 6,
+    "findings": [
+        {
+            "classification": [],
+            "name": "inefficient-state-variable-increment",
+            "category": "performance",
+            "message": "te-variable-increment <x> += <y> costs more gas than <x> = <x> + <y> for state variables. Details: https://sg.run/bp9v",
+            "line": 141
+        },
+        {
+            "classification": [],
+            "name": "inefficient-state-variable-increment",
+            "category": "performance",
+            "message": "te-variable-increment <x> += <y> costs more gas than <x> = <x> + <y> for state variables. Details: https://sg.run/bp9v",
+            "line": 156
+        },
+        {
+            "classification": [],
+            "name": "inefficient-state-variable-increment",
+            "category": "performance",
+            "message": "te-variable-increment <x> += <y> costs more gas than <x> = <x> + <y> for state variables. Details: https://sg.run/bp9v",
+            "line": 216
+        },
+        {
+            "classification": [],
+            "name": "inefficient-state-variable-increment",
+            "category": "performance",
+            "message": "te-variable-increment <x> += <y> costs more gas than <x> = <x> + <y> for state variables. Details: https://sg.run/bp9v",
+            "line": 217
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 277
+        },
+        {
+            "classification": [],
+            "name": "arbitrary-send-erc20",
+            "category": "security",
+            "message": "msg.sender is not being used when calling erc20.transferFrom. Example - Alice approves this contract to spend her ERC20 tokens. Bob can call function 'a' and specify Alice's address as the from parameter in transferFrom, allowing him to transfer Alice's tokens to himself. Details: https://sg.run/B72A",
+            "line": 219
+        }
+    ]
+}

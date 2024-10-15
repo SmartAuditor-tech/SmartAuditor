@@ -1,0 +1,86 @@
+{
+    "success": true,
+    "finding_length": 10,
+    "findings": [
+        {
+            "filename": "PtOracleDerivative.sol",
+            "line": 3,
+            "column": 1,
+            "message": "Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "PtOracleDerivative.sol",
+            "line": 24,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "PtOracleDerivative.sol",
+            "line": 47,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "PtOracleDerivative.sol",
+            "line": 47,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "PtOracleDerivative.sol",
+            "line": 50,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "PtOracleDerivative.sol",
+            "line": 53,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "PtOracleDerivative.sol",
+            "line": 56,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "PtOracleDerivative.sol",
+            "line": 59,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "PtOracleDerivative.sol",
+            "line": 62,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "PtOracleDerivative.sol",
+            "line": 71,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "LibVerifying.sol",
+        "incomplete instruction": "3008",
+        "coverage": "0.9%",
+        "warnings": []
+    }
+}

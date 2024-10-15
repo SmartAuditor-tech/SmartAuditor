@@ -1,0 +1,118 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 7 Code Findings │
+└─────────────────┘
+                                             
+    /g4b/contracts/facets/BidOrdersFacet.sol 
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          106┆ if (incomingBid.price >= lowestSell.price &&                     
+  (lowestSell.orderType == O.LimitAsk || lowestSell.orderType == O.LimitShort)) 
+  {                                                                             
+          107┆     // @dev if match and match price is gt .5% to saved oracle in
+  either direction, update startingShortId                                      
+          108┆     LibOrders.updateOracleAndStartingShortViaThreshold(asset,    
+  LibOracle.getPrice(asset), incomingBid, shortHintArray);                      
+          109┆     b.shortHintId = b.shortId = Asset.startingShortId;
+          110┆     b.oraclePrice = LibOracle.getPrice(asset);
+          111┆     return bidMatchAlgo(asset, incomingBid, orderHintArray, b);
+          112┆ } else {
+          113┆     // @dev no match, add to market if limit order
+          114┆     LibOrders.addBid(asset, incomingBid, orderHintArray);
+          115┆     return (0, ercAmount);
+             [hid 1 additional lines, adjust with --max-lines-per-finding] 
+          141┆ if (b.askId == C.TAIL && b.shortId == C.TAIL) {
+          142┆     if (incomingBid.ercAmount.mul(incomingBid.price) >=          
+  minBidEth) {                                                                  
+          143┆         LibOrders.addBid(asset, incomingBid, orderHintArray);
+          144┆     }
+          145┆     return matchIncomingBid(asset, incomingBid, matchTotal, b);
+          146┆ }
+            ⋮┆----------------------------------------
+          315┆ if (shortOrderType != O.Cancelled && shortOrderType != O.Matched)
+  {                                                                             
+          316┆     Asset.startingShortId = b.shortId;
+          317┆ } else if (prevShortOrderType != O.Cancelled &&                  
+  prevShortOrderType != O.Matched && prevShort.price >= b.oraclePrice) {        
+          318┆     Asset.startingShortId = b.prevShortId;
+          319┆ } else {
+          320┆     if (b.isMovingFwd) {
+          321┆         Asset.startingShortId = currentShort.nextId;
+          322┆     } else {
+          323┆         Asset.startingShortId =                                  
+  s.shorts[asset][b.shortHintId].nextId;                                        
+          324┆     }
+             [hid 1 additional lines, adjust with --max-lines-per-finding] 
+          317┆ } else if (prevShortOrderType != O.Cancelled &&                  
+  prevShortOrderType != O.Matched && prevShort.price >= b.oraclePrice) {        
+          318┆     Asset.startingShortId = b.prevShortId;
+          319┆ } else {
+          320┆     if (b.isMovingFwd) {
+          321┆         Asset.startingShortId = currentShort.nextId;
+          322┆     } else {
+          323┆         Asset.startingShortId =                                  
+  s.shorts[asset][b.shortHintId].nextId;                                        
+          324┆     }
+          325┆ }
+            ⋮┆----------------------------------------
+          392┆ if (prevPrice >= b.oraclePrice && !b.isMovingFwd) {
+          393┆     // @dev shortHintId should always be the first thing matched
+          394┆     b.isMovingBack = true;
+          395┆     b.shortId = b.prevShortId;
+          396┆ } else if (prevPrice < b.oraclePrice && !b.isMovingFwd) {
+          397┆     b.firstShortIdBelowOracle = b.prevShortId;
+          398┆     b.shortId = s.shorts[asset][b.shortHintId].nextId;
+          399┆ 
+          400┆     STypes.Order storage nextShort =                             
+  s.shorts[asset][lowestSell.nextId];                                           
+          401┆     // @dev Only set to true if actually moving forward
+             [hid 6 additional lines, adjust with --max-lines-per-finding] 
+          396┆ } else if (prevPrice < b.oraclePrice && !b.isMovingFwd) {
+          397┆     b.firstShortIdBelowOracle = b.prevShortId;
+          398┆     b.shortId = s.shorts[asset][b.shortHintId].nextId;
+          399┆ 
+          400┆     STypes.Order storage nextShort =                             
+  s.shorts[asset][lowestSell.nextId];                                           
+          401┆     // @dev Only set to true if actually moving forward
+          402┆     if (b.shortId != C.HEAD && nextShort.price <=                
+  incomingBid.price) {                                                          
+          403┆         b.isMovingFwd = true;
+          404┆     }
+          405┆ } else if (b.isMovingFwd) {
+             [hid 2 additional lines, adjust with --max-lines-per-finding] 
+          402┆ if (b.shortId != C.HEAD && nextShort.price <= incomingBid.price) 
+  {                                                                             
+          403┆     b.isMovingFwd = true;
+          404┆ }
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+Some files were skipped or only partially analyzed.
+  Partially scanned: 1 files only partially analyzed due to parsing or internal Semgrep errors
+
+Ran 50 rules on 1 file: 7 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

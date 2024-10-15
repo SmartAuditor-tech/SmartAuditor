@@ -1,0 +1,70 @@
+{
+    "success": true,
+    "finding_length": 8,
+    "findings": [
+        {
+            "filename": "Airdrop.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version =0.8.22 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "Airdrop.sol",
+            "line": 35,
+            "column": 2,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "Airdrop.sol",
+            "line": 48,
+            "column": 6,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Airdrop.sol",
+            "line": 49,
+            "column": 6,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Airdrop.sol",
+            "line": 58,
+            "column": 6,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Airdrop.sol",
+            "line": 60,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Airdrop.sol",
+            "line": 77,
+            "column": 6,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Airdrop.sol",
+            "line": 78,
+            "column": 6,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        }
+    ]
+}

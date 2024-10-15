@@ -1,0 +1,152 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 36 Code Findings │
+└──────────────────┘
+                                 
+    /g4b/src/GaugeController.sol 
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           69┆ constructor(address _votingEscrow, address _governance) {
+           70┆     votingEscrow = VotingEscrow(_votingEscrow);
+           71┆     governance = _governance;
+           72┆     uint256 last_epoch = (block.timestamp / WEEK) * WEEK;
+           73┆     time_total = last_epoch;
+           74┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+          103┆ points_type_weight[gauge_type][t] = w;
+            ⋮┆----------------------------------------
+          104┆ if (t > block.timestamp) time_type_weight[gauge_type] = t;
+            ⋮┆----------------------------------------
+          124┆ uint256 d_slope = changes_sum[gauge_type][t];
+            ⋮┆----------------------------------------
+          130┆ points_sum[gauge_type][t] = pt;
+            ⋮┆----------------------------------------
+          131┆ if (t > block.timestamp) time_sum[gauge_type] = t;
+            ⋮┆----------------------------------------
+          161┆ uint256 type_sum = points_sum[gauge_type][t].bias;
+            ⋮┆----------------------------------------
+          162┆ uint256 type_weight = points_type_weight[gauge_type][t];
+            ⋮┆----------------------------------------
+          165┆ points_total[t] = pt;
+            ⋮┆----------------------------------------
+          168┆ time_total = t;
+            ⋮┆----------------------------------------
+          188┆ uint256 d_slope = changes_weight[_gauge_addr][t];
+            ⋮┆----------------------------------------
+          194┆ points_weight[_gauge_addr][t] = pt;
+            ⋮┆----------------------------------------
+          195┆ if (t > block.timestamp) time_weight[_gauge_addr] = t;
+            ⋮┆----------------------------------------
+          368┆ uint256 gauge_weight_change =                                    
+  changes_weight[_gauge][time_to_check];                                        
+            ⋮┆----------------------------------------
+          370┆ changes_weight[_gauge][time_to_check] = 0;
+            ⋮┆----------------------------------------
+          371┆ changes_sum[gauge_type][time_to_check] -= gauge_weight_change;
+            ⋮┆----------------------------------------
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+          100┆ for (uint256 i; i < 500; ++i) {
+            ⋮┆----------------------------------------
+          118┆ for (uint256 i; i < 500; ++i) {
+            ⋮┆----------------------------------------
+          151┆ for (int128 gauge_type; gauge_type < _n_gauge_types;             
+  ++gauge_type) {                                                               
+            ⋮┆----------------------------------------
+          156┆ for (uint256 i; i < 500; ++i) {
+            ⋮┆----------------------------------------
+          160┆ for (int128 gauge_type; gauge_type < _n_gauge_types;             
+  ++gauge_type) {                                                               
+            ⋮┆----------------------------------------
+          182┆ for (uint256 i; i < 500; ++i) {
+            ⋮┆----------------------------------------
+          366┆ for (uint256 i; i < 263; ++i) {
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           87┆ require(gauge_type != 0, "Invalid gauge address");
+            ⋮┆----------------------------------------
+          207┆ require(gauge_type >= 0 && gauge_type < n_gauge_types, "Invalid  
+  gauge type");                                                                 
+            ⋮┆----------------------------------------
+          208┆ require(gauge_types_[addr] == 0, "Gauge already exists");
+            ⋮┆----------------------------------------
+          225┆ require(gauge_types_[_gauge] != 0, "Invalid gauge address");
+            ⋮┆----------------------------------------
+          386┆ require(_user_weight >= 0 && _user_weight <= 10_000, "Invalid    
+  user weight");                                                                
+            ⋮┆----------------------------------------
+          387┆ require(_user_weight == 0 || gauge_types_[_gauge_addr] != 0, "Can
+  only vote 0 on non-gauges"); // We allow withdrawing voting power from invalid
+  (removed) gauge ... [0m                                                       
+            [shortened a long line from output, adjust with                     
+  --max-chars-per-line]                                                         
+            ⋮┆----------------------------------------
+          395┆ require(slope_ >= 0, "Invalid slope");
+            ⋮┆----------------------------------------
+          399┆ require(lock_end > next_time, "Lock expires too soon");
+            ⋮┆----------------------------------------
+          402┆ require(gauge_type >= 0, "Gauge not added");
+            ⋮┆----------------------------------------
+          419┆ require(power_used >= 0 && power_used <= 10_000, "Used too much  
+  power");                                                                      
+            ⋮┆----------------------------------------
+       solidity.performance.use-multiple-require.use-multiple-require           
+          Using multiple require statements is cheaper than using && multiple   
+  check combinations.                                                           
+          There are more advantages, such as easier to read code and better     
+  coverage reports.                                                             
+          Details: https://sg.run/vGA0                                          
+                                                                                
+          207┆ require(gauge_type >= 0 && gauge_type < n_gauge_types, "Invalid  
+  gauge type");                                                                 
+            ⋮┆----------------------------------------
+          386┆ require(_user_weight >= 0 && _user_weight <= 10_000, "Invalid    
+  user weight");                                                                
+            ⋮┆----------------------------------------
+          419┆ require(power_used >= 0 && power_used <= 10_000, "Used too much  
+  power");                                                                      
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 36 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

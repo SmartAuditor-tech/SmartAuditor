@@ -1,0 +1,11 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [
+            "Callstack Depth Attack Vulnerability: DASP-5"
+        ],
+        "filename": "Curves.sol",
+        "coverage": "0.1%",
+        "warnings": []
+    }
+}

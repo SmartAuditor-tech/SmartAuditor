@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "EzEthToken.sol",
+        "coverage": "0.4%",
+        "warnings": []
+    }
+}

@@ -1,0 +1,48 @@
+{
+    "success": true,
+    "finding_length": 3,
+    "findings": [
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PtOraclePure.latestAnswer() (contracts/DerivativeOracles/PtOraclePure.sol#68-108) performs a multiplication on the result of a division:\n\t- uint256(answerFeed) * PRECISION_FACTOR_E18 / POW_FEED * ptToAssetRate / PRECISION_FACTOR_E18 (contracts/DerivativeOracles/PtOraclePure.sol#103-107)\n",
+            "filename": "PtOraclePure.sol",
+            "classification": [],
+            "function": "latestAnswer",
+            "contract": "PtOraclePure",
+            "line": 103,
+            "line_end": 107
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PtOraclePure.latestAnswer() (contracts/DerivativeOracles/PtOraclePure.sol#68-108) ignores return value by (None,answerFeed,None,None,None) = FEED_ASSET.latestRoundData() (contracts/DerivativeOracles/PtOraclePure.sol#73-79)\n",
+            "filename": "PtOraclePure.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "latestAnswer",
+            "contract": "PtOraclePure",
+            "line": 73,
+            "line_end": 79
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PtOraclePure.latestAnswer() (contracts/DerivativeOracles/PtOraclePure.sol#68-108) ignores return value by (increaseCardinalityRequired,None,oldestObservationSatisfied) = ORACLE_PENDLE_PT.getOracleState(PENDLE_MARKET_ADDRESS,DURATION) (contracts/DerivativeOracles/PtOraclePure.sol#81-88)\n",
+            "filename": "PtOraclePure.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "latestAnswer",
+            "contract": "PtOraclePure",
+            "line": 81,
+            "line_end": 88
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "success": true,
+    "finding_length": 2,
+    "findings": [
+        {
+            "filaname": "RenzoOracleL2.sol",
+            "SWC ID": " 116",
+            "Severity": " Low",
+            "Contract": " MAIN",
+            "Function name": " _function_0x96f0bd61",
+            "PC address": " 1208",
+            "Estimated Gas Usage": " 3031 - 38390",
+            "description": "The block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables as sources of randomness and be aware that use of these variables introduces a certain level of trust into miners."
+        },
+        {
+            "filaname": "RenzoOracleL2.sol",
+            "SWC ID": " 116",
+            "Severity": " Low",
+            "Contract": " MAIN",
+            "Function name": " _function_0x96f0bd61",
+            "PC address": " 4124",
+            "Estimated Gas Usage": " 2989 - 38348",
+            "description": "The block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables as sources of randomness and be aware that use of these variables introduces a certain level of trust into miners."
+        }
+    ]
+}

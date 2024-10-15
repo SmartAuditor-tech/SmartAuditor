@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "/g4b/contracts/.cache/OpenZeppelin/v4.9.3/token/ERC721/ERC721.sol" not found: File not found. Searched the following locations: "".
+  --> /g4b/contracts/wrapper/WLpMoeMasterChef.sol:14:1:
+   |
+14 | import  {ERC721} from "../.cache/OpenZeppelin/v4.9.3/token/ERC721/ERC721.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

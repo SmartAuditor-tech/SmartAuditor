@@ -1,0 +1,181 @@
+{
+    "success": true,
+    "finding_length": 25,
+    "findings": [
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 158
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 191
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 192
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 214
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 215
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 216
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 234
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 258
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 259
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 260
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 310
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 313
+        },
+        {
+            "classification": [],
+            "name": "array-length-outside-loop",
+            "category": "performance",
+            "message": "Caching the array length outside a loop saves reading it on each iteration, as long as the array's length is not changed during the loop. Details: https://sg.run/r4LJ",
+            "line": 89
+        },
+        {
+            "classification": [],
+            "name": "array-length-outside-loop",
+            "category": "performance",
+            "message": "Caching the array length outside a loop saves reading it on each iteration, as long as the array's length is not changed during the loop. Details: https://sg.run/r4LJ",
+            "line": 180
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 54
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 55
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 56
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 57
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 58
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 59
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 116
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 226
+        },
+        {
+            "classification": [],
+            "name": "state-variable-read-in-a-loop",
+            "category": "performance",
+            "message": "-a-loop Replace state variable reads and writes within loops with local variable reads and writes. Details: https://sg.run/xADy",
+            "line": 299
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 222
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 257
+        }
+    ]
+}

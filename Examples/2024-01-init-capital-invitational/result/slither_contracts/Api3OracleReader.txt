@@ -1,0 +1,24 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 @forge-std/=lib/forge-std/src/ @openzeppelin-contracts/=contracts/.cache/OpenZeppelin/v4.9.3/ @openzeppelin-contracts-upgradeable/=contracts/.cache/OpenZeppelin-Upgradeable/v4.9.3/ ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-init-capital-invitational/contracts/oracle/Api3OracleReader.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 200 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-init-capital-invitational/contracts/oracle' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-init-capital-invitational/contracts/oracle/Api3OracleReader.sol:
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/utils/math/SafeCast.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/oracle/Api3OracleReader.sol:4:1:
+  |
+4 | import  {SafeCast} from "../.cache/OpenZeppelin/v4.9.3/utils/math/SafeCast.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/token/ERC20/extensions/IERC20Metadata.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/oracle/Api3OracleReader.sol:5:1:
+  |
+5 | import  {IERC20Metadata} from "../.cache/OpenZeppelin/v4.9.3/token/ERC20/extensions/IERC20Metadata.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin-Upgradeable/v4.9.3/proxy/utils/Initializable.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/oracle/Api3OracleReader.sol:6:1:
+  |
+6 | import  {Initializable} from "../.cache/OpenZeppelin-Upgradeable/v4.9.3/proxy/utils/Initializable.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+ERROR:Slither:Unable to compile all targets.

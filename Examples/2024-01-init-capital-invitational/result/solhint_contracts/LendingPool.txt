@@ -1,0 +1,27 @@
+
+/g4b/contracts/lending_pool/LendingPool.sol
+    2:1   error    Compiler version ^0.8.19 does not satisfy the ^0.5.8 semver requirement                            compiler-version
+    4:8   error    Use double quotes for string literals                                                              quotes
+    5:24  error    Use double quotes for string literals                                                              quotes
+    6:28  error    Use double quotes for string literals                                                              quotes
+    7:20  error    Use double quotes for string literals                                                              quotes
+   24:51  error    Use double quotes for string literals                                                              quotes
+   25:51  error    Use double quotes for string literals                                                              quotes
+   37:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   62:5   warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+   81:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   88:27  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  153:13  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  156:13  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  157:55  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  163:31  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  208:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  208:57  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  211:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  219:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  219:57  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  235:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  235:35  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+
+✖ 22 problems (7 errors, 15 warnings)
+

@@ -1,0 +1,26 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.17/solc-0.8.17 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.17/solc-0.8.17 ds-test/=lib/ds-test/src/ @openzeppelin/=lib/openzeppelin-contracts/ forge-std/=lib/forge-std/src/ erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/ openzeppelin-contracts/=lib/openzeppelin-contracts/ openzeppelin/=lib/openzeppelin-contracts/contracts/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-neobase/src/VotingEscrow.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 1000 --via-ir --evm-version london --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-neobase/src' running
+INFO:Detectors:
+VotingEscrow._floorToWeek(uint256) (src/VotingEscrow.sol#391-393) performs a multiplication on the result of a division:
+	- (_t / WEEK) * WEEK (src/VotingEscrow.sol#392)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+VotingEscrow._checkpoint(address,VotingEscrow.LockedBalance,VotingEscrow.LockedBalance) (src/VotingEscrow.sol#142-286) uses a dangerous strict equality:
+	- _newLocked.end == _oldLocked.end (src/VotingEscrow.sol#185)
+VotingEscrow._checkpoint(address,VotingEscrow.LockedBalance,VotingEscrow.LockedBalance) (src/VotingEscrow.sol#142-286) uses a dangerous strict equality:
+	- iterativeTime == block.timestamp (src/VotingEscrow.sol#239)
+VotingEscrow._checkpoint(address,VotingEscrow.LockedBalance,VotingEscrow.LockedBalance) (src/VotingEscrow.sol#142-286) uses a dangerous strict equality:
+	- _newLocked.end == _oldLocked.end (src/VotingEscrow.sol#273)
+VotingEscrow._supplyAt(VotingEscrow.Point,uint256) (src/VotingEscrow.sol#534-563) uses a dangerous strict equality:
+	- iterativeTime == _t (src/VotingEscrow.sol#552)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+VotingEscrow._checkpoint(address,VotingEscrow.LockedBalance,VotingEscrow.LockedBalance).userNewPoint (src/VotingEscrow.sol#148) is a local variable never initialized
+VotingEscrow._checkpoint(address,VotingEscrow.LockedBalance,VotingEscrow.LockedBalance).userOldPoint (src/VotingEscrow.sol#147) is a local variable never initialized
+VotingEscrow.checkpoint().empty (src/VotingEscrow.sol#290) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+INFO:Detectors:
+VotingEscrow.decimals (src/VotingEscrow.sol#27) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-neobase/src/VotingEscrow.sol analyzed (2 contracts with 58 detectors), 9 result(s) found

@@ -1,0 +1,195 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 38 Code Findings │
+└──────────────────┘
+                             
+    /g4b/src/pools/Pools.sol 
+       solidity.best-practice.use-ownable2step.use-ownable2step                 
+          By demanding that the receiver of the owner permissions actively      
+  accept via a contract call                                                    
+          of its own,  `Ownable2Step` and `Ownable2StepUpgradeable` prevent the 
+  contract ownership                                                            
+          from accidentally being transferred  to an address that cannot handle 
+  it.                                                                           
+          Details: https://sg.run/yBAA                                          
+                                                                                
+           23┆ contract Pools is IPools, ReentrancyGuard, PoolStats,            
+  ArbitrageSearch, Ownable                                                      
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           52┆ constructor( IExchangeConfig _exchangeConfig, IPoolsConfig       
+  _poolsConfig )                                                                
+           53┆ ArbitrageSearch(_exchangeConfig)
+           54┆ PoolStats(_exchangeConfig, _poolsConfig)
+           55┆  
+  {             
+           56┆  
+  }             
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           72┆ require( msg.sender ==                                           
+  address(exchangeConfig.initialDistribution().bootstrapBallot()),              
+  "Pools.startExchangeApproved can only be called from the BootstrapBallot ...  
+  [0m                                                                           
+            [shortened a long line from output, adjust with                     
+  --max-chars-per-line]                                                         
+            ⋮┆----------------------------------------
+           83┆ require(block.timestamp <= deadline, "TX EXPIRED");
+            ⋮┆----------------------------------------
+          142┆ require( msg.sender == address(collateralAndLiquidity),          
+  "Pools.addLiquidity is only callable from the CollateralAndLiquidity contract"
+  );                                                                            
+            ⋮┆----------------------------------------
+          143┆ require( exchangeIsLive, "The exchange is not yet live" );
+            ⋮┆----------------------------------------
+          144┆ require( address(tokenA) != address(tokenB), "Cannot add         
+  liquidity for duplicate tokens" );                                            
+            ⋮┆----------------------------------------
+          146┆ require( maxAmountA > PoolUtils.DUST, "The amount of tokenA to   
+  add is too small" );                                                          
+            ⋮┆----------------------------------------
+          147┆ require( maxAmountB > PoolUtils.DUST, "The amount of tokenB to   
+  add is too small" );                                                          
+            ⋮┆----------------------------------------
+          158┆ require( addedLiquidity >= minLiquidityReceived, "Too little     
+  liquidity received" );                                                        
+            ⋮┆----------------------------------------
+          172┆ require( msg.sender == address(collateralAndLiquidity),          
+  "Pools.removeLiquidity is only callable from the CollateralAndLiquidity       
+  contract" );                                                                  
+            ⋮┆----------------------------------------
+          173┆ require( liquidityToRemove > 0, "The amount of liquidityToRemove 
+  cannot be zero" );                                                            
+            ⋮┆----------------------------------------
+          187┆ require((reserves.reserve0 >= PoolUtils.DUST) &&                 
+  (reserves.reserve0 >= PoolUtils.DUST), "Insufficient reserves after liquidity 
+  removal");                                                                    
+            ⋮┆----------------------------------------
+          193┆ require( (reclaimedA >= minReclaimedA) && (reclaimedB >=         
+  minReclaimedB), "Insufficient underlying tokens returned" );                  
+            ⋮┆----------------------------------------
+          207┆ require( amount > PoolUtils.DUST, "Deposit amount too small");
+            ⋮┆----------------------------------------
+          221┆ require( _userDeposits[msg.sender][token] >= amount,             
+  "Insufficient balance to withdraw specified amount" );                        
+            ⋮┆----------------------------------------
+          222┆ require( amount > PoolUtils.DUST, "Withdraw amount too small");
+            ⋮┆----------------------------------------
+          243┆ require((reserve0 >= PoolUtils.DUST) && (reserve1 >=             
+  PoolUtils.DUST), "Insufficient reserves before swap");                        
+            ⋮┆----------------------------------------
+          271┆ require( (reserve0 >= PoolUtils.DUST) && (reserve1 >=            
+  PoolUtils.DUST), "Insufficient reserves after swap");                         
+            ⋮┆----------------------------------------
+          353┆ require( swapAmountOut >= minAmountOut, "Insufficient resulting  
+  token amount" );                                                              
+            ⋮┆----------------------------------------
+          371┆ require( userDeposits[swapTokenIn] >= swapAmountIn, "Insufficient
+  deposited token balance of initial token" );                                  
+            ⋮┆----------------------------------------
+       solidity.performance.use-multiple-require.use-multiple-require           
+          Using multiple require statements is cheaper than using && multiple   
+  check combinations.                                                           
+          There are more advantages, such as easier to read code and better     
+  coverage reports.                                                             
+          Details: https://sg.run/vGA0                                          
+                                                                                
+          187┆ require((reserves.reserve0 >= PoolUtils.DUST) &&                 
+  (reserves.reserve0 >= PoolUtils.DUST), "Insufficient reserves after liquidity 
+  removal");                                                                    
+            ⋮┆----------------------------------------
+          193┆ require( (reclaimedA >= minReclaimedA) && (reclaimedB >=         
+  minReclaimedB), "Insufficient underlying tokens returned" );                  
+            ⋮┆----------------------------------------
+          243┆ require((reserve0 >= PoolUtils.DUST) && (reserve1 >=             
+  PoolUtils.DUST), "Insufficient reserves before swap");                        
+            ⋮┆----------------------------------------
+          271┆ require( (reserve0 >= PoolUtils.DUST) && (reserve1 >=            
+  PoolUtils.DUST), "Insufficient reserves after swap");                         
+            ⋮┆----------------------------------------
+       solidity.performance.use-short-revert-string.use-short-revert-string     
+          Shortening revert strings to fit in 32 bytes will decrease gas costs  
+  for deployment and  gas                                                       
+          costs when the revert condition has been met.                         
+          Details: https://sg.run/E9LB                                          
+                                                                                
+           72┆ require( msg.sender ==                                           
+  address(exchangeConfig.initialDistribution().bootstrapBallot()),              
+  "Pools.startExchangeApproved can only be called from the BootstrapBallot ...  
+  [0m                                                                           
+            [shortened a long line from output, adjust with                     
+  --max-chars-per-line]                                                         
+            ⋮┆----------------------------------------
+          142┆ require( msg.sender == address(collateralAndLiquidity),          
+  "Pools.addLiquidity is only callable from the CollateralAndLiquidity contract"
+  );                                                                            
+            ⋮┆----------------------------------------
+          144┆ require( address(tokenA) != address(tokenB), "Cannot add         
+  liquidity for duplicate tokens" );                                            
+            ⋮┆----------------------------------------
+          146┆ require( maxAmountA > PoolUtils.DUST, "The amount of tokenA to   
+  add is too small" );                                                          
+            ⋮┆----------------------------------------
+          147┆ require( maxAmountB > PoolUtils.DUST, "The amount of tokenB to   
+  add is too small" );                                                          
+            ⋮┆----------------------------------------
+          172┆ require( msg.sender == address(collateralAndLiquidity),          
+  "Pools.removeLiquidity is only callable from the CollateralAndLiquidity       
+  contract" );                                                                  
+            ⋮┆----------------------------------------
+          173┆ require( liquidityToRemove > 0, "The amount of liquidityToRemove 
+  cannot be zero" );                                                            
+            ⋮┆----------------------------------------
+          187┆ require((reserves.reserve0 >= PoolUtils.DUST) &&                 
+  (reserves.reserve0 >= PoolUtils.DUST), "Insufficient reserves after liquidity 
+  removal");                                                                    
+            ⋮┆----------------------------------------
+          193┆ require( (reclaimedA >= minReclaimedA) && (reclaimedB >=         
+  minReclaimedB), "Insufficient underlying tokens returned" );                  
+            ⋮┆----------------------------------------
+          221┆ require( _userDeposits[msg.sender][token] >= amount,             
+  "Insufficient balance to withdraw specified amount" );                        
+            ⋮┆----------------------------------------
+          243┆ require((reserve0 >= PoolUtils.DUST) && (reserve1 >=             
+  PoolUtils.DUST), "Insufficient reserves before swap");                        
+            ⋮┆----------------------------------------
+          353┆ require( swapAmountOut >= minAmountOut, "Insufficient resulting  
+  token amount" );                                                              
+            ⋮┆----------------------------------------
+          371┆ require( userDeposits[swapTokenIn] >= swapAmountIn, "Insufficient
+  deposited token balance of initial token" );                                  
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 38 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

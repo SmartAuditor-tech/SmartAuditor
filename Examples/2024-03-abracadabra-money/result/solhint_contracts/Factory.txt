@@ -1,0 +1,10 @@
+
+/g4b/src/mimswap/periphery/Factory.sol
+  35:20  error  Parse error: extraneous input 'base' expecting '=>'
+  35:44  error  Parse error: extraneous input 'quote' expecting '=>'
+  35:63  error  Parse error: extraneous input 'pools' expecting ')'
+  36:20  error  Parse error: extraneous input 'creator' expecting '=>'
+  36:41  error  Parse error: extraneous input 'pools' expecting ')'
+
+✖ 5 problems (5 errors, 0 warnings)
+

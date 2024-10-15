@@ -1,0 +1,62 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 3 Code Findings │
+└─────────────────┘
+                                              
+    /g4b/src/libraries/PrincipalTokenUtil.sol 
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+           64┆ if (_oldPTRate == _ptRate && _ibtRate == _oldIBTRate) {
+           65┆     return _userYieldIBT;
+           66┆ }
+            ⋮┆----------------------------------------
+           73┆ if (_oldPTRate == _ptRate && _ibtRate > _oldIBTRate) {
+           74┆     // only positive yield happened
+           75┆     newYieldInIBTRay = ibtOfPTInRay.mulDiv(_ibtRate -            
+  _oldIBTRate, _ibtRate);                                                       
+           76┆ } else {
+           77┆     if (_oldPTRate > _ptRate) {
+           78┆         // PT depeg happened
+           79┆         uint256 yieldInAssetRay;
+           80┆         if (_ibtRate >= _oldIBTRate) {
+           81┆             // both negative and positive yield happened, more   
+  positive                                                                      
+           82┆             yieldInAssetRay =
+             [hid 46 additional lines, adjust with --max-lines-per-finding] 
+          141┆ if (success && encodedDecimals.length >= 32) {
+          142┆     uint256 returnedDecimals = abi.decode(encodedDecimals,       
+  (uint256));                                                                   
+          143┆     if (returnedDecimals <= type(uint8).max) {
+          144┆         return uint8(returnedDecimals);
+          145┆     }
+          146┆ }
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 3 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

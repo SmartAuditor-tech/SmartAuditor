@@ -1,0 +1,16 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 @chainlink/=node_modules/@chainlink/ @eth-optimism/=node_modules/@chainlink/contracts/node_modules/@eth-optimism/ @openzeppelin/=node_modules/@openzeppelin/ ds-test/=lib/forge-std/lib/ds-test/src/ eth-gas-reporter/=node_modules/eth-gas-reporter/ forge-std/=lib/forge-std/src/ hardhat-deploy/=node_modules/hardhat-deploy/ hardhat/=node_modules/hardhat/ prb/test/=lib/prb-test/src/ solmate/=lib/solmate/src/ @connext/=node_modules/@connext/ prb-test/=lib/prb-test/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-renzo/contracts/Bridge/L1/xRenzoBridge.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 10000 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-renzo/contracts/Bridge/L1' running
+INFO:Detectors:
+xRenzoBridge.sendPrice(IxRenzoBridge.CCIPDestinationParam[],IxRenzoBridge.ConnextDestinationParam[]) (contracts/Bridge/L1/xRenzoBridge.sol#210-286) sends eth to arbitrary user
+	Dangerous calls:
+	- connext.xcall{value: _connextDestinationParam[i_scope_0].relayerFee}(_connextDestinationParam[i_scope_0].destinationDomainId,_connextDestinationParam[i_scope_0]._renzoReceiver,address(0),msg.sender,0,0,_callData) (contracts/Bridge/L1/xRenzoBridge.sol#265-273)
+xRenzoBridge.recoverNative(uint256,address) (contracts/Bridge/L1/xRenzoBridge.sol#294-296) sends eth to arbitrary user
+	Dangerous calls:
+	- address(_to).transfer(_amount) (contracts/Bridge/L1/xRenzoBridge.sol#295)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+INFO:Detectors:
+xRenzoBridge.sendPrice(IxRenzoBridge.CCIPDestinationParam[],IxRenzoBridge.ConnextDestinationParam[]) (contracts/Bridge/L1/xRenzoBridge.sol#210-286) ignores return value by linkToken.approve(address(linkRouterClient),fees) (contracts/Bridge/L1/xRenzoBridge.sol#241)
+xRenzoBridge.sendPrice(IxRenzoBridge.CCIPDestinationParam[],IxRenzoBridge.ConnextDestinationParam[]) (contracts/Bridge/L1/xRenzoBridge.sol#210-286) ignores return value by connext.xcall{value: _connextDestinationParam[i_scope_0].relayerFee}(_connextDestinationParam[i_scope_0].destinationDomainId,_connextDestinationParam[i_scope_0]._renzoReceiver,address(0),msg.sender,0,0,_callData) (contracts/Bridge/L1/xRenzoBridge.sol#265-273)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-renzo/contracts/Bridge/L1/xRenzoBridge.sol analyzed (42 contracts with 58 detectors), 4 result(s) found

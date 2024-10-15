@@ -1,0 +1,12 @@
+
+/g4b/src/libraries/RayMath.sol
+   2:1  error    Compiler version =0.8.20 does not satisfy the ^0.5.8 semver requirement  compiler-version
+  21:9  warning  Variable name must be in mixedCase                                       var-name-mixedcase
+  22:9  warning  Avoid to use inline assembly. It is acceptable only in rare cases        no-inline-assembly
+  40:9  warning  Variable name must be in mixedCase                                       var-name-mixedcase
+  41:9  warning  Avoid to use inline assembly. It is acceptable only in rare cases        no-inline-assembly
+  58:9  warning  Variable name must be in mixedCase                                       var-name-mixedcase
+  60:9  warning  Avoid to use inline assembly. It is acceptable only in rare cases        no-inline-assembly
+
+✖ 7 problems (1 error, 6 warnings)
+

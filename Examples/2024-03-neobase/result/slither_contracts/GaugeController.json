@@ -1,0 +1,330 @@
+{
+    "success": true,
+    "finding_length": 30,
+    "findings": [
+        {
+            "name": "incorrect-exp",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) has bitwise-xor operator ^ instead of the exponentiation operator **: \n\t - inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 116
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 123
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 116
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "GaugeController._remove_gauge_weight(address) (src/GaugeController.sol#350-374) performs a multiplication on the result of a division:\n\t- next_time = ((block.timestamp + WEEK) / WEEK) * WEEK (src/GaugeController.sol#352)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "_remove_gauge_weight",
+            "contract": "GaugeController",
+            "line": 352
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "GaugeController._change_gauge_weight(address,uint256) (src/GaugeController.sol#323-341) performs a multiplication on the result of a division:\n\t- next_time = ((block.timestamp + WEEK) / WEEK) * WEEK (src/GaugeController.sol#329)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "_change_gauge_weight",
+            "contract": "GaugeController",
+            "line": 329
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#120)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 120
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#121)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 121
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "GaugeController.constructor(address,address) (src/GaugeController.sol#69-74) performs a multiplication on the result of a division:\n\t- last_epoch = (block.timestamp / WEEK) * WEEK (src/GaugeController.sol#72)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "constructor",
+            "contract": "GaugeController",
+            "line": 72
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#122)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 122
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- prod0 = prod0 / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#104)\n\t- result = prod0 * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#131)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 131
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "GaugeController.vote_for_gauge_weights(address,uint256) (src/GaugeController.sol#385-467) performs a multiplication on the result of a division:\n\t- next_time = ((block.timestamp + WEEK) / WEEK) * WEEK (src/GaugeController.sol#398)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "vote_for_gauge_weights",
+            "contract": "GaugeController",
+            "line": 398
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#125)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 125
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#124)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 124
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "VotingEscrow._floorToWeek(uint256) (src/VotingEscrow.sol#391-393) performs a multiplication on the result of a division:\n\t- (_t / WEEK) * WEEK (src/VotingEscrow.sol#392)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "_floorToWeek",
+            "contract": "VotingEscrow",
+            "line": 392
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "GaugeController._gauge_relative_weight(address,uint256) (src/GaugeController.sol#249-260) performs a multiplication on the result of a division:\n\t- t = (_time / WEEK) * WEEK (src/GaugeController.sol#250)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "_gauge_relative_weight",
+            "contract": "GaugeController",
+            "line": 250
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "GaugeController.add_gauge(address,int128) (src/GaugeController.sol#206-219) performs a multiplication on the result of a division:\n\t- next_time = ((block.timestamp + WEEK) / WEEK) * WEEK (src/GaugeController.sol#211)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "add_gauge",
+            "contract": "GaugeController",
+            "line": 211
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "GaugeController._change_type_weight(int128,uint256) (src/GaugeController.sol#287-298) performs a multiplication on the result of a division:\n\t- next_time = ((block.timestamp + WEEK) / WEEK) * WEEK (src/GaugeController.sol#291)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "_change_type_weight",
+            "contract": "GaugeController",
+            "line": 291
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "VotingEscrow._supplyAt(VotingEscrow.Point,uint256) (src/VotingEscrow.sol#534-563) uses a dangerous strict equality:\n\t- iterativeTime == _t (src/VotingEscrow.sol#552)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "_supplyAt",
+            "contract": "VotingEscrow",
+            "line": 552
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "VotingEscrow._checkpoint(address,VotingEscrow.LockedBalance,VotingEscrow.LockedBalance) (src/VotingEscrow.sol#142-286) uses a dangerous strict equality:\n\t- _newLocked.end == _oldLocked.end (src/VotingEscrow.sol#273)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "_checkpoint",
+            "contract": "VotingEscrow",
+            "line": 273
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "GaugeController.add_gauge(address,int128) (src/GaugeController.sol#206-219) uses a dangerous strict equality:\n\t- time_sum[gauge_type] == 0 (src/GaugeController.sol#215)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "add_gauge",
+            "contract": "GaugeController",
+            "line": 215
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "VotingEscrow._checkpoint(address,VotingEscrow.LockedBalance,VotingEscrow.LockedBalance) (src/VotingEscrow.sol#142-286) uses a dangerous strict equality:\n\t- iterativeTime == block.timestamp (src/VotingEscrow.sol#239)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "_checkpoint",
+            "contract": "VotingEscrow",
+            "line": 239
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "VotingEscrow._checkpoint(address,VotingEscrow.LockedBalance,VotingEscrow.LockedBalance) (src/VotingEscrow.sol#142-286) uses a dangerous strict equality:\n\t- _newLocked.end == _oldLocked.end (src/VotingEscrow.sol#185)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "_checkpoint",
+            "contract": "VotingEscrow",
+            "line": 185
+        },
+        {
+            "name": "tautology",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "GaugeController.vote_for_gauge_weights(address,uint256) (src/GaugeController.sol#385-467) contains a tautology or contradiction:\n\t- require(bool,string)(power_used >= 0 && power_used <= 10_000,Used too much power) (src/GaugeController.sol#419)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "vote_for_gauge_weights",
+            "contract": "GaugeController",
+            "line": 419
+        },
+        {
+            "name": "tautology",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "GaugeController.vote_for_gauge_weights(address,uint256) (src/GaugeController.sol#385-467) contains a tautology or contradiction:\n\t- require(bool,string)(_user_weight >= 0 && _user_weight <= 10_000,Invalid user weight) (src/GaugeController.sol#386)\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "function": "vote_for_gauge_weights",
+            "contract": "GaugeController",
+            "line": 386
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "VotingEscrow._checkpoint(address,VotingEscrow.LockedBalance,VotingEscrow.LockedBalance).userNewPoint (src/VotingEscrow.sol#148) is a local variable never initialized\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "line": 148
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "VotingEscrow.checkpoint().empty (src/VotingEscrow.sol#290) is a local variable never initialized\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "line": 290
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "VotingEscrow._checkpoint(address,VotingEscrow.LockedBalance,VotingEscrow.LockedBalance).userOldPoint (src/VotingEscrow.sol#147) is a local variable never initialized\n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "line": 147
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "GaugeController.vote_for_gauge_weights(address,uint256) (src/GaugeController.sol#385-467) ignores return value by (None,slope_,None) = ve.getLastUserPoint(msg.sender) (src/GaugeController.sol#389-394)\n",
+            "filename": "GaugeController.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "vote_for_gauge_weights",
+            "contract": "GaugeController",
+            "line": 389,
+            "line_end": 394
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "VotingEscrow.decimals (src/VotingEscrow.sol#27) should be constant \n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "line": 27
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "GaugeController.votingEscrow (src/GaugeController.sol#24) should be immutable \n",
+            "filename": "GaugeController.sol",
+            "classification": [],
+            "line": 24
+        }
+    ]
+}

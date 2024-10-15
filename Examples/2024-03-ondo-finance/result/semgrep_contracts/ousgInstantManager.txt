@@ -1,0 +1,367 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 65 Code Findings │
+└──────────────────┘
+                                               
+    /g4b/contracts/ousg/ousgInstantManager.sol 
+       solidity.performance.init-variables-with-default-value.init-variables-wit
+  h-default-value                                                               
+          Uninitialized variables are assigned with the types default value.    
+  Explicitly initializing a                                                     
+          variable with its default value costs unnecessary gas.                
+          Details: https://sg.run/Ne5N                                          
+                                                                                
+           99┆ uint256 public mintFee = 0;
+            ⋮┆----------------------------------------
+          102┆ uint256 public redeemFee = 0;
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+          144┆ constructor(
+          145┆   address defaultAdmin,
+          146┆   address _usdc,
+          147┆   address _usdcReciever,
+          148┆   address _feeReceiver,
+          149┆   address _ousgOracle,
+          150┆   address _ousg,
+          151┆   address _rousg,
+          152┆   address _buidl,
+          153┆   address _buidlRedeemer,
+             [hid 61 additional lines, adjust with --max-lines-per-finding] 
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+          804┆ for (uint256 i = 0; i < exCallData.length; ++i) {
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+          163┆ require(
+          164┆   address(_usdc) != address(0),
+          165┆   "OUSGInstantManager: USDC cannot be 0x0"
+          166┆ );
+            ⋮┆----------------------------------------
+          167┆ require(
+          168┆   address(_usdcReciever) != address(0),
+          169┆   "OUSGInstantManager: USDC Receiver cannot be 0x0"
+          170┆ );
+            ⋮┆----------------------------------------
+          171┆ require(
+          172┆   address(_feeReceiver) != address(0),
+          173┆   "OUSGInstantManager: feeReceiver cannot be 0x0"
+          174┆ );
+            ⋮┆----------------------------------------
+          175┆ require(
+          176┆   address(_ousgOracle) != address(0),
+          177┆   "OUSGInstantManager: OUSG Oracle cannot be 0x0"
+          178┆ );
+            ⋮┆----------------------------------------
+          179┆ require(_ousg != address(0), "OUSGInstantManager: OUSG cannot be 
+  0x0");                                                                        
+            ⋮┆----------------------------------------
+          180┆ require(_rousg != address(0), "OUSGInstantManager: rOUSG cannot  
+  be 0x0");                                                                     
+            ⋮┆----------------------------------------
+          181┆ require(_buidl != address(0), "OUSGInstantManager: BUIDL cannot  
+  be 0x0");                                                                     
+            ⋮┆----------------------------------------
+          182┆ require(
+          183┆   address(_buidlRedeemer) != address(0),
+          184┆   "OUSGInstantManager: BUIDL Redeemer cannot be 0x0"
+          185┆ );
+            ⋮┆----------------------------------------
+          186┆ require(
+          187┆   IERC20Metadata(_ousg).decimals() ==                            
+  IERC20Metadata(_rousg).decimals(),                                            
+          188┆   "OUSGInstantManager: OUSG decimals must be equal to USDC       
+  decimals"                                                                     
+          189┆ );
+            ⋮┆----------------------------------------
+          190┆ require(
+          191┆   IERC20Metadata(_usdc).decimals() ==                            
+  IERC20Metadata(_buidl).decimals(),                                            
+          192┆   "OUSGInstantManager: USDC decimals must be equal to BUIDL      
+  decimals"                                                                     
+          193┆ );
+            ⋮┆----------------------------------------
+          205┆ require(
+          206┆   OUSG_TO_ROUSG_SHARES_MULTIPLIER ==
+          207┆     rousg.OUSG_TO_ROUSG_SHARES_MULTIPLIER(),
+          208┆   "OUSGInstantManager: OUSG to rOUSG shares multiplier must be   
+  equal to rOUSG's"                                                             
+          209┆ );
+            ⋮┆----------------------------------------
+          282┆ require(
+          283┆   IERC20Metadata(address(usdc)).decimals() == 6,
+          284┆   "OUSGInstantManager::_mint: USDC decimals must be 6"
+          285┆ );
+            ⋮┆----------------------------------------
+          286┆ require(
+          287┆   usdcAmountIn >= minimumDepositAmount,
+          288┆   "OUSGInstantManager::_mint: Deposit amount too small"
+          289┆ );
+            ⋮┆----------------------------------------
+          298┆ require(
+          299┆   usdc.allowance(msg.sender, address(this)) >= usdcAmountIn,
+          300┆   "OUSGInstantManager::_mint: Allowance must be given to         
+  OUSGInstantManager"                                                           
+          301┆ );
+            ⋮┆----------------------------------------
+          310┆ require(
+          311┆   ousgAmountOut > 0,
+          312┆   "OUSGInstantManager::_mint: net mint amount can't be zero"
+          313┆ );
+            ⋮┆----------------------------------------
+          344┆ require(
+          345┆   ousg.allowance(msg.sender, address(this)) >= ousgAmountIn,
+          346┆   "OUSGInstantManager::redeem: Insufficient allowance"
+          347┆ );
+            ⋮┆----------------------------------------
+          371┆ require(
+          372┆   rousg.allowance(msg.sender, address(this)) >= rousgAmountIn,
+          373┆   "OUSGInstantManager::redeemRebasingOUSG: Insufficient          
+  allowance"                                                                    
+          374┆ );
+            ⋮┆----------------------------------------
+          391┆ require(
+          392┆   IERC20Metadata(address(usdc)).decimals() == 6,
+          393┆   "OUSGInstantManager::_redeem: USDC decimals must be 6"
+          394┆ );
+            ⋮┆----------------------------------------
+          395┆ require(
+          396┆   IERC20Metadata(address(buidl)).decimals() == 6,
+          397┆   "OUSGInstantManager::_redeem: BUIDL decimals must be 6"
+          398┆ );
+            ⋮┆----------------------------------------
+          402┆ require(
+          403┆   usdcAmountToRedeem >= minimumRedemptionAmount,
+          404┆   "OUSGInstantManager::_redeem: Redemption amount too small"
+          405┆ );
+            ⋮┆----------------------------------------
+          417┆ require(
+          418┆   usdcAmountOut > 0,
+          419┆   "OUSGInstantManager::_redeem: redeem amount can't be zero"
+          420┆ );
+            ⋮┆----------------------------------------
+          459┆ require(
+          460┆   buidl.balanceOf(address(this)) >= minBUIDLRedeemAmount,
+          461┆   "OUSGInstantManager::_redeemBUIDL: Insufficient BUIDL balance"
+          462┆ );
+            ⋮┆----------------------------------------
+          466┆ require(
+          467┆   usdc.balanceOf(address(this)) == usdcBalanceBefore +           
+  buidlAmountToRedeem,                                                          
+          468┆   "OUSGInstantManager::_redeemBUIDL: BUIDL:USDC not 1:1"
+          469┆ );
+            ⋮┆----------------------------------------
+          481┆ require(
+          482┆   price > MINIMUM_OUSG_PRICE,
+          483┆   "OUSGInstantManager::getOUSGPrice: Price unexpectedly low"
+          484┆ );
+            ⋮┆----------------------------------------
+          557┆ require(mintFee < 200, "OUSGInstantManager::setMintFee: Fee too  
+  high");                                                                       
+            ⋮┆----------------------------------------
+          570┆ require(redeemFee < 200, "OUSGInstantManager::setRedeemFee: Fee  
+  too high");                                                                   
+            ⋮┆----------------------------------------
+          584┆ require(
+          585┆   _minimumDepositAmount >= FEE_GRANULARITY,
+          586┆   "setMinimumDepositAmount: Amount too small"
+          587┆ );
+            ⋮┆----------------------------------------
+          602┆ require(
+          603┆   _minimumRedemptionAmount >= FEE_GRANULARITY,
+          604┆   "setMinimumRedemptionAmount: Amount too small"
+          605┆ );
+            ⋮┆----------------------------------------
+          653┆ require(_feeReceiver != address(0), "FeeReceiver cannot be 0x0");
+            ⋮┆----------------------------------------
+          757┆ require(!mintPaused, "OUSGInstantManager: Mint paused");
+            ⋮┆----------------------------------------
+          763┆ require(!redeemPaused, "OUSGInstantManager: Redeem paused");
+            ⋮┆----------------------------------------
+          808┆ require(success, "Call Failed");
+            ⋮┆----------------------------------------
+       solidity.performance.use-short-revert-string.use-short-revert-string     
+          Shortening revert strings to fit in 32 bytes will decrease gas costs  
+  for deployment and  gas                                                       
+          costs when the revert condition has been met.                         
+          Details: https://sg.run/E9LB                                          
+                                                                                
+          163┆ require(
+          164┆   address(_usdc) != address(0),
+          165┆   "OUSGInstantManager: USDC cannot be 0x0"
+          166┆ );
+            ⋮┆----------------------------------------
+          167┆ require(
+          168┆   address(_usdcReciever) != address(0),
+          169┆   "OUSGInstantManager: USDC Receiver cannot be 0x0"
+          170┆ );
+            ⋮┆----------------------------------------
+          171┆ require(
+          172┆   address(_feeReceiver) != address(0),
+          173┆   "OUSGInstantManager: feeReceiver cannot be 0x0"
+          174┆ );
+            ⋮┆----------------------------------------
+          175┆ require(
+          176┆   address(_ousgOracle) != address(0),
+          177┆   "OUSGInstantManager: OUSG Oracle cannot be 0x0"
+          178┆ );
+            ⋮┆----------------------------------------
+          179┆ require(_ousg != address(0), "OUSGInstantManager: OUSG cannot be 
+  0x0");                                                                        
+            ⋮┆----------------------------------------
+          180┆ require(_rousg != address(0), "OUSGInstantManager: rOUSG cannot  
+  be 0x0");                                                                     
+            ⋮┆----------------------------------------
+          181┆ require(_buidl != address(0), "OUSGInstantManager: BUIDL cannot  
+  be 0x0");                                                                     
+            ⋮┆----------------------------------------
+          182┆ require(
+          183┆   address(_buidlRedeemer) != address(0),
+          184┆   "OUSGInstantManager: BUIDL Redeemer cannot be 0x0"
+          185┆ );
+            ⋮┆----------------------------------------
+          186┆ require(
+          187┆   IERC20Metadata(_ousg).decimals() ==                            
+  IERC20Metadata(_rousg).decimals(),                                            
+          188┆   "OUSGInstantManager: OUSG decimals must be equal to USDC       
+  decimals"                                                                     
+          189┆ );
+            ⋮┆----------------------------------------
+          190┆ require(
+          191┆   IERC20Metadata(_usdc).decimals() ==                            
+  IERC20Metadata(_buidl).decimals(),                                            
+          192┆   "OUSGInstantManager: USDC decimals must be equal to BUIDL      
+  decimals"                                                                     
+          193┆ );
+            ⋮┆----------------------------------------
+          205┆ require(
+          206┆   OUSG_TO_ROUSG_SHARES_MULTIPLIER ==
+          207┆     rousg.OUSG_TO_ROUSG_SHARES_MULTIPLIER(),
+          208┆   "OUSGInstantManager: OUSG to rOUSG shares multiplier must be   
+  equal to rOUSG's"                                                             
+          209┆ );
+            ⋮┆----------------------------------------
+          282┆ require(
+          283┆   IERC20Metadata(address(usdc)).decimals() == 6,
+          284┆   "OUSGInstantManager::_mint: USDC decimals must be 6"
+          285┆ );
+            ⋮┆----------------------------------------
+          286┆ require(
+          287┆   usdcAmountIn >= minimumDepositAmount,
+          288┆   "OUSGInstantManager::_mint: Deposit amount too small"
+          289┆ );
+            ⋮┆----------------------------------------
+          298┆ require(
+          299┆   usdc.allowance(msg.sender, address(this)) >= usdcAmountIn,
+          300┆   "OUSGInstantManager::_mint: Allowance must be given to         
+  OUSGInstantManager"                                                           
+          301┆ );
+            ⋮┆----------------------------------------
+          310┆ require(
+          311┆   ousgAmountOut > 0,
+          312┆   "OUSGInstantManager::_mint: net mint amount can't be zero"
+          313┆ );
+            ⋮┆----------------------------------------
+          344┆ require(
+          345┆   ousg.allowance(msg.sender, address(this)) >= ousgAmountIn,
+          346┆   "OUSGInstantManager::redeem: Insufficient allowance"
+          347┆ );
+            ⋮┆----------------------------------------
+          371┆ require(
+          372┆   rousg.allowance(msg.sender, address(this)) >= rousgAmountIn,
+          373┆   "OUSGInstantManager::redeemRebasingOUSG: Insufficient          
+  allowance"                                                                    
+          374┆ );
+            ⋮┆----------------------------------------
+          391┆ require(
+          392┆   IERC20Metadata(address(usdc)).decimals() == 6,
+          393┆   "OUSGInstantManager::_redeem: USDC decimals must be 6"
+          394┆ );
+            ⋮┆----------------------------------------
+          395┆ require(
+          396┆   IERC20Metadata(address(buidl)).decimals() == 6,
+          397┆   "OUSGInstantManager::_redeem: BUIDL decimals must be 6"
+          398┆ );
+            ⋮┆----------------------------------------
+          402┆ require(
+          403┆   usdcAmountToRedeem >= minimumRedemptionAmount,
+          404┆   "OUSGInstantManager::_redeem: Redemption amount too small"
+          405┆ );
+            ⋮┆----------------------------------------
+          417┆ require(
+          418┆   usdcAmountOut > 0,
+          419┆   "OUSGInstantManager::_redeem: redeem amount can't be zero"
+          420┆ );
+            ⋮┆----------------------------------------
+          459┆ require(
+          460┆   buidl.balanceOf(address(this)) >= minBUIDLRedeemAmount,
+          461┆   "OUSGInstantManager::_redeemBUIDL: Insufficient BUIDL balance"
+          462┆ );
+            ⋮┆----------------------------------------
+          466┆ require(
+          467┆   usdc.balanceOf(address(this)) == usdcBalanceBefore +           
+  buidlAmountToRedeem,                                                          
+          468┆   "OUSGInstantManager::_redeemBUIDL: BUIDL:USDC not 1:1"
+          469┆ );
+            ⋮┆----------------------------------------
+          481┆ require(
+          482┆   price > MINIMUM_OUSG_PRICE,
+          483┆   "OUSGInstantManager::getOUSGPrice: Price unexpectedly low"
+          484┆ );
+            ⋮┆----------------------------------------
+          557┆ require(mintFee < 200, "OUSGInstantManager::setMintFee: Fee too  
+  high");                                                                       
+            ⋮┆----------------------------------------
+          570┆ require(redeemFee < 200, "OUSGInstantManager::setRedeemFee: Fee  
+  too high");                                                                   
+            ⋮┆----------------------------------------
+          584┆ require(
+          585┆   _minimumDepositAmount >= FEE_GRANULARITY,
+          586┆   "setMinimumDepositAmount: Amount too small"
+          587┆ );
+            ⋮┆----------------------------------------
+          602┆ require(
+          603┆   _minimumRedemptionAmount >= FEE_GRANULARITY,
+          604┆   "setMinimumRedemptionAmount: Amount too small"
+          605┆ );
+            ⋮┆----------------------------------------
+          763┆ require(!redeemPaused, "OUSGInstantManager: Redeem paused");
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 65 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "PriceAggregator.sol",
+        "incomplete instruction": "5253",
+        "coverage": "0.7%",
+        "warnings": []
+    }
+}

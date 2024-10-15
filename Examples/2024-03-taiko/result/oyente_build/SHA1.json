@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "SHA1.sol",
+        "coverage": "25.0%",
+        "warnings": []
+    }
+}

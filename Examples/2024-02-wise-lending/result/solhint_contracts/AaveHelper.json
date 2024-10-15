@@ -1,0 +1,38 @@
+{
+    "success": true,
+    "finding_length": 4,
+    "findings": [
+        {
+            "filename": "AaveHelper.sol",
+            "line": 3,
+            "column": 1,
+            "message": "Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "AaveHelper.sol",
+            "line": 208,
+            "column": 28,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        },
+        {
+            "filename": "AaveHelper.sol",
+            "line": 250,
+            "column": 9,
+            "message": "Avoid to use letters 'I', 'l', 'O' as identifiers",
+            "level": "warning",
+            "name": "use-forbidden-name"
+        },
+        {
+            "filename": "AaveHelper.sol",
+            "line": 286,
+            "column": 9,
+            "message": "Avoid to use letters 'I', 'l', 'O' as identifiers",
+            "level": "warning",
+            "name": "use-forbidden-name"
+        }
+    ]
+}

@@ -1,0 +1,94 @@
+{
+    "success": true,
+    "finding_length": 11,
+    "findings": [
+        {
+            "filename": "DAO.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version =0.8.22 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "DAO.sol",
+            "line": 70,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "DAO.sol",
+            "line": 247,
+            "column": 4,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "DAO.sol",
+            "line": 251,
+            "column": 4,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "DAO.sol",
+            "line": 281,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "DAO.sol",
+            "line": 297,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "DAO.sol",
+            "line": 318,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "DAO.sol",
+            "line": 321,
+            "column": 97,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "DAO.sol",
+            "line": 329,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "DAO.sol",
+            "line": 362,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "DAO.sol",
+            "line": 372,
+            "column": 138,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        }
+    ]
+}

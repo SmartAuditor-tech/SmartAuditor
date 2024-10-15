@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "StargateBridgeAdapter.sol",
+        "incomplete instruction": "9945",
+        "coverage": "1.2%",
+        "warnings": []
+    }
+}

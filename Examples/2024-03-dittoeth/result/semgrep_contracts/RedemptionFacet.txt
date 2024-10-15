@@ -1,0 +1,128 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 17 Code Findings │
+└──────────────────┘
+                                              
+    /g4b/contracts/facets/RedemptionFacet.sol 
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+          242┆ for (uint256 i = 0; i < decodedProposalData.length; i++) {
+            ⋮┆----------------------------------------
+          263┆ for (uint256 i = incorrectIndex; i < decodedProposalData.length; 
+  i++) {                                                                        
+            ⋮┆----------------------------------------
+          321┆ for (uint256 i = 0; i < decodedProposalData.length; i++) {
+            ⋮┆----------------------------------------
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+           78┆ for (uint8 i = 0; i < proposalInput.length; i++) {
+            ⋮┆----------------------------------------
+          242┆ for (uint256 i = 0; i < decodedProposalData.length; i++) {
+            ⋮┆----------------------------------------
+          263┆ for (uint256 i = incorrectIndex; i < decodedProposalData.length; 
+  i++) {                                                                        
+            ⋮┆----------------------------------------
+          321┆ for (uint256 i = 0; i < decodedProposalData.length; i++) {
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          111┆ if (currentSR.status == SR.PartialFill && shortOrder.ercAmount < 
+  minShortErc) {                                                                
+          112┆     if (shortOrder.shortRecordId != p.shortId || shortOrder.addr 
+  != p.shorter) revert Errors.InvalidShortOrder();                              
+          113┆     LibOrders.cancelShort(asset, p.shortOrderId);
+          114┆ }
+            ⋮┆----------------------------------------
+          243┆ if (decodedProposalData[i].shorter == disputeShorter &&          
+  decodedProposalData[i].shortId == disputeShortId) {                           
+          244┆     revert Errors.CannotDisputeWithRedeemerProposal();
+          245┆ }
+            ⋮┆----------------------------------------
+          259┆ if (disputeCR < incorrectProposal.CR && disputeSR.updatedAt +    
+  C.DISPUTE_REDEMPTION_BUFFER <= redeemerAssetUser.timeProposed)                
+          260┆ {
+          261┆     // @dev All proposals from the incorrectIndex onward will be 
+  removed                                                                       
+          262┆     // @dev Thus the proposer can only redeem a portion of their 
+  original slate                                                                
+          263┆     for (uint256 i = incorrectIndex; i <                         
+  decodedProposalData.length; i++) {                                            
+          264┆         currentProposal = decodedProposalData[i];
+          265┆ 
+          266┆         STypes.ShortRecord storage currentSR =                   
+  s.shortRecords[d.asset][currentProposal.shorter][currentProposal.shortId];    
+          267┆         currentSR.collateral += currentProposal.colRedeemed;
+          268┆         currentSR.ercDebt += currentProposal.ercDebtRedeemed;
+             [hid 32 additional lines, adjust with --max-lines-per-finding] 
+          361┆ if (claimProposal.shorter != msg.sender && claimProposal.shortId 
+  != id) revert Errors.CanOnlyClaimYourShort();                                 
+            ⋮┆----------------------------------------
+          371┆ if (shortRecord.ercDebt == 0 && shortRecord.status ==            
+  SR.FullyFilled) {                                                             
+          372┆     // @dev Refund shorter the remaining collateral only if fully
+  redeemed and not claimed already                                              
+          373┆     uint88 collateral = shortRecord.collateral;
+          374┆     s.vaultUser[vault][shorter].ethEscrowed += collateral;
+          375┆     // @dev Shorter shouldn't lose any unclaimed yield because   
+  dispute time > YIELD_DELAY_SECONDS                                            
+          376┆     LibSRUtil.disburseCollateral(asset, shorter, collateral,     
+  shortRecord.dethYieldRate, shortRecord.updatedAt);                            
+          377┆     LibShortRecord.deleteShortRecord(asset, shorter, shortId);
+          378┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.use-prefix-increment-not-postfix.use-prefix-incremen
+  t-not-postfix                                                                 
+          Consider using the prefix increment expression whenever the return    
+  value is not needed. The                                                      
+          prefix increment expression is cheaper in terms of gas.               
+          Details: https://sg.run/nxLr                                          
+                                                                                
+           78┆ for (uint8 i = 0; i < proposalInput.length; i++) {
+            ⋮┆----------------------------------------
+          139┆ p.redemptionCounter++;
+            ⋮┆----------------------------------------
+          242┆ for (uint256 i = 0; i < decodedProposalData.length; i++) {
+            ⋮┆----------------------------------------
+          263┆ for (uint256 i = incorrectIndex; i < decodedProposalData.length; 
+  i++) {                                                                        
+            ⋮┆----------------------------------------
+          321┆ for (uint256 i = 0; i < decodedProposalData.length; i++) {
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 17 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

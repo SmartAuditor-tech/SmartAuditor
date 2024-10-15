@@ -1,0 +1,11 @@
+mythril.interfaces.cli [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/mythril-0.23.15-py3.8.egg/mythril/interfaces/cli.py", line 943, in parse_args_and_execute
+    address = load_code(disassembler, args)
+  File "/usr/local/lib/python3.8/dist-packages/mythril-0.23.15-py3.8.egg/mythril/interfaces/cli.py", line 698, in load_code
+    address, _ = disassembler.load_from_solidity(
+  File "/usr/local/lib/python3.8/dist-packages/mythril-0.23.15-py3.8.egg/mythril/mythril/mythril_disassembler.py", line 175, in load_from_solidity
+    self.sigs.import_solidity_file(
+  File "/usr/local/lib/python3.8/dist-packages/mythril-0.23.15-py3.8.egg/mythril/support/signatures.py", line 247, in import_solidity_file
+    for contract in solc_json["contracts"][file_path].values():
+KeyError: 'contracts'
+

@@ -1,0 +1,29 @@
+{
+    "success": true,
+    "finding_length": 2,
+    "findings": [
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "LifiImplementation._forward(IERC20,address,uint256,address,bytes,uint256) (contracts/helpers/SwapHandler/Implementaions/LifiImplementation.sol#165-183) ignores return value by ITokenTransferCallBack(from).sendTokensToTrustedAddress(address(token),amount,caller,abi.encode(routeId)) (contracts/helpers/SwapHandler/Implementaions/LifiImplementation.sol#171)\n",
+            "filename": "LifiImplementation.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_forward",
+            "contract": "LifiImplementation",
+            "line": 171
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "LifiImplementation.lifi (contracts/helpers/SwapHandler/Implementaions/LifiImplementation.sol#16) should be immutable \n",
+            "filename": "LifiImplementation.sol",
+            "classification": [],
+            "line": 16
+        }
+    ]
+}

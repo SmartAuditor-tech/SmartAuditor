@@ -1,0 +1,61 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 5 Code Findings │
+└─────────────────┘
+                                              
+    /g4b/contracts/Bridge/L1/xRenzoBridge.sol 
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           65┆ constructor() {
+           66┆     _disableInitializers();
+           67┆ }
+            ⋮┆----------------------------------------
+       solidity.security.balancer-readonly-reentrancy-getrate.balancer-readonly-
+  reentrancy-getrate                                                            
+          rateProvider.getRate() call on a Balancer pool is not protected from  
+  the read-only                                                                 
+          reentrancy.                                                           
+          Details: https://sg.run/g9e5                                          
+                                                                                
+          215┆ uint256 exchangeRate = rateProvider.getRate();
+            ⋮┆----------------------------------------
+       solidity.security.basic-arithmetic-underflow.basic-arithmetic-underflow
+          Possible arithmetic underflow                                       
+          Details: https://sg.run/QP0q                                        
+                                                                              
+          169┆ uint256 ethAmount = address(this).balance -                      
+  ethBalanceBeforeWithdraw;                                                     
+            ⋮┆----------------------------------------
+          178┆ uint256 ezETHAmount = ezETH.balanceOf(address(this)) -           
+  ezETHBalanceBeforeDeposit;                                                    
+            ⋮┆----------------------------------------
+          190┆ uint256 xezETHAmount = xezETH.balanceOf(address(this)) -         
+  xezETHBalanceBeforeDeposit;                                                   
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 5 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

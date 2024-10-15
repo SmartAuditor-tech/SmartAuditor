@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "rOUSG.sol" not found: File not found. Searched the following locations: "".
+  --> /g4b/contracts/ousg/rOUSGFactory.sol:21:1:
+   |
+21 | import "rOUSG.sol";
+   | ^^^^^^^^^^^^^^^^^^^
+
+

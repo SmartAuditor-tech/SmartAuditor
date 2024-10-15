@@ -1,0 +1,12 @@
+
+/g4b/lib/forge-std/src/mocks/MockERC20.sol
+    2:1   error    Compiler version >=0.6.2 <0.9.0 does not satisfy the ^0.5.8 semver requirement  compiler-version
+   39:5   warning  Variable name must be in mixedCase                                              var-name-mixedcase
+   41:5   warning  Variable name must be in mixedCase                                              var-name-mixedcase
+  109:29  warning  Avoid making time-based decisions in your business logic                        not-rely-on-time
+  142:5   warning  Function name must be in mixedCase                                              func-name-mixedcase
+  201:9   warning  Avoid to use inline assembly. It is acceptable only in rare cases               no-inline-assembly
+  211:9   warning  Avoid to use inline assembly. It is acceptable only in rare cases               no-inline-assembly
+
+✖ 7 problems (1 error, 6 warnings)
+

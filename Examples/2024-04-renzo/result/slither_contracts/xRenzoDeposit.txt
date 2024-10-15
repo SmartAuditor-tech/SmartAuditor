@@ -1,0 +1,20 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 @chainlink/=node_modules/@chainlink/ @eth-optimism/=node_modules/@chainlink/contracts/node_modules/@eth-optimism/ @openzeppelin/=node_modules/@openzeppelin/ ds-test/=lib/forge-std/lib/ds-test/src/ eth-gas-reporter/=node_modules/eth-gas-reporter/ forge-std/=lib/forge-std/src/ hardhat-deploy/=node_modules/hardhat-deploy/ hardhat/=node_modules/hardhat/ prb/test/=lib/prb-test/src/ solmate/=lib/solmate/src/ @connext/=node_modules/@connext/ prb-test/=lib/prb-test/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-renzo/contracts/Bridge/L2/xRenzoDeposit.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 10000 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-renzo/contracts/Bridge/L2' running
+INFO:Detectors:
+xRenzoDeposit._recoverBridgeFee() (contracts/Bridge/L2/xRenzoDeposit.sol#396-406) sends eth to arbitrary user
+	Dangerous calls:
+	- (success,None) = address(msg.sender).call{value: feeCollected}() (contracts/Bridge/L2/xRenzoDeposit.sol#403)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+INFO:Detectors:
+xRenzoDeposit._deposit(uint256,uint256,uint256) (contracts/Bridge/L2/xRenzoDeposit.sol#227-271) uses a dangerous strict equality:
+	- amountOut == 0 (contracts/Bridge/L2/xRenzoDeposit.sol#240)
+xRenzoDeposit.depositETH(uint256,uint256) (contracts/Bridge/L2/xRenzoDeposit.sol#168-191) uses a dangerous strict equality:
+	- wrappedAmount == 0 (contracts/Bridge/L2/xRenzoDeposit.sol#186)
+xRenzoDeposit.sweep() (contracts/Bridge/L2/xRenzoDeposit.sol#414-449) uses a dangerous strict equality:
+	- balance == 0 (contracts/Bridge/L2/xRenzoDeposit.sol#424)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+xRenzoDeposit.sweep() (contracts/Bridge/L2/xRenzoDeposit.sol#414-449) ignores return value by connext.xcall{value: msg.value}(bridgeDestinationDomain,bridgeTargetAddress,address(collateralToken),msg.sender,balance,0,bridgeCallData) (contracts/Bridge/L2/xRenzoDeposit.sol#434-442)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-renzo/contracts/Bridge/L2/xRenzoDeposit.sol analyzed (21 contracts with 58 detectors), 5 result(s) found

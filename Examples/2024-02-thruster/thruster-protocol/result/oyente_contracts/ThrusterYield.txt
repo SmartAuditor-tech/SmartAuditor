@@ -1,0 +1,7 @@
+WARNING:root:You are using evm version 1.8.2. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.21, The latest supported version is 0.4.19
+CRITICAL:root:/g4b//thruster-cfmm/contracts/ThrusterYield.sol:24:16: Error: Expected identifier, got 'LParen'
+    constructor(address _manager) public {
+               ^
+
+CRITICAL:root:Solidity compilation failed.

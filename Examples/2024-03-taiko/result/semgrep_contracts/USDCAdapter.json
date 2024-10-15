@@ -1,0 +1,13 @@
+{
+    "success": true,
+    "finding_length": 1,
+    "findings": [
+        {
+            "classification": [],
+            "name": "arbitrary-send-erc20",
+            "category": "security",
+            "message": "msg.sender is not being used when calling erc20.transferFrom. Example",
+            "line": 48
+        }
+    ]
+}

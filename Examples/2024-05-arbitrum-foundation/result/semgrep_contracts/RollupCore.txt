@@ -1,0 +1,139 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 22 Code Findings │
+└──────────────────┘
+                                   
+    /g4b/src/rollup/RollupCore.sol 
+       solidity.performance.inefficient-state-variable-increment.inefficient-sta
+  te-variable-increment                                                         
+          <x> += <y> costs more gas than <x> = <x> + <y> for state variables.   
+          Details: https://sg.run/bp9v                                          
+                                                                                
+          347┆ totalWithdrawableFunds += amount;
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+          127┆ require(assertionHash != bytes32(0),                             
+  "ASSERTION_ID_CANNOT_BE_ZERO");                                               
+            ⋮┆----------------------------------------
+          148┆ require(blockNum > 0, "NO_ASSERTION");
+            ⋮┆----------------------------------------
+          244┆ require(assertion.status == AssertionStatus.Pending,             
+  "NOT_PENDING");                                                               
+            ⋮┆----------------------------------------
+          247┆ require(
+          248┆     assertionHash
+          249┆         == RollupLib.assertionHash({
+          250┆             parentAssertionHash: parentAssertionHash,
+          251┆             afterState: confirmState,
+          252┆             inboxAcc: inboxAcc
+          253┆         }),
+          254┆     "CONFIRM_DATA"
+          255┆ );
+            ⋮┆----------------------------------------
+          304┆ require(target <= current, "TOO_LITTLE_STAKE");
+            ⋮┆----------------------------------------
+          357┆ require(staker.isStaked, "NOT_STAKED");
+            ⋮┆----------------------------------------
+          378┆ require(
+          379┆     assertion.afterState.machineStatus == MachineStatus.FINISHED
+          380┆         || assertion.afterState.machineStatus ==                 
+  MachineStatus.ERRORED,                                                        
+          381┆     "BAD_AFTER_STATUS"
+          382┆ );
+            ⋮┆----------------------------------------
+          385┆ require(
+          386┆     RollupLib.assertionHash(
+          387┆         assertion.beforeStateData.prevPrevAssertionHash,
+          388┆         assertion.beforeState,
+          389┆         assertion.beforeStateData.sequencerBatchAcc
+          390┆     ) == prevAssertionHash,
+          391┆     "INVALID_BEFORE_STATE"
+          392┆ );
+            ⋮┆----------------------------------------
+          399┆ require(assertion.beforeState.machineStatus ==                   
+  MachineStatus.FINISHED, "BAD_PREV_STATUS");                                   
+            ⋮┆----------------------------------------
+          424┆ require(afterGS.comparePositions(beforeGS) >= 0,                 
+  "INBOX_BACKWARDS");                                                           
+            ⋮┆----------------------------------------
+          427┆ require(afterStateCmpMaxInbox <= 0, "INBOX_TOO_FAR");
+            ⋮┆----------------------------------------
+          433┆ require(afterGS.comparePositions(beforeGS) > 0,                  
+  "OVERFLOW_STANDSTILL");                                                       
+            ⋮┆----------------------------------------
+          438┆                                                                  
+  require(afterGS.comparePositionsAgainstStartOfBatch(currentInboxPosition) <=  
+  0, "INBOX_PAST_END");                                                         
+            ⋮┆----------------------------------------
+          445┆ require(
+          446┆     assertion.beforeStateData.configData.nextInboxPosition <=    
+  currentInboxPosition, "INBOX_NOT_POPULATED"                                   
+          447┆ );
+            ⋮┆----------------------------------------
+          466┆ require(afterInboxPosition != 0, "EMPTY_INBOX_COUNT");
+            ⋮┆----------------------------------------
+          477┆ require(
+          478┆     newAssertionHash == expectedAssertionHash ||                 
+  expectedAssertionHash == bytes32(0),                                          
+          479┆     "UNEXPECTED_ASSERTION_HASH"
+          480┆ );
+            ⋮┆----------------------------------------
+          485┆ require(getAssertionStorage(newAssertionHash).status ==          
+  AssertionStatus.NoAssertion, "ASSERTION_SEEN");                               
+            ⋮┆----------------------------------------
+          546┆ require(assertionHash ==                                         
+  RollupLib.assertionHash(prevAssertionHash, state, inboxAcc),                  
+  "INVALID_ASSERTION_HASH");                                                    
+            ⋮┆----------------------------------------
+          566┆ require(isStaked(stakerAddress), "NOT_STAKED");
+            ⋮┆----------------------------------------
+          573┆ require(isLatestConfirmed || haveChild, "STAKE_ACTIVE");
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          429┆ if (assertion.afterState.machineStatus != MachineStatus.ERRORED  
+  && afterStateCmpMaxInbox < 0) {                                               
+          430┆     // If we didn't reach the target next inbox position, this is
+  an overflow assertion.                                                        
+          431┆     overflowAssertion = true;
+          432┆     // This shouldn't be necessary, but might as well constrain  
+  the assertion to be non-empty                                                 
+          433┆     require(afterGS.comparePositions(beforeGS) > 0,              
+  "OVERFLOW_STANDSTILL");                                                       
+          434┆ }
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 22 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

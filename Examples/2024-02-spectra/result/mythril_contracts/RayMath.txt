@@ -1,0 +1,11 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source file requires different compiler version (current compiler is 0.8.27+commit.40a35a09.Linux.g++) - note that nightly builds are considered to be strictly less than the released version
+ --> /g4b/src/libraries/RayMath.sol:2:1:
+  |
+2 | pragma solidity =0.8.20;
+  | ^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+SolidityVersionMismatch: Try adding the option "--solv <version_number>"
+

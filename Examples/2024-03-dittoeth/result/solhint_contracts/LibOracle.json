@@ -1,0 +1,54 @@
+{
+    "success": true,
+    "finding_length": 6,
+    "findings": [
+        {
+            "filename": "LibOracle.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version 0.8.21 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "LibOracle.sol",
+            "line": 60,
+            "column": 63,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "LibOracle.sol",
+            "line": 76,
+            "column": 79,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "LibOracle.sol",
+            "line": 77,
+            "column": 16,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "LibOracle.sol",
+            "line": 125,
+            "column": 79,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "LibOracle.sol",
+            "line": 126,
+            "column": 74,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        }
+    ]
+}

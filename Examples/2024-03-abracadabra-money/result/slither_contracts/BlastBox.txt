@@ -1,0 +1,88 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.20/solc-0.8.20 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.20/solc-0.8.20 /=src/ openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/ BoringSolidity/=lib/BoringSolidity/contracts/ ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ solmate/=lib/solmate/src/ utils/=utils/ libraries/=src/libraries/ interfaces/=src/interfaces/ cauldrons/=src/cauldrons/ staking/=src/staking/ oracles/=src/oracles/ tokens/=src/tokens/ mixins/=src/mixins/ solady/=lib/solady/src/ forge-deploy/=lib/forge-deploy/contracts/ /Users/tanzezhong/Desktop/tzz/Research/GPT4Bugs-main/Examples/2024-03-abracadabra-money/src/blast/BlastBox.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 400 --evm-version paris --allow-paths .,/Users/tanzezhong/Desktop/tzz/Research/GPT4Bugs-main/Examples/2024-03-abracadabra-money/src/blast' running
+Compilation warnings/errors on /Users/tanzezhong/Desktop/tzz/Research/GPT4Bugs-main/Examples/2024-03-abracadabra-money/src/blast/BlastBox.sol:
+Error: Source "src/libraries/BlastYields.sol" not found: File not found. Searched the following locations: "".
+ --> src/blast/BlastBox.sol:6:1:
+  |
+6 | import  {BlastYields} from "libraries/BlastYields.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "src/libraries/BlastPoints.sol" not found: File not found. Searched the following locations: "".
+ --> src/blast/BlastBox.sol:7:1:
+  |
+7 | import  {BlastPoints} from "libraries/BlastPoints.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "BlastTokenRegistry.sol" not found: File not found. Searched the following locations: "".
+ --> src/blast/BlastBox.sol:8:1:
+  |
+8 | import   {BlastTokenRegistry} from "BlastTokenRegistry.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "IStrategy.sol" not found: File not found. Searched the following locations: "".
+ --> src/interfaces/IBentoBoxV1.sol:6:1:
+  |
+6 | import  {IStrategy} from "IStrategy.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Traceback (most recent call last):
+  File "/Users/tanzezhong/anaconda3/envs/gpt4bugs/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 582, in _run_solc
+    ret: Dict = json.loads(stdout)
+  File "/Users/tanzezhong/anaconda3/envs/gpt4bugs/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/Users/tanzezhong/anaconda3/envs/gpt4bugs/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/tanzezhong/anaconda3/envs/gpt4bugs/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/tanzezhong/anaconda3/envs/gpt4bugs/bin/slither", line 8, in <module>
+    sys.exit(main())
+  File "/Users/tanzezhong/anaconda3/envs/gpt4bugs/lib/python3.9/site-packages/slither/__main__.py", line 746, in main
+    main_impl(all_detector_classes=detectors, all_printer_classes=printers)
+  File "/Users/tanzezhong/anaconda3/envs/gpt4bugs/lib/python3.9/site-packages/slither/__main__.py", line 852, in main_impl
+    ) = process_all(filename, args, detector_classes, printer_classes)
+  File "/Users/tanzezhong/anaconda3/envs/gpt4bugs/lib/python3.9/site-packages/slither/__main__.py", line 96, in process_all
+    compilations = compile_all(target, **vars(args))
+  File "/Users/tanzezhong/anaconda3/envs/gpt4bugs/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 718, in compile_all
+    compilations.append(CryticCompile(target, **kwargs))
+  File "/Users/tanzezhong/anaconda3/envs/gpt4bugs/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 207, in __init__
+    self._compile(**kwargs)
+  File "/Users/tanzezhong/anaconda3/envs/gpt4bugs/lib/python3.9/site-packages/crytic_compile/crytic_compile.py", line 629, in _compile
+    self._platform.compile(self, **kwargs)
+  File "/Users/tanzezhong/anaconda3/envs/gpt4bugs/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 151, in compile
+    targets_json = _get_targets_json(compilation_unit, self._target, **kwargs)
+  File "/Users/tanzezhong/anaconda3/envs/gpt4bugs/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 280, in _get_targets_json
+    return _run_solc(
+  File "/Users/tanzezhong/anaconda3/envs/gpt4bugs/lib/python3.9/site-packages/crytic_compile/platform/solc.py", line 586, in _run_solc
+    raise InvalidCompilation(f"Invalid solc compilation {stderr}")
+crytic_compile.platform.exceptions.InvalidCompilation: Invalid solc compilation Error: Source "src/libraries/BlastYields.sol" not found: File not found. Searched the following locations: "".
+ --> src/blast/BlastBox.sol:6:1:
+  |
+6 | import  {BlastYields} from "libraries/BlastYields.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "src/libraries/BlastPoints.sol" not found: File not found. Searched the following locations: "".
+ --> src/blast/BlastBox.sol:7:1:
+  |
+7 | import  {BlastPoints} from "libraries/BlastPoints.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "BlastTokenRegistry.sol" not found: File not found. Searched the following locations: "".
+ --> src/blast/BlastBox.sol:8:1:
+  |
+8 | import   {BlastTokenRegistry} from "BlastTokenRegistry.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "IStrategy.sol" not found: File not found. Searched the following locations: "".
+ --> src/interfaces/IBentoBoxV1.sol:6:1:
+  |
+6 | import  {IStrategy} from "IStrategy.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

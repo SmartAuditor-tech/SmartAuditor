@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "/g4b/interfaces/IDiamond.sol" not found: File not found. Searched the following locations: "".
+ --> /g4b/contracts/facets/PrimaryLiquidationFacet.sol:6:1:
+  |
+6 | import  {IDiamond} from "../../interfaces/IDiamond.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

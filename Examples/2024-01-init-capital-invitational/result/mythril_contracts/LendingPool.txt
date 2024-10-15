@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "/g4b/contracts/.cache/OpenZeppelin-Upgradeable/v4.9.3/token/ERC20/ERC20Upgradeable.sol" not found: File not found. Searched the following locations: "".
+ --> /g4b/contracts/lending_pool/LendingPool.sol:9:1:
+  |
+9 | import  {ERC20Upgradeable} from "../.cache/OpenZeppelin-Upgradeable/v4.9.3/token/ERC20/ERC20Upgradeable.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

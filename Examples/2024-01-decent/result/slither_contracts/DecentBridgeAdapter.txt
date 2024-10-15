@@ -1,0 +1,28 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.20/solc-0.8.20 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.20/solc-0.8.20 forge-std/=lib/forge-std/src/ solmate/=lib/solmate/src/ @uniswap/v3-periphery/=lib/v3-periphery/ @uniswap/v3-core/=lib/v3-core/ @uniswap/swap-contracts/=lib/swap-router-contracts/contracts/ decent-bridge/=lib/decent-bridge/ better-deployer/=lib/decent-bridge/lib/better-deployer/src/ forge-toolkit/=lib/forge-toolkit/src/ openzeppelin-contracts/=lib/decent-bridge/lib/openzeppelin-contracts/contracts/ @openzeppelin/=lib/decent-bridge/lib/openzeppelin-contracts/ @openzeppelin/contracts/=lib/decent-bridge/lib/openzeppelin-contracts/contracts/ LayerZero/=lib/forge-toolkit/lib/LayerZero/contracts/ ds-test/=lib/forge-std/lib/ds-test/src/ erc4626-tests/=lib/decent-bridge/lib/openzeppelin-contracts/lib/erc4626-tests/ openzeppelin/=lib/decent-bridge/lib/openzeppelin-contracts/contracts/ solidity-examples/=lib/decent-bridge/lib/solidity-examples/contracts/ solidity-stringutils/=lib/decent-bridge/lib/solidity-stringutils/ swap-router-contracts/=lib/swap-router-contracts/contracts/ v3-core/=lib/v3-core/ v3-periphery/=lib/v3-periphery/contracts/ lib/forge-std:ds-test/=lib/decent-bridge/lib/forge-std/lib/ds-test/src/ lib/openzeppelin-contracts:ds-test/=lib/decent-bridge/lib/openzeppelin-contracts/lib/forge-std/lib/ds-test/src/ lib/openzeppelin-contracts:erc4626-tests/=lib/decent-bridge/lib/openzeppelin-contracts/lib/erc4626-tests/ lib/openzeppelin-contracts:forge-std/=lib/decent-bridge/lib/openzeppelin-contracts/lib/forge-std/src/ lib/openzeppelin-contracts:openzeppelin/=lib/decent-bridge/lib/openzeppelin-contracts/contracts/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-decent/src/bridge_adapters/DecentBridgeAdapter.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 200 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-decent/src/bridge_adapters' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-decent/src/bridge_adapters/DecentBridgeAdapter.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> lib/decent-bridge/src/interfaces/IDecentEthRouter.sol
+
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> src/interfaces/IBridgeAdapter.sol
+
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> src/interfaces/IUTB.sol
+
+
+INFO:Detectors:
+DecentBridgeAdapter.bridge(uint256,SwapInstructions,uint256,address,address,bytes,bytes,address) (src/bridge_adapters/DecentBridgeAdapter.sol#81-125) ignores return value by IERC20(bridgeToken).transferFrom(msg.sender,address(this),amt2Bridge) (src/bridge_adapters/DecentBridgeAdapter.sol#109-113)
+DecentBridgeAdapter.receiveFromBridge(SwapInstructions,address,address,bytes,address) (src/bridge_adapters/DecentBridgeAdapter.sol#127-154) ignores return value by IERC20(swapParams.tokenIn).transferFrom(msg.sender,address(this),swapParams.amountIn) (src/bridge_adapters/DecentBridgeAdapter.sol#139-143)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+INFO:Detectors:
+DecentBridgeAdapter.estimateFees(SwapInstructions,uint256,address,uint64,bytes) (src/bridge_adapters/DecentBridgeAdapter.sol#44-65) ignores return value by router.estimateSendAndCallFee(router.MT_ETH_TRANSFER_WITH_PAYLOAD(),lzIdLookup[dstChainId],target,swapParams.amountIn,dstGas,false,payload) (src/bridge_adapters/DecentBridgeAdapter.sol#55-64)
+DecentBridgeAdapter.bridge(uint256,SwapInstructions,uint256,address,address,bytes,bytes,address) (src/bridge_adapters/DecentBridgeAdapter.sol#81-125) ignores return value by IERC20(bridgeToken).approve(address(router),amt2Bridge) (src/bridge_adapters/DecentBridgeAdapter.sol#114)
+DecentBridgeAdapter.receiveFromBridge(SwapInstructions,address,address,bytes,address) (src/bridge_adapters/DecentBridgeAdapter.sol#127-154) ignores return value by IERC20(swapParams.tokenIn).approve(utb,swapParams.amountIn) (src/bridge_adapters/DecentBridgeAdapter.sol#145)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Detectors:
+DecentBridgeAdapter.bridgeToken (src/bridge_adapters/DecentBridgeAdapter.sol#19) should be immutable 
+DecentBridgeAdapter.gasIsEth (src/bridge_adapters/DecentBridgeAdapter.sol#18) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-decent/src/bridge_adapters/DecentBridgeAdapter.sol analyzed (9 contracts with 58 detectors), 7 result(s) found

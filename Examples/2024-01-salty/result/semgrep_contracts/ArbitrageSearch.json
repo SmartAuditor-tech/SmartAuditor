@@ -1,0 +1,13 @@
+{
+    "success": true,
+    "finding_length": 1,
+    "findings": [
+        {
+            "classification": [],
+            "name": "use-prefix-increment-not-postfix",
+            "category": "performance",
+            "message": "t-not-postfix Consider using the prefix increment expression whenever the return value is not needed. The prefix increment expression is cheaper in terms of gas. Details: https://sg.run/nxLr",
+            "line": 115
+        }
+    ]
+}

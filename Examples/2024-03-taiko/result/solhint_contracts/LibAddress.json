@@ -1,0 +1,30 @@
+{
+    "success": true,
+    "finding_length": 3,
+    "findings": [
+        {
+            "filename": "LibAddress.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version 0.8.24 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "LibAddress.sol",
+            "line": 58,
+            "column": 17,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        },
+        {
+            "filename": "LibAddress.sol",
+            "line": 78,
+            "column": 30,
+            "message": "Avoid to use tx.origin",
+            "level": "warning",
+            "name": "avoid-tx-origin"
+        }
+    ]
+}

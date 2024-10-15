@@ -1,0 +1,99 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/WiseSecurity/WiseSecurity.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20 --evm-version shanghai --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/WiseSecurity' running
+INFO:Detectors:
+WiseSecurityHelper.getLendingRate(address) (contracts/WiseSecurity/WiseSecurityHelper.sol#999-1021) performs a multiplication on the result of a division:
+	- adjustedRate = getBorrowRate(_poolToken) * (PRECISION_FACTOR_E18 - WISE_LENDING.globalPoolData(_poolToken).poolFee) / PRECISION_FACTOR_E18 (contracts/WiseSecurity/WiseSecurityHelper.sol#1014-1016)
+	- adjustedRate * WISE_LENDING.getPseudoTotalBorrowAmount(_poolToken) / pseudoTotalPool (contracts/WiseSecurity/WiseSecurityHelper.sol#1018-1020)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+WiseSecurityHelper._checkHealthState(uint256,bool) (contracts/WiseSecurity/WiseSecurityHelper.sol#794-804) uses a dangerous strict equality:
+	- _getState(_nftId,_powerFarm) == true (contracts/WiseSecurity/WiseSecurityHelper.sol#801)
+WiseSecurityHelper._getState(uint256,bool) (contracts/WiseSecurity/WiseSecurityHelper.sol#806-830) uses a dangerous strict equality:
+	- borrowAmount == 0 (contracts/WiseSecurity/WiseSecurityHelper.sol#818)
+WiseSecurity.getLiveDebtRatio(uint256) (contracts/WiseSecurity/WiseSecurity.sol#59-77) uses a dangerous strict equality:
+	- overallCollateral == 0 (contracts/WiseSecurity/WiseSecurity.sol#70)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+Reentrancy in FeeManager.paybackBadDebtForToken(uint256,address,address,uint256) (contracts/FeeManager/FeeManager.sol#730-809):
+	External calls:
+	- updatePositionCurrentBadDebt(_nftId) (contracts/FeeManager/FeeManager.sol#742-744)
+		- WISE_LENDING.syncManually(currentAddress) (contracts/FeeManager/FeeManagerHelper.sol#64-66)
+		- WISE_LENDING.syncManually(currentAddress) (contracts/FeeManager/FeeManagerHelper.sol#32-34)
+	- WISE_LENDING.corePaybackFeeManager(_paybackToken,_nftId,paybackAmount,_shares) (contracts/FeeManager/FeeManager.sol#766-771)
+	State variables written after the call(s):
+	- _updateUserBadDebt(_nftId) (contracts/FeeManager/FeeManager.sol#773-775)
+		- delete badDebtPosition[_nftId] (contracts/FeeManager/FeeManagerHelper.sol#126)
+		- badDebtPosition[_nftId] = _amount (contracts/FeeManager/FeeManagerHelper.sol#83)
+	DeclarationsFeeManager.badDebtPosition (contracts/FeeManager/DeclarationsFeeManager.sol#140) can be used in cross function reentrancies:
+	- FeeManagerHelper._eraseBadDebtUser(uint256) (contracts/FeeManager/FeeManagerHelper.sol#121-127)
+	- FeeManagerHelper._setBadDebtPosition(uint256,uint256) (contracts/FeeManager/FeeManagerHelper.sol#77-84)
+	- FeeManagerHelper._updateUserBadDebt(uint256) (contracts/FeeManager/FeeManagerHelper.sol#134-189)
+	- DeclarationsFeeManager.badDebtPosition (contracts/FeeManager/DeclarationsFeeManager.sol#140)
+	- FeeManager.paybackBadDebtForToken(uint256,address,address,uint256) (contracts/FeeManager/FeeManager.sol#730-809)
+	- FeeManager.paybackBadDebtNoReward(uint256,address,uint256) (contracts/FeeManager/FeeManager.sol#816-866)
+	- _updateUserBadDebt(_nftId) (contracts/FeeManager/FeeManager.sol#773-775)
+		- totalBadDebtETH += _amount (contracts/FeeManager/FeeManagerHelper.sol#94)
+		- totalBadDebtETH -= _amount (contracts/FeeManager/FeeManagerHelper.sol#110)
+	DeclarationsFeeManager.totalBadDebtETH (contracts/FeeManager/DeclarationsFeeManager.sol#117) can be used in cross function reentrancies:
+	- FeeManagerHelper._decreaseTotalBadDebt(uint256) (contracts/FeeManager/FeeManagerHelper.sol#105-116)
+	- FeeManagerHelper._increaseTotalBadDebt(uint256) (contracts/FeeManager/FeeManagerHelper.sol#89-100)
+	- FeeManager.claimFeesBeneficial(address,uint256) (contracts/FeeManager/FeeManager.sol#689-722)
+	- FeeManager.claimWiseFees(address) (contracts/FeeManager/FeeManager.sol#628-682)
+	- DeclarationsFeeManager.totalBadDebtETH (contracts/FeeManager/DeclarationsFeeManager.sol#117)
+Reentrancy in FeeManager.paybackBadDebtNoReward(uint256,address,uint256) (contracts/FeeManager/FeeManager.sol#816-866):
+	External calls:
+	- updatePositionCurrentBadDebt(_nftId) (contracts/FeeManager/FeeManager.sol#824-826)
+		- WISE_LENDING.syncManually(currentAddress) (contracts/FeeManager/FeeManagerHelper.sol#64-66)
+		- WISE_LENDING.syncManually(currentAddress) (contracts/FeeManager/FeeManagerHelper.sol#32-34)
+	- WISE_LENDING.corePaybackFeeManager(_paybackToken,_nftId,paybackAmount,_shares) (contracts/FeeManager/FeeManager.sol#841-846)
+	State variables written after the call(s):
+	- _updateUserBadDebt(_nftId) (contracts/FeeManager/FeeManager.sol#848-850)
+		- delete badDebtPosition[_nftId] (contracts/FeeManager/FeeManagerHelper.sol#126)
+		- badDebtPosition[_nftId] = _amount (contracts/FeeManager/FeeManagerHelper.sol#83)
+	DeclarationsFeeManager.badDebtPosition (contracts/FeeManager/DeclarationsFeeManager.sol#140) can be used in cross function reentrancies:
+	- FeeManagerHelper._eraseBadDebtUser(uint256) (contracts/FeeManager/FeeManagerHelper.sol#121-127)
+	- FeeManagerHelper._setBadDebtPosition(uint256,uint256) (contracts/FeeManager/FeeManagerHelper.sol#77-84)
+	- FeeManagerHelper._updateUserBadDebt(uint256) (contracts/FeeManager/FeeManagerHelper.sol#134-189)
+	- DeclarationsFeeManager.badDebtPosition (contracts/FeeManager/DeclarationsFeeManager.sol#140)
+	- FeeManager.paybackBadDebtForToken(uint256,address,address,uint256) (contracts/FeeManager/FeeManager.sol#730-809)
+	- FeeManager.paybackBadDebtNoReward(uint256,address,uint256) (contracts/FeeManager/FeeManager.sol#816-866)
+	- _updateUserBadDebt(_nftId) (contracts/FeeManager/FeeManager.sol#848-850)
+		- totalBadDebtETH += _amount (contracts/FeeManager/FeeManagerHelper.sol#94)
+		- totalBadDebtETH -= _amount (contracts/FeeManager/FeeManagerHelper.sol#110)
+	DeclarationsFeeManager.totalBadDebtETH (contracts/FeeManager/DeclarationsFeeManager.sol#117) can be used in cross function reentrancies:
+	- FeeManagerHelper._decreaseTotalBadDebt(uint256) (contracts/FeeManager/FeeManagerHelper.sol#105-116)
+	- FeeManagerHelper._increaseTotalBadDebt(uint256) (contracts/FeeManager/FeeManagerHelper.sol#89-100)
+	- FeeManager.claimFeesBeneficial(address,uint256) (contracts/FeeManager/FeeManager.sol#689-722)
+	- FeeManager.claimWiseFees(address) (contracts/FeeManager/FeeManager.sol#628-682)
+	- DeclarationsFeeManager.totalBadDebtETH (contracts/FeeManager/DeclarationsFeeManager.sol#117)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+INFO:Detectors:
+FeeManager.revokeBeneficial(address,address[]).i (contracts/FeeManager/FeeManager.sol#578) is a local variable never initialized
+WiseSecurityHelper.overallETHBorrow(uint256).i (contracts/WiseSecurity/WiseSecurityHelper.sol#437) is a local variable never initialized
+FeeManager.claimIncentivesBulk().i (contracts/FeeManager/FeeManager.sol#254) is a local variable never initialized
+WiseSecurityHelper.overallETHCollateralsWeighted(uint256).i (contracts/WiseSecurity/WiseSecurityHelper.sol#74) is a local variable never initialized
+FeeManager.syncAllPools().i (contracts/FeeManager/FeeManager.sol#901) is a local variable never initialized
+WiseSecurityHelper.overallETHCollateralsBoth(uint256).i (contracts/WiseSecurity/WiseSecurityHelper.sol#27) is a local variable never initialized
+WiseSecurity.safeLimitPosition(uint256).i (contracts/WiseSecurity/WiseSecurity.sol#656) is a local variable never initialized
+WiseSecurityHelper.overallETHBorrowBare(uint256).i (contracts/WiseSecurity/WiseSecurityHelper.sol#367) is a local variable never initialized
+FeeManagerHelper._distributeIncentives(uint256,address,address).reduceAmount (contracts/FeeManager/FeeManagerHelper.sol#300) is a local variable never initialized
+WiseSecurity.positionBlackListToken(uint256).i (contracts/WiseSecurity/WiseSecurity.sol#706) is a local variable never initialized
+FeeManager.removePoolTokenManual(address).i (contracts/FeeManager/FeeManager.sol#444) is a local variable never initialized
+WiseSecurity.overallNetAPY(uint256).i (contracts/WiseSecurity/WiseSecurity.sol#563) is a local variable never initialized
+FeeManager.setAaveFlagBulk(address[],address[]).i (contracts/FeeManager/FeeManager.sol#89) is a local variable never initialized
+WiseSecurityHelper._overallETHBorrow(uint256,uint256).i (contracts/WiseSecurity/WiseSecurityHelper.sol#494) is a local variable never initialized
+FeeManager.setBeneficial(address,address[]).i (contracts/FeeManager/FeeManager.sol#545) is a local variable never initialized
+WiseSecurityHelper._setPoolState(bool).i (contracts/WiseSecurity/WiseSecurityHelper.sol#1062) is a local variable never initialized
+WiseSecurityHelper.overallETHCollateralsBare(uint256).i (contracts/WiseSecurity/WiseSecurityHelper.sol#116) is a local variable never initialized
+WiseSecurity.overallLendingAPY(uint256).i (contracts/WiseSecurity/WiseSecurity.sol#457) is a local variable never initialized
+WiseSecurityHelper.overallETHBorrowHeartbeat(uint256).i (contracts/WiseSecurity/WiseSecurityHelper.sol#403) is a local variable never initialized
+WiseSecurityHelper._overallETHCollateralsWeighted(uint256,uint256).i (contracts/WiseSecurity/WiseSecurityHelper.sol#153) is a local variable never initialized
+FeeManager.removePoolTokenManual(address).found (contracts/FeeManager/FeeManager.sol#447) is a local variable never initialized
+FeeManager.setPoolFeeBulk(address[],uint256[]).i (contracts/FeeManager/FeeManager.sol#142) is a local variable never initialized
+FeeManager.claimWiseFeesBulk().i (contracts/FeeManager/FeeManager.sol#606) is a local variable never initialized
+WiseSecurity.overallBorrowAPY(uint256).i (contracts/WiseSecurity/WiseSecurity.sol#514) is a local variable never initialized
+FeeManagerHelper._prepareCollaterals(uint256).i (contracts/FeeManager/FeeManagerHelper.sol#52) is a local variable never initialized
+FeeManagerHelper._prepareBorrows(uint256).i (contracts/FeeManager/FeeManagerHelper.sol#20) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/WiseSecurity/WiseSecurity.sol analyzed (21 contracts with 58 detectors), 32 result(s) found

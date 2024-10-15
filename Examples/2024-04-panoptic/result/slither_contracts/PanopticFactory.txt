@@ -1,0 +1,72 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.25/solc-0.8.25 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.25/solc-0.8.25 forge-std/=lib/forge-std/src/ @openzeppelin/=lib/openzeppelin-contracts/ solmate/=lib/solmate/src/ univ3-core/=lib/v3-core/contracts/ univ3-periphery/=lib/v3-periphery/contracts/ @contracts/=contracts/ @libraries/=contracts/libraries/ @multicall/=contracts/multicall/ @periphery/=periphery/ @tokens/=contracts/tokens/ @types/=contracts/types/ @scripts/=scripts/ @uniswap/=lib/ ds-test/=lib/forge-std/lib/ds-test/src/ openzeppelin-contracts/=lib/openzeppelin-contracts/ v3-core/=lib/v3-core/contracts/ v3-periphery/=lib/v3-periphery/contracts/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-panoptic/contracts/PanopticFactory.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 1 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-panoptic/contracts' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-panoptic/contracts/PanopticFactory.sol:
+Error: Source "CollateralTracker.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/PanopticFactory.sol:5:1:
+  |
+5 | import   {CollateralTracker} from "CollateralTracker.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "PanopticPool.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/PanopticFactory.sol:6:1:
+  |
+6 | import   {PanopticPool} from "PanopticPool.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "SemiFungiblePositionManager.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/PanopticFactory.sol:7:1:
+  |
+7 | import   {SemiFungiblePositionManager} from "SemiFungiblePositionManager.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "tokens/interfaces/IDonorNFT.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/PanopticFactory.sol:8:1:
+  |
+8 | import   {IDonorNFT} from "tokens/interfaces/IDonorNFT.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "multicall/Multicall.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/PanopticFactory.sol:12:1:
+   |
+12 | import  {Multicall} from "multicall/Multicall.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "libraries/CallbackLib.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/PanopticFactory.sol:16:1:
+   |
+16 | import   {CallbackLib} from "libraries/CallbackLib.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "libraries/Constants.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/PanopticFactory.sol:17:1:
+   |
+17 | import   {Constants} from "libraries/Constants.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "libraries/Errors.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/PanopticFactory.sol:18:1:
+   |
+18 | import   {Errors} from "libraries/Errors.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "libraries/Math.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/PanopticFactory.sol:19:1:
+   |
+19 | import   {Math} from "libraries/Math.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "libraries/PanopticMath.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/PanopticFactory.sol:20:1:
+   |
+20 | import   {PanopticMath} from "libraries/PanopticMath.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "libraries/SafeTransferLib.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/PanopticFactory.sol:21:1:
+   |
+21 | import   {SafeTransferLib} from "libraries/SafeTransferLib.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+ERROR:Slither:Unable to compile all targets.

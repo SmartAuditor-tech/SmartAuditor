@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "BalancerRateProvider.sol",
+        "incomplete instruction": "3653",
+        "coverage": "0.8%",
+        "warnings": []
+    }
+}

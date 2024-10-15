@@ -1,0 +1,143 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 27 Code Findings │
+└──────────────────┘
+                                 
+    /g4b/src/staking/Staking.sol 
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           33┆ constructor( IExchangeConfig _exchangeConfig, IPoolsConfig       
+  _poolsConfig, IStakingConfig _stakingConfig )                                 
+           34┆    StakingRewards( _exchangeConfig, _poolsConfig,              
+  _stakingConfig )                                                            
+           35┆  
+  {             
+           36┆  
+  }             
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           43┆ require( exchangeConfig.walletHasAccess(msg.sender), "Sender does
+  not have exchange access" );                                                  
+            ⋮┆----------------------------------------
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 27 findings.
+           62┆ require( userShareForPool(msg.sender, PoolUtils.STAKED_SALT) >=  
+  amountUnstaked, "Cannot unstake more than the amount staked" );               
+            ⋮┆----------------------------------------
+           88┆ require( u.status == UnstakeState.PENDING, "Only PENDING unstakes
+  can be cancelled" );                                                          
+            ⋮┆----------------------------------------
+           89┆ require( block.timestamp < u.completionTime, "Unstakes that have 
+  already completed cannot be cancelled" );                                     
+            ⋮┆----------------------------------------
+           90┆ require( msg.sender == u.wallet, "Sender is not the original     
+  staker" );                                                                    
+            ⋮┆----------------------------------------
+          104┆ require( u.status == UnstakeState.PENDING, "Only PENDING unstakes
+  can be claimed" );                                                            
+            ⋮┆----------------------------------------
+          105┆ require( block.timestamp >= u.completionTime, "Unstake has not   
+  completed yet" );                                                             
+            ⋮┆----------------------------------------
+          106┆ require( msg.sender == u.wallet, "Sender is not the original     
+  staker" );                                                                    
+            ⋮┆----------------------------------------
+          132┆ require( msg.sender == address(exchangeConfig.airdrop()),        
+  "Staking.transferStakedSaltFromAirdropToUser is only callable from the Airdrop
+  contract" );                                                                  
+            ⋮┆----------------------------------------
+          153┆ require(end >= start, "Invalid range: end cannot be less than    
+  start");                                                                      
+            ⋮┆----------------------------------------
+          157┆ require(userUnstakes.length > end, "Invalid range: end is out of 
+  bounds");                                                                     
+            ⋮┆----------------------------------------
+          158┆ require(start < userUnstakes.length, "Invalid range: start is out
+  of bounds");                                                                  
+            ⋮┆----------------------------------------
+          204┆ require( numWeeks >= minUnstakeWeeks, "Unstaking duration too    
+  short" );                                                                     
+            ⋮┆----------------------------------------
+          205┆ require( numWeeks <= maxUnstakeWeeks, "Unstaking duration too    
+  long" );                                                                      
+            ⋮┆----------------------------------------
+       solidity.performance.use-prefix-increment-not-postfix.use-prefix-incremen
+  t-not-postfix                                                                 
+          Consider using the prefix increment expression whenever the return    
+  value is not needed. The                                                      
+          prefix increment expression is cheaper in terms of gas.               
+          Details: https://sg.run/nxLr                                          
+                                                                                
+          163┆ for(uint256 i = start; i <= end; i++)
+            ⋮┆----------------------------------------
+       solidity.performance.use-short-revert-string.use-short-revert-string     
+          Shortening revert strings to fit in 32 bytes will decrease gas costs  
+  for deployment and  gas                                                       
+          costs when the revert condition has been met.                         
+          Details: https://sg.run/E9LB                                          
+                                                                                
+           43┆ require( exchangeConfig.walletHasAccess(msg.sender), "Sender does
+  not have exchange access" );                                                  
+            ⋮┆----------------------------------------
+           62┆ require( userShareForPool(msg.sender, PoolUtils.STAKED_SALT) >=  
+  amountUnstaked, "Cannot unstake more than the amount staked" );               
+            ⋮┆----------------------------------------
+           88┆ require( u.status == UnstakeState.PENDING, "Only PENDING unstakes
+  can be cancelled" );                                                          
+            ⋮┆----------------------------------------
+           89┆ require( block.timestamp < u.completionTime, "Unstakes that have 
+  already completed cannot be cancelled" );                                     
+            ⋮┆----------------------------------------
+           90┆ require( msg.sender == u.wallet, "Sender is not the original     
+  staker" );                                                                    
+            ⋮┆----------------------------------------
+          104┆ require( u.status == UnstakeState.PENDING, "Only PENDING unstakes
+  can be claimed" );                                                            
+            ⋮┆----------------------------------------
+          106┆ require( msg.sender == u.wallet, "Sender is not the original     
+  staker" );                                                                    
+            ⋮┆----------------------------------------
+          132┆ require( msg.sender == address(exchangeConfig.airdrop()),        
+  "Staking.transferStakedSaltFromAirdropToUser is only callable from the Airdrop
+  contract" );                                                                  
+            ⋮┆----------------------------------------
+          153┆ require(end >= start, "Invalid range: end cannot be less than    
+  start");                                                                      
+            ⋮┆----------------------------------------
+          157┆ require(userUnstakes.length > end, "Invalid range: end is out of 
+  bounds");                                                                     
+            ⋮┆----------------------------------------
+          158┆ require(start < userUnstakes.length, "Invalid range: start is out
+  of bounds");                                                                  
+
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

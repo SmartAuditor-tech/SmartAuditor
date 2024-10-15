@@ -1,0 +1,65 @@
+{
+    "success": true,
+    "finding_length": 5,
+    "findings": [
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "LibVerifying.verifyBlocks(TaikoData.State,TaikoData.Config,IAddressResolver,uint64) (packages/protocol/contracts/L1/libs/LibVerifying.sol#85-222) ignores return value by tko.transfer(ts.prover,bondToReturn) (packages/protocol/contracts/L1/libs/LibVerifying.sol#189)\n",
+            "filename": "LibVerifying.sol",
+            "classification": [],
+            "function": "verifyBlocks",
+            "contract": "LibVerifying",
+            "line": 189
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "LibVerifying.verifyBlocks(TaikoData.State,TaikoData.Config,IAddressResolver,uint64).tierProvider (packages/protocol/contracts/L1/libs/LibVerifying.sol#118) is a local variable never initialized\n",
+            "filename": "LibVerifying.sol",
+            "classification": [],
+            "line": 118
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "LibVerifying.verifyBlocks(TaikoData.State,TaikoData.Config,IAddressResolver,uint64).numBlocksVerified (packages/protocol/contracts/L1/libs/LibVerifying.sol#117) is a local variable never initialized\n",
+            "filename": "LibVerifying.sol",
+            "classification": [],
+            "line": 117
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "LibVerifying._syncChainData(TaikoData.Config,IAddressResolver,uint64,bytes32) (packages/protocol/contracts/L1/libs/LibVerifying.sol#224-243) ignores return value by signalService.syncChainData(_config.chainId,LibSignals.STATE_ROOT,_lastVerifiedBlockId,_stateRoot) (packages/protocol/contracts/L1/libs/LibVerifying.sol#239-241)\n",
+            "filename": "LibVerifying.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_syncChainData",
+            "contract": "LibVerifying",
+            "line": 239,
+            "line_end": 241
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "LibVerifying._syncChainData(TaikoData.Config,IAddressResolver,uint64,bytes32) (packages/protocol/contracts/L1/libs/LibVerifying.sol#224-243) ignores return value by (lastSyncedBlock,None) = signalService.getSyncedChainData(_config.chainId,LibSignals.STATE_ROOT,0) (packages/protocol/contracts/L1/libs/LibVerifying.sol#234-236)\n",
+            "filename": "LibVerifying.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_syncChainData",
+            "contract": "LibVerifying",
+            "line": 234,
+            "line_end": 236
+        }
+    ]
+}

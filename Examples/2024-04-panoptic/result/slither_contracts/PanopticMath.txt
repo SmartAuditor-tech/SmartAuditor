@@ -1,0 +1,180 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.25/solc-0.8.25 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.25/solc-0.8.25 forge-std/=lib/forge-std/src/ @openzeppelin/=lib/openzeppelin-contracts/ solmate/=lib/solmate/src/ univ3-core/=lib/v3-core/contracts/ univ3-periphery/=lib/v3-periphery/contracts/ @contracts/=contracts/ @libraries/=contracts/libraries/ @multicall/=contracts/multicall/ @periphery/=periphery/ @tokens/=contracts/tokens/ @types/=contracts/types/ @scripts/=scripts/ @uniswap/=lib/ ds-test/=lib/forge-std/lib/ds-test/src/ openzeppelin-contracts/=lib/openzeppelin-contracts/ v3-core/=lib/v3-core/contracts/ v3-periphery/=lib/v3-periphery/contracts/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-panoptic/contracts/libraries/PanopticMath.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 1 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-panoptic/contracts/libraries' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-panoptic/contracts/libraries/PanopticMath.sol:
+Error: Source "Constants.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/libraries/PanopticMath.sol:8:1:
+  |
+8 | import   {Constants} from "Constants.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "Errors.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/libraries/PanopticMath.sol:9:1:
+  |
+9 | import   {Errors} from "Errors.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "Math.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/libraries/PanopticMath.sol:10:1:
+   |
+10 | import   {Math} from "Math.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "tokens/ERC20Minimal.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/CollateralTracker.sol:7:1:
+  |
+7 | import  {ERC20Minimal} from "tokens/ERC20Minimal.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "multicall/Multicall.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/CollateralTracker.sol:8:1:
+  |
+8 | import  {Multicall} from "multicall/Multicall.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "libraries/Constants.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/CollateralTracker.sol:10:1:
+   |
+10 | import   {Constants} from "libraries/Constants.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "libraries/Errors.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/CollateralTracker.sol:11:1:
+   |
+11 | import   {Errors} from "libraries/Errors.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "libraries/InteractionHelper.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/CollateralTracker.sol:12:1:
+   |
+12 | import  {InteractionHelper} from "libraries/InteractionHelper.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "libraries/Math.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/CollateralTracker.sol:13:1:
+   |
+13 | import   {Math} from "libraries/Math.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "libraries/PanopticMath.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/CollateralTracker.sol:14:1:
+   |
+14 | import   {PanopticMath} from "libraries/PanopticMath.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "libraries/SafeTransferLib.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/CollateralTracker.sol:15:1:
+   |
+15 | import   {SafeTransferLib} from "libraries/SafeTransferLib.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "types/LeftRight.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/CollateralTracker.sol:17:1:
+   |
+17 | import   {LeftRightUnsigned, LeftRightSigned} from "types/LeftRight.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "types/LiquidityChunk.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/CollateralTracker.sol:18:1:
+   |
+18 | import   {LiquidityChunk} from "types/LiquidityChunk.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "types/TokenId.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/CollateralTracker.sol:19:1:
+   |
+19 | import   {TokenId} from "types/TokenId.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "TokenId.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/types/LiquidityChunk.sol:5:1:
+  |
+5 | import   {TokenId} from "TokenId.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "CollateralTracker.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/PanopticPool.sol:5:1:
+  |
+5 | import   {CollateralTracker} from "CollateralTracker.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "SemiFungiblePositionManager.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/PanopticPool.sol:6:1:
+  |
+6 | import   {SemiFungiblePositionManager} from "SemiFungiblePositionManager.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "multicall/Multicall.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/PanopticPool.sol:10:1:
+   |
+10 | import  {Multicall} from "multicall/Multicall.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "libraries/Constants.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/PanopticPool.sol:12:1:
+   |
+12 | import   {Constants} from "libraries/Constants.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "libraries/Errors.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/PanopticPool.sol:13:1:
+   |
+13 | import   {Errors} from "libraries/Errors.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "libraries/FeesCalc.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/PanopticPool.sol:14:1:
+   |
+14 | import   {FeesCalc} from "libraries/FeesCalc.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "libraries/InteractionHelper.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/PanopticPool.sol:15:1:
+   |
+15 | import  {InteractionHelper} from "libraries/InteractionHelper.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "libraries/Math.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/PanopticPool.sol:16:1:
+   |
+16 | import   {Math} from "libraries/Math.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "libraries/PanopticMath.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/PanopticPool.sol:17:1:
+   |
+17 | import   {PanopticMath} from "libraries/PanopticMath.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "types/LeftRight.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/PanopticPool.sol:19:1:
+   |
+19 | import   {LeftRightUnsigned, LeftRightSigned} from "types/LeftRight.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "types/LiquidityChunk.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/PanopticPool.sol:20:1:
+   |
+20 | import   {LiquidityChunk} from "types/LiquidityChunk.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "types/TokenId.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/PanopticPool.sol:21:1:
+   |
+21 | import   {TokenId} from "types/TokenId.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "Errors.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/libraries/Math.sol:5:1:
+  |
+5 | import   {Errors} from "Errors.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "Constants.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/libraries/Math.sol:6:1:
+  |
+6 | import   {Constants} from "Constants.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+ERROR:Slither:Unable to compile all targets.

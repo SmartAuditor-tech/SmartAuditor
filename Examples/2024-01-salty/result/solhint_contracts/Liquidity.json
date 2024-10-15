@@ -1,0 +1,78 @@
+{
+    "success": true,
+    "finding_length": 9,
+    "findings": [
+        {
+            "filename": "Liquidity.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version =0.8.22 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "Liquidity.sol",
+            "line": 31,
+            "column": 2,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "Liquidity.sol",
+            "line": 42,
+            "column": 11,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "Liquidity.sol",
+            "line": 62,
+            "column": 77,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "Liquidity.sol",
+            "line": 72,
+            "column": 77,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "Liquidity.sol",
+            "line": 85,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Liquidity.sol",
+            "line": 124,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Liquidity.sol",
+            "line": 148,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Liquidity.sol",
+            "line": 159,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        }
+    ]
+}

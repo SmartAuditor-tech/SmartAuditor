@@ -1,0 +1,46 @@
+{
+    "success": true,
+    "finding_length": 5,
+    "findings": [
+        {
+            "filename": "LibVerifying.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version 0.8.24 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "LibVerifying.sol",
+            "line": 58,
+            "column": 48,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "LibVerifying.sol",
+            "line": 64,
+            "column": 33,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "LibVerifying.sol",
+            "line": 71,
+            "column": 31,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "LibVerifying.sol",
+            "line": 153,
+            "column": 88,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        }
+    ]
+}

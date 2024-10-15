@@ -1,0 +1,237 @@
+{
+    "success": true,
+    "finding_length": 20,
+    "findings": [
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "AccountingManager.executeWithdraw(uint256) (contracts/accountingManager/AccountingManager.sol#396-446) performs a multiplication on the result of a division:\n\t- baseTokenAmount = data.amount * currentWithdrawGroup.totalABAmount / currentWithdrawGroup.totalCBAmountFullfilled (contracts/accountingManager/AccountingManager.sol#415-416)\n\t- feeAmount = baseTokenAmount * withdrawFee / FEE_PRECISION (contracts/accountingManager/AccountingManager.sol#423)\n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [],
+            "function": "executeWithdraw",
+            "contract": "AccountingManager",
+            "line": 423
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "AccountingManager.neededAssetsForWithdraw() (contracts/accountingManager/AccountingManager.sol#616-625) uses a dangerous strict equality:\n\t- currentWithdrawGroup.isStarted == false || currentWithdrawGroup.isFullfilled == true || availableAssets >= currentWithdrawGroup.totalCBAmount (contracts/accountingManager/AccountingManager.sol#619-620)\n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [],
+            "function": "neededAssetsForWithdraw",
+            "contract": "AccountingManager",
+            "line": 619,
+            "line_end": 620
+        },
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in AccountingManager.executeDeposit(uint256,address,bytes) (contracts/accountingManager/AccountingManager.sol#257-299):\n\tExternal calls:\n\t- IConnector(connector).addLiquidity(tokens,amounts,addLPdata) (contracts/accountingManager/AccountingManager.sol#293)\n\tState variables written after the call(s):\n\t- depositQueue.first = firstTemp (contracts/accountingManager/AccountingManager.sol#298)\n\tAccountingManager.depositQueue (contracts/accountingManager/AccountingManager.sol#21) can be used in cross function reentrancies:\n\t- AccountingManager.TVL() (contracts/accountingManager/AccountingManager.sol#627-630)\n\t- AccountingManager.depositQueue (contracts/accountingManager/AccountingManager.sol#21)\n\t- AccountingManager.getQueueItems(bool,uint256[]) (contracts/accountingManager/AccountingManager.sol#596-613)\n\t- AccountingManager.neededAssetsForWithdraw() (contracts/accountingManager/AccountingManager.sol#616-625)\n\t- AccountingManager.resetMiddle(uint256,bool) (contracts/accountingManager/AccountingManager.sol#453-469)\n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "executeDeposit",
+            "contract": "AccountingManager",
+            "line": 453,
+            "line_end": 469
+        },
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in AccountingManager.executeWithdraw(uint256) (contracts/accountingManager/AccountingManager.sol#396-446):\n\tExternal calls:\n\t- baseToken.safeTransfer(data.receiver,baseTokenAmount) (contracts/accountingManager/AccountingManager.sol#428)\n\t- baseToken.safeTransfer(withdrawFeeReceiver,withdrawFeeAmount) (contracts/accountingManager/AccountingManager.sol#439)\n\tState variables written after the call(s):\n\t- delete currentWithdrawGroup (contracts/accountingManager/AccountingManager.sol#444)\n\tAccountingManager.currentWithdrawGroup (contracts/accountingManager/AccountingManager.sol#79) can be used in cross function reentrancies:\n\t- AccountingManager.currentWithdrawGroup (contracts/accountingManager/AccountingManager.sol#79)\n\t- AccountingManager.neededAssetsForWithdraw() (contracts/accountingManager/AccountingManager.sol#616-625)\n\t- AccountingManager.resetMiddle(uint256,bool) (contracts/accountingManager/AccountingManager.sol#453-469)\n\t- withdrawQueue.first = firstTemp (contracts/accountingManager/AccountingManager.sol#441)\n\tAccountingManager.withdrawQueue (contracts/accountingManager/AccountingManager.sol#23) can be used in cross function reentrancies:\n\t- AccountingManager.getQueueItems(bool,uint256[]) (contracts/accountingManager/AccountingManager.sol#596-613)\n\t- AccountingManager.resetMiddle(uint256,bool) (contracts/accountingManager/AccountingManager.sol#453-469)\n\t- AccountingManager.withdrawQueue (contracts/accountingManager/AccountingManager.sol#23)\n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "executeWithdraw",
+            "contract": "AccountingManager",
+            "line": 23
+        },
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in AccountingManager.retrieveTokensForWithdraw(RetrieveData[]) (contracts/accountingManager/AccountingManager.sol#548-573):\n\tExternal calls:\n\t- amount = IConnector(retrieveData[i].connectorAddress).sendTokensToTrustedAddress(address(baseToken),retrieveData[i].withdrawAmount,address(this),retrieveData[i].data) (contracts/accountingManager/AccountingManager.sol#556-558)\n\tState variables written after the call(s):\n\t- amountAskedForWithdraw += amountAskedForWithdraw_temp (contracts/accountingManager/AccountingManager.sol#569)\n\tAccountingManager.amountAskedForWithdraw (contracts/accountingManager/AccountingManager.sol#30) can be used in cross function reentrancies:\n\t- AccountingManager.amountAskedForWithdraw (contracts/accountingManager/AccountingManager.sol#30)\n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "retrieveTokensForWithdraw",
+            "contract": "AccountingManager",
+            "line": 30
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TVLHelper.getTVL(uint256,PositionRegistry,address).totalTVL (contracts/helpers/TVLHelper.sol#15) is a local variable never initialized\n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [],
+            "line": 15
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TVLHelper.getTVL(uint256,PositionRegistry,address).totalDebt (contracts/helpers/TVLHelper.sol#16) is a local variable never initialized\n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [],
+            "line": 16
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TVLHelper.getLatestUpdateTime(uint256,PositionRegistry).latestUpdateTime (contracts/helpers/TVLHelper.sol#42) is a local variable never initialized\n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [],
+            "line": 42
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyGovernance() (contracts/governance/NoyaGovernanceBase.sol#85-89) ignores return value by (governer,None,None,None,None,None) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#86)\n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyGovernance",
+            "contract": "NoyaGovernanceBase",
+            "line": 86
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyMaintainer() (contracts/governance/NoyaGovernanceBase.sol#75-79) ignores return value by (None,maintainer,None,None,None,None) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#76)\n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyMaintainer",
+            "contract": "NoyaGovernanceBase",
+            "line": 76
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyEmergency() (contracts/governance/NoyaGovernanceBase.sol#43-47) ignores return value by (None,None,None,None,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#44)\n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyEmergency",
+            "contract": "NoyaGovernanceBase",
+            "line": 44
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyMaintainerOrEmergency() (contracts/governance/NoyaGovernanceBase.sol#65-69) ignores return value by (None,maintainer,None,None,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#66)\n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyMaintainerOrEmergency",
+            "contract": "NoyaGovernanceBase",
+            "line": 66
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyManager() (contracts/governance/NoyaGovernanceBase.sol#31-37) ignores return value by (None,None,None,keeperContract,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#32)\n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyManager",
+            "contract": "NoyaGovernanceBase",
+            "line": 32
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyEmergencyOrWatcher() (contracts/governance/NoyaGovernanceBase.sol#53-59) ignores return value by (None,None,None,None,watcherContract,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#54)\n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyEmergencyOrWatcher",
+            "contract": "NoyaGovernanceBase",
+            "line": 54
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "NoyaFeeReceiver.receiver (contracts/accountingManager/NoyaFeeReceiver.sol#8) should be immutable \n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [],
+            "line": 8
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "NoyaFeeReceiver.accountingManager (contracts/accountingManager/NoyaFeeReceiver.sol#9) should be immutable \n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [],
+            "line": 9
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "NoyaGovernanceBase.vaultId (contracts/governance/NoyaGovernanceBase.sol#8) should be immutable \n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [],
+            "line": 8
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "NoyaFeeReceiver.baseToken (contracts/accountingManager/NoyaFeeReceiver.sol#10) should be immutable \n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [],
+            "line": 10
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "NoyaGovernanceBase.registry (contracts/governance/NoyaGovernanceBase.sol#7) should be immutable \n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [],
+            "line": 7
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "AccountingManager.baseToken (contracts/accountingManager/AccountingManager.sol#60) should be immutable \n",
+            "filename": "NoyaFeeReceiver.sol",
+            "classification": [],
+            "line": 60
+        }
+    ]
+}

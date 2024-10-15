@@ -1,0 +1,150 @@
+{
+    "success": false,
+    "finding_length": 18,
+    "findings": [
+        {
+            "filename": "Config.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version ^0.8.19 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "Config.sol",
+            "line": 4,
+            "column": 8,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "Config.sol",
+            "line": 5,
+            "column": 8,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "Config.sol",
+            "line": 9,
+            "column": 8,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "Config.sol",
+            "line": 10,
+            "column": 24,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "Config.sol",
+            "line": 20,
+            "column": 51,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "Config.sol",
+            "line": 21,
+            "column": 51,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "Config.sol",
+            "line": 40,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "Config.sol",
+            "line": 46,
+            "column": 48,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        },
+        {
+            "filename": "Config.sol",
+            "line": 56,
+            "column": 13,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "Config.sol",
+            "line": 86,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "Config.sol",
+            "line": 86,
+            "column": 76,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "Config.sol",
+            "line": 102,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "Config.sol",
+            "line": 102,
+            "column": 74,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "Config.sol",
+            "line": 119,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "Config.sol",
+            "line": 119,
+            "column": 74,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "Config.sol",
+            "line": 143,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "Config.sol",
+            "line": 143,
+            "column": 53,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        }
+    ]
+}

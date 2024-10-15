@@ -1,0 +1,94 @@
+{
+    "success": true,
+    "finding_length": 11,
+    "findings": [
+        {
+            "filename": "XERC20.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version >=0.8.4 <0.9.0 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "XERC20.sol",
+            "line": 31,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "XERC20.sol",
+            "line": 50,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "XERC20.sol",
+            "line": 76,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "XERC20.sol",
+            "line": 207,
+            "column": 51,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "XERC20.sol",
+            "line": 219,
+            "column": 51,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "XERC20.sol",
+            "line": 242,
+            "column": 51,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "XERC20.sol",
+            "line": 264,
+            "column": 51,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "XERC20.sol",
+            "line": 311,
+            "column": 46,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "XERC20.sol",
+            "line": 313,
+            "column": 45,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "XERC20.sol",
+            "line": 314,
+            "column": 35,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        }
+    ]
+}

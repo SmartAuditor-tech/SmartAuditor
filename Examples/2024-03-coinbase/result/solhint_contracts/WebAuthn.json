@@ -1,0 +1,38 @@
+{
+    "success": false,
+    "finding_length": 4,
+    "findings": [
+        {
+            "filename": "WebAuthn.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version ^0.8.0 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "WebAuthn.sol",
+            "line": 55,
+            "column": 61,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "WebAuthn.sol",
+            "line": 122,
+            "column": 62,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "WebAuthn.sol",
+            "line": 122,
+            "column": 108,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        }
+    ]
+}

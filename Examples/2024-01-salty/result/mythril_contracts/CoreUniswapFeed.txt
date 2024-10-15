@@ -1,0 +1,39 @@
+==== Exception State ====
+SWC ID: 110
+Severity: Medium
+Contract: CoreUniswapFeed
+Function name: constructor
+PC address: 14
+Estimated Gas Usage: 39 - 134
+An assertion violation was triggered.
+It is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).
+--------------------
+In file: /g4b/src/price_feed/CoreUniswapFeed.sol:32
+
+constructor( IERC20 _wbtc, IERC20 _weth, IERC20 _usdc, address _UNISWAP_V3_WBTC_WETH, address _UNISWAP_V3_WETH_USDC )
+		{
+		UNISWAP_V3_WBTC_WETH = IUniswapV3Pool(_UNISWAP_V3_WBTC_WETH);
+		UNISWAP_V3_WETH_USDC = IUniswapV3Pool(_UNISWAP_V3_WETH_USDC);
+
+		usdc = _usdc;
+		wbtc = _wbtc;
+		weth = _weth;
+
+		// Non-flipped is WBTC/WETH order
+		wbtc_wethFlipped = address(weth) < address(wbtc);
+
+		// Non-flipped is WETH/USDC order
+		weth_usdcFlipped = address(usdc) < address(weth);
+		}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x1
+
+

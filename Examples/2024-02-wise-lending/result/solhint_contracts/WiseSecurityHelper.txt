@@ -1,0 +1,15 @@
+
+/g4b/contracts/WiseSecurity/WiseSecurityHelper.sol
+    3:1   error    Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement  compiler-version
+   28:9   warning  Avoid to use letters 'I', 'l', 'O' as identifiers                        use-forbidden-name
+   75:9   warning  Avoid to use letters 'I', 'l', 'O' as identifiers                        use-forbidden-name
+  117:9   warning  Avoid to use letters 'I', 'l', 'O' as identifiers                        use-forbidden-name
+  156:9   warning  Avoid to use letters 'I', 'l', 'O' as identifiers                        use-forbidden-name
+  368:9   warning  Avoid to use letters 'I', 'l', 'O' as identifiers                        use-forbidden-name
+  404:9   warning  Avoid to use letters 'I', 'l', 'O' as identifiers                        use-forbidden-name
+  440:9   warning  Avoid to use letters 'I', 'l', 'O' as identifiers                        use-forbidden-name
+  497:9   warning  Avoid to use letters 'I', 'l', 'O' as identifiers                        use-forbidden-name
+  591:15  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+
+✖ 10 problems (1 error, 9 warnings)
+

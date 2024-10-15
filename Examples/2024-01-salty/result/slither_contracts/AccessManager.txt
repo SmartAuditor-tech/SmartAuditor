@@ -1,0 +1,10 @@
+'forge config --json' running
+Could not detect solc version from Foundry config. Falling back to system version...
+'solc --version' running
+'solc chainlink/=lib/chainlink/ ds-test/=lib/openzeppelin-contracts/lib/forge-std/lib/ds-test/src/ erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/ forge-std/=lib/openzeppelin-contracts/lib/forge-std/src/ openzeppelin-contracts/=lib/openzeppelin-contracts/ openzeppelin/=lib/openzeppelin-contracts/contracts/ v3-core/=lib/v3-core/contracts/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/AccessManager.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20000 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/AccessManager.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> src/SigningTools.sol
+
+
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/AccessManager.sol analyzed (27 contracts with 58 detectors), 0 result(s) found

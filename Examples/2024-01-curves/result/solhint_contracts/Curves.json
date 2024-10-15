@@ -1,0 +1,70 @@
+{
+    "success": true,
+    "finding_length": 8,
+    "findings": [
+        {
+            "filename": "Curves.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version 0.8.7 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "Curves.sol",
+            "line": 108,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "Curves.sol",
+            "line": 213,
+            "column": 44,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "Curves.sol",
+            "line": 232,
+            "column": 37,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        },
+        {
+            "filename": "Curves.sol",
+            "line": 236,
+            "column": 37,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        },
+        {
+            "filename": "Curves.sol",
+            "line": 241,
+            "column": 23,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        },
+        {
+            "filename": "Curves.sol",
+            "line": 384,
+            "column": 26,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "Curves.sol",
+            "line": 411,
+            "column": 59,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        }
+    ]
+}

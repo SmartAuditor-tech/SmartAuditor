@@ -1,0 +1,15 @@
+mythril.interfaces.cli [ERROR]: Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/mythril-0.23.15-py3.8.egg/mythril/interfaces/cli.py", line 943, in parse_args_and_execute
+    address = load_code(disassembler, args)
+  File "/usr/local/lib/python3.8/dist-packages/mythril-0.23.15-py3.8.egg/mythril/interfaces/cli.py", line 687, in load_code
+    address, _ = disassembler.load_from_bytecode(bytecode, args.bin_runtime)
+  File "/usr/local/lib/python3.8/dist-packages/mythril-0.23.15-py3.8.egg/mythril/mythril/mythril_disassembler.py", line 110, in load_from_bytecode
+    EVMContract(
+  File "/usr/local/lib/python3.8/dist-packages/mythril-0.23.15-py3.8.egg/mythril/ethereum/evmcontract.py", line 39, in __init__
+    self.creation_disassembly = Disassembly(
+  File "/usr/local/lib/python3.8/dist-packages/mythril-0.23.15-py3.8.egg/mythril/disassembler/disassembly.py", line 27, in __init__
+    self.instruction_list = asm.disassemble(util.safe_decode(code))
+  File "/usr/local/lib/python3.8/dist-packages/mythril-0.23.15-py3.8.egg/mythril/ethereum/util.py", line 37, in safe_decode
+    return bytes.fromhex(hex_encoded_string)
+ValueError: non-hexadecimal number found in fromhex() arg at position 35054
+

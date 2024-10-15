@@ -1,0 +1,56 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 4 Code Findings │
+└─────────────────┘
+                                    
+    /g4b/src/FreshCryptoLib/FCL.sol 
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+           79┆ if (((0 == x) && (0 == y)) || x == p || y == p) {
+           80┆     return false;
+           81┆ }
+            ⋮┆----------------------------------------
+          131┆ if (scalar_u == 0 && scalar_v == 0) return 0;
+            ⋮┆----------------------------------------
+          134┆ if (
+          135┆     (H0 == 0) && (H1 == 0) //handling Q=-G
+          136┆ ) {
+          137┆     scalar_u = addmod(scalar_u, n - scalar_v, n);
+          138┆     scalar_v = 0;
+          139┆ }
+            ⋮┆----------------------------------------
+          280┆ if ((x0 == x1) && (y0 == y1)) {
+          281┆     (x0, y0, zz0, zzz0) = ecZZ_Dbl(x0, y0, 1, 1);
+          282┆ } else {
+          283┆     (x0, y0, zz0, zzz0) = ecZZ_AddN(x0, y0, 1, 1, x1, y1);
+          284┆ }
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 4 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

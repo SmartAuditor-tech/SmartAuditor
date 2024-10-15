@@ -1,0 +1,83 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 3 Code Findings │
+└─────────────────┘
+                                          
+    /g4b/src/mimswap/periphery/Router.sol 
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           38┆ constructor(IWETH weth_, IFactory factory_) {
+           39┆     if (address(weth_) == address(0) || address(factory_) ==     
+  address(0)) {                                                                 
+           40┆         revert ErrZeroAddress();
+           41┆     }
+           42┆ 
+           43┆     weth = weth_;
+           44┆     factory = factory_;
+           45┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          147┆ } else if (baseReserve > 0 && quoteReserve > 0) {
+          148┆     uint256 baseInputRatio = DecimalMath.divFloor(baseInAmount,  
+  baseReserve);                                                                 
+          149┆     uint256 quoteInputRatio = DecimalMath.divFloor(quoteInAmount,
+  quoteReserve);                                                                
+          150┆     if (baseInputRatio <= quoteInputRatio) {
+          151┆         baseAdjustedInAmount = baseInAmount;
+          152┆         quoteAdjustedInAmount = DecimalMath.mulCeil(quoteReserve,
+  baseInputRatio);                                                              
+          153┆         shares = DecimalMath.mulFloor(totalSupply,               
+  baseInputRatio);                                                              
+          154┆     } else {
+          155┆         quoteAdjustedInAmount = quoteInAmount;
+          156┆         baseAdjustedInAmount = DecimalMath.mulCeil(baseReserve,  
+  quoteInputRatio);                                                             
+             [hid 3 additional lines, adjust with --max-lines-per-finding] 
+          527┆ if (quoteReserve > 0 && baseReserve > 0) {
+          528┆     uint256 baseIncreaseRatio =                                  
+  DecimalMath.divFloor(baseInAmount, baseReserve);                              
+          529┆     uint256 quoteIncreaseRatio =                                 
+  DecimalMath.divFloor(quoteInAmount, quoteReserve);                            
+          530┆     if (baseIncreaseRatio <= quoteIncreaseRatio) {
+          531┆         baseAdjustedInAmount = baseInAmount;
+          532┆         quoteAdjustedInAmount =                                  
+  DecimalMath.mulFloor(quoteReserve, baseIncreaseRatio);                        
+          533┆     } else {
+          534┆         quoteAdjustedInAmount = quoteInAmount;
+          535┆         baseAdjustedInAmount = DecimalMath.mulFloor(baseReserve, 
+  quoteIncreaseRatio);                                                          
+          536┆     }
+             [hid 1 additional lines, adjust with --max-lines-per-finding] 
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 3 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

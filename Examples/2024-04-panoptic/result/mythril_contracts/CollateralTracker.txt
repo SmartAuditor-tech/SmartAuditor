@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "tokens/ERC20Minimal.sol" not found: File not found. Searched the following locations: "".
+ --> /g4b/contracts/CollateralTracker.sol:7:1:
+  |
+7 | import  {ERC20Minimal} from "tokens/ERC20Minimal.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

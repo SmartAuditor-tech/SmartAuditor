@@ -1,0 +1,124 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/WiseOracleHub/OracleHelper.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20 --evm-version shanghai --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/WiseOracleHub' running
+INFO:Detectors:
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/WiseOracleHub/Libraries/FullMath.sol#14-112) has bitwise-xor operator ^ instead of the exponentiation operator **: 
+	 - inv = (3 * _denominator) ^ 2 (contracts/WiseOracleHub/Libraries/FullMath.sol#92)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-exponentiation
+INFO:Detectors:
+Declarations.ETH_USD_PLACEHOLDER (contracts/WiseOracleHub/Declarations.sol#82) is never initialized. It is used in:
+	- OracleHelper.getETHPriceInUSD() (contracts/WiseOracleHub/OracleHelper.sol#265-277)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+INFO:Detectors:
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/WiseOracleHub/Libraries/FullMath.sol#14-112) performs a multiplication on the result of a division:
+	- _denominator = _denominator / twos (contracts/WiseOracleHub/Libraries/FullMath.sol#72)
+	- inv = (3 * _denominator) ^ 2 (contracts/WiseOracleHub/Libraries/FullMath.sol#92)
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/WiseOracleHub/Libraries/FullMath.sol#14-112) performs a multiplication on the result of a division:
+	- _denominator = _denominator / twos (contracts/WiseOracleHub/Libraries/FullMath.sol#72)
+	- inv *= 2 - _denominator * inv (contracts/WiseOracleHub/Libraries/FullMath.sol#96)
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/WiseOracleHub/Libraries/FullMath.sol#14-112) performs a multiplication on the result of a division:
+	- _denominator = _denominator / twos (contracts/WiseOracleHub/Libraries/FullMath.sol#72)
+	- inv *= 2 - _denominator * inv (contracts/WiseOracleHub/Libraries/FullMath.sol#97)
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/WiseOracleHub/Libraries/FullMath.sol#14-112) performs a multiplication on the result of a division:
+	- _denominator = _denominator / twos (contracts/WiseOracleHub/Libraries/FullMath.sol#72)
+	- inv *= 2 - _denominator * inv (contracts/WiseOracleHub/Libraries/FullMath.sol#98)
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/WiseOracleHub/Libraries/FullMath.sol#14-112) performs a multiplication on the result of a division:
+	- _denominator = _denominator / twos (contracts/WiseOracleHub/Libraries/FullMath.sol#72)
+	- inv *= 2 - _denominator * inv (contracts/WiseOracleHub/Libraries/FullMath.sol#99)
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/WiseOracleHub/Libraries/FullMath.sol#14-112) performs a multiplication on the result of a division:
+	- _denominator = _denominator / twos (contracts/WiseOracleHub/Libraries/FullMath.sol#72)
+	- inv *= 2 - _denominator * inv (contracts/WiseOracleHub/Libraries/FullMath.sol#100)
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/WiseOracleHub/Libraries/FullMath.sol#14-112) performs a multiplication on the result of a division:
+	- _denominator = _denominator / twos (contracts/WiseOracleHub/Libraries/FullMath.sol#72)
+	- inv *= 2 - _denominator * inv (contracts/WiseOracleHub/Libraries/FullMath.sol#101)
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/WiseOracleHub/Libraries/FullMath.sol#14-112) performs a multiplication on the result of a division:
+	- prod0 = prod0 / twos (contracts/WiseOracleHub/Libraries/FullMath.sol#77)
+	- result = prod0 * inv (contracts/WiseOracleHub/Libraries/FullMath.sol#109)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x48a170391f7dc42444e8fa2) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#58)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x2216e584f5fa1ea926041bedfe98) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#57)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x5d6af8dedb81196699c329225ee604) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#56)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x9aa508b5b7a84e1c677de54f3e99bc9) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#55)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x31be135f97d08fd981231505542fcfa6) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#54)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x70d869a156d2a1b890bb3df62baf32f7) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#53)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xa9f746462d870fdf8a65dc1f90e061e5) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#52)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xd097f3bdfd2022b8845ad8f792aa5825) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#51)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xe7159475a2c29b7443b29c7fa6e889d9) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#50)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xf3392b0822b70005940c7a398e4b70f3) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#49)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xf987a7253ac413176f2b074cf7815e54) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#48)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xfcbe86c7900a88aedcffc83b479aa3a4) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#47)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xfe5dee046a99a2a811c461f1969c3053) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#46)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xff2ea16466c96a3843ec78b326b52861) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#45)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xff973b41fa98c081472e6896dfb254c0) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#44)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xffcb9843d60f6159c9db58835c926644) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#43)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xffe5caca7e10e4e61c3624eaa0941cd0) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#42)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xfff2e50f5f656932ef12357cf3c7fdcc) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#41)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xfff97272373d413259a46990580e213a) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#40)
+	- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+OracleHelper.getETHPriceInUSD() (contracts/WiseOracleHub/OracleHelper.sol#265-277) uses a dangerous strict equality:
+	- _chainLinkIsDead(ETH_USD_PLACEHOLDER) == true (contracts/WiseOracleHub/OracleHelper.sol#270)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+Reentrancy in OracleHelper._addAggregator(address) (contracts/WiseOracleHub/OracleHelper.sol#32-58):
+	External calls:
+	- _checkFunctionExistence(address(tokenAggregator)) == false (contracts/WiseOracleHub/OracleHelper.sol#45)
+		- (success,None) = _tokenAggregator.call(abi.encodeWithSignature(maxAnswer())) (contracts/WiseOracleHub/OracleHelper.sol#78-82)
+	State variables written after the call(s):
+	- tokenAggregatorFromTokenAddress[_tokenAddress] = tokenAggregator (contracts/WiseOracleHub/OracleHelper.sol#57)
+	Declarations.tokenAggregatorFromTokenAddress (contracts/WiseOracleHub/Declarations.sol#148) can be used in cross function reentrancies:
+	- OracleHelper._validateAnswer(address) (contracts/WiseOracleHub/OracleHelper.sol#131-174)
+	- Declarations.tokenAggregatorFromTokenAddress (contracts/WiseOracleHub/Declarations.sol#148)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+INFO:Detectors:
+OracleHelper._validateAnswer(address).fetchTwapValue (contracts/WiseOracleHub/OracleHelper.sol#142) is a local variable never initialized
+OracleHelper._recalibratePreview(address).currentBiggest (contracts/WiseOracleHub/OracleHelper.sol#622) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+INFO:Detectors:
+OracleHelper._getChainlinkAnswer(address) (contracts/WiseOracleHub/OracleHelper.sol#246-263) ignores return value by (None,answer,None,None,None) = priceFeed[_tokenAddress].latestRoundData() (contracts/WiseOracleHub/OracleHelper.sol#253-258)
+OracleHelper._getAverageTick(address) (contracts/WiseOracleHub/OracleHelper.sol#406-444) ignores return value by (tickCumulatives,None) = IUniswapV3Pool(_oracle).observe(secondsAgo) (contracts/WiseOracleHub/OracleHelper.sol#420-425)
+OracleHelper.sequencerIsDead() (contracts/WiseOracleHub/OracleHelper.sol#521-549) ignores return value by (None,answer,startedAt,None,None) = SEQUENCER.latestRoundData() (contracts/WiseOracleHub/OracleHelper.sol#530-535)
+OracleHelper._getRoundTimestamp(address,uint80) (contracts/WiseOracleHub/OracleHelper.sol#674-693) ignores return value by (None,None,None,timestamp,None) = priceFeed[_tokenAddress].getRoundData(_roundId) (contracts/WiseOracleHub/OracleHelper.sol#682-690)
+OracleHelper.getLatestRoundId(address) (contracts/WiseOracleHub/OracleHelper.sol#699-715) ignores return value by (roundId,None,None,None,None) = priceFeed[_tokenAddress].latestRoundData() (contracts/WiseOracleHub/OracleHelper.sol#708-714)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Detectors:
+Declarations.ALLOWED_DIFFERENCE (contracts/WiseOracleHub/Declarations.sol#112) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/WiseOracleHub/OracleHelper.sol analyzed (12 contracts with 58 detectors), 39 result(s) found

@@ -1,0 +1,45 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 3 Code Findings │
+└─────────────────┘
+                                             
+    /g4b/contracts/tokens/ERC1155Minimal.sol 
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+          147┆ balanceOf[from][id] -= amount;
+            ⋮┆----------------------------------------
+          151┆ balanceOf[to][id] += amount;
+            ⋮┆----------------------------------------
+          188┆ balances[i] = balanceOf[owners[i]][ids[i]];
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+Some files were skipped or only partially analyzed.
+  Partially scanned: 1 files only partially analyzed due to parsing or internal Semgrep errors
+
+Ran 50 rules on 1 file: 3 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

@@ -1,0 +1,100 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 7 Code Findings │
+└─────────────────┘
+                                 
+    /g4b/src/mimswap/MagicLP.sol 
+       solidity.performance.inefficient-state-variable-increment.inefficient-sta
+  te-variable-increment                                                         
+          <x> += <y> costs more gas than <x> = <x> + <y> for state variables.   
+          Details: https://sg.run/bp9v                                          
+                                                                                
+          553┆ _BASE_PRICE_CUMULATIVE_LAST_ += getMidPrice() * timeElapsed;
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           84┆ constructor(address owner_) Owned(owner_) {
+           85┆     implementation = this;
+           86┆ 
+           87┆     // prevents the implementation contract initialization
+           88┆     _INITIALIZED_ = true;
+           89┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          139┆ if (_RState_ == uint32(PMMPricing.RState.BELOW_ONE) &&           
+  _BASE_RESERVE_ < _BASE_TARGET_) {                                             
+          140┆     _RState_ = uint32(PMMPricing.RState.ONE);
+          141┆     _BASE_TARGET_ = _BASE_RESERVE_;
+          142┆     _QUOTE_TARGET_ = _QUOTE_RESERVE_;
+          143┆ }
+            ⋮┆----------------------------------------
+          144┆ if (_RState_ == uint32(PMMPricing.RState.ABOVE_ONE) &&           
+  _QUOTE_RESERVE_ < _QUOTE_TARGET_) {                                           
+          145┆     _RState_ = uint32(PMMPricing.RState.ONE);
+          146┆     _BASE_TARGET_ = _BASE_RESERVE_;
+          147┆     _QUOTE_TARGET_ = _QUOTE_RESERVE_;
+          148┆ }
+            ⋮┆----------------------------------------
+          302┆ if (baseBalance < _BASE_RESERVE_ && quoteBalance <               
+  _QUOTE_RESERVE_) {                                                            
+          303┆     revert ErrFlashLoanFailed();
+          304┆ }
+            ⋮┆----------------------------------------
+          395┆ } else if (baseReserve > 0 && quoteReserve > 0) {
+          396┆     // case 2. normal case
+          397┆     uint256 baseInputRatio = DecimalMath.divFloor(baseInput,     
+  baseReserve);                                                                 
+          398┆     uint256 quoteInputRatio = DecimalMath.divFloor(quoteInput,   
+  quoteReserve);                                                                
+          399┆     uint256 mintRatio = quoteInputRatio < baseInputRatio ?       
+  quoteInputRatio : baseInputRatio;                                             
+          400┆     shares = DecimalMath.mulFloor(totalSupply(), mintRatio);
+          401┆ 
+          402┆     _BASE_TARGET_ = (uint256(_BASE_TARGET_) +                    
+  DecimalMath.mulFloor(uint256(_BASE_TARGET_), mintRatio)).toUint112();         
+          403┆     _QUOTE_TARGET_ = (uint256(_QUOTE_TARGET_) +                  
+  DecimalMath.mulFloor(uint256(_QUOTE_TARGET_), mintRatio)).toUint112();        
+          404┆ }
+            ⋮┆----------------------------------------
+          549┆ if (timeElapsed > 0 && _BASE_RESERVE_ != 0 && _QUOTE_RESERVE_ != 
+  0) {                                                                          
+          550┆     /// @dev It is desired and expected for this value to
+          551┆     /// overflow once it has hit the max of `type.uint256`.
+          552┆     unchecked {
+          553┆         _BASE_PRICE_CUMULATIVE_LAST_ += getMidPrice() *          
+  timeElapsed;                                                                  
+          554┆     }
+          555┆ }
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 7 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

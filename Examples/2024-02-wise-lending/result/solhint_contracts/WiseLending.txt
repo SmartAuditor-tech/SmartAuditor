@@ -1,0 +1,12 @@
+
+/g4b/contracts/WiseLending.sol
+     3:1   error    Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement                            compiler-version
+   116:5   warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+   126:5   warning  Code contains empty blocks                                                                         no-empty-blocks
+   141:13  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+   158:13  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+   262:34  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  1456:13  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+
+✖ 7 problems (1 error, 6 warnings)
+

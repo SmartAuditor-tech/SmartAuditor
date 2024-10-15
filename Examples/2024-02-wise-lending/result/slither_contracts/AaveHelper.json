@@ -1,0 +1,63 @@
+{
+    "success": true,
+    "finding_length": 5,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "WrapperHelper._wrapETH(uint256) (contracts/TransferHub/WrapperHelper.sol#24-32) sends eth to arbitrary user\n\tDangerous calls:\n\t- WETH.deposit{value: _value}() (contracts/TransferHub/WrapperHelper.sol#29-31)\n",
+            "filename": "AaveHelper.sol",
+            "classification": [],
+            "function": "_wrapETH",
+            "contract": "WrapperHelper",
+            "line": 29,
+            "line_end": 31
+        },
+        {
+            "name": "uninitialized-state",
+            "impact": "High",
+            "confidence": "High",
+            "message": "Declarations.aaveTokenAddress (contracts/WrapperHub/Declarations.sol#41) is never initialized. It is used in:\n\t- AaveHelper._wrapDepositExactAmount(uint256,address,uint256) (contracts/WrapperHub/AaveHelper.sol#56-81)\n\t- AaveHelper._wrapWithdrawExactAmount(uint256,address,address,uint256) (contracts/WrapperHub/AaveHelper.sol#83-111)\n\t- AaveHelper._wrapWithdrawExactShares(uint256,address,address,uint256) (contracts/WrapperHub/AaveHelper.sol#113-139)\n\t- AaveHelper._wrapBorrowExactAmount(uint256,address,address,uint256) (contracts/WrapperHub/AaveHelper.sol#141-163)\n\t- AaveHelper._wrapAaveReturnValueDeposit(address,uint256,address) (contracts/WrapperHub/AaveHelper.sol#165-194)\n",
+            "filename": "AaveHelper.sol",
+            "classification": [
+                "SWC-109"
+            ],
+            "line": 165,
+            "line_end": 194
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "AaveHelper._prepareCollaterals(uint256,address).i (contracts/WrapperHub/AaveHelper.sol#249) is a local variable never initialized\n",
+            "filename": "AaveHelper.sol",
+            "classification": [],
+            "line": 249
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "AaveHelper._prepareBorrows(uint256,address).i (contracts/WrapperHub/AaveHelper.sol#285) is a local variable never initialized\n",
+            "filename": "AaveHelper.sol",
+            "classification": [],
+            "line": 285
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "AaveHelper._wrapBorrowExactAmount(uint256,address,address,uint256) (contracts/WrapperHub/AaveHelper.sol#141-163) ignores return value by AAVE.withdraw(_underlyingAsset,_borrowAmount,_underlyingAssetRecipient) (contracts/WrapperHub/AaveHelper.sol#156-160)\n",
+            "filename": "AaveHelper.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_wrapBorrowExactAmount",
+            "contract": "AaveHelper",
+            "line": 156,
+            "line_end": 160
+        }
+    ]
+}

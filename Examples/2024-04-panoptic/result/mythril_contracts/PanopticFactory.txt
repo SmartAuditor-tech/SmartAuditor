@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "CollateralTracker.sol" not found: File not found. Searched the following locations: "".
+ --> /g4b/contracts/PanopticFactory.sol:5:1:
+  |
+5 | import   {CollateralTracker} from "CollateralTracker.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

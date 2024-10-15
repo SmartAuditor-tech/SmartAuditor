@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "/g4b/contracts/.cache/OpenZeppelin/v4.9.3/utils/math/SafeCast.sol" not found: File not found. Searched the following locations: "".
+ --> /g4b/contracts/oracle/Api3OracleReader.sol:4:1:
+  |
+4 | import  {SafeCast} from "../.cache/OpenZeppelin/v4.9.3/utils/math/SafeCast.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

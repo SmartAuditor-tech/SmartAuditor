@@ -1,0 +1,29 @@
+{
+    "success": true,
+    "finding_length": 2,
+    "findings": [
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "ChainlinkOracleConnector.getValueFromChainlinkFeed(AggregatorV3Interface,uint256,uint256,bool) (contracts/helpers/valueOracle/oracles/ChainlinkOracleConnector.sol#115-135) ignores return value by (None,price,None,updatedAt,None) = source.latestRoundData() (contracts/helpers/valueOracle/oracles/ChainlinkOracleConnector.sol#123)\n",
+            "filename": "ChainlinkOracleConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "getValueFromChainlinkFeed",
+            "contract": "ChainlinkOracleConnector",
+            "line": 123
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "ChainlinkOracleConnector.registry (contracts/helpers/valueOracle/oracles/ChainlinkOracleConnector.sol#11) should be immutable \n",
+            "filename": "ChainlinkOracleConnector.sol",
+            "classification": [],
+            "line": 11
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+
+/g4b/packages/protocol/contracts/verifiers/SgxVerifier.sol
+  47:20  error  Parse error: extraneous input 'instanceId' expecting '=>'
+  47:43  error  Parse error: extraneous input 'instance' expecting ')'
+  55:20  error  Parse error: extraneous input 'instanceAddress' expecting '=>'
+  55:44  error  Parse error: extraneous input 'alreadyAttested' expecting ')'
+
+✖ 4 problems (4 errors, 0 warnings)
+

@@ -1,0 +1,15 @@
+
+/g4b/contracts/DerivativeOracles/PtOracleDerivative.sol
+   3:1  error    Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement                            compiler-version
+  24:5  warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+  47:5  warning  Explicitly mark visibility of state                                                                state-visibility
+  47:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  50:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  53:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  56:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  59:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  62:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  71:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+
+✖ 10 problems (1 error, 9 warnings)
+

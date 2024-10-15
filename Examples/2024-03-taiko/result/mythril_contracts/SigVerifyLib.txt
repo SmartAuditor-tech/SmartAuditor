@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+DeclarationError: Function "mcopy" not found.
+   --> /g4b/packages/protocol/contracts/automata-attestation/utils/BytesUtils.sol:274:13:
+    |
+274 |             mcopy(dest, src, len)
+    |             ^^^^^
+
+

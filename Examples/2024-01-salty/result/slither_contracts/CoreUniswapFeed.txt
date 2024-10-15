@@ -1,0 +1,98 @@
+'forge config --json' running
+Could not detect solc version from Foundry config. Falling back to system version...
+'solc --version' running
+'solc chainlink/=lib/chainlink/ ds-test/=lib/openzeppelin-contracts/lib/forge-std/lib/ds-test/src/ erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/ forge-std/=lib/openzeppelin-contracts/lib/forge-std/src/ openzeppelin-contracts/=lib/openzeppelin-contracts/ openzeppelin/=lib/openzeppelin-contracts/contracts/ v3-core/=lib/v3-core/contracts/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/price_feed/CoreUniswapFeed.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20000 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/price_feed' running
+INFO:Detectors:
+FullMath.mulDiv(uint256,uint256,uint256) (lib/v3-core/contracts/libraries/FullMath.sol#14-108) has bitwise-xor operator ^ instead of the exponentiation operator **: 
+	 - inv = (3 * denominator) ^ 2 (lib/v3-core/contracts/libraries/FullMath.sol#88)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-exponentiation
+INFO:Detectors:
+FullMath.mulDiv(uint256,uint256,uint256) (lib/v3-core/contracts/libraries/FullMath.sol#14-108) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/v3-core/contracts/libraries/FullMath.sol#68)
+	- inv = (3 * denominator) ^ 2 (lib/v3-core/contracts/libraries/FullMath.sol#88)
+FullMath.mulDiv(uint256,uint256,uint256) (lib/v3-core/contracts/libraries/FullMath.sol#14-108) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/v3-core/contracts/libraries/FullMath.sol#68)
+	- inv *= 2 - denominator * inv (lib/v3-core/contracts/libraries/FullMath.sol#92)
+FullMath.mulDiv(uint256,uint256,uint256) (lib/v3-core/contracts/libraries/FullMath.sol#14-108) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/v3-core/contracts/libraries/FullMath.sol#68)
+	- inv *= 2 - denominator * inv (lib/v3-core/contracts/libraries/FullMath.sol#93)
+FullMath.mulDiv(uint256,uint256,uint256) (lib/v3-core/contracts/libraries/FullMath.sol#14-108) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/v3-core/contracts/libraries/FullMath.sol#68)
+	- inv *= 2 - denominator * inv (lib/v3-core/contracts/libraries/FullMath.sol#94)
+FullMath.mulDiv(uint256,uint256,uint256) (lib/v3-core/contracts/libraries/FullMath.sol#14-108) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/v3-core/contracts/libraries/FullMath.sol#68)
+	- inv *= 2 - denominator * inv (lib/v3-core/contracts/libraries/FullMath.sol#95)
+FullMath.mulDiv(uint256,uint256,uint256) (lib/v3-core/contracts/libraries/FullMath.sol#14-108) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/v3-core/contracts/libraries/FullMath.sol#68)
+	- inv *= 2 - denominator * inv (lib/v3-core/contracts/libraries/FullMath.sol#96)
+FullMath.mulDiv(uint256,uint256,uint256) (lib/v3-core/contracts/libraries/FullMath.sol#14-108) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/v3-core/contracts/libraries/FullMath.sol#68)
+	- inv *= 2 - denominator * inv (lib/v3-core/contracts/libraries/FullMath.sol#97)
+FullMath.mulDiv(uint256,uint256,uint256) (lib/v3-core/contracts/libraries/FullMath.sol#14-108) performs a multiplication on the result of a division:
+	- prod0 = prod0 / twos (lib/v3-core/contracts/libraries/FullMath.sol#73)
+	- result = prod0 * inv (lib/v3-core/contracts/libraries/FullMath.sol#105)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x48a170391f7dc42444e8fa2) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#52)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x2216e584f5fa1ea926041bedfe98) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#51)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x5d6af8dedb81196699c329225ee604) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#50)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x9aa508b5b7a84e1c677de54f3e99bc9) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#49)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x31be135f97d08fd981231505542fcfa6) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#48)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x70d869a156d2a1b890bb3df62baf32f7) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#47)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xa9f746462d870fdf8a65dc1f90e061e5) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#46)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xd097f3bdfd2022b8845ad8f792aa5825) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#45)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xe7159475a2c29b7443b29c7fa6e889d9) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#44)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xf3392b0822b70005940c7a398e4b70f3) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#43)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xf987a7253ac413176f2b074cf7815e54) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#42)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xfcbe86c7900a88aedcffc83b479aa3a4) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#41)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xfe5dee046a99a2a811c461f1969c3053) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#40)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xff2ea16466c96a3843ec78b326b52861) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#39)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xff973b41fa98c081472e6896dfb254c0) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#38)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xffcb9843d60f6159c9db58835c926644) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#37)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xffe5caca7e10e4e61c3624eaa0941cd0) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#36)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xfff2e50f5f656932ef12357cf3c7fdcc) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#35)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+TickMath.getSqrtRatioAtTick(int24) (lib/v3-core/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xfff97272373d413259a46990580e213a) >> 128 (lib/v3-core/contracts/libraries/TickMath.sol#34)
+	- ratio = type()(uint256).max / ratio (lib/v3-core/contracts/libraries/TickMath.sol#54)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+CoreUniswapFeed._getUniswapTwapWei(IUniswapV3Pool,uint256) (src/price_feed/CoreUniswapFeed.sol#50-73) ignores return value by (tickCumulatives,None) = pool.observe(secondsAgo) (src/price_feed/CoreUniswapFeed.sol#57)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Detectors:
+The function CoreUniswapFeed.getUniswapTwapWei(IUniswapV3Pool,uint256) (src/price_feed/CoreUniswapFeed.sol#79-93) reads result = this._getUniswapTwapWei(pool,twapInterval) (src/price_feed/CoreUniswapFeed.sol#83-90) with `this` which adds an extra STATICCALL.
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-variable-read-in-external-context
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/price_feed/CoreUniswapFeed.sol analyzed (17 contracts with 58 detectors), 30 result(s) found

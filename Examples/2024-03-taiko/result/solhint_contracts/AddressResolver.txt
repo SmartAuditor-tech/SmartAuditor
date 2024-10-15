@@ -1,0 +1,7 @@
+
+/g4b/packages/protocol/contracts/common/AddressResolver.sol
+   2:1  error    Compiler version 0.8.24 does not satisfy the ^0.5.8 semver requirement  compiler-version
+  58:5  warning  Function name must be in mixedCase                                      func-name-mixedcase
+
+✖ 2 problems (1 error, 1 warning)
+

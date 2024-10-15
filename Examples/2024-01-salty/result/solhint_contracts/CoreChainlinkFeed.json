@@ -1,0 +1,78 @@
+{
+    "success": true,
+    "finding_length": 9,
+    "findings": [
+        {
+            "filename": "CoreChainlinkFeed.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version =0.8.22 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "CoreChainlinkFeed.sol",
+            "line": 12,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "CoreChainlinkFeed.sol",
+            "line": 15,
+            "column": 2,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CoreChainlinkFeed.sol",
+            "line": 16,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CoreChainlinkFeed.sol",
+            "line": 19,
+            "column": 2,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "CoreChainlinkFeed.sol",
+            "line": 19,
+            "column": 15,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CoreChainlinkFeed.sol",
+            "line": 19,
+            "column": 43,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CoreChainlinkFeed.sol",
+            "line": 43,
+            "column": 26,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "CoreChainlinkFeed.sol",
+            "line": 51,
+            "column": 4,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        }
+    ]
+}

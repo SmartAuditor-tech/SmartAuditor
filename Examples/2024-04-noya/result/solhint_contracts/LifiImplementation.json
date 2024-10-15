@@ -1,0 +1,54 @@
+{
+    "success": true,
+    "finding_length": 6,
+    "findings": [
+        {
+            "filename": "LifiImplementation.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version 0.8.20 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "LifiImplementation.sol",
+            "line": 27,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "LifiImplementation.sol",
+            "line": 35,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "LifiImplementation.sol",
+            "line": 84,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "LifiImplementation.sol",
+            "line": 176,
+            "column": 44,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        },
+        {
+            "filename": "LifiImplementation.sol",
+            "line": 195,
+            "column": 31,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        }
+    ]
+}

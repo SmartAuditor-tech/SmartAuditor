@@ -1,0 +1,46 @@
+{
+    "success": true,
+    "finding_length": 5,
+    "findings": [
+        {
+            "filename": "ERC1271.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version ^0.8.4 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "ERC1271.sol",
+            "line": 67,
+            "column": 9,
+            "message": "Avoid to use inline assembly. It is acceptable only in rare cases",
+            "level": "warning",
+            "name": "no-inline-assembly"
+        },
+        {
+            "filename": "ERC1271.sol",
+            "line": 72,
+            "column": 17,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        },
+        {
+            "filename": "ERC1271.sol",
+            "line": 72,
+            "column": 22,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        },
+        {
+            "filename": "ERC1271.sol",
+            "line": 99,
+            "column": 9,
+            "message": "Avoid to use inline assembly. It is acceptable only in rare cases",
+            "level": "warning",
+            "name": "no-inline-assembly"
+        }
+    ]
+}

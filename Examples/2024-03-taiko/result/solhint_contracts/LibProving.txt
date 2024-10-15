@@ -1,0 +1,9 @@
+
+/g4b/packages/protocol/contracts/L1/libs/LibProving.sol
+    2:1   error    Compiler version 0.8.24 does not satisfy the ^0.5.8 semver requirement  compiler-version
+   78:50  warning  Avoid making time-based decisions in your business logic                not-rely-on-time
+  264:31  warning  Avoid making time-based decisions in your business logic                not-rely-on-time
+  415:43  warning  Avoid making time-based decisions in your business logic                not-rely-on-time
+
+✖ 4 problems (1 error, 3 warnings)
+

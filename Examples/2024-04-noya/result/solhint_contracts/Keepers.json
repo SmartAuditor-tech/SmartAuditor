@@ -1,0 +1,70 @@
+{
+    "success": true,
+    "finding_length": 8,
+    "findings": [
+        {
+            "filename": "Keepers.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version 0.8.20 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "Keepers.sol",
+            "line": 27,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "Keepers.sol",
+            "line": 28,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Keepers.sol",
+            "line": 53,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Keepers.sol",
+            "line": 64,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Keepers.sol",
+            "line": 98,
+            "column": 17,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "Keepers.sol",
+            "line": 106,
+            "column": 17,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Keepers.sol",
+            "line": 116,
+            "column": 27,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        }
+    ]
+}

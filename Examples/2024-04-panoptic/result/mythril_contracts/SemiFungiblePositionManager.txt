@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "tokens/ERC1155Minimal.sol" not found: File not found. Searched the following locations: "".
+ --> /g4b/contracts/SemiFungiblePositionManager.sol:8:1:
+  |
+8 | import   {ERC1155} from "tokens/ERC1155Minimal.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

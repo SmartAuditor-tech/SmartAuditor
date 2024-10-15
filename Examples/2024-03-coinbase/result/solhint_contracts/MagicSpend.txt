@@ -1,0 +1,10 @@
+
+/g4b/src/MagicSpend/MagicSpend.sol
+  34:20  error  Parse error: extraneous input 'user' expecting '=>'
+  34:36  error  Parse error: extraneous input 'amount' expecting ')'
+  37:20  error  Parse error: extraneous input 'nonce' expecting '=>'
+  37:45  error  Parse error: extraneous input 'user' expecting '=>'
+  37:58  error  Parse error: extraneous input 'used' expecting ')'
+
+✖ 5 problems (5 errors, 0 warnings)
+

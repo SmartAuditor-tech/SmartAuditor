@@ -1,0 +1,9 @@
+
+/g4b/contracts/Bridge/L2/xRenzoDepositStorage.sol
+   2:1  error    Compiler version 0.8.19 does not satisfy the ^0.5.8 semver requirement  compiler-version
+   9:1  warning  Contract name must be in CamelCase                                      contract-name-camelcase
+  47:1  warning  Contract name must be in CamelCase                                      contract-name-camelcase
+  52:1  warning  Contract name must be in CamelCase                                      contract-name-camelcase
+
+✖ 4 problems (1 error, 3 warnings)
+

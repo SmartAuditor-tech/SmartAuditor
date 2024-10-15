@@ -1,0 +1,37 @@
+'forge config --json' running
+Could not detect solc version from Foundry config. Falling back to system version...
+'solc --version' running
+'solc chainlink/=lib/chainlink/ ds-test/=lib/openzeppelin-contracts/lib/forge-std/lib/ds-test/src/ erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/ forge-std/=lib/openzeppelin-contracts/lib/forge-std/src/ openzeppelin-contracts/=lib/openzeppelin-contracts/ openzeppelin/=lib/openzeppelin-contracts/contracts/ v3-core/=lib/v3-core/contracts/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/Upkeep.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20000 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src' running
+INFO:Detectors:
+Upkeep.step3() (src/Upkeep.sol#145-154) uses a dangerous strict equality:
+	- wethBalance == 0 (src/Upkeep.sol#148)
+Upkeep.step4() (src/Upkeep.sol#158-167) uses a dangerous strict equality:
+	- wethBalance == 0 (src/Upkeep.sol#161)
+Upkeep.step5() (src/Upkeep.sol#171-180) uses a dangerous strict equality:
+	- wethBalance == 0 (src/Upkeep.sol#174)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+Reentrancy in Upkeep.step6() (src/Upkeep.sol#184-190):
+	External calls:
+	- emissions.performUpkeep(timeSinceLastUpkeep) (src/Upkeep.sol#187)
+	State variables written after the call(s):
+	- lastUpkeepTimeEmissions = block.timestamp (src/Upkeep.sol#189)
+	Upkeep.lastUpkeepTimeEmissions (src/Upkeep.sol#63) can be used in cross function reentrancies:
+	- Upkeep.constructor(IPools,IExchangeConfig,IPoolsConfig,IDAOConfig,IStableConfig,IPriceAggregator,ISaltRewards,ICollateralAndLiquidity,IEmissions,IDAO) (src/Upkeep.sol#67-92)
+	- Upkeep.lastUpkeepTimeEmissions (src/Upkeep.sol#63)
+	- Upkeep.step6() (src/Upkeep.sol#184-190)
+Reentrancy in Upkeep.step8() (src/Upkeep.sol#205-213):
+	External calls:
+	- saltRewards.stakingRewardsEmitter().performUpkeep(timeSinceLastUpkeep) (src/Upkeep.sol#209)
+	- saltRewards.liquidityRewardsEmitter().performUpkeep(timeSinceLastUpkeep) (src/Upkeep.sol#210)
+	State variables written after the call(s):
+	- lastUpkeepTimeRewardsEmitters = block.timestamp (src/Upkeep.sol#212)
+	Upkeep.lastUpkeepTimeRewardsEmitters (src/Upkeep.sol#64) can be used in cross function reentrancies:
+	- Upkeep.constructor(IPools,IExchangeConfig,IPoolsConfig,IDAOConfig,IStableConfig,IPriceAggregator,ISaltRewards,ICollateralAndLiquidity,IEmissions,IDAO) (src/Upkeep.sol#67-92)
+	- Upkeep.lastUpkeepTimeRewardsEmitters (src/Upkeep.sol#64)
+	- Upkeep.step8() (src/Upkeep.sol#205-213)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+INFO:Detectors:
+Upkeep.constructor(IPools,IExchangeConfig,IPoolsConfig,IDAOConfig,IStableConfig,IPriceAggregator,ISaltRewards,ICollateralAndLiquidity,IEmissions,IDAO) (src/Upkeep.sol#67-92) ignores return value by weth.approve(address(pools),type()(uint256).max) (src/Upkeep.sol#91)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/Upkeep.sol analyzed (32 contracts with 58 detectors), 6 result(s) found

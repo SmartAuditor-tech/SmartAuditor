@@ -1,0 +1,76 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+Some files were skipped or only partially analyzed.
+  Partially scanned: 1 files only partially analyzed due to parsing or internal Semgrep errors
+
+Ran 50 rules on 1 file: 3 findings.
+                   
+                   
+┌─────────────────┐
+│ 3 Code Findings │
+└─────────────────┘
+                                       
+    /g4b/contracts/PanopticFactory.sol 
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+          115┆ constructor(
+          116┆     address _WETH9,
+          117┆     SemiFungiblePositionManager _SFPM,
+          118┆     IUniswapV3Factory _univ3Factory,
+          119┆     IDonorNFT _donorNFT,
+          120┆     address _poolReference,
+          121┆     address _collateralReference
+          122┆ ) {
+          123┆     WETH = _WETH9;
+          124┆     SFPM = _SFPM;
+             [hid 6 additional lines, adjust with --max-lines-per-finding] 
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          224┆ if (_owner != address(0) && _owner != msg.sender) revert         
+  Errors.NotOwner();                                                            
+            ⋮┆----------------------------------------
+       solidity.security.uniswap-callback-not-protected.uniswap-callback-not-pro
+  tected                                                                        
+          Uniswap callback is not protected                                     
+          Details: https://sg.run/r4JJ                                          
+                                                                                
+          172┆ function uniswapV3MintCallback(
+          173┆     uint256 amount0Owed,
+          174┆     uint256 amount1Owed,
+          175┆     bytes calldata data
+          176┆ ) external {
+          177┆     CallbackLib.CallbackData memory decoded = abi.decode(data,   
+  (CallbackLib.CallbackData));                                                  
+          178┆ 
+          179┆     CallbackLib.validateCallback(msg.sender, UNIV3_FACTORY,      
+  decoded.poolFeatures);                                                        
+          180┆ 
+          181┆     if (amount0Owed > 0)
+             [hid 14 additional lines, adjust with --max-lines-per-finding] 
+
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

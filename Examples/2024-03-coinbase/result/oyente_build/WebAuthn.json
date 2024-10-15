@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "WebAuthn.sol",
+        "coverage": "24.2%",
+        "warnings": []
+    }
+}

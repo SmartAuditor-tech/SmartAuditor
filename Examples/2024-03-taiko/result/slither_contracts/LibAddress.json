@@ -1,0 +1,120 @@
+{
+    "success": true,
+    "finding_length": 10,
+    "findings": [
+        {
+            "name": "incorrect-exp",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#55-135) has bitwise-xor operator ^ instead of the exponentiation operator **: \n\t - inverse = (3 * denominator) ^ 2 (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#117)\n",
+            "filename": "LibAddress.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 117
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#55-135) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#102)\n\t- inverse *= 2 - denominator * inverse (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#123)\n",
+            "filename": "LibAddress.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 123
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#55-135) performs a multiplication on the result of a division:\n\t- prod0 = prod0 / twos (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#105)\n\t- result = prod0 * inverse (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#132)\n",
+            "filename": "LibAddress.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 132
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#55-135) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#102)\n\t- inverse *= 2 - denominator * inverse (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#122)\n",
+            "filename": "LibAddress.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 122
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#55-135) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#102)\n\t- inverse *= 2 - denominator * inverse (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#121)\n",
+            "filename": "LibAddress.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 121
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#55-135) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#102)\n\t- inverse *= 2 - denominator * inverse (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#124)\n",
+            "filename": "LibAddress.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 124
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#55-135) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#102)\n\t- inverse *= 2 - denominator * inverse (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#125)\n",
+            "filename": "LibAddress.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 125
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#55-135) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#102)\n\t- inverse *= 2 - denominator * inverse (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#126)\n",
+            "filename": "LibAddress.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 126
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#55-135) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#102)\n\t- inverse = (3 * denominator) ^ 2 (packages/protocol/node_modules/@openzeppelin/contracts/utils/math/Math.sol#117)\n",
+            "filename": "LibAddress.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 117
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "LibAddress.sendEther(address,uint256,uint256) (packages/protocol/contracts/libs/LibAddress.sol#22-37) ignores return value by (success,None) = ExcessivelySafeCall.excessivelySafeCall(_to,_gasLimit,_amount,64,) (packages/protocol/contracts/libs/LibAddress.sol#27-33)\n",
+            "filename": "LibAddress.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "sendEther",
+            "contract": "LibAddress",
+            "line": 27,
+            "line_end": 33
+        }
+    ]
+}

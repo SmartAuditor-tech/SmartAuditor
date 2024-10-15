@@ -1,0 +1,262 @@
+{
+    "success": true,
+    "finding_length": 32,
+    "findings": [
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version ^0.8.16 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 71,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 79,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 84,
+            "column": 73,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 156,
+            "column": 34,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 158,
+            "column": 89,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 160,
+            "column": 34,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 162,
+            "column": 89,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 174,
+            "column": 31,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 193,
+            "column": 64,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 204,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 205,
+            "column": 75,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 217,
+            "column": 33,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 218,
+            "column": 33,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 239,
+            "column": 34,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 270,
+            "column": 34,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 278,
+            "column": 34,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 296,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 296,
+            "column": 44,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 310,
+            "column": 74,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 321,
+            "column": 31,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 328,
+            "column": 38,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 342,
+            "column": 35,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 347,
+            "column": 81,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 349,
+            "column": 62,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 357,
+            "column": 32,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 373,
+            "column": 28,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 375,
+            "column": 70,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 446,
+            "column": 76,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 480,
+            "column": 21,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 500,
+            "column": 37,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "VotingEscrow.sol",
+            "line": 524,
+            "column": 52,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        }
+    ]
+}

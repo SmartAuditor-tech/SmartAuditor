@@ -1,0 +1,42 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/PoolManager.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20 --evm-version shanghai --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts' running
+INFO:Detectors:
+WrapperHelper._wrapETH(uint256) (contracts/TransferHub/WrapperHelper.sol#24-32) sends eth to arbitrary user
+	Dangerous calls:
+	- WETH.deposit{value: _value}() (contracts/TransferHub/WrapperHelper.sol#29-31)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+INFO:Detectors:
+WiseLendingDeclaration.positionLocked (contracts/WiseLendingDeclaration.sol#286) is never initialized. It is used in:
+	- WiseCore._checkPositionLocked(uint256,address) (contracts/WiseCore.sol#193-209)
+	- MainHelper._validateIsolationPoolLiquidation(address,uint256,uint256) (contracts/MainHelper.sol#232-256)
+	- MainHelper._checkLiquidatorNft(uint256,uint256) (contracts/MainHelper.sol#258-276)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+INFO:Detectors:
+MainHelper._updatePseudoTotalAmounts(address) (contracts/MainHelper.sol#500-577) performs a multiplication on the result of a division:
+	- amountInterest = bareIncrease / PRECISION_FACTOR_YEAR (contracts/MainHelper.sol#525-526)
+	- feeAmount = amountInterest * globalPoolData[_poolToken].poolFee / PRECISION_FACTOR_E18 (contracts/MainHelper.sol#528-530)
+MainHelper._updatePseudoTotalAmounts(address) (contracts/MainHelper.sol#500-577) performs a multiplication on the result of a division:
+	- feeAmount = amountInterest * globalPoolData[_poolToken].poolFee / PRECISION_FACTOR_E18 (contracts/MainHelper.sol#528-530)
+	- feeShares = feeAmount * lendingPoolData[_poolToken].totalDepositShares / (lendingPoolData[_poolToken].pseudoTotalPool - feeAmount) (contracts/MainHelper.sol#550-552)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+CallOptionalReturn._callOptionalReturn(address,bytes) (contracts/TransferHub/CallOptionalReturn.sol#12-38) uses a dangerous strict equality:
+	- results = returndata.length == 0 || abi.decode(returndata,(bool)) (contracts/TransferHub/CallOptionalReturn.sol#26-29)
+CallOptionalReturn._callOptionalReturn(address,bytes) (contracts/TransferHub/CallOptionalReturn.sol#12-38) uses a dangerous strict equality:
+	- success == false (contracts/TransferHub/CallOptionalReturn.sol#31)
+MainHelper._updatePseudoTotalAmounts(address) (contracts/MainHelper.sol#500-577) uses a dangerous strict equality:
+	- feeAmount == 0 (contracts/MainHelper.sol#542)
+MainHelper._updatePseudoTotalAmounts(address) (contracts/MainHelper.sol#500-577) uses a dangerous strict equality:
+	- feeShares == 0 (contracts/MainHelper.sol#554)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+WiseCore._calculateReceiveAmount(uint256,uint256,address,uint256).potentialPureExtraCashout (contracts/WiseCore.sol#560) is a local variable never initialized
+MainHelper._prepareTokens(address,address[]).i (contracts/MainHelper.sol#425) is a local variable never initialized
+MainHelper._removePositionData(uint256,address,function(uint256) returns(uint256),function(uint256,uint256) returns(address),function(uint256,address),bool).i (contracts/MainHelper.sol#690) is a local variable never initialized
+MainHelper._whileLoopCurveSecurity(address[]).i (contracts/MainHelper.sol#478) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+INFO:Detectors:
+WiseCore._checkDeposit(uint256,address,address,uint256) (contracts/WiseCore.sol#236-269) ignores return value by WISE_SECURITY.checkPoolWithMinDeposit(_poolToken,_amount) (contracts/WiseCore.sol#260-263)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/PoolManager.sol analyzed (18 contracts with 58 detectors), 13 result(s) found

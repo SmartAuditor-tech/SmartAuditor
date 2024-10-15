@@ -1,0 +1,80 @@
+'forge config --json' running
+Could not detect solc version from Foundry config. Falling back to system version...
+'solc --version' running
+'solc chainlink/=lib/chainlink/ ds-test/=lib/openzeppelin-contracts/lib/forge-std/lib/ds-test/src/ erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/ forge-std/=lib/openzeppelin-contracts/lib/forge-std/src/ openzeppelin-contracts/=lib/openzeppelin-contracts/ openzeppelin/=lib/openzeppelin-contracts/contracts/ v3-core/=lib/v3-core/contracts/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/dao/DAO.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20000 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/dao' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/dao/DAO.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> src/pools/PoolUtils.sol
+
+
+INFO:Detectors:
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) has bitwise-xor operator ^ instead of the exponentiation operator **: 
+	 - inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-exponentiation
+INFO:Detectors:
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#120)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#121)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#122)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#124)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#125)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- prod0 = prod0 / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#104)
+	- result = prod0 * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#131)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+Upkeep.step3() (src/Upkeep.sol#145-154) uses a dangerous strict equality:
+	- wethBalance == 0 (src/Upkeep.sol#148)
+Upkeep.step4() (src/Upkeep.sol#158-167) uses a dangerous strict equality:
+	- wethBalance == 0 (src/Upkeep.sol#161)
+Upkeep.step5() (src/Upkeep.sol#171-180) uses a dangerous strict equality:
+	- wethBalance == 0 (src/Upkeep.sol#174)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+Reentrancy in Upkeep.step6() (src/Upkeep.sol#184-190):
+	External calls:
+	- emissions.performUpkeep(timeSinceLastUpkeep) (src/Upkeep.sol#187)
+	State variables written after the call(s):
+	- lastUpkeepTimeEmissions = block.timestamp (src/Upkeep.sol#189)
+	Upkeep.lastUpkeepTimeEmissions (src/Upkeep.sol#63) can be used in cross function reentrancies:
+	- Upkeep.constructor(IPools,IExchangeConfig,IPoolsConfig,IDAOConfig,IStableConfig,IPriceAggregator,ISaltRewards,ICollateralAndLiquidity,IEmissions,IDAO) (src/Upkeep.sol#67-92)
+	- Upkeep.lastUpkeepTimeEmissions (src/Upkeep.sol#63)
+	- Upkeep.step6() (src/Upkeep.sol#184-190)
+Reentrancy in Upkeep.step8() (src/Upkeep.sol#205-213):
+	External calls:
+	- saltRewards.stakingRewardsEmitter().performUpkeep(timeSinceLastUpkeep) (src/Upkeep.sol#209)
+	- saltRewards.liquidityRewardsEmitter().performUpkeep(timeSinceLastUpkeep) (src/Upkeep.sol#210)
+	State variables written after the call(s):
+	- lastUpkeepTimeRewardsEmitters = block.timestamp (src/Upkeep.sol#212)
+	Upkeep.lastUpkeepTimeRewardsEmitters (src/Upkeep.sol#64) can be used in cross function reentrancies:
+	- Upkeep.constructor(IPools,IExchangeConfig,IPoolsConfig,IDAOConfig,IStableConfig,IPriceAggregator,ISaltRewards,ICollateralAndLiquidity,IEmissions,IDAO) (src/Upkeep.sol#67-92)
+	- Upkeep.lastUpkeepTimeRewardsEmitters (src/Upkeep.sol#64)
+	- Upkeep.step8() (src/Upkeep.sol#205-213)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+INFO:Detectors:
+Upkeep.constructor(IPools,IExchangeConfig,IPoolsConfig,IDAOConfig,IStableConfig,IPriceAggregator,ISaltRewards,ICollateralAndLiquidity,IEmissions,IDAO) (src/Upkeep.sol#67-92) ignores return value by weth.approve(address(pools),type()(uint256).max) (src/Upkeep.sol#91)
+DAO.constructor(IPools,IProposals,IExchangeConfig,IPoolsConfig,IStakingConfig,IRewardsConfig,IStableConfig,IDAOConfig,IPriceAggregator,IRewardsEmitter,ICollateralAndLiquidity) (src/dao/DAO.sol#70-109) ignores return value by salt.approve(address(collateralAndLiquidity),type()(uint256).max) (src/dao/DAO.sol#90)
+DAO.constructor(IPools,IProposals,IExchangeConfig,IPoolsConfig,IStakingConfig,IRewardsConfig,IStableConfig,IDAOConfig,IPriceAggregator,IRewardsEmitter,ICollateralAndLiquidity) (src/dao/DAO.sol#70-109) ignores return value by usds.approve(address(collateralAndLiquidity),type()(uint256).max) (src/dao/DAO.sol#91)
+DAO.constructor(IPools,IProposals,IExchangeConfig,IPoolsConfig,IStakingConfig,IRewardsConfig,IStableConfig,IDAOConfig,IPriceAggregator,IRewardsEmitter,ICollateralAndLiquidity) (src/dao/DAO.sol#70-109) ignores return value by dai.approve(address(collateralAndLiquidity),type()(uint256).max) (src/dao/DAO.sol#92)
+DAO._executeApproval(Ballot) (src/dao/DAO.sol#155-215) ignores return value by proposals.createConfirmationProposal(string.concat(ballot.ballotName,_confirm),BallotType.CONFIRM_SET_CONTRACT,ballot.address1,,ballot.description) (src/dao/DAO.sol#204)
+DAO._executeApproval(Ballot) (src/dao/DAO.sol#155-215) ignores return value by proposals.createConfirmationProposal(string.concat(ballot.ballotName,_confirm),BallotType.CONFIRM_SET_WEBSITE_URL,address(0),ballot.string1,ballot.description) (src/dao/DAO.sol#208)
+DAO._finalizeTokenWhitelisting(uint256) (src/dao/DAO.sol#235-273) ignores return value by exchangeConfig.salt().approve(address(liquidityRewardsEmitter),bootstrappingRewards * 2) (src/dao/DAO.sol#265)
+DAO.formPOL(IERC20,IERC20,uint256,uint256) (src/dao/DAO.sol#316-324) ignores return value by collateralAndLiquidity.depositLiquidityAndIncreaseShare(tokenA,tokenB,amountA,amountB,0,block.timestamp,true) (src/dao/DAO.sol#321)
+PoolUtils._placeInternalSwap(IPools,IERC20,IERC20,uint256,uint256) (src/pools/PoolUtils.sol#54-68) ignores return value by (reservesIn,None) = pools.getPoolReserves(tokenIn,tokenOut) (src/pools/PoolUtils.sol#59)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/dao/DAO.sol analyzed (41 contracts with 58 detectors), 23 result(s) found

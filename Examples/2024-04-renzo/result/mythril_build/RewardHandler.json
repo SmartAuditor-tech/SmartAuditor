@@ -1,0 +1,46 @@
+{
+    "success": true,
+    "finding_length": 4,
+    "findings": [
+        {
+            "filaname": "RewardHandler.sol",
+            "SWC ID": " 101",
+            "Severity": " High",
+            "Contract": " MAIN",
+            "Function name": " fallback",
+            "PC address": " 310",
+            "Estimated Gas Usage": " 12935 - 87829",
+            "description": "It is possible to cause an integer overflow or underflow in the arithmetic operation."
+        },
+        {
+            "filaname": "RewardHandler.sol",
+            "SWC ID": " 101",
+            "Severity": " High",
+            "Contract": " MAIN",
+            "Function name": " _function_0xedb7b677",
+            "PC address": " 310",
+            "Estimated Gas Usage": " 13316 - 88398",
+            "description": "It is possible to cause an integer overflow or underflow in the arithmetic operation."
+        },
+        {
+            "filaname": "RewardHandler.sol",
+            "SWC ID": " 107",
+            "Severity": " Low",
+            "Contract": " MAIN",
+            "Function name": " fallback",
+            "PC address": " 487",
+            "Estimated Gas Usage": " 12935 - 87829",
+            "description": "An external message call to an address specified by the caller is executed. Note that the callee account might contain arbitrary code and could re-enter any function within this contract. Reentering the contract in an intermediate state may lead to unexpected behaviour. Make sure that no state modifications are executed after this call and/or reentrancy guards are in place."
+        },
+        {
+            "filaname": "RewardHandler.sol",
+            "SWC ID": " 107",
+            "Severity": " Low",
+            "Contract": " MAIN",
+            "Function name": " fallback",
+            "PC address": " 610",
+            "Estimated Gas Usage": " 12935 - 87829",
+            "description": "The contract account state is accessed after an external call to a fixed address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state."
+        }
+    ]
+}

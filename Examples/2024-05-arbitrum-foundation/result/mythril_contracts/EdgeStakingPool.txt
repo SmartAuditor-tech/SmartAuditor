@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+CompilerError: Stack too deep. Try compiling with `--via-ir` (cli) or the equivalent `viaIR: true` (standard JSON) while enabling the optimizer. Otherwise, try removing local variables.
+   --> /g4b/src/challengeV2/EdgeChallengeManager.sol:317:21:
+    |
+317 |         if (address(_assertionChain) == address(0)) {
+    |                     ^^^^^^^^^^^^^^^
+
+

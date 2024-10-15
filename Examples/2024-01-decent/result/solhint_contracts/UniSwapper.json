@@ -1,0 +1,46 @@
+{
+    "success": true,
+    "finding_length": 5,
+    "findings": [
+        {
+            "filename": "UniSwapper.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version ^0.8.0 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "UniSwapper.sol",
+            "line": 14,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "UniSwapper.sol",
+            "line": 14,
+            "column": 30,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        },
+        {
+            "filename": "UniSwapper.sol",
+            "line": 17,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "UniSwapper.sol",
+            "line": 171,
+            "column": 32,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        }
+    ]
+}

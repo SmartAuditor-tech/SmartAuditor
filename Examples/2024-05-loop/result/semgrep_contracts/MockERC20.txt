@@ -1,0 +1,59 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 6 Code Findings │
+└─────────────────┘
+                                               
+    /g4b/lib/forge-std/src/mocks/MockERC20.sol 
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           55┆ require(!initialized, "ALREADY_INITIALIZED");
+            ⋮┆----------------------------------------
+          109┆ require(deadline >= block.timestamp, "PERMIT_DEADLINE_EXPIRED");
+            ⋮┆----------------------------------------
+          135┆ require(recoveredAddress != address(0) && recoveredAddress ==    
+  owner, "INVALID_SIGNER");                                                     
+            ⋮┆----------------------------------------
+          182┆ require(c >= a, "ERC20: addition overflow");
+            ⋮┆----------------------------------------
+          187┆ require(a >= b, "ERC20: subtraction underflow");
+            ⋮┆----------------------------------------
+       solidity.performance.use-multiple-require.use-multiple-require           
+          Using multiple require statements is cheaper than using && multiple   
+  check combinations.                                                           
+          There are more advantages, such as easier to read code and better     
+  coverage reports.                                                             
+          Details: https://sg.run/vGA0                                          
+                                                                                
+          135┆ require(recoveredAddress != address(0) && recoveredAddress ==    
+  owner, "INVALID_SIGNER");                                                     
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 6 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

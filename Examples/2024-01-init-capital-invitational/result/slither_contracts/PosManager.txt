@@ -1,0 +1,54 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 @forge-std/=lib/forge-std/src/ @openzeppelin-contracts/=contracts/.cache/OpenZeppelin/v4.9.3/ @openzeppelin-contracts-upgradeable/=contracts/.cache/OpenZeppelin-Upgradeable/v4.9.3/ ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-init-capital-invitational/contracts/core/PosManager.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 200 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-init-capital-invitational/contracts/core' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-init-capital-invitational/contracts/core/PosManager.sol:
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/token/ERC20/IERC20.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/core/PosManager.sol:9:1:
+  |
+9 | import  {IERC20} from "../.cache/OpenZeppelin/v4.9.3/token/ERC20/IERC20.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/utils/math/SafeCast.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/core/PosManager.sol:10:1:
+   |
+10 | import  {SafeCast} from "../.cache/OpenZeppelin/v4.9.3/utils/math/SafeCast.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/token/ERC20/utils/SafeERC20.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/core/PosManager.sol:11:1:
+   |
+11 | import  {SafeERC20} from "../.cache/OpenZeppelin/v4.9.3/token/ERC20/utils/SafeERC20.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin-Upgradeable/v4.9.3/token/ERC721/extensions/ERC721EnumerableUpgradeable.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/core/PosManager.sol:12:1:
+   |
+12 | import  {ERC721EnumerableUpgradeable} from
+   | ^ (Relevant source part starts here and spans across multiple lines).
+
+Error: Source "contracts/.cache/OpenZeppelin-Upgradeable/v4.9.3/token/ERC721/utils/ERC721HolderUpgradeable.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/core/PosManager.sol:14:1:
+   |
+14 | import  {ERC721HolderUpgradeable} from
+   | ^ (Relevant source part starts here and spans across multiple lines).
+
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/utils/structs/EnumerableSet.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/core/PosManager.sol:16:1:
+   |
+16 | import  {EnumerableSet} from "../.cache/OpenZeppelin/v4.9.3/utils/structs/EnumerableSet.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/utils/structs/EnumerableSet.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/interfaces/core/IPosManager.sol:4:1:
+  |
+4 | import  {EnumerableSet} from "../../.cache/OpenZeppelin/v4.9.3/utils/structs/EnumerableSet.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/token/ERC721/IERC721.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/interfaces/wrapper/IBaseWrapLp.sol:4:1:
+  |
+4 | import  {IERC721} from "../../.cache/OpenZeppelin/v4.9.3/token/ERC721/IERC721.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+ERROR:Slither:Unable to compile all targets.

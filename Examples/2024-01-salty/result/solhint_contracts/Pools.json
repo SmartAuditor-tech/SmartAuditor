@@ -1,0 +1,142 @@
+{
+    "success": true,
+    "finding_length": 17,
+    "findings": [
+        {
+            "filename": "Pools.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version =0.8.22 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "Pools.sol",
+            "line": 52,
+            "column": 2,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "Pools.sol",
+            "line": 55,
+            "column": 3,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        },
+        {
+            "filename": "Pools.sol",
+            "line": 72,
+            "column": 6,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Pools.sol",
+            "line": 83,
+            "column": 11,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "Pools.sol",
+            "line": 142,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Pools.sol",
+            "line": 144,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Pools.sol",
+            "line": 146,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Pools.sol",
+            "line": 147,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Pools.sol",
+            "line": 172,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Pools.sol",
+            "line": 173,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Pools.sol",
+            "line": 187,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Pools.sol",
+            "line": 193,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Pools.sol",
+            "line": 221,
+            "column": 6,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Pools.sol",
+            "line": 243,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Pools.sol",
+            "line": 353,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "Pools.sol",
+            "line": 371,
+            "column": 6,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        }
+    ]
+}

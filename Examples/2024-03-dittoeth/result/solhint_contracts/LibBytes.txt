@@ -1,0 +1,9 @@
+
+/g4b/contracts/libraries/LibBytes.sol
+   2:1   error    Compiler version 0.8.21 does not satisfy the ^0.5.8 semver requirement  compiler-version
+  11:31  warning  Variable name must be in mixedCase                                      var-name-mixedcase
+  24:13  warning  Variable name must be in mixedCase                                      var-name-mixedcase
+  28:13  warning  Avoid to use inline assembly. It is acceptable only in rare cases       no-inline-assembly
+
+✖ 4 problems (1 error, 3 warnings)
+

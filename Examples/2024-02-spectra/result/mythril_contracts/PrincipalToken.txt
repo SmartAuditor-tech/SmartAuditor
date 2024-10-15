@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+DeclarationError: Declaration "IERC20Metadata" not found in "/g4b/lib/forge-std/src/interfaces/IERC20.sol" (referenced as "../../../../forge-std/src/interfaces/IERC20.sol").
+ --> /g4b/lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol:7:1:
+  |
+7 | import  {IERC20Metadata} from "../../../../forge-std/src/interfaces/IERC20.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

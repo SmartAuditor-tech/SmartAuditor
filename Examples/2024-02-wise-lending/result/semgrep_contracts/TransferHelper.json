@@ -1,0 +1,125 @@
+{
+    "success": true,
+    "finding_length": 17,
+    "findings": [
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 20
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 21
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 22
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 23
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 24
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 25
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 26
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 27
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 42
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 43
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 44
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 45
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 46
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 47
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 48
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 49
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 50
+        }
+    ]
+}

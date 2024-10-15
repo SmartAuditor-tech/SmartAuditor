@@ -1,0 +1,63 @@
+{
+    "success": true,
+    "finding_length": 4,
+    "findings": [
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PtOracleDerivative.latestAnswer() (contracts/DerivativeOracles/PtOracleDerivative.sol#81-129) performs a multiplication on the result of a division:\n\t- uint256(answerUsdFeed) * PRECISION_FACTOR_E18 / POW_USD_FEED * POW_ETH_USD_FEED / uint256(answerEthUsdFeed) * ptToAssetRate / PRECISION_FACTOR_E18 (contracts/DerivativeOracles/PtOracleDerivative.sol#122-128)\n",
+            "filename": "PtOracleDerivative.sol",
+            "classification": [],
+            "function": "latestAnswer",
+            "contract": "PtOracleDerivative",
+            "line": 122,
+            "line_end": 128
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PtOracleDerivative.latestAnswer() (contracts/DerivativeOracles/PtOracleDerivative.sol#81-129) ignores return value by (None,answerUsdFeed,None,None,None) = USD_FEED_ASSET.latestRoundData() (contracts/DerivativeOracles/PtOracleDerivative.sol#86-91)\n",
+            "filename": "PtOracleDerivative.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "latestAnswer",
+            "contract": "PtOracleDerivative",
+            "line": 86,
+            "line_end": 91
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PtOracleDerivative.latestAnswer() (contracts/DerivativeOracles/PtOracleDerivative.sol#81-129) ignores return value by (increaseCardinalityRequired,None,oldestObservationSatisfied) = ORACLE_PENDLE_PT.getOracleState(PENDLE_MARKET_ADDRESS,TWAP_DURATION) (contracts/DerivativeOracles/PtOracleDerivative.sol#100-107)\n",
+            "filename": "PtOracleDerivative.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "latestAnswer",
+            "contract": "PtOracleDerivative",
+            "line": 100,
+            "line_end": 107
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PtOracleDerivative.latestAnswer() (contracts/DerivativeOracles/PtOracleDerivative.sol#81-129) ignores return value by (None,answerEthUsdFeed,None,None,None) = ETH_FEED_ASSET.latestRoundData() (contracts/DerivativeOracles/PtOracleDerivative.sol#93-98)\n",
+            "filename": "PtOracleDerivative.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "latestAnswer",
+            "contract": "PtOracleDerivative",
+            "line": 93,
+            "line_end": 98
+        }
+    ]
+}

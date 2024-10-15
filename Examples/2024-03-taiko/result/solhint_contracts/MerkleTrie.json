@@ -1,0 +1,110 @@
+{
+    "success": true,
+    "finding_length": 13,
+    "findings": [
+        {
+            "filename": "MerkleTrie.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version 0.8.24 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "MerkleTrie.sol",
+            "line": 89,
+            "column": 13,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "MerkleTrie.sol",
+            "line": 99,
+            "column": 17,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "MerkleTrie.sol",
+            "line": 105,
+            "column": 17,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "MerkleTrie.sol",
+            "line": 119,
+            "column": 21,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "MerkleTrie.sol",
+            "line": 125,
+            "column": 21,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "MerkleTrie.sol",
+            "line": 150,
+            "column": 17,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "MerkleTrie.sol",
+            "line": 162,
+            "column": 21,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "MerkleTrie.sol",
+            "line": 172,
+            "column": 21,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "MerkleTrie.sol",
+            "line": 178,
+            "column": 21,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "MerkleTrie.sol",
+            "line": 191,
+            "column": 21,
+            "message": "Error message for revert is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "MerkleTrie.sol",
+            "line": 194,
+            "column": 17,
+            "message": "Error message for revert is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "MerkleTrie.sol",
+            "line": 198,
+            "column": 9,
+            "message": "Error message for revert is too long",
+            "level": "warning",
+            "name": "reason-string"
+        }
+    ]
+}

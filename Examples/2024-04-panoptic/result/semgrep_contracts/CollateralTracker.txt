@@ -1,0 +1,121 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 8 Code Findings │
+└─────────────────┘
+                                         
+    /g4b/contracts/CollateralTracker.sol 
+       solidity.performance.inefficient-state-variable-increment.inefficient-sta
+  te-variable-increment                                                         
+          <x> += <y> costs more gas than <x> = <x> + <y> for state variables.   
+          Details: https://sg.run/bp9v                                          
+                                                                                
+          436┆ s_poolAssets += uint128(assets);
+            ⋮┆----------------------------------------
+          496┆ s_poolAssets += uint128(assets);
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+          178┆ constructor(
+          179┆     uint256 _commissionFee,
+          180┆     uint256 _sellerCollateralRatio,
+          181┆     uint256 _buyerCollateralRatio,
+          182┆     int256 _forceExerciseCost,
+          183┆     uint256 _targetPoolUtilization,
+          184┆     uint256 _saturatedPoolUtilization,
+          185┆     uint256 _ITMSpreadMultiplier
+          186┆ ) {
+          187┆     COMMISSION_FEE = _commissionFee;
+             [hid 24 additional lines, adjust with --max-lines-per-finding] 
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          707┆ if (
+          708┆     (tokenType == 0 && currentValue1 < oracleValue1) ||
+          709┆     (tokenType == 1 && currentValue0 < oracleValue0)
+          710┆ )
+          711┆     exerciseFees = exerciseFees.sub(
+          712┆         LeftRightSigned
+          713┆             .wrap(0)
+          714┆             .toRightSlot(
+          715┆                 int128(uint128(oracleValue0)) -                  
+  int128(uint128(currentValue0))                                                
+          716┆             )
+             [hid 4 additional lines, adjust with --max-lines-per-finding] 
+         1060┆ if ((intrinsicValue != 0) && ((shortAmount != 0) || (longAmount  
+  != 0))) {                                                                     
+         1061┆     // intrinsic value is the amount that need to be exchanged   
+  due to burning in-the-money                                                   
+         1062┆ 
+         1063┆     // add the intrinsic value to the tokenToPay
+         1064┆     tokenToPay += intrinsicValue;
+         1065┆ }
+            ⋮┆----------------------------------------
+         1345┆ if (
+         1346┆     ((atTick >= tickUpper) && (tokenType == 1)) || // strike OTM 
+  when price >= upperTick for tokenType=1                                       
+         1347┆     ((atTick < tickLower) && (tokenType == 0)) // strike OTM when
+  price < lowerTick for tokenType=0                                             
+         1348┆ ) {
+         1349┆     // position is out-the-money, collateral requirement = SCR * 
+  amountMoved                                                                   
+         1350┆     required;
+         1351┆ } else {
+         1352┆     int24 strike = tokenId.strike(index);
+         1353┆     // if position is ITM or ATM, then the collateral requirement
+  depends on price:                                                             
+         1354┆ 
+             [hid 65 additional lines, adjust with --max-lines-per-finding] 
+         1373┆ if (
+         1374┆     ((atTick < tickLower) && (tokenType == 1)) || // strike ITM  
+  but out of range price < lowerTick for tokenType=1                            
+         1375┆     ((atTick >= tickUpper) && (tokenType == 0)) // strike ITM but
+  out of range when price >= upperTick for tokenType=0                          
+         1376┆ ) {
+         1377┆     /**
+         1378┆                 Short put BPR = 100% - (price/strike) + SCR
+         1379┆ 
+         1380┆        BUYING
+         1381┆        POWER
+         1382┆        REQUIREMENT
+             [hid 36 additional lines, adjust with --max-lines-per-finding] 
+       solidity.security.arbitrary-send-erc20.arbitrary-send-erc20              
+          msg.sender is not being used when calling erc20.transferFrom. Example 
+  - Alice approves this                                                         
+          contract to spend her ERC20 tokens. Bob can call function 'a' and     
+  specify Alice's address as                                                    
+          the from parameter in transferFrom, allowing him to transfer Alice's  
+  tokens to himself.                                                            
+          Details: https://sg.run/B72A                                          
+                                                                                
+          352┆ return ERC20Minimal.transferFrom(from, to, amount);
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 8 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

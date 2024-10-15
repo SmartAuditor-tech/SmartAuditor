@@ -1,0 +1,62 @@
+{
+    "success": true,
+    "finding_length": 4,
+    "findings": [
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in Airdrop.claimAirdrop() (src/launch/Airdrop.sol#74-85):\n\tExternal calls:\n\t- staking.stakeSALT(saltAmountForEachUser) (src/launch/Airdrop.sol#81)\n\t- staking.transferStakedSaltFromAirdropToUser(msg.sender,saltAmountForEachUser) (src/launch/Airdrop.sol#82)\n\tState variables written after the call(s):\n\t- claimed[msg.sender] = true (src/launch/Airdrop.sol#84)\n\tAirdrop.claimed (src/launch/Airdrop.sol#29) can be used in cross function reentrancies:\n\t- Airdrop.claimed (src/launch/Airdrop.sol#29)\n",
+            "filename": "Airdrop.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "claimAirdrop",
+            "contract": "Airdrop",
+            "line": 29
+        },
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in Airdrop.allowClaiming() (src/launch/Airdrop.sol#56-70):\n\tExternal calls:\n\t- salt.approve(address(staking),saltBalance) (src/launch/Airdrop.sol#67)\n\tState variables written after the call(s):\n\t- claimingAllowed = true (src/launch/Airdrop.sol#69)\n\tAirdrop.claimingAllowed (src/launch/Airdrop.sol#26) can be used in cross function reentrancies:\n\t- Airdrop.allowClaiming() (src/launch/Airdrop.sol#56-70)\n\t- Airdrop.authorizeWallet(address) (src/launch/Airdrop.sol#46-52)\n\t- Airdrop.claimingAllowed (src/launch/Airdrop.sol#26)\n",
+            "filename": "Airdrop.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "allowClaiming",
+            "contract": "Airdrop",
+            "line": 26
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Airdrop.allowClaiming() (src/launch/Airdrop.sol#56-70) ignores return value by salt.approve(address(staking),saltBalance) (src/launch/Airdrop.sol#67)\n",
+            "filename": "Airdrop.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "allowClaiming",
+            "contract": "Airdrop",
+            "line": 67
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Airdrop.authorizeWallet(address) (src/launch/Airdrop.sol#46-52) ignores return value by _authorizedUsers.add(wallet) (src/launch/Airdrop.sol#51)\n",
+            "filename": "Airdrop.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "authorizeWallet",
+            "contract": "Airdrop",
+            "line": 51
+        }
+    ]
+}

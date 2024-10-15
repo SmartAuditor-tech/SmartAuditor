@@ -1,0 +1,14 @@
+
+/g4b/contracts/libraries/LibOrders.sol
+    2:1   error    Compiler version 0.8.21 does not satisfy the ^0.5.8 semver requirement  compiler-version
+   32:23  warning  Avoid making time-based decisions in your business logic                not-rely-on-time
+  670:9   warning  Variable name must be in mixedCase                                      var-name-mixedcase
+  672:9   warning  Variable name must be in mixedCase                                      var-name-mixedcase
+  737:9   warning  Variable name must be in mixedCase                                      var-name-mixedcase
+  812:9   warning  Variable name must be in mixedCase                                      var-name-mixedcase
+  891:9   warning  Variable name must be in mixedCase                                      var-name-mixedcase
+  909:21  warning  Variable name must be in mixedCase                                      var-name-mixedcase
+  958:9   warning  Variable name must be in mixedCase                                      var-name-mixedcase
+
+✖ 9 problems (1 error, 8 warnings)
+

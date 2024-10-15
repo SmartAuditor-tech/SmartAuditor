@@ -1,0 +1,76 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 4 Code Findings │
+└─────────────────┘
+                                    
+    /g4b/contracts/PositionNFTs.sol 
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           25┆ constructor(
+           26┆     string memory _name,
+           27┆     string memory _symbol,
+           28┆     string memory _baseURI
+           29┆ )
+           30┆     ERC721(
+           31┆         _name,
+           32┆         _symbol
+           33┆     )
+           34┆     OwnableMaster(
+             [hid 9 additional lines, adjust with --max-lines-per-finding] 
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+          348┆ require(
+          349┆     _exists(_tokenId) == true,
+          350┆     "PositionNFTs: WRONG_TOKEN"
+          351┆ );
+            ⋮┆----------------------------------------
+       solidity.performance.use-prefix-decrement-not-postfix.use-prefix-decremen
+  t-not-postfix                                                                 
+          Consider using the prefix decrement expression whenever the return    
+  value is not needed. The                                                      
+          prefix decrement expression is cheaper in terms of gas.               
+          Details: https://sg.run/Z024                                          
+                                                                                
+          208┆ totalReserved--;
+            ⋮┆----------------------------------------
+       solidity.performance.use-prefix-increment-not-postfix.use-prefix-incremen
+  t-not-postfix                                                                 
+          Consider using the prefix increment expression whenever the return    
+  value is not needed. The                                                      
+          prefix increment expression is cheaper in terms of gas.               
+          Details: https://sg.run/nxLr                                          
+                                                                                
+          386┆ length++;
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 4 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "Proposals.sol",
+        "incomplete instruction": "31295",
+        "coverage": "0.1%",
+        "warnings": []
+    }
+}

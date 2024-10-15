@@ -1,0 +1,80 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 14 Code Findings │
+└──────────────────┘
+                                                                               
+    /g4b/packages/protocol/contracts/automata-attestation/utils/BytesUtils.sol 
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+          333┆ for (uint256 i; i < len; ++i) {
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           25┆ require(offset + len <= self.length, "invalid offset");
+            ⋮┆----------------------------------------
+          199┆ require(idx + 2 <= self.length, "invalid idx");
+            ⋮┆----------------------------------------
+          212┆ require(idx + 4 <= self.length, "unexpected idx");
+            ⋮┆----------------------------------------
+          225┆ require(idx + 32 <= self.length, "unexpected idx");
+            ⋮┆----------------------------------------
+          238┆ require(idx + 20 <= self.length, "unexpected idx");
+            ⋮┆----------------------------------------
+          264┆ require(len <= 32, "unexpected len");
+            ⋮┆----------------------------------------
+          265┆ require(idx + len <= self.length, "unexpected idx");
+            ⋮┆----------------------------------------
+          293┆ require(offset + len <= self.length, "unexpected offset");
+            ⋮┆----------------------------------------
+          329┆ require(len <= 52, "unexpected len");
+            ⋮┆----------------------------------------
+          335┆ require(char >= 0x30 && char <= 0x7A, "invalid char");
+            ⋮┆----------------------------------------
+          337┆ require(decoded <= 0x20, "invalid decoded");
+            ⋮┆----------------------------------------
+          365┆ revert("unexpected len");
+            ⋮┆----------------------------------------
+       solidity.performance.use-multiple-require.use-multiple-require           
+          Using multiple require statements is cheaper than using && multiple   
+  check combinations.                                                           
+          There are more advantages, such as easier to read code and better     
+  coverage reports.                                                             
+          Details: https://sg.run/vGA0                                          
+                                                                                
+          335┆ require(char >= 0x30 && char <= 0x7A, "invalid char");
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 14 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

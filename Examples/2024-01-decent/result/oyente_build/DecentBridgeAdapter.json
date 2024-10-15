@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "DecentBridgeAdapter.sol",
+        "incomplete instruction": "9496",
+        "coverage": "0.4%",
+        "warnings": []
+    }
+}

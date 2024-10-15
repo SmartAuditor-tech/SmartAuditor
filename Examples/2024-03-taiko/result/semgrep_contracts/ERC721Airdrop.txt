@@ -1,0 +1,50 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 3 findings.
+                   
+                   
+┌─────────────────┐
+│ 3 Code Findings │
+└─────────────────┘
+                                                                    
+    /g4b/packages/protocol/contracts/team/airdrop/ERC721Airdrop.sol 
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+           60┆ IERC721(token).safeTransferFrom(vault, user, tokenIds[i]);
+            ⋮┆----------------------------------------
+           60┆ IERC721(token).safeTransferFrom(vault, user, tokenIds[i]);
+            ⋮┆----------------------------------------
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+           59┆ for (uint256 i; i < tokenIds.length; ++i) {
+
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

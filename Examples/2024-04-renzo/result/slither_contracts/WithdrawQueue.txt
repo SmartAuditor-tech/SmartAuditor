@@ -1,0 +1,10 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 @chainlink/=node_modules/@chainlink/ @eth-optimism/=node_modules/@chainlink/contracts/node_modules/@eth-optimism/ @openzeppelin/=node_modules/@openzeppelin/ ds-test/=lib/forge-std/lib/ds-test/src/ eth-gas-reporter/=node_modules/eth-gas-reporter/ forge-std/=lib/forge-std/src/ hardhat-deploy/=node_modules/hardhat-deploy/ hardhat/=node_modules/hardhat/ prb/test/=lib/prb-test/src/ solmate/=lib/solmate/src/ @connext/=node_modules/@connext/ prb-test/=lib/prb-test/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-renzo/contracts/Withdraw/WithdrawQueue.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 10000 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-renzo/contracts/Withdraw' running
+INFO:Detectors:
+WithdrawQueue.claim(uint256) (contracts/Withdraw/WithdrawQueue.sol#279-312) ignores return value by IERC20(_withdrawRequest.collateralToken).transfer(msg.sender,_withdrawRequest.amountToRedeem) (contracts/Withdraw/WithdrawQueue.sol#305-308)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+INFO:Detectors:
+WithdrawQueue.withdraw(uint256,address) (contracts/Withdraw/WithdrawQueue.sol#206-263) ignores return value by (None,None,totalTVL) = restakeManager.calculateTVLs() (contracts/Withdraw/WithdrawQueue.sol#217)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-renzo/contracts/Withdraw/WithdrawQueue.sol analyzed (35 contracts with 58 detectors), 2 result(s) found

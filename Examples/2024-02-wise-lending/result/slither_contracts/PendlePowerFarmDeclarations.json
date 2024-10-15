@@ -1,0 +1,76 @@
+{
+    "success": true,
+    "finding_length": 7,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "WrapperHelper._wrapETH(uint256) (contracts/TransferHub/WrapperHelper.sol#24-32) sends eth to arbitrary user\n\tDangerous calls:\n\t- WETH.deposit{value: _value}() (contracts/TransferHub/WrapperHelper.sol#29-31)\n",
+            "filename": "PendlePowerFarmDeclarations.sol",
+            "classification": [],
+            "function": "_wrapETH",
+            "contract": "WrapperHelper",
+            "line": 29,
+            "line_end": 31
+        },
+        {
+            "name": "uninitialized-state",
+            "impact": "High",
+            "confidence": "High",
+            "message": "PendlePowerFarmDeclarations.isShutdown (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#43) is never initialized. It is used in:\n\t- PendlePowerFarmDeclarations._isActive() (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#361-368)\n",
+            "filename": "PendlePowerFarmDeclarations.sol",
+            "classification": [
+                "SWC-109"
+            ],
+            "line": 361,
+            "line_end": 368
+        },
+        {
+            "name": "erc20-interface",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "IPendleMarket (contracts/InterfaceHub/IPendle.sol#139-251) has incorrect ERC20 function interface:IPendleMarket.transferFrom(address,address,uint256) (contracts/InterfaceHub/IPendle.sol#157-162)\n",
+            "filename": "PendlePowerFarmDeclarations.sol",
+            "classification": [],
+            "line": 157,
+            "line_end": 162
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "PendlePowerFarmDeclarations.isShutdown (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#43) should be constant \n",
+            "filename": "PendlePowerFarmDeclarations.sol",
+            "classification": [],
+            "line": 43
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "PendlePowerFarmDeclarations.allowEnter (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#46) should be constant \n",
+            "filename": "PendlePowerFarmDeclarations.sol",
+            "classification": [],
+            "line": 46
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "PendlePowerFarmDeclarations.collateralFactor (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#49) should be immutable \n",
+            "filename": "PendlePowerFarmDeclarations.sol",
+            "classification": [],
+            "line": 49
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "PendlePowerFarmDeclarations.minDepositEthAmount (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#52) should be immutable \n",
+            "filename": "PendlePowerFarmDeclarations.sol",
+            "classification": [],
+            "line": 52
+        }
+    ]
+}

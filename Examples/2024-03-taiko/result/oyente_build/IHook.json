@@ -1,0 +1,9 @@
+{
+    "success": false,
+    "findings": {
+        "vul": [],
+        "filename": "IHook.sol",
+        "coverage": "",
+        "warnings": []
+    }
+}

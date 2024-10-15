@@ -1,0 +1,18 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/FeeManager/FeeManagerHelper.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20 --evm-version shanghai --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/FeeManager' running
+INFO:Detectors:
+FeeManagerHelper._prepareBorrows(uint256).i (contracts/FeeManager/FeeManagerHelper.sol#20) is a local variable never initialized
+FeeManagerHelper._prepareCollaterals(uint256).i (contracts/FeeManager/FeeManagerHelper.sol#52) is a local variable never initialized
+FeeManagerHelper._distributeIncentives(uint256,address,address).reduceAmount (contracts/FeeManager/FeeManagerHelper.sol#300) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+INFO:Detectors:
+DeclarationsFeeManager.proposedIncentiveMaster (contracts/FeeManager/DeclarationsFeeManager.sol#129) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+INFO:Detectors:
+DeclarationsFeeManager.incentiveMaster (contracts/FeeManager/DeclarationsFeeManager.sol#126) should be immutable 
+DeclarationsFeeManager.incentiveOwnerA (contracts/FeeManager/DeclarationsFeeManager.sol#132) should be immutable 
+DeclarationsFeeManager.incentiveOwnerB (contracts/FeeManager/DeclarationsFeeManager.sol#135) should be immutable 
+DeclarationsFeeManager.paybackIncentive (contracts/FeeManager/DeclarationsFeeManager.sol#120) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/FeeManager/FeeManagerHelper.sol analyzed (13 contracts with 58 detectors), 8 result(s) found

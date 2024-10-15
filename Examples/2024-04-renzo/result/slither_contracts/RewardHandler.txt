@@ -1,0 +1,13 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 @chainlink/=node_modules/@chainlink/ @eth-optimism/=node_modules/@chainlink/contracts/node_modules/@eth-optimism/ @openzeppelin/=node_modules/@openzeppelin/ ds-test/=lib/forge-std/lib/ds-test/src/ eth-gas-reporter/=node_modules/eth-gas-reporter/ forge-std/=lib/forge-std/src/ hardhat-deploy/=node_modules/hardhat-deploy/ hardhat/=node_modules/hardhat/ prb/test/=lib/prb-test/src/ solmate/=lib/solmate/src/ @connext/=node_modules/@connext/ prb-test/=lib/prb-test/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-renzo/contracts/Rewards/RewardHandler.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 10000 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-renzo/contracts/Rewards' running
+INFO:Detectors:
+RewardHandler._forwardETH() (contracts/Rewards/RewardHandler.sol#62-70) sends eth to arbitrary user
+	Dangerous calls:
+	- (success,None) = rewardDestination.call{value: balance}() (contracts/Rewards/RewardHandler.sol#68)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+INFO:Detectors:
+RewardHandler._forwardETH() (contracts/Rewards/RewardHandler.sol#62-70) uses a dangerous strict equality:
+	- balance == 0 (contracts/Rewards/RewardHandler.sol#64)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-renzo/contracts/Rewards/RewardHandler.sol analyzed (6 contracts with 58 detectors), 2 result(s) found

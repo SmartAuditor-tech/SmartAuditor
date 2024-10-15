@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "LibBridgedToken.sol",
+        "coverage": "25.4%",
+        "warnings": []
+    }
+}

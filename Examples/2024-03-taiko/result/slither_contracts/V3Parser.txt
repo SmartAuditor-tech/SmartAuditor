@@ -1,0 +1,11 @@
+'solc --version' running
+'solc /Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-taiko/packages/protocol/contracts/automata-attestation/lib/QuoteV3Auth/V3Parser.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-taiko/packages/protocol/contracts/automata-attestation/lib/QuoteV3Auth' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-taiko/packages/protocol/contracts/automata-attestation/lib/QuoteV3Auth/V3Parser.sol:
+Error: Function "mcopy" not found.
+   --> packages/protocol/contracts/automata-attestation/utils/BytesUtils.sol:274:13:
+    |
+274 |             mcopy(dest, src, len)
+    |             ^^^^^
+
+
+ERROR:Slither:Unable to compile all targets.

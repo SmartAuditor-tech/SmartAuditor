@@ -1,0 +1,36 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerHelper.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20 --evm-version shanghai --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/PowerFarms/PendlePowerFarmController' running
+INFO:Detectors:
+PendlePowerFarmControllerBase.pendleChildAddress (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#58) is never initialized. It is used in:
+	- PendlePowerFarmControllerBase._onlyChildContract(address) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#245-254)
+	- PendlePowerFarmControllerBase._syncSupply(address) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#256-270)
+PendlePowerFarmControllerBase.activePendleMarkets (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#61) is never initialized. It is used in:
+	- PendlePowerFarmControllerBase.syncAllSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#272-286)
+	- PendlePowerFarmControllerHelper.activePendleMarketsLength() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerHelper.sol#125-131)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+INFO:Detectors:
+PendlePowerFarmControllerHelper._calcExpiry(uint128) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerHelper.sol#32-43) performs a multiplication on the result of a division:
+	- startTime = uint128((block.timestamp / WEEK) * WEEK) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerHelper.sol#39-40)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+IPendleMarket (contracts/InterfaceHub/IPendle.sol#139-251) has incorrect ERC20 function interface:IPendleMarket.transferFrom(address,address,uint256) (contracts/InterfaceHub/IPendle.sol#157-162)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+INFO:Detectors:
+Contract locking ether found:
+	Contract PendlePowerFarmControllerHelper (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerHelper.sol#7-260) has payable functions:
+	 - PendlePowerFarmControllerBase.receive() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#125-133)
+	But does not have a function to withdraw the ether
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#contracts-that-lock-ether
+INFO:Detectors:
+PendlePowerFarmControllerHelper._findIndex(address[],address).i (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerHelper.sol#17) is a local variable never initialized
+PendlePowerFarmControllerBase.syncAllSupply().i (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#275) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+INFO:Detectors:
+PendlePowerFarmControllerBase.reservedPendleForLocking (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#56) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+INFO:Detectors:
+PendlePowerFarmControllerBase.ARB_REWARDS (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#72) should be immutable 
+PendlePowerFarmControllerBase.exchangeIncentive (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#66) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerHelper.sol analyzed (21 contracts with 58 detectors), 10 result(s) found

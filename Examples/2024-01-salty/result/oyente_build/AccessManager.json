@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "AccessManager.sol",
+        "coverage": "1.4%",
+        "warnings": []
+    }
+}

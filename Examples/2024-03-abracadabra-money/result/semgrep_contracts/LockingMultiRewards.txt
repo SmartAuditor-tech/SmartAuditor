@@ -1,0 +1,143 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 34 Code Findings │
+└──────────────────┘
+                                             
+    /g4b/src/staking/LockingMultiRewards.sol 
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+          405┆ for (uint256 i; i < users.length; ) {
+            ⋮┆----------------------------------------
+          410┆ if (locks.length == 0) {
+            ⋮┆----------------------------------------
+          417┆ if (index == lastLockIndex[user] && locks.length > 1) {
+            ⋮┆----------------------------------------
+          427┆ uint256 lastIndex = locks.length - 1;
+            ⋮┆----------------------------------------
+          547┆ for (uint256 i; i < rewardTokens.length; ) {
+            ⋮┆----------------------------------------
+          561┆ for (uint256 i; i < rewardTokens.length; ) {
+            ⋮┆----------------------------------------
+          575┆ for (uint256 i; i < rewardTokens.length; ) {
+            ⋮┆----------------------------------------
+          580┆ for (uint256 j; j < users.length; ) {
+            ⋮┆----------------------------------------
+          614┆ for (uint256 i; i < rewardTokens.length; ) {
+            ⋮┆----------------------------------------
+       solidity.performance.inefficient-state-variable-increment.inefficient-sta
+  te-variable-increment                                                         
+          <x> += <y> costs more gas than <x> = <x> + <y> for state variables.   
+          Details: https://sg.run/bp9v                                          
+                                                                                
+          441┆ unlockedSupply += amount;
+            ⋮┆----------------------------------------
+          465┆ stakingTokenBalance += amount;
+            ⋮┆----------------------------------------
+          473┆ unlockedSupply += amount;
+            ⋮┆----------------------------------------
+          486┆ lockedSupply += amount;
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+          112┆ constructor(
+          113┆     address _stakingToken,
+          114┆     uint256 _lockingBoostMultiplerInBips,
+          115┆     uint256 _rewardsDuration,
+          116┆     uint256 _lockDuration,
+          117┆     address _owner
+          118┆ ) OperatableV2(_owner) {
+          119┆     if (_lockingBoostMultiplerInBips <= BIPS) {
+          120┆         revert ErrInvalidBoostMultiplier();
+          121┆     }
+             [hid 24 additional lines, adjust with --max-lines-per-finding] 
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+          407┆ Balances storage bal = _balances[user];
+            ⋮┆----------------------------------------
+          408┆ LockedBalance[] storage locks = _userLocks[user];
+            ⋮┆----------------------------------------
+          417┆ if (index == lastLockIndex[user] && locks.length > 1) {
+            ⋮┆----------------------------------------
+          430┆ if (lastLockIndex[user] == lastIndex) {
+            ⋮┆----------------------------------------
+          431┆ lastLockIndex[user] = index;
+            ⋮┆----------------------------------------
+          441┆ unlockedSupply += amount;
+            ⋮┆----------------------------------------
+          442┆ lockedSupply -= amount;
+            ⋮┆----------------------------------------
+          547┆ for (uint256 i; i < rewardTokens.length; ) {
+            ⋮┆----------------------------------------
+          548┆ _updateRewardsGlobal(rewardTokens[i], totalSupply_);
+            ⋮┆----------------------------------------
+          561┆ for (uint256 i; i < rewardTokens.length; ) {
+            ⋮┆----------------------------------------
+          562┆ address token = rewardTokens[i];
+            ⋮┆----------------------------------------
+          575┆ for (uint256 i; i < rewardTokens.length; ) {
+            ⋮┆----------------------------------------
+          576┆ address token = rewardTokens[i];
+            ⋮┆----------------------------------------
+          614┆ for (uint256 i; i < rewardTokens.length; ) {
+            ⋮┆----------------------------------------
+          615┆ address rewardToken = rewardTokens[i];
+            ⋮┆----------------------------------------
+          616┆ uint256 rewardAmount = rewards[user][rewardToken];
+            ⋮┆----------------------------------------
+          619┆ rewards[user][rewardToken] = 0;
+            ⋮┆----------------------------------------
+          648┆ _userRewardLock[user].items.push(RewardLockItem({token:          
+  rewardToken, amount: rewardAmount}));                                         
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          326┆ if (tokenAddress == stakingToken && tokenAmount >                
+  stakingToken.balanceOf(address(this)) - stakingTokenBalance) {                
+          327┆     revert ErrSkimmingTooMuch();
+          328┆ }
+            ⋮┆----------------------------------------
+          417┆ if (index == lastLockIndex[user] && locks.length > 1) {
+          418┆     revert ErrInvalidLockIndex();
+          419┆ }
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+Some files were skipped or only partially analyzed.
+  Partially scanned: 1 files only partially analyzed due to parsing or internal Semgrep errors
+
+Ran 50 rules on 1 file: 34 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

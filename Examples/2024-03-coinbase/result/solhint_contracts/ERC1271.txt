@@ -1,0 +1,10 @@
+
+/g4b/lib/solady/src/accounts/ERC1271.sol
+   2:1   error    Compiler version ^0.8.4 does not satisfy the ^0.5.8 semver requirement  compiler-version
+  67:9   warning  Avoid to use inline assembly. It is acceptable only in rare cases       no-inline-assembly
+  72:17  warning  Code contains empty blocks                                              no-empty-blocks
+  72:22  warning  Code contains empty blocks                                              no-empty-blocks
+  99:9   warning  Avoid to use inline assembly. It is acceptable only in rare cases       no-inline-assembly
+
+✖ 5 problems (1 error, 4 warnings)
+

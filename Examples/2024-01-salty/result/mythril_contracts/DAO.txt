@@ -1,0 +1,64 @@
+==== Exception State ====
+SWC ID: 110
+Severity: Medium
+Contract: DAO
+Function name: constructor
+PC address: 14
+Estimated Gas Usage: 39 - 134
+An assertion violation was triggered.
+It is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).
+--------------------
+In file: /g4b/src/dao/DAO.sol:70
+
+constructor( IPools _pools, IProposals _proposals, IExchangeConfig _exchangeConfig, IPoolsConfig _poolsConfig, IStakingConfig _stakingConfig, IRewardsConfig _rewardsConfig, IStableConfig _stableConfig, IDAOConfig _daoConfig, IPriceAggregator _priceAggregator, IRewardsEmitter _liquidityRewardsEmitter, ICollateralAndLiquidity _collateralAndLiquidity )
+		{
+		pools = _pools;
+		proposals = _proposals;
+		exchangeConfig = _exchangeConfig;
+		poolsConfig = _poolsConfig;
+		stakingConfig = _stakingConfig;
+		rewardsConfig = _rewardsConfig;
+		stableConfig = _stableConfig;
+		daoConfig = _daoConfig;
+		priceAggregator = _priceAggregator;
+        liquidityRewardsEmitter = _liquidityRewardsEmitter;
+        collateralAndLiquidity = _collateralAndLiquidity;
+ 		liquidizer = collateralAndLiquidity.liquidizer();
+
+        usds = exchangeConfig.usds();
+        salt = exchangeConfig.salt();
+        dai = exchangeConfig.dai();
+
+		// Gas saving approves for eventually forming Protocol Owned Liquidity
+		salt.approve(address(collateralAndLiquidity), type(uint256).max);
+		usds.approve(address(collateralAndLiquidity), type(uint256).max);
+		dai.approve(address(collateralAndLiquidity), type(uint256).max);
+
+		// Excluded by default: United States, Canada, United Kingdom, China, India, Pakistan, Russia, Afghanistan, Cuba, Iran, North Korea, Syria, Venezuela
+		// Note that the DAO can remove any of these exclusions - or open up access completely to the exchange as it sees fit.
+		excludedCountries["US"] = true;
+		excludedCountries["CA"] = true;
+		excludedCountries["GB"] = true;
+		excludedCountries["CN"] = true;
+		excludedCountries["IN"] = true;
+		excludedCountries["PK"] = true;
+		excludedCountries["RU"] = true;
+		excludedCountries["AF"] = true;
+		excludedCountries["CU"] = true;
+		excludedCountries["IR"] = true;
+		excludedCountries["KP"] = true;
+		excludedCountries["SY"] = true;
+		excludedCountries["VE"] = true;
+        }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x1
+
+

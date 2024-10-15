@@ -1,0 +1,28 @@
+
+/g4b/contracts/oracle/InitOracle.sol
+    2:1   error    Compiler version ^0.8.19 does not satisfy the ^0.5.8 semver requirement                            compiler-version
+    4:8   error    Use double quotes for string literals                                                              quotes
+    5:8   error    Use double quotes for string literals                                                              quotes
+    7:24  error    Use double quotes for string literals                                                              quotes
+    9:40  error    Use double quotes for string literals                                                              quotes
+   17:51  error    Use double quotes for string literals                                                              quotes
+   22:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   31:5   warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+   37:48  warning  Code contains empty blocks                                                                         no-empty-blocks
+   41:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+   41:64  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   44:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   45:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   50:70  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   53:17  warning  Code contains empty blocks                                                                         no-empty-blocks
+   58:76  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   61:21  warning  Code contains empty blocks                                                                         no-empty-blocks
+   73:14  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   73:33  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   86:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+   86:79  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  112:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  112:68  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+
+✖ 23 problems (6 errors, 17 warnings)
+

@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+TypeError: Member "isContract" not found or not visible after argument-dependent lookup in type(library Address).
+  --> /g4b/src/assertionStakingPool/StakingPoolCreatorUtils.sol:16:13:
+   |
+16 |         if (Address.isContract(pool)) {
+   |             ^^^^^^^^^^^^^^^^^^
+
+

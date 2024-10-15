@@ -1,0 +1,11 @@
+
+/g4b/contracts/tokens/ERC1155Minimal.sol
+  66:20  error  Parse error: extraneous input 'account' expecting '=>'
+  66:47  error  Parse error: extraneous input 'tokenId' expecting '=>'
+  66:66  error  Parse error: extraneous input 'balance' expecting ')'
+  71:20  error  Parse error: extraneous input 'owner' expecting '=>'
+  71:45  error  Parse error: extraneous input 'operator' expecting '=>'
+  71:62  error  Parse error: extraneous input 'approvedForAll' expecting ')'
+
+✖ 6 problems (6 errors, 0 warnings)
+

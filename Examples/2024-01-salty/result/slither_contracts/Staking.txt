@@ -1,0 +1,83 @@
+'forge config --json' running
+Could not detect solc version from Foundry config. Falling back to system version...
+'solc --version' running
+'solc chainlink/=lib/chainlink/ ds-test/=lib/openzeppelin-contracts/lib/forge-std/lib/ds-test/src/ erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/ forge-std/=lib/openzeppelin-contracts/lib/forge-std/src/ openzeppelin-contracts/=lib/openzeppelin-contracts/ openzeppelin/=lib/openzeppelin-contracts/contracts/ v3-core/=lib/v3-core/contracts/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/staking/Staking.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20000 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/staking' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/staking/Staking.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> src/pools/PoolUtils.sol
+
+
+INFO:Detectors:
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) has bitwise-xor operator ^ instead of the exponentiation operator **: 
+	 - inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-exponentiation
+INFO:Detectors:
+Reentrancy in Staking.transferStakedSaltFromAirdropToUser(address,uint256) (src/staking/Staking.sol#130-138):
+	External calls:
+	- _decreaseUserShare(msg.sender,PoolUtils.STAKED_SALT,amountToTransfer,false) (src/staking/Staking.sol#134)
+		- returndata = address(token).functionCall(data,SafeERC20: low-level call failed) (lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol#122)
+		- (success,returndata) = target.call{value: value}(data) (lib/openzeppelin-contracts/contracts/utils/Address.sol#135)
+		- salt.safeTransfer(wallet,claimableRewards) (src/staking/StakingRewards.sol#137)
+	External calls sending eth:
+	- _decreaseUserShare(msg.sender,PoolUtils.STAKED_SALT,amountToTransfer,false) (src/staking/Staking.sol#134)
+		- (success,returndata) = target.call{value: value}(data) (lib/openzeppelin-contracts/contracts/utils/Address.sol#135)
+	State variables written after the call(s):
+	- _increaseUserShare(wallet,PoolUtils.STAKED_SALT,amountToTransfer,false) (src/staking/Staking.sol#135)
+		- user.cooldownExpiration = block.timestamp + stakingConfig.modificationCooldown() (src/staking/StakingRewards.sol#70)
+		- user.virtualRewards += uint128(virtualRewardsToAdd) (src/staking/StakingRewards.sol#83)
+		- user.userShare += uint128(increaseShareAmount) (src/staking/StakingRewards.sol#88)
+	StakingRewards._userShareInfo (src/staking/StakingRewards.sol#36) can be used in cross function reentrancies:
+	- StakingRewards._decreaseUserShare(address,bytes32,uint256,bool) (src/staking/StakingRewards.sol#97-140)
+	- StakingRewards._increaseUserShare(address,bytes32,uint256,bool) (src/staking/StakingRewards.sol#57-92)
+	- StakingRewards.userCooldowns(address,bytes32[]) (src/staking/StakingRewards.sol#290-305)
+	- StakingRewards.userRewardForPool(address,bytes32) (src/staking/StakingRewards.sol#232-252)
+	- StakingRewards.userShareForPool(address,bytes32) (src/staking/StakingRewards.sol#266-269)
+	- StakingRewards.userShareForPools(address,bytes32[]) (src/staking/StakingRewards.sol#273-279)
+	- StakingRewards.userVirtualRewardsForPool(address,bytes32) (src/staking/StakingRewards.sol#283-286)
+	- _increaseUserShare(wallet,PoolUtils.STAKED_SALT,amountToTransfer,false) (src/staking/Staking.sol#135)
+		- totalRewards[poolID] += uint128(virtualRewardsToAdd) (src/staking/StakingRewards.sol#84)
+	StakingRewards.totalRewards (src/staking/StakingRewards.sol#39) can be used in cross function reentrancies:
+	- StakingRewards._decreaseUserShare(address,bytes32,uint256,bool) (src/staking/StakingRewards.sol#97-140)
+	- StakingRewards._increaseUserShare(address,bytes32,uint256,bool) (src/staking/StakingRewards.sol#57-92)
+	- StakingRewards.totalRewards (src/staking/StakingRewards.sol#39)
+	- StakingRewards.totalRewardsForPools(bytes32[]) (src/staking/StakingRewards.sol#222-228)
+	- StakingRewards.userRewardForPool(address,bytes32) (src/staking/StakingRewards.sol#232-252)
+	- _increaseUserShare(wallet,PoolUtils.STAKED_SALT,amountToTransfer,false) (src/staking/Staking.sol#135)
+		- totalShares[poolID] = existingTotalShares + increaseShareAmount (src/staking/StakingRewards.sol#89)
+	StakingRewards.totalShares (src/staking/StakingRewards.sol#42) can be used in cross function reentrancies:
+	- StakingRewards._decreaseUserShare(address,bytes32,uint256,bool) (src/staking/StakingRewards.sol#97-140)
+	- StakingRewards._increaseUserShare(address,bytes32,uint256,bool) (src/staking/StakingRewards.sol#57-92)
+	- StakingRewards.totalShares (src/staking/StakingRewards.sol#42)
+	- StakingRewards.totalSharesForPools(bytes32[]) (src/staking/StakingRewards.sol#212-218)
+	- StakingRewards.userRewardForPool(address,bytes32) (src/staking/StakingRewards.sol#232-252)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+INFO:Detectors:
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#120)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#121)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#122)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#124)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#125)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- prod0 = prod0 / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#104)
+	- result = prod0 * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#131)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+PoolUtils._placeInternalSwap(IPools,IERC20,IERC20,uint256,uint256) (src/pools/PoolUtils.sol#54-68) ignores return value by (reservesIn,None) = pools.getPoolReserves(tokenIn,tokenOut) (src/pools/PoolUtils.sol#59)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/staking/Staking.sol analyzed (33 contracts with 58 detectors), 11 result(s) found

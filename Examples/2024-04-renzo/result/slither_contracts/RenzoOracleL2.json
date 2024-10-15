@@ -1,0 +1,20 @@
+{
+    "success": true,
+    "finding_length": 1,
+    "findings": [
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "RenzoOracleL2.getMintRate() (contracts/Bridge/L2/Oracle/RenzoOracleL2.sol#50-57) ignores return value by (None,price,None,timestamp,None) = oracle.latestRoundData() (contracts/Bridge/L2/Oracle/RenzoOracleL2.sol#51)\n",
+            "filename": "RenzoOracleL2.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "getMintRate",
+            "contract": "RenzoOracleL2",
+            "line": 51
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "success": true,
+    "finding_length": 6,
+    "findings": [
+        {
+            "filename": "DecentBridgeExecutor.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version ^0.8.0 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "DecentBridgeExecutor.sol",
+            "line": 9,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "DecentBridgeExecutor.sol",
+            "line": 12,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "DecentBridgeExecutor.sol",
+            "line": 33,
+            "column": 28,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        },
+        {
+            "filename": "DecentBridgeExecutor.sol",
+            "line": 61,
+            "column": 28,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        },
+        {
+            "filename": "DecentBridgeExecutor.sol",
+            "line": 85,
+            "column": 32,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "success": true,
+    "finding_length": 1,
+    "findings": [
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "CoreChainlinkFeed.latestChainlinkPrice(AggregatorV3Interface) (src/price_feed/CoreChainlinkFeed.sol#28-60) ignores return value by (_price,_answerTimestamp) = chainlinkFeed.latestRoundData() (src/price_feed/CoreChainlinkFeed.sol#32-53)\n",
+            "filename": "CoreChainlinkFeed.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "latestChainlinkPrice",
+            "contract": "CoreChainlinkFeed",
+            "line": 32,
+            "line_end": 53
+        }
+    ]
+}

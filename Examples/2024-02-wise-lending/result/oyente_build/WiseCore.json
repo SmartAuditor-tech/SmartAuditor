@@ -1,0 +1,9 @@
+{
+    "success": false,
+    "findings": {
+        "vul": [],
+        "filename": "WiseCore.sol",
+        "coverage": "",
+        "warnings": []
+    }
+}

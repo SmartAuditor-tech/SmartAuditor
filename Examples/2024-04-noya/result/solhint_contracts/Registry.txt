@@ -1,0 +1,22 @@
+
+/g4b/contracts/accountingManager/Registry.sol
+    2:1  error    Compiler version 0.8.20 does not satisfy the ^0.5.8 semver requirement                             compiler-version
+   66:5  warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+   67:9  warning  Provide an error message for require                                                               reason-string
+   68:9  warning  Provide an error message for require                                                               reason-string
+   69:9  warning  Provide an error message for require                                                               reason-string
+   80:9  warning  Provide an error message for require                                                               reason-string
+  120:9  warning  Provide an error message for require                                                               reason-string
+  121:9  warning  Provide an error message for require                                                               reason-string
+  122:9  warning  Provide an error message for require                                                               reason-string
+  123:9  warning  Provide an error message for require                                                               reason-string
+  124:9  warning  Provide an error message for require                                                               reason-string
+  125:9  warning  Provide an error message for require                                                               reason-string
+  167:9  warning  Provide an error message for require                                                               reason-string
+  168:9  warning  Provide an error message for require                                                               reason-string
+  169:9  warning  Provide an error message for require                                                               reason-string
+  170:9  warning  Provide an error message for require                                                               reason-string
+  298:9  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+
+✖ 17 problems (1 error, 16 warnings)
+

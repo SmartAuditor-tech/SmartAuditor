@@ -1,0 +1,86 @@
+{
+    "success": true,
+    "finding_length": 10,
+    "findings": [
+        {
+            "filename": "OperatorDelegator.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version 0.8.19 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "OperatorDelegator.sol",
+            "line": 69,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "OperatorDelegator.sol",
+            "line": 482,
+            "column": 73,
+            "message": "Avoid to use tx.origin",
+            "level": "warning",
+            "name": "avoid-tx-origin"
+        },
+        {
+            "filename": "OperatorDelegator.sol",
+            "line": 483,
+            "column": 34,
+            "message": "Avoid to use tx.origin",
+            "level": "warning",
+            "name": "avoid-tx-origin"
+        },
+        {
+            "filename": "OperatorDelegator.sol",
+            "line": 485,
+            "column": 24,
+            "message": "Check result of \"send\" call",
+            "level": "warning",
+            "name": "check-send-result"
+        },
+        {
+            "filename": "OperatorDelegator.sol",
+            "line": 485,
+            "column": 32,
+            "message": "Avoid to use tx.origin",
+            "level": "warning",
+            "name": "avoid-tx-origin"
+        },
+        {
+            "filename": "OperatorDelegator.sol",
+            "line": 489,
+            "column": 28,
+            "message": "Avoid to use tx.origin",
+            "level": "warning",
+            "name": "avoid-tx-origin"
+        },
+        {
+            "filename": "OperatorDelegator.sol",
+            "line": 491,
+            "column": 26,
+            "message": "Avoid to use tx.origin",
+            "level": "warning",
+            "name": "avoid-tx-origin"
+        },
+        {
+            "filename": "OperatorDelegator.sol",
+            "line": 509,
+            "column": 36,
+            "message": "Avoid to use tx.origin",
+            "level": "warning",
+            "name": "avoid-tx-origin"
+        },
+        {
+            "filename": "OperatorDelegator.sol",
+            "line": 520,
+            "column": 32,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        }
+    ]
+}

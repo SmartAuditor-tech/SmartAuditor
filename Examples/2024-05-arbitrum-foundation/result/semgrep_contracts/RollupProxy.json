@@ -1,0 +1,76 @@
+{
+    "success": true,
+    "finding_length": 10,
+    "findings": [
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "",
+            "line": 15
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "",
+            "line": 16
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "",
+            "line": 17
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "",
+            "line": 18
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "",
+            "line": 19
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "",
+            "line": 20
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "",
+            "line": 21
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "",
+            "line": 22
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "",
+            "line": 23
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "",
+            "line": 24
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+
+/g4b/contracts/Oracle/RenzoOracle.sol
+   2:1   error    Compiler version 0.8.19 does not satisfy the ^0.5.8 semver requirement                             compiler-version
+  20:5   warning  Explicitly mark visibility of state                                                                state-visibility
+  23:5   warning  Explicitly mark visibility of state                                                                state-visibility
+  26:5   warning  Explicitly mark visibility of state                                                                state-visibility
+  39:5   warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+  76:25  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  93:25  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+
+✖ 7 problems (1 error, 6 warnings)
+

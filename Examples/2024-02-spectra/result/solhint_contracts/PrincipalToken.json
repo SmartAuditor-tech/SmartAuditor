@@ -1,0 +1,110 @@
+{
+    "success": true,
+    "finding_length": 13,
+    "findings": [
+        {
+            "filename": "PrincipalToken.sol",
+            "line": 3,
+            "column": 1,
+            "message": "Compiler version 0.8.20 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "PrincipalToken.sol",
+            "line": 29,
+            "column": 1,
+            "message": "Contract has 17 states declarations but allowed no more than 15",
+            "level": "warning",
+            "name": "max-states-count"
+        },
+        {
+            "filename": "PrincipalToken.sol",
+            "line": 86,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "PrincipalToken.sol",
+            "line": 94,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "PrincipalToken.sol",
+            "line": 102,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "PrincipalToken.sol",
+            "line": 133,
+            "column": 30,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "PrincipalToken.sol",
+            "line": 399,
+            "column": 28,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        },
+        {
+            "filename": "PrincipalToken.sol",
+            "line": 793,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "PrincipalToken.sol",
+            "line": 812,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "PrincipalToken.sol",
+            "line": 832,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "PrincipalToken.sol",
+            "line": 867,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "PrincipalToken.sol",
+            "line": 880,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "PrincipalToken.sol",
+            "line": 886,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        }
+    ]
+}

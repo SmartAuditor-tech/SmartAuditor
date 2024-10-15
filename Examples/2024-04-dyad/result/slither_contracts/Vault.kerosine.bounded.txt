@@ -1,0 +1,8 @@
+'forge config --json' running
+Could not detect solc version from Foundry config. Falling back to system version...
+'solc --version' running
+'solc @openzeppelin/=lib/openzeppelin-contracts/ @solmate/=lib/solmate/ ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ openzeppelin-contracts/=lib/openzeppelin-contracts/ solmate/=lib/solmate/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-dyad/src/core/Vault.kerosine.bounded.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 1000000 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-dyad/src/core' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-dyad/src/core/Vault.kerosine.bounded.sol:
+Invalid option for --evm-version: paris
+
+ERROR:Slither:Unable to compile all targets.

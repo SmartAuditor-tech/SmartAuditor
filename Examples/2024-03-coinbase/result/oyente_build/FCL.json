@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "FCL.sol",
+        "coverage": "25.8%",
+        "warnings": []
+    }
+}

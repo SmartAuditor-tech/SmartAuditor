@@ -1,0 +1,221 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 46 Code Findings │
+└──────────────────┘
+                                                           
+    /g4b/contracts/accountingManager/AccountingManager.sol 
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+          603┆ for (uint256 i = 0; i < items.length; i++) {
+            ⋮┆----------------------------------------
+          608┆ for (uint256 i = 0; i < items.length; i++) {
+            ⋮┆----------------------------------------
+       solidity.performance.inefficient-state-variable-increment.inefficient-sta
+  te-variable-increment                                                         
+          <x> += <y> costs more gas than <x> = <x> + <y> for state variables.   
+          Details: https://sg.run/bp9v                                          
+                                                                                
+          286┆ totalDepositedAmount += processedBaseTokenAmount;
+            ⋮┆----------------------------------------
+          436┆ totalWithdrawnAmount += processedBaseTokenAmount;
+            ⋮┆----------------------------------------
+          569┆ amountAskedForWithdraw += amountAskedForWithdraw_temp;
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           94┆ constructor(AccountingManagerConstructorParams memory p)
+           95┆     ERC4626(IERC20(p._baseTokenAddress))
+           96┆     ERC20(p._name, p._symbol)
+           97┆     NoyaGovernanceBase(PositionRegistry(p._registry), p._vaultId)
+           98┆ {
+           99┆     baseToken = IERC20(p._baseTokenAddress);
+          100┆     valueOracle = INoyaValueOracle(p._valueOracle);
+          101┆     lastFeeDistributionTime = block.timestamp;
+          102┆     withdrawFeeReceiver = p._withdrawFeeReceiver;
+          103┆     performanceFeeReceiver = p._performanceFeeReceiver;
+             [hid 18 additional lines, adjust with --max-lines-per-finding] 
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+          233┆ depositQueue.last > middleTemp &&                                
+  depositQueue.queue[middleTemp].recordTime <= oldestUpdateTime                 
+            ⋮┆----------------------------------------
+          233┆ depositQueue.last > middleTemp &&                                
+  depositQueue.queue[middleTemp].recordTime <= oldestUpdateTime                 
+            ⋮┆----------------------------------------
+          237┆ DepositRequest storage data = depositQueue.queue[middleTemp];
+            ⋮┆----------------------------------------
+          268┆ depositQueue.middle > firstTemp
+            ⋮┆----------------------------------------
+          269┆ && depositQueue.queue[firstTemp].calculationTime +               
+  depositWaitingTime <= block.timestamp && i < maxI                             
+            ⋮┆----------------------------------------
+          269┆ && depositQueue.queue[firstTemp].calculationTime +               
+  depositWaitingTime <= block.timestamp && i < maxI                             
+            ⋮┆----------------------------------------
+          272┆ DepositRequest memory data = depositQueue.queue[firstTemp];
+            ⋮┆----------------------------------------
+          281┆ delete depositQueue.queue[firstTemp];
+            ⋮┆----------------------------------------
+          339┆ withdrawQueue.last > middleTemp &&                               
+  withdrawQueue.queue[middleTemp].recordTime <= oldestUpdateTime                
+            ⋮┆----------------------------------------
+          339┆ withdrawQueue.last > middleTemp &&                               
+  withdrawQueue.queue[middleTemp].recordTime <= oldestUpdateTime                
+            ⋮┆----------------------------------------
+          343┆ WithdrawRequest storage data = withdrawQueue.queue[middleTemp];
+            ⋮┆----------------------------------------
+          407┆ currentWithdrawGroup.lastId > firstTemp
+            ⋮┆----------------------------------------
+          408┆ && withdrawQueue.queue[firstTemp].calculationTime +              
+  withdrawWaitingTime <= block.timestamp                                        
+            ⋮┆----------------------------------------
+          408┆ && withdrawQueue.queue[firstTemp].calculationTime +              
+  withdrawWaitingTime <= block.timestamp                                        
+            ⋮┆----------------------------------------
+          412┆ WithdrawRequest memory data = withdrawQueue.queue[firstTemp];
+            ⋮┆----------------------------------------
+          416┆ data.amount * currentWithdrawGroup.totalABAmount /               
+  currentWithdrawGroup.totalCBAmountFullfilled;                                 
+            ⋮┆----------------------------------------
+          416┆ data.amount * currentWithdrawGroup.totalABAmount /               
+  currentWithdrawGroup.totalCBAmountFullfilled;                                 
+            ⋮┆----------------------------------------
+          418┆ withdrawRequestsByAddress[data.owner] -= shares;
+            ⋮┆----------------------------------------
+          423┆ uint256 feeAmount = baseTokenAmount * withdrawFee /              
+  FEE_PRECISION;                                                                
+            ⋮┆----------------------------------------
+          428┆ baseToken.safeTransfer(data.receiver, baseTokenAmount);
+            ⋮┆----------------------------------------
+          432┆ delete withdrawQueue.queue[firstTemp];
+            ⋮┆----------------------------------------
+          555┆ uint256 balanceBefore = baseToken.balanceOf(address(this));
+            ⋮┆----------------------------------------
+          557┆ address(baseToken), retrieveData[i].withdrawAmount,              
+  address(this), retrieveData[i].data                                           
+            ⋮┆----------------------------------------
+          559┆ uint256 balanceAfter = baseToken.balanceOf(address(this));
+            ⋮┆----------------------------------------
+          566┆ amountAskedForWithdraw + amountAskedForWithdraw_temp
+            ⋮┆----------------------------------------
+          604┆ depositData[i] = depositQueue.queue[items[i]];
+            ⋮┆----------------------------------------
+          609┆ withdrawData[i] = withdrawQueue.queue[items[i]];
+            ⋮┆----------------------------------------
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+          551┆ for (uint256 i = 0; i < retrieveData.length; i++) {
+            ⋮┆----------------------------------------
+          603┆ for (uint256 i = 0; i < items.length; i++) {
+            ⋮┆----------------------------------------
+          608┆ for (uint256 i = 0; i < items.length; i++) {
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+          686┆ require(success, "Transfer failed.");
+            ⋮┆----------------------------------------
+       solidity.performance.use-multiple-require.use-multiple-require           
+          Using multiple require statements is cheaper than using && multiple   
+  check combinations.                                                           
+          There are more advantages, such as easier to read code and better     
+  coverage reports.                                                             
+          Details: https://sg.run/vGA0                                          
+                                                                                
+          361┆ require(currentWithdrawGroup.isStarted == false &&               
+  currentWithdrawGroup.isFullfilled == false);                                  
+            ⋮┆----------------------------------------
+          371┆ require(currentWithdrawGroup.isStarted == true &&                
+  currentWithdrawGroup.isFullfilled == false);                                  
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          186┆ if (!(from == address(0)) && balanceOf(from) < amount +          
+  withdrawRequestsByAddress[from]) {                                            
+          187┆     revert NoyaAccounting_INSUFFICIENT_FUNDS(balanceOf(from),    
+  amount, withdrawRequestsByAddress[from]);                                     
+          188┆ }
+            ⋮┆----------------------------------------
+          288┆ if (registry.isAnActiveConnector(vaultId, connector) &&          
+  processedBaseTokenAmount > 0) {                                               
+          289┆     uint256[] memory amounts = new uint256[](1);
+          290┆     amounts[0] = processedBaseTokenAmount;
+          291┆     address[] memory tokens = new address[](1);
+          292┆     tokens[0] = address(baseToken);
+          293┆     IConnector(connector).addLiquidity(tokens, amounts,          
+  addLPdata);                                                                   
+          294┆ } else {
+          295┆     revert NoyaAccounting_INVALID_CONNECTOR();
+          296┆ }
+            ⋮┆----------------------------------------
+          335┆ if (currentWithdrawGroup.isFullfilled == false &&                
+  currentWithdrawGroup.isStarted == true) {                                     
+          336┆     revert NoyaAccounting_ThereIsAnActiveWithdrawGroup();
+          337┆ }
+            ⋮┆----------------------------------------
+          374┆ if (neededAssets != 0 && amountAskedForWithdraw !=               
+  currentWithdrawGroup.totalCBAmount) {                                         
+          375┆     revert NoyaAccounting_NOT_READY_TO_FULFILL();
+          376┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.use-prefix-increment-not-postfix.use-prefix-incremen
+  t-not-postfix                                                                 
+          Consider using the prefix increment expression whenever the return    
+  value is not needed. The                                                      
+          prefix increment expression is cheaper in terms of gas.               
+          Details: https://sg.run/nxLr                                          
+                                                                                
+          551┆ for (uint256 i = 0; i < retrieveData.length; i++) {
+            ⋮┆----------------------------------------
+          603┆ for (uint256 i = 0; i < items.length; i++) {
+            ⋮┆----------------------------------------
+          608┆ for (uint256 i = 0; i < items.length; i++) {
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 46 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

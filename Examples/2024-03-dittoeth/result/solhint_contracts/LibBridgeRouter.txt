@@ -1,0 +1,11 @@
+
+/g4b/contracts/libraries/LibBridgeRouter.sol
+    2:1   error    Compiler version 0.8.21 does not satisfy the ^0.5.8 semver requirement  compiler-version
+   23:9   warning  Variable name must be in mixedCase                                      var-name-mixedcase
+   44:9   warning  Variable name must be in mixedCase                                      var-name-mixedcase
+  147:9   warning  Variable name must be in mixedCase                                      var-name-mixedcase
+  151:13  warning  Variable name must be in mixedCase                                      var-name-mixedcase
+  154:13  warning  Variable name must be in mixedCase                                      var-name-mixedcase
+
+✖ 6 problems (1 error, 5 warnings)
+

@@ -1,0 +1,15 @@
+{
+    "success": true,
+    "finding_length": 1,
+    "findings": [
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "MinterReserver.availableNFTCount (contracts/PowerFarms/PowerFarmNFTs/MinterReserver.sol#21) should be constant \n",
+            "filename": "MinterReserver.sol",
+            "classification": [],
+            "line": 21
+        }
+    ]
+}

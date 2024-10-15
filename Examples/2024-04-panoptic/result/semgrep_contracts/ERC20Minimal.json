@@ -1,0 +1,13 @@
+{
+    "success": true,
+    "finding_length": 1,
+    "findings": [
+        {
+            "classification": [],
+            "name": "inefficient-state-variable-increment",
+            "category": "performance",
+            "message": "te-variable-increment <x> += <y> costs more gas than <x> = <x> + <y> for state variables. Details: https://sg.run/bp9v",
+            "line": 128
+        }
+    ]
+}

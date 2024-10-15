@@ -1,0 +1,540 @@
+INFO:Detectors:
+ThrusterPair._update(uint256,uint256,uint112,uint112) (contracts/ThrusterPair.sol#104-118) uses a weak PRNG: "blockTimestamp = uint32(block.timestamp % 2 ** 32) (contracts/ThrusterPair.sol#106)" 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#weak-PRNG
+INFO:Detectors:
+ThrusterRouter.removeLiquidity(address,address,uint256,uint256,uint256,address,uint256) (contracts/ThrusterRouter.sol#108-124) ignores return value by IThrusterPair(pair).transferFrom(msg.sender,pair,liquidity) (contracts/ThrusterRouter.sol#118)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+INFO:Detectors:
+ThrusterPair._safeTransfer(address,address,uint256) (contracts/ThrusterPair.sol#60-63) uses a dangerous strict equality:
+	- require(bool,string)(success && (data.length == 0 || abi.decode(data,(bool))),ThrusterPair: TRANSFER_FAILED) (contracts/ThrusterPair.sol#62)
+ThrusterPair.mint(address) (contracts/ThrusterPair.sol#142-163) uses a dangerous strict equality:
+	- _totalSupply == 0 (contracts/ThrusterPair.sol#151)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+Reentrancy in ThrusterPair.burn(address) (contracts/ThrusterPair.sol#166-187):
+	External calls:
+	- yieldCutOn = _mintYieldCut(_reserve0,_reserve1) (contracts/ThrusterPair.sol#174)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	- _burn(address(this),liquidity) (contracts/ThrusterPair.sol#178)
+		- IThrusterFactory(factory).emitTransfer(from,address(0),value) (contracts/ThrusterPair.sol#251)
+	State variables written after the call(s):
+	- _burn(address(this),liquidity) (contracts/ThrusterPair.sol#178)
+		- balanceOf[from] = balanceOf[from].sub(value) (contracts/ThrusterPair.sol#248)
+	ThrusterPair.balanceOf (contracts/ThrusterPair.sol#44) can be used in cross function reentrancies:
+	- ThrusterPair._burn(address,uint256) (contracts/ThrusterPair.sol#247-252)
+	- ThrusterPair._mint(address,uint256) (contracts/ThrusterPair.sol#240-245)
+	- ThrusterPair._transfer(address,address,uint256) (contracts/ThrusterPair.sol#259-264)
+	- ThrusterPair.balanceOf (contracts/ThrusterPair.sol#44)
+	- ThrusterPair.burn(address) (contracts/ThrusterPair.sol#166-187)
+	- _burn(address(this),liquidity) (contracts/ThrusterPair.sol#178)
+		- totalSupply = totalSupply.sub(value) (contracts/ThrusterPair.sol#249)
+	ThrusterPair.totalSupply (contracts/ThrusterPair.sol#32) can be used in cross function reentrancies:
+	- ThrusterPair._burn(address,uint256) (contracts/ThrusterPair.sol#247-252)
+	- ThrusterPair._mint(address,uint256) (contracts/ThrusterPair.sol#240-245)
+	- ThrusterPair._mintYieldCut(uint112,uint112) (contracts/ThrusterPair.sol#121-139)
+	- ThrusterPair.burn(address) (contracts/ThrusterPair.sol#166-187)
+	- ThrusterPair.mint(address) (contracts/ThrusterPair.sol#142-163)
+	- ThrusterPair.totalSupply (contracts/ThrusterPair.sol#32)
+Reentrancy in ThrusterPair.burn(address) (contracts/ThrusterPair.sol#166-187):
+	External calls:
+	- yieldCutOn = _mintYieldCut(_reserve0,_reserve1) (contracts/ThrusterPair.sol#174)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	- _burn(address(this),liquidity) (contracts/ThrusterPair.sol#178)
+		- IThrusterFactory(factory).emitTransfer(from,address(0),value) (contracts/ThrusterPair.sol#251)
+	- _safeTransfer(_token0,to,amount0) (contracts/ThrusterPair.sol#179)
+		- (success,data) = token.call(abi.encodeWithSelector(SELECTOR,to,value)) (contracts/ThrusterPair.sol#61)
+	- _safeTransfer(_token1,to,amount1) (contracts/ThrusterPair.sol#180)
+		- (success,data) = token.call(abi.encodeWithSelector(SELECTOR,to,value)) (contracts/ThrusterPair.sol#61)
+	- _update(balance0,balance1,_reserve0,_reserve1) (contracts/ThrusterPair.sol#184)
+		- IThrusterFactory(factory).emitSync(reserve0,reserve1) (contracts/ThrusterPair.sol#117)
+	State variables written after the call(s):
+	- _update(balance0,balance1,_reserve0,_reserve1) (contracts/ThrusterPair.sol#184)
+		- blockTimestampLast = blockTimestamp (contracts/ThrusterPair.sol#115)
+	ThrusterPair.blockTimestampLast (contracts/ThrusterPair.sol#36) can be used in cross function reentrancies:
+	- ThrusterPair._update(uint256,uint256,uint112,uint112) (contracts/ThrusterPair.sol#104-118)
+	- ThrusterPair.getReserves() (contracts/ThrusterPair.sol#54-58)
+	- kLast = uint256(reserve0).mul(reserve1) (contracts/ThrusterPair.sol#185)
+	ThrusterPair.kLast (contracts/ThrusterPair.sol#40) can be used in cross function reentrancies:
+	- ThrusterPair._mintYieldCut(uint112,uint112) (contracts/ThrusterPair.sol#121-139)
+	- ThrusterPair.burn(address) (contracts/ThrusterPair.sol#166-187)
+	- ThrusterPair.kLast (contracts/ThrusterPair.sol#40)
+	- ThrusterPair.mint(address) (contracts/ThrusterPair.sol#142-163)
+	- _update(balance0,balance1,_reserve0,_reserve1) (contracts/ThrusterPair.sol#184)
+		- reserve0 = uint112(balance0) (contracts/ThrusterPair.sol#113)
+	ThrusterPair.reserve0 (contracts/ThrusterPair.sol#34) can be used in cross function reentrancies:
+	- ThrusterPair._update(uint256,uint256,uint112,uint112) (contracts/ThrusterPair.sol#104-118)
+	- ThrusterPair.burn(address) (contracts/ThrusterPair.sol#166-187)
+	- ThrusterPair.getReserves() (contracts/ThrusterPair.sol#54-58)
+	- ThrusterPair.mint(address) (contracts/ThrusterPair.sol#142-163)
+	- ThrusterPair.skim(address) (contracts/ThrusterPair.sol#227-232)
+	- ThrusterPair.sync() (contracts/ThrusterPair.sol#235-237)
+	- _update(balance0,balance1,_reserve0,_reserve1) (contracts/ThrusterPair.sol#184)
+		- reserve1 = uint112(balance1) (contracts/ThrusterPair.sol#114)
+	ThrusterPair.reserve1 (contracts/ThrusterPair.sol#35) can be used in cross function reentrancies:
+	- ThrusterPair._update(uint256,uint256,uint112,uint112) (contracts/ThrusterPair.sol#104-118)
+	- ThrusterPair.burn(address) (contracts/ThrusterPair.sol#166-187)
+	- ThrusterPair.getReserves() (contracts/ThrusterPair.sol#54-58)
+	- ThrusterPair.mint(address) (contracts/ThrusterPair.sol#142-163)
+	- ThrusterPair.skim(address) (contracts/ThrusterPair.sol#227-232)
+	- ThrusterPair.sync() (contracts/ThrusterPair.sol#235-237)
+Reentrancy in ThrusterFactory.createPair(address,address) (contracts/ThrusterFactory.sol#44-60):
+	External calls:
+	- IThrusterPair(pair).initialize(token0,token1) (contracts/ThrusterFactory.sol#54)
+	State variables written after the call(s):
+	- getPair[token0][token1] = pair (contracts/ThrusterFactory.sol#55)
+	ThrusterFactory.getPair (contracts/ThrusterFactory.sol#15) can be used in cross function reentrancies:
+	- ThrusterFactory.createPair(address,address) (contracts/ThrusterFactory.sol#44-60)
+	- ThrusterFactory.getPair (contracts/ThrusterFactory.sol#15)
+	- getPair[token1][token0] = pair (contracts/ThrusterFactory.sol#56)
+	ThrusterFactory.getPair (contracts/ThrusterFactory.sol#15) can be used in cross function reentrancies:
+	- ThrusterFactory.createPair(address,address) (contracts/ThrusterFactory.sol#44-60)
+	- ThrusterFactory.getPair (contracts/ThrusterFactory.sol#15)
+Reentrancy in ThrusterPair.mint(address) (contracts/ThrusterPair.sol#142-163):
+	External calls:
+	- yieldCutOn = _mintYieldCut(_reserve0,_reserve1) (contracts/ThrusterPair.sol#149)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	- _mint(address(0),MINIMUM_LIQUIDITY) (contracts/ThrusterPair.sol#153)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	State variables written after the call(s):
+	- _mint(address(0),MINIMUM_LIQUIDITY) (contracts/ThrusterPair.sol#153)
+		- balanceOf[to] = balanceOf[to].add(value) (contracts/ThrusterPair.sol#242)
+	ThrusterPair.balanceOf (contracts/ThrusterPair.sol#44) can be used in cross function reentrancies:
+	- ThrusterPair._burn(address,uint256) (contracts/ThrusterPair.sol#247-252)
+	- ThrusterPair._mint(address,uint256) (contracts/ThrusterPair.sol#240-245)
+	- ThrusterPair._transfer(address,address,uint256) (contracts/ThrusterPair.sol#259-264)
+	- ThrusterPair.balanceOf (contracts/ThrusterPair.sol#44)
+	- ThrusterPair.burn(address) (contracts/ThrusterPair.sol#166-187)
+	- _mint(address(0),MINIMUM_LIQUIDITY) (contracts/ThrusterPair.sol#153)
+		- totalSupply = totalSupply.add(value) (contracts/ThrusterPair.sol#241)
+	ThrusterPair.totalSupply (contracts/ThrusterPair.sol#32) can be used in cross function reentrancies:
+	- ThrusterPair._burn(address,uint256) (contracts/ThrusterPair.sol#247-252)
+	- ThrusterPair._mint(address,uint256) (contracts/ThrusterPair.sol#240-245)
+	- ThrusterPair._mintYieldCut(uint112,uint112) (contracts/ThrusterPair.sol#121-139)
+	- ThrusterPair.burn(address) (contracts/ThrusterPair.sol#166-187)
+	- ThrusterPair.mint(address) (contracts/ThrusterPair.sol#142-163)
+	- ThrusterPair.totalSupply (contracts/ThrusterPair.sol#32)
+Reentrancy in ThrusterPair.mint(address) (contracts/ThrusterPair.sol#142-163):
+	External calls:
+	- yieldCutOn = _mintYieldCut(_reserve0,_reserve1) (contracts/ThrusterPair.sol#149)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	- _mint(address(0),MINIMUM_LIQUIDITY) (contracts/ThrusterPair.sol#153)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	- _mint(to,liquidity) (contracts/ThrusterPair.sol#158)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	State variables written after the call(s):
+	- _mint(to,liquidity) (contracts/ThrusterPair.sol#158)
+		- balanceOf[to] = balanceOf[to].add(value) (contracts/ThrusterPair.sol#242)
+	ThrusterPair.balanceOf (contracts/ThrusterPair.sol#44) can be used in cross function reentrancies:
+	- ThrusterPair._burn(address,uint256) (contracts/ThrusterPair.sol#247-252)
+	- ThrusterPair._mint(address,uint256) (contracts/ThrusterPair.sol#240-245)
+	- ThrusterPair._transfer(address,address,uint256) (contracts/ThrusterPair.sol#259-264)
+	- ThrusterPair.balanceOf (contracts/ThrusterPair.sol#44)
+	- ThrusterPair.burn(address) (contracts/ThrusterPair.sol#166-187)
+	- _mint(to,liquidity) (contracts/ThrusterPair.sol#158)
+		- totalSupply = totalSupply.add(value) (contracts/ThrusterPair.sol#241)
+	ThrusterPair.totalSupply (contracts/ThrusterPair.sol#32) can be used in cross function reentrancies:
+	- ThrusterPair._burn(address,uint256) (contracts/ThrusterPair.sol#247-252)
+	- ThrusterPair._mint(address,uint256) (contracts/ThrusterPair.sol#240-245)
+	- ThrusterPair._mintYieldCut(uint112,uint112) (contracts/ThrusterPair.sol#121-139)
+	- ThrusterPair.burn(address) (contracts/ThrusterPair.sol#166-187)
+	- ThrusterPair.mint(address) (contracts/ThrusterPair.sol#142-163)
+	- ThrusterPair.totalSupply (contracts/ThrusterPair.sol#32)
+Reentrancy in ThrusterPair.mint(address) (contracts/ThrusterPair.sol#142-163):
+	External calls:
+	- yieldCutOn = _mintYieldCut(_reserve0,_reserve1) (contracts/ThrusterPair.sol#149)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	- _mint(address(0),MINIMUM_LIQUIDITY) (contracts/ThrusterPair.sol#153)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	- _mint(to,liquidity) (contracts/ThrusterPair.sol#158)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	- _update(balance0,balance1,_reserve0,_reserve1) (contracts/ThrusterPair.sol#160)
+		- IThrusterFactory(factory).emitSync(reserve0,reserve1) (contracts/ThrusterPair.sol#117)
+	State variables written after the call(s):
+	- _update(balance0,balance1,_reserve0,_reserve1) (contracts/ThrusterPair.sol#160)
+		- blockTimestampLast = blockTimestamp (contracts/ThrusterPair.sol#115)
+	ThrusterPair.blockTimestampLast (contracts/ThrusterPair.sol#36) can be used in cross function reentrancies:
+	- ThrusterPair._update(uint256,uint256,uint112,uint112) (contracts/ThrusterPair.sol#104-118)
+	- ThrusterPair.getReserves() (contracts/ThrusterPair.sol#54-58)
+	- kLast = uint256(reserve0).mul(reserve1) (contracts/ThrusterPair.sol#161)
+	ThrusterPair.kLast (contracts/ThrusterPair.sol#40) can be used in cross function reentrancies:
+	- ThrusterPair._mintYieldCut(uint112,uint112) (contracts/ThrusterPair.sol#121-139)
+	- ThrusterPair.burn(address) (contracts/ThrusterPair.sol#166-187)
+	- ThrusterPair.kLast (contracts/ThrusterPair.sol#40)
+	- ThrusterPair.mint(address) (contracts/ThrusterPair.sol#142-163)
+	- _update(balance0,balance1,_reserve0,_reserve1) (contracts/ThrusterPair.sol#160)
+		- reserve0 = uint112(balance0) (contracts/ThrusterPair.sol#113)
+	ThrusterPair.reserve0 (contracts/ThrusterPair.sol#34) can be used in cross function reentrancies:
+	- ThrusterPair._update(uint256,uint256,uint112,uint112) (contracts/ThrusterPair.sol#104-118)
+	- ThrusterPair.burn(address) (contracts/ThrusterPair.sol#166-187)
+	- ThrusterPair.getReserves() (contracts/ThrusterPair.sol#54-58)
+	- ThrusterPair.mint(address) (contracts/ThrusterPair.sol#142-163)
+	- ThrusterPair.skim(address) (contracts/ThrusterPair.sol#227-232)
+	- ThrusterPair.sync() (contracts/ThrusterPair.sol#235-237)
+	- _update(balance0,balance1,_reserve0,_reserve1) (contracts/ThrusterPair.sol#160)
+		- reserve1 = uint112(balance1) (contracts/ThrusterPair.sol#114)
+	ThrusterPair.reserve1 (contracts/ThrusterPair.sol#35) can be used in cross function reentrancies:
+	- ThrusterPair._update(uint256,uint256,uint112,uint112) (contracts/ThrusterPair.sol#104-118)
+	- ThrusterPair.burn(address) (contracts/ThrusterPair.sol#166-187)
+	- ThrusterPair.getReserves() (contracts/ThrusterPair.sol#54-58)
+	- ThrusterPair.mint(address) (contracts/ThrusterPair.sol#142-163)
+	- ThrusterPair.skim(address) (contracts/ThrusterPair.sol#227-232)
+	- ThrusterPair.sync() (contracts/ThrusterPair.sol#235-237)
+Reentrancy in ThrusterPair.swap(uint256,uint256,address,bytes) (contracts/ThrusterPair.sol#190-224):
+	External calls:
+	- _safeTransfer(_token0,to,amount0Out) (contracts/ThrusterPair.sol#202)
+		- (success,data) = token.call(abi.encodeWithSelector(SELECTOR,to,value)) (contracts/ThrusterPair.sol#61)
+	- _safeTransfer(_token1,to,amount1Out) (contracts/ThrusterPair.sol#203)
+		- (success,data) = token.call(abi.encodeWithSelector(SELECTOR,to,value)) (contracts/ThrusterPair.sol#61)
+	- IThrusterCallee(to).thrusterCall(msg.sender,amount0Out,amount1Out,data) (contracts/ThrusterPair.sol#204)
+	- _update(balance0,balance1,_reserve0,_reserve1) (contracts/ThrusterPair.sol#221)
+		- IThrusterFactory(factory).emitSync(reserve0,reserve1) (contracts/ThrusterPair.sol#117)
+	State variables written after the call(s):
+	- _update(balance0,balance1,_reserve0,_reserve1) (contracts/ThrusterPair.sol#221)
+		- blockTimestampLast = blockTimestamp (contracts/ThrusterPair.sol#115)
+	ThrusterPair.blockTimestampLast (contracts/ThrusterPair.sol#36) can be used in cross function reentrancies:
+	- ThrusterPair._update(uint256,uint256,uint112,uint112) (contracts/ThrusterPair.sol#104-118)
+	- ThrusterPair.getReserves() (contracts/ThrusterPair.sol#54-58)
+	- _update(balance0,balance1,_reserve0,_reserve1) (contracts/ThrusterPair.sol#221)
+		- reserve0 = uint112(balance0) (contracts/ThrusterPair.sol#113)
+	ThrusterPair.reserve0 (contracts/ThrusterPair.sol#34) can be used in cross function reentrancies:
+	- ThrusterPair._update(uint256,uint256,uint112,uint112) (contracts/ThrusterPair.sol#104-118)
+	- ThrusterPair.burn(address) (contracts/ThrusterPair.sol#166-187)
+	- ThrusterPair.getReserves() (contracts/ThrusterPair.sol#54-58)
+	- ThrusterPair.mint(address) (contracts/ThrusterPair.sol#142-163)
+	- ThrusterPair.skim(address) (contracts/ThrusterPair.sol#227-232)
+	- ThrusterPair.sync() (contracts/ThrusterPair.sol#235-237)
+	- _update(balance0,balance1,_reserve0,_reserve1) (contracts/ThrusterPair.sol#221)
+		- reserve1 = uint112(balance1) (contracts/ThrusterPair.sol#114)
+	ThrusterPair.reserve1 (contracts/ThrusterPair.sol#35) can be used in cross function reentrancies:
+	- ThrusterPair._update(uint256,uint256,uint112,uint112) (contracts/ThrusterPair.sol#104-118)
+	- ThrusterPair.burn(address) (contracts/ThrusterPair.sol#166-187)
+	- ThrusterPair.getReserves() (contracts/ThrusterPair.sol#54-58)
+	- ThrusterPair.mint(address) (contracts/ThrusterPair.sol#142-163)
+	- ThrusterPair.skim(address) (contracts/ThrusterPair.sol#227-232)
+	- ThrusterPair.sync() (contracts/ThrusterPair.sol#235-237)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+INFO:Detectors:
+ThrusterYield.constructor(address) (contracts/ThrusterYield.sol#24-30) ignores return value by USDB.configure(IERC20Rebasing.YieldMode.CLAIMABLE) (contracts/ThrusterYield.sol#27)
+ThrusterYield.constructor(address) (contracts/ThrusterYield.sol#24-30) ignores return value by WETHB.configure(IERC20Rebasing.YieldMode.CLAIMABLE) (contracts/ThrusterYield.sol#28)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Detectors:
+ThrusterRouter._addLiquidity(address,address,uint256,uint256,uint256,uint256) (contracts/ThrusterRouter.sol#35-62) ignores return value by IThrusterFactory(factory).createPair(tokenA,tokenB) (contracts/ThrusterRouter.sol#45)
+ThrusterRouter.removeLiquidity(address,address,uint256,uint256,uint256,address,uint256) (contracts/ThrusterRouter.sol#108-124) ignores return value by (token0) = ThrusterLibrary.sortTokens(tokenA,tokenB) (contracts/ThrusterRouter.sol#120)
+ThrusterRouter._swap(uint256[],address[],address) (contracts/ThrusterRouter.sol#215-227) ignores return value by (token0) = ThrusterLibrary.sortTokens(input,output) (contracts/ThrusterRouter.sol#218)
+ThrusterRouter._swapSupportingFeeOnTransferTokens(address[],address) (contracts/ThrusterRouter.sol#331-351) ignores return value by (token0) = ThrusterLibrary.sortTokens(input,output) (contracts/ThrusterRouter.sol#334)
+ThrusterRouter._swapSupportingFeeOnTransferTokens(address[],address) (contracts/ThrusterRouter.sol#331-351) ignores return value by (reserve0,reserve1) = pair.getReserves() (contracts/ThrusterRouter.sol#340)
+ThrusterLibrary.getReserves(address,address,address) (contracts/libraries/ThrusterLibrary.sol#36-44) ignores return value by (reserve0,reserve1) = IThrusterPair(pairFor(factory,tokenA,tokenB)).getReserves() (contracts/libraries/ThrusterLibrary.sol#42)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Detectors:
+ThrusterGas.setManager(address) (contracts/ThrusterGas.sol#32-34) should emit an event for: 
+	- manager = _manager (contracts/ThrusterGas.sol#33) 
+ThrusterYield.setManager(address) (contracts/ThrusterYield.sol#53-55) should emit an event for: 
+	- manager = _manager (contracts/ThrusterYield.sol#54) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+INFO:Detectors:
+ThrusterGasRouter.setManager(address) (contracts/ThrusterGasRouter.sol#37-39) should emit an event for: 
+	- manager = _manager (contracts/ThrusterGasRouter.sol#38) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+INFO:Detectors:
+ThrusterGas.constructor(address)._manager (contracts/ThrusterGas.sol#18) lacks a zero-check on :
+		- manager = _manager (contracts/ThrusterGas.sol#20)
+ThrusterGas.setManager(address)._manager (contracts/ThrusterGas.sol#32) lacks a zero-check on :
+		- manager = _manager (contracts/ThrusterGas.sol#33)
+ThrusterFactory.constructor(address,address)._yieldToSetter (contracts/ThrusterFactory.sol#35) lacks a zero-check on :
+		- yieldToSetter = _yieldToSetter (contracts/ThrusterFactory.sol#36)
+ThrusterFactory.constructor(address,address)._pointsAdmin (contracts/ThrusterFactory.sol#35) lacks a zero-check on :
+		- pointsAdmin = _pointsAdmin (contracts/ThrusterFactory.sol#37)
+ThrusterFactory.setYieldTo(address)._yieldTo (contracts/ThrusterFactory.sol#62) lacks a zero-check on :
+		- yieldTo = _yieldTo (contracts/ThrusterFactory.sol#64)
+ThrusterYield.constructor(address)._manager (contracts/ThrusterYield.sol#24) lacks a zero-check on :
+		- manager = _manager (contracts/ThrusterYield.sol#29)
+ThrusterYield.setManager(address)._manager (contracts/ThrusterYield.sol#53) lacks a zero-check on :
+		- manager = _manager (contracts/ThrusterYield.sol#54)
+ThrusterPair.initialize(address,address)._token0 (contracts/ThrusterPair.sol#97) lacks a zero-check on :
+		- token0 = _token0 (contracts/ThrusterPair.sol#99)
+ThrusterPair.initialize(address,address)._token1 (contracts/ThrusterPair.sol#97) lacks a zero-check on :
+		- token1 = _token1 (contracts/ThrusterPair.sol#100)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+INFO:Detectors:
+ThrusterGasRouter.constructor(address)._manager (contracts/ThrusterGasRouter.sol#18) lacks a zero-check on :
+		- manager = _manager (contracts/ThrusterGasRouter.sol#20)
+ThrusterGasRouter.setManager(address)._manager (contracts/ThrusterGasRouter.sol#37) lacks a zero-check on :
+		- manager = _manager (contracts/ThrusterGasRouter.sol#38)
+ThrusterRouter.constructor(address,address)._factory (contracts/ThrusterRouter.sol#25) lacks a zero-check on :
+		- factory = _factory (contracts/ThrusterRouter.sol#26)
+ThrusterRouter.constructor(address,address)._WETH (contracts/ThrusterRouter.sol#25) lacks a zero-check on :
+		- WETH = _WETH (contracts/ThrusterRouter.sol#27)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+INFO:Detectors:
+Reentrancy in ThrusterFactory.createPair(address,address) (contracts/ThrusterFactory.sol#44-60):
+	External calls:
+	- IThrusterPair(pair).initialize(token0,token1) (contracts/ThrusterFactory.sol#54)
+	State variables written after the call(s):
+	- allPairs.push(pair) (contracts/ThrusterFactory.sol#57)
+	- pairExists[pair] = true (contracts/ThrusterFactory.sol#58)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+INFO:Detectors:
+Reentrancy in ThrusterPair.burn(address) (contracts/ThrusterPair.sol#166-187):
+	External calls:
+	- yieldCutOn = _mintYieldCut(_reserve0,_reserve1) (contracts/ThrusterPair.sol#174)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	- _burn(address(this),liquidity) (contracts/ThrusterPair.sol#178)
+		- IThrusterFactory(factory).emitTransfer(from,address(0),value) (contracts/ThrusterPair.sol#251)
+	Event emitted after the call(s):
+	- Transfer(from,address(0),value) (contracts/ThrusterPair.sol#250)
+		- _burn(address(this),liquidity) (contracts/ThrusterPair.sol#178)
+Reentrancy in ThrusterPair.burn(address) (contracts/ThrusterPair.sol#166-187):
+	External calls:
+	- yieldCutOn = _mintYieldCut(_reserve0,_reserve1) (contracts/ThrusterPair.sol#174)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	- _burn(address(this),liquidity) (contracts/ThrusterPair.sol#178)
+		- IThrusterFactory(factory).emitTransfer(from,address(0),value) (contracts/ThrusterPair.sol#251)
+	- _safeTransfer(_token0,to,amount0) (contracts/ThrusterPair.sol#179)
+		- (success,data) = token.call(abi.encodeWithSelector(SELECTOR,to,value)) (contracts/ThrusterPair.sol#61)
+	- _safeTransfer(_token1,to,amount1) (contracts/ThrusterPair.sol#180)
+		- (success,data) = token.call(abi.encodeWithSelector(SELECTOR,to,value)) (contracts/ThrusterPair.sol#61)
+	- _update(balance0,balance1,_reserve0,_reserve1) (contracts/ThrusterPair.sol#184)
+		- IThrusterFactory(factory).emitSync(reserve0,reserve1) (contracts/ThrusterPair.sol#117)
+	Event emitted after the call(s):
+	- Burn(msg.sender,amount0,amount1,to) (contracts/ThrusterPair.sol#186)
+	- Sync(reserve0,reserve1) (contracts/ThrusterPair.sol#116)
+		- _update(balance0,balance1,_reserve0,_reserve1) (contracts/ThrusterPair.sol#184)
+Reentrancy in ThrusterGas.claimGas(address,uint256) (contracts/ThrusterGas.sol#23-30):
+	External calls:
+	- amount = BLAST.claimMaxGas(address(this),_recipient) (contracts/ThrusterGas.sol#25)
+	- amount = BLAST.claimGasAtMinClaimRate(address(this),_recipient,_minClaimRateBips) (contracts/ThrusterGas.sol#27)
+	Event emitted after the call(s):
+	- ClaimGas(_recipient,amount) (contracts/ThrusterGas.sol#29)
+Reentrancy in ThrusterYield.claimGas(address,uint256) (contracts/ThrusterYield.sol#44-51):
+	External calls:
+	- amount = BLAST.claimMaxGas(address(this),_recipient) (contracts/ThrusterYield.sol#46)
+	- amount = BLAST.claimGasAtMinClaimRate(address(this),_recipient,_minClaimRateBips) (contracts/ThrusterYield.sol#48)
+	Event emitted after the call(s):
+	- ClaimGas(_recipient,amount) (contracts/ThrusterYield.sol#50)
+Reentrancy in ThrusterYield.claimYieldAll(address,uint256,uint256,uint256) (contracts/ThrusterYield.sol#32-42):
+	External calls:
+	- amountETH = IBlast(BLAST).claimYield(address(this),_recipient,_amountETH) (contracts/ThrusterYield.sol#37)
+	- amountWETH = IERC20Rebasing(WETHB).claim(_recipient,_amountWETH) (contracts/ThrusterYield.sol#38)
+	- amountUSDB = IERC20Rebasing(USDB).claim(_recipient,_amountUSDB) (contracts/ThrusterYield.sol#39)
+	- amountGas = IBlast(BLAST).claimMaxGas(address(this),_recipient) (contracts/ThrusterYield.sol#40)
+	Event emitted after the call(s):
+	- ClaimYieldAll(_recipient,amountETH,amountWETH,amountUSDB,amountGas) (contracts/ThrusterYield.sol#41)
+Reentrancy in ThrusterFactory.createPair(address,address) (contracts/ThrusterFactory.sol#44-60):
+	External calls:
+	- IThrusterPair(pair).initialize(token0,token1) (contracts/ThrusterFactory.sol#54)
+	Event emitted after the call(s):
+	- PairCreated(token0,token1,pair,allPairs.length) (contracts/ThrusterFactory.sol#59)
+Reentrancy in ThrusterPair.mint(address) (contracts/ThrusterPair.sol#142-163):
+	External calls:
+	- yieldCutOn = _mintYieldCut(_reserve0,_reserve1) (contracts/ThrusterPair.sol#149)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	- _mint(address(0),MINIMUM_LIQUIDITY) (contracts/ThrusterPair.sol#153)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	Event emitted after the call(s):
+	- Transfer(address(0),to,value) (contracts/ThrusterPair.sol#243)
+		- _mint(address(0),MINIMUM_LIQUIDITY) (contracts/ThrusterPair.sol#153)
+Reentrancy in ThrusterPair.mint(address) (contracts/ThrusterPair.sol#142-163):
+	External calls:
+	- yieldCutOn = _mintYieldCut(_reserve0,_reserve1) (contracts/ThrusterPair.sol#149)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	- _mint(address(0),MINIMUM_LIQUIDITY) (contracts/ThrusterPair.sol#153)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	- _mint(to,liquidity) (contracts/ThrusterPair.sol#158)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	Event emitted after the call(s):
+	- Transfer(address(0),to,value) (contracts/ThrusterPair.sol#243)
+		- _mint(to,liquidity) (contracts/ThrusterPair.sol#158)
+Reentrancy in ThrusterPair.mint(address) (contracts/ThrusterPair.sol#142-163):
+	External calls:
+	- yieldCutOn = _mintYieldCut(_reserve0,_reserve1) (contracts/ThrusterPair.sol#149)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	- _mint(address(0),MINIMUM_LIQUIDITY) (contracts/ThrusterPair.sol#153)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	- _mint(to,liquidity) (contracts/ThrusterPair.sol#158)
+		- IThrusterFactory(factory).emitTransfer(address(0),to,value) (contracts/ThrusterPair.sol#244)
+	- _update(balance0,balance1,_reserve0,_reserve1) (contracts/ThrusterPair.sol#160)
+		- IThrusterFactory(factory).emitSync(reserve0,reserve1) (contracts/ThrusterPair.sol#117)
+	Event emitted after the call(s):
+	- Mint(msg.sender,amount0,amount1) (contracts/ThrusterPair.sol#162)
+	- Sync(reserve0,reserve1) (contracts/ThrusterPair.sol#116)
+		- _update(balance0,balance1,_reserve0,_reserve1) (contracts/ThrusterPair.sol#160)
+Reentrancy in ThrusterPair.swap(uint256,uint256,address,bytes) (contracts/ThrusterPair.sol#190-224):
+	External calls:
+	- _safeTransfer(_token0,to,amount0Out) (contracts/ThrusterPair.sol#202)
+		- (success,data) = token.call(abi.encodeWithSelector(SELECTOR,to,value)) (contracts/ThrusterPair.sol#61)
+	- _safeTransfer(_token1,to,amount1Out) (contracts/ThrusterPair.sol#203)
+		- (success,data) = token.call(abi.encodeWithSelector(SELECTOR,to,value)) (contracts/ThrusterPair.sol#61)
+	- IThrusterCallee(to).thrusterCall(msg.sender,amount0Out,amount1Out,data) (contracts/ThrusterPair.sol#204)
+	- _update(balance0,balance1,_reserve0,_reserve1) (contracts/ThrusterPair.sol#221)
+		- IThrusterFactory(factory).emitSync(reserve0,reserve1) (contracts/ThrusterPair.sol#117)
+	Event emitted after the call(s):
+	- Swap(msg.sender,amount0In,amount1In,amount0Out,amount1Out,to) (contracts/ThrusterPair.sol#222)
+	- Sync(reserve0,reserve1) (contracts/ThrusterPair.sol#116)
+		- _update(balance0,balance1,_reserve0,_reserve1) (contracts/ThrusterPair.sol#221)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+INFO:Detectors:
+Reentrancy in ThrusterGasRouter.claimGas(address,uint256) (contracts/ThrusterGasRouter.sol#23-35):
+	External calls:
+	- amount = BLAST.claimMaxGas(address(this),_recipient) (contracts/ThrusterGasRouter.sol#30)
+	- amount = BLAST.claimGasAtMinClaimRate(address(this),_recipient,_minClaimRateBips) (contracts/ThrusterGasRouter.sol#32)
+	Event emitted after the call(s):
+	- ClaimGas(_recipient,amount) (contracts/ThrusterGasRouter.sol#34)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+INFO:Detectors:
+ThrusterPair._update(uint256,uint256,uint112,uint112) (contracts/ThrusterPair.sol#104-118) uses timestamp for comparisons
+	Dangerous comparisons:
+	- timeElapsed > 0 && _reserve0 != 0 && _reserve1 != 0 (contracts/ThrusterPair.sol#108)
+ThrusterPair.permit(address,address,uint256,uint256,uint8,bytes32,bytes32) (contracts/ThrusterPair.sol#284-298) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(deadline >= block.timestamp,ThrusterERC20: EXPIRED) (contracts/ThrusterPair.sol#287)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+INFO:Detectors:
+ThrusterFactory.createPair(address,address) (contracts/ThrusterFactory.sol#44-60) uses assembly
+	- INLINE ASM (contracts/ThrusterFactory.sol#51-53)
+ThrusterPair.constructor() (contracts/ThrusterPair.sol#79-94) uses assembly
+	- INLINE ASM (contracts/ThrusterPair.sol#82-84)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+INFO:Detectors:
+Different versions of Solidity are used:
+	- Version used: ['=0.5.16', '>=0.5.0', '>=0.5.16<0.7.0']
+	- =0.5.16 (contracts/ThrusterFactory.sol#2)
+	- =0.5.16 (contracts/ThrusterGas.sol#2)
+	- =0.5.16 (contracts/ThrusterPair.sol#2)
+	- =0.5.16 (contracts/ThrusterYield.sol#2)
+	- =0.5.16 (contracts/libraries/Math.sol#2)
+	- =0.5.16 (contracts/libraries/UQ112x112.sol#2)
+	- >=0.5.0 (interfaces/IBlast.sol#2)
+	- >=0.5.0 (interfaces/IERC20.sol#2)
+	- >=0.5.0 (interfaces/IERC20Rebasing.sol#2)
+	- >=0.5.0 (interfaces/IThrusterCallee.sol#2)
+	- >=0.5.0 (interfaces/IThrusterERC20.sol#2)
+	- >=0.5.0 (interfaces/IThrusterFactory.sol#2)
+	- >=0.5.0 (interfaces/IThrusterGas.sol#2)
+	- >=0.5.0 (interfaces/IThrusterPair.sol#2)
+	- >=0.5.0 (interfaces/IThrusterYield.sol#2)
+	- >=0.5.16<0.7.0 (contracts/libraries/SafeMath.sol#2)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#different-pragma-directives-are-used
+INFO:Detectors:
+Different versions of Solidity are used:
+	- Version used: ['=0.6.6', '>=0.5.0', '>=0.5.0<0.7.0', '>=0.5.16<0.7.0', '>=0.6.0', '>=0.6.2']
+	- =0.6.6 (contracts/ThrusterGasRouter.sol#2)
+	- =0.6.6 (contracts/ThrusterRouter.sol#2)
+	- >=0.5.0 (interfaces/IBlast.sol#2)
+	- >=0.5.0 (interfaces/IERC20.sol#2)
+	- >=0.5.0 (interfaces/IThrusterFactory.sol#2)
+	- >=0.5.0 (interfaces/IThrusterGas.sol#2)
+	- >=0.5.0 (interfaces/IThrusterPair.sol#2)
+	- >=0.5.0 (interfaces/IWETH.sol#2)
+	- >=0.5.0<0.7.0 (contracts/libraries/ThrusterLibrary.sol#2)
+	- >=0.5.16<0.7.0 (contracts/libraries/SafeMath.sol#2)
+	- >=0.6.0 (contracts/libraries/TransferHelper.sol#3)
+	- >=0.6.2 (interfaces/IThrusterRouter01.sol#2)
+	- >=0.6.2 (interfaces/IThrusterRouter02.sol#2)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#different-pragma-directives-are-used
+INFO:Detectors:
+TransferHelper.safeApprove(address,address,uint256) (contracts/libraries/TransferHelper.sol#7-13) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+INFO:Detectors:
+Pragma version=0.5.16 (contracts/ThrusterFactory.sol#2) allows old versions
+Pragma version=0.5.16 (contracts/ThrusterGas.sol#2) allows old versions
+Pragma version=0.5.16 (contracts/ThrusterPair.sol#2) allows old versions
+Pragma version=0.5.16 (contracts/ThrusterYield.sol#2) allows old versions
+Pragma version=0.5.16 (contracts/libraries/Math.sol#2) allows old versions
+Pragma version>=0.5.16<0.7.0 (contracts/libraries/SafeMath.sol#2) allows old versions
+Pragma version=0.5.16 (contracts/libraries/UQ112x112.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IBlast.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IERC20.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IERC20Rebasing.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IThrusterCallee.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IThrusterERC20.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IThrusterFactory.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IThrusterGas.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IThrusterPair.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IThrusterYield.sol#2) allows old versions
+solc-0.5.16 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+INFO:Detectors:
+Pragma version=0.6.6 (contracts/ThrusterGasRouter.sol#2) allows old versions
+Pragma version=0.6.6 (contracts/ThrusterRouter.sol#2) allows old versions
+Pragma version>=0.5.0<0.7.0 (contracts/libraries/ThrusterLibrary.sol#2) allows old versions
+Pragma version>=0.6.0 (contracts/libraries/TransferHelper.sol#3) allows old versions
+Pragma version>=0.6.2 (interfaces/IThrusterRouter01.sol#2) allows old versions
+Pragma version>=0.6.2 (interfaces/IThrusterRouter02.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IWETH.sol#2) allows old versions
+solc-0.6.6 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+INFO:Detectors:
+Low level call in ThrusterPair._safeTransfer(address,address,uint256) (contracts/ThrusterPair.sol#60-63):
+	- (success,data) = token.call(abi.encodeWithSelector(SELECTOR,to,value)) (contracts/ThrusterPair.sol#61)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+INFO:Detectors:
+Low level call in TransferHelper.safeApprove(address,address,uint256) (contracts/libraries/TransferHelper.sol#7-13):
+	- (success,data) = token.call(abi.encodeWithSelector(0x095ea7b3,to,value)) (contracts/libraries/TransferHelper.sol#9)
+Low level call in TransferHelper.safeTransfer(address,address,uint256) (contracts/libraries/TransferHelper.sol#15-21):
+	- (success,data) = token.call(abi.encodeWithSelector(0xa9059cbb,to,value)) (contracts/libraries/TransferHelper.sol#17)
+Low level call in TransferHelper.safeTransferFrom(address,address,address,uint256) (contracts/libraries/TransferHelper.sol#23-30):
+	- (success,data) = token.call(abi.encodeWithSelector(0x23b872dd,from,to,value)) (contracts/libraries/TransferHelper.sol#25)
+Low level call in TransferHelper.safeTransferETH(address,uint256) (contracts/libraries/TransferHelper.sol#32-35):
+	- (success) = to.call{value: value}(new bytes(0)) (contracts/libraries/TransferHelper.sol#33)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+INFO:Detectors:
+Parameter ThrusterFactory.setYieldTo(address)._yieldTo (contracts/ThrusterFactory.sol#62) is not in mixedCase
+Parameter ThrusterFactory.setYieldToSetter(address)._newYieldToSetter (contracts/ThrusterFactory.sol#68) is not in mixedCase
+Parameter ThrusterFactory.setYieldCut(uint256)._yieldCut (contracts/ThrusterFactory.sol#75) is not in mixedCase
+Parameter ThrusterGas.claimGas(address,uint256)._recipient (contracts/ThrusterGas.sol#23) is not in mixedCase
+Parameter ThrusterGas.claimGas(address,uint256)._minClaimRateBips (contracts/ThrusterGas.sol#23) is not in mixedCase
+Parameter ThrusterGas.setManager(address)._manager (contracts/ThrusterGas.sol#32) is not in mixedCase
+Parameter ThrusterPair.initialize(address,address)._token0 (contracts/ThrusterPair.sol#97) is not in mixedCase
+Parameter ThrusterPair.initialize(address,address)._token1 (contracts/ThrusterPair.sol#97) is not in mixedCase
+Variable ThrusterPair.DOMAIN_SEPARATOR (contracts/ThrusterPair.sol#24) is not in mixedCase
+Parameter ThrusterYield.claimYieldAll(address,uint256,uint256,uint256)._recipient (contracts/ThrusterYield.sol#32) is not in mixedCase
+Parameter ThrusterYield.claimYieldAll(address,uint256,uint256,uint256)._amountETH (contracts/ThrusterYield.sol#32) is not in mixedCase
+Parameter ThrusterYield.claimYieldAll(address,uint256,uint256,uint256)._amountWETH (contracts/ThrusterYield.sol#32) is not in mixedCase
+Parameter ThrusterYield.claimYieldAll(address,uint256,uint256,uint256)._amountUSDB (contracts/ThrusterYield.sol#32) is not in mixedCase
+Parameter ThrusterYield.claimGas(address,uint256)._recipient (contracts/ThrusterYield.sol#44) is not in mixedCase
+Parameter ThrusterYield.claimGas(address,uint256)._minClaimRateBips (contracts/ThrusterYield.sol#44) is not in mixedCase
+Parameter ThrusterYield.setManager(address)._manager (contracts/ThrusterYield.sol#53) is not in mixedCase
+Function IThrusterERC20.DOMAIN_SEPARATOR() (interfaces/IThrusterERC20.sol#19) is not in mixedCase
+Function IThrusterERC20.PERMIT_TYPEHASH() (interfaces/IThrusterERC20.sol#20) is not in mixedCase
+Function IThrusterPair.DOMAIN_SEPARATOR() (interfaces/IThrusterPair.sol#23) is not in mixedCase
+Function IThrusterPair.PERMIT_TYPEHASH() (interfaces/IThrusterPair.sol#24) is not in mixedCase
+Function IThrusterPair.MINIMUM_LIQUIDITY() (interfaces/IThrusterPair.sol#42) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+INFO:Detectors:
+Parameter ThrusterGasRouter.claimGas(address,uint256)._recipient (contracts/ThrusterGasRouter.sol#23) is not in mixedCase
+Parameter ThrusterGasRouter.claimGas(address,uint256)._minClaimRateBips (contracts/ThrusterGasRouter.sol#23) is not in mixedCase
+Parameter ThrusterGasRouter.setManager(address)._manager (contracts/ThrusterGasRouter.sol#37) is not in mixedCase
+Variable ThrusterRouter.WETH (contracts/ThrusterRouter.sol#18) is not in mixedCase
+Function IThrusterRouter01.WETH() (interfaces/IThrusterRouter01.sol#6) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+INFO:Detectors:
+Variable ThrusterPair.swap(uint256,uint256,address,bytes).balance0Adjusted (contracts/ThrusterPair.sol#213) is too similar to ThrusterPair.swap(uint256,uint256,address,bytes).balance1Adjusted (contracts/ThrusterPair.sol#214)
+Variable ThrusterPair.price0CumulativeLast (contracts/ThrusterPair.sol#38) is too similar to ThrusterPair.price1CumulativeLast (contracts/ThrusterPair.sol#39)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+INFO:Detectors:
+Variable ThrusterRouter._addLiquidity(address,address,uint256,uint256,uint256,uint256).amountADesired (contracts/ThrusterRouter.sol#38) is too similar to ThrusterRouter._addLiquidity(address,address,uint256,uint256,uint256,uint256).amountBDesired (contracts/ThrusterRouter.sol#39)
+Variable ThrusterRouter._addLiquidity(address,address,uint256,uint256,uint256,uint256).amountADesired (contracts/ThrusterRouter.sol#38) is too similar to IThrusterRouter01.addLiquidity(address,address,uint256,uint256,uint256,uint256,address,uint256).amountBDesired (interfaces/IThrusterRouter01.sol#12)
+Variable ThrusterRouter.addLiquidity(address,address,uint256,uint256,uint256,uint256,address,uint256).amountADesired (contracts/ThrusterRouter.sol#67) is too similar to ThrusterRouter.addLiquidity(address,address,uint256,uint256,uint256,uint256,address,uint256).amountBDesired (contracts/ThrusterRouter.sol#68)
+Variable ThrusterRouter.addLiquidity(address,address,uint256,uint256,uint256,uint256,address,uint256).amountADesired (contracts/ThrusterRouter.sol#67) is too similar to IThrusterRouter01.addLiquidity(address,address,uint256,uint256,uint256,uint256,address,uint256).amountBDesired (interfaces/IThrusterRouter01.sol#12)
+Variable ThrusterRouter.addLiquidity(address,address,uint256,uint256,uint256,uint256,address,uint256).amountADesired (contracts/ThrusterRouter.sol#67) is too similar to ThrusterRouter._addLiquidity(address,address,uint256,uint256,uint256,uint256).amountBDesired (contracts/ThrusterRouter.sol#39)
+Variable ThrusterRouter._addLiquidity(address,address,uint256,uint256,uint256,uint256).amountAOptimal (contracts/ThrusterRouter.sol#56) is too similar to ThrusterRouter._addLiquidity(address,address,uint256,uint256,uint256,uint256).amountBOptimal (contracts/ThrusterRouter.sol#51)
+Variable IThrusterRouter01.addLiquidity(address,address,uint256,uint256,uint256,uint256,address,uint256).amountADesired (interfaces/IThrusterRouter01.sol#11) is too similar to IThrusterRouter01.addLiquidity(address,address,uint256,uint256,uint256,uint256,address,uint256).amountBDesired (interfaces/IThrusterRouter01.sol#12)
+Variable IThrusterRouter01.addLiquidity(address,address,uint256,uint256,uint256,uint256,address,uint256).amountADesired (interfaces/IThrusterRouter01.sol#11) is too similar to ThrusterRouter.addLiquidity(address,address,uint256,uint256,uint256,uint256,address,uint256).amountBDesired (contracts/ThrusterRouter.sol#68)
+Variable IThrusterRouter01.addLiquidity(address,address,uint256,uint256,uint256,uint256,address,uint256).amountADesired (interfaces/IThrusterRouter01.sol#11) is too similar to ThrusterRouter._addLiquidity(address,address,uint256,uint256,uint256,uint256).amountBDesired (contracts/ThrusterRouter.sol#39)
+Variable ThrusterRouter._addLiquidity(address,address,uint256,uint256,uint256,uint256).amountADesired (contracts/ThrusterRouter.sol#38) is too similar to ThrusterRouter.addLiquidity(address,address,uint256,uint256,uint256,uint256,address,uint256).amountBDesired (contracts/ThrusterRouter.sol#68)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+INFO:Detectors:
+ThrusterFactory.createPair(address,address) (contracts/ThrusterFactory.sol#44-60) uses literals with too many digits:
+	- bytecode = type(address)(ThrusterPair).creationCode (contracts/ThrusterFactory.sol#49)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+INFO:Detectors:
+getAmountsOut(uint256,address[]) should be declared external:
+	- ThrusterRouter.getAmountsOut(uint256,address[]) (contracts/ThrusterRouter.sol#438-446)
+Moreover, the following function parameters should change its data location:
+path location should be calldata
+getAmountsIn(uint256,address[]) should be declared external:
+	- ThrusterRouter.getAmountsIn(uint256,address[]) (contracts/ThrusterRouter.sol#448-456)
+Moreover, the following function parameters should change its data location:
+path location should be calldata
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-external
+INFO:Slither:. analyzed (29 contracts with 93 detectors), 125 result(s) found

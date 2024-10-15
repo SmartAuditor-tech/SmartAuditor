@@ -1,0 +1,14 @@
+
+/g4b/packages/protocol/contracts/automata-attestation/AutomataDcapV3Attestation.sol
+  39:20  error  Parse error: extraneous input 'enclave' expecting '=>'
+  39:36  error  Parse error: extraneous input 'trusted' expecting ')'
+  40:20  error  Parse error: extraneous input 'signer' expecting '=>'
+  40:35  error  Parse error: extraneous input 'trusted' expecting ')'
+  47:20  error  Parse error: extraneous input 'idx' expecting '=>'
+  47:41  error  Parse error: extraneous input 'serialNum' expecting '=>'
+  47:59  error  Parse error: extraneous input 'revoked' expecting ')'
+  49:19  error  Parse error: extraneous input 'fmspc' expecting '=>'
+  49:50  error  Parse error: extraneous input 'tcbInfo' expecting ')'
+
+✖ 9 problems (9 errors, 0 warnings)
+

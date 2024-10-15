@@ -1,0 +1,9 @@
+
+/g4b/contracts/PoolManager.sol
+    3:1   error    Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement  compiler-version
+  255:24  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+  256:31  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+  257:31  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+
+✖ 4 problems (1 error, 3 warnings)
+

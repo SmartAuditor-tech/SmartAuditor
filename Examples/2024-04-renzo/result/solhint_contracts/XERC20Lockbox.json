@@ -1,0 +1,54 @@
+{
+    "success": true,
+    "finding_length": 6,
+    "findings": [
+        {
+            "filename": "XERC20Lockbox.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version >=0.8.4 <0.9.0 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "XERC20Lockbox.sol",
+            "line": 18,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "XERC20Lockbox.sol",
+            "line": 23,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "XERC20Lockbox.sol",
+            "line": 29,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "XERC20Lockbox.sol",
+            "line": 33,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "XERC20Lockbox.sol",
+            "line": 131,
+            "column": 33,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "RewardsConfig.sol",
+        "incomplete instruction": "2357",
+        "coverage": "1.6%",
+        "warnings": []
+    }
+}

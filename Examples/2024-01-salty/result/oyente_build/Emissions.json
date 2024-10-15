@@ -1,0 +1,12 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [
+            "Callstack Depth Attack Vulnerability: DASP-5"
+        ],
+        "filename": "Emissions.sol",
+        "incomplete instruction": "3831",
+        "coverage": "1.0%",
+        "warnings": []
+    }
+}

@@ -1,0 +1,190 @@
+{
+    "success": false,
+    "finding_length": 23,
+    "findings": [
+        {
+            "filename": "InitOracle.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version ^0.8.19 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 4,
+            "column": 8,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 5,
+            "column": 8,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 7,
+            "column": 24,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 9,
+            "column": 40,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 17,
+            "column": 51,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 22,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 31,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 37,
+            "column": 48,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 41,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 41,
+            "column": 64,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 44,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 45,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 50,
+            "column": 70,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 53,
+            "column": 17,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 58,
+            "column": 76,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 61,
+            "column": 21,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 73,
+            "column": 14,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 73,
+            "column": 33,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 86,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 86,
+            "column": 79,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 112,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "InitOracle.sol",
+            "line": 112,
+            "column": 68,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        }
+    ]
+}

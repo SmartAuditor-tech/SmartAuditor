@@ -1,0 +1,177 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 31 Code Findings │
+└──────────────────┘
+                                          
+    /g4b/contracts/governance/Keepers.sol 
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+           29┆ for (uint256 i = 0; i < _owners.length; i++) {
+            ⋮┆----------------------------------------
+           44┆ for (uint256 i = 0; i < _owners.length; i++) {
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           27┆ constructor(address[] memory _owners, uint8 _threshold)          
+  EIP712("Keepers", "1") Ownable2Step() Ownable(msg.sender) {                   
+           28┆     require(_owners.length <= 10 && _threshold <= _owners.length 
+  && _threshold > 1);                                                           
+           29┆     for (uint256 i = 0; i < _owners.length; i++) {
+           30┆         isOwner[_owners[i]] = true;
+           31┆     }
+           32┆     numOwners = _owners.length;
+           33┆     threshold = _threshold;
+           34┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+           30┆ isOwner[_owners[i]] = true;
+            ⋮┆----------------------------------------
+           45┆ if (addOrRemove[i] && !isOwner[_owners[i]]) {
+            ⋮┆----------------------------------------
+           46┆ isOwner[_owners[i]] = true;
+            ⋮┆----------------------------------------
+           48┆ } else if (!addOrRemove[i] && isOwner[_owners[i]]) {
+            ⋮┆----------------------------------------
+           49┆ isOwner[_owners[i]] = false;
+            ⋮┆----------------------------------------
+          104┆ for (uint256 i = 0; i < threshold;) {
+            ⋮┆----------------------------------------
+          106┆ require(recovered > lastAdd && isOwner[recovered]);
+            ⋮┆----------------------------------------
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+           29┆ for (uint256 i = 0; i < _owners.length; i++) {
+            ⋮┆----------------------------------------
+           44┆ for (uint256 i = 0; i < _owners.length; i++) {
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           94┆ require(isOwner[msg.sender], "Not an owner");
+            ⋮┆----------------------------------------
+           95┆ require(sigR.length == threshold, "Not enough signatures");
+            ⋮┆----------------------------------------
+           96┆ require(sigR.length == sigS.length && sigR.length == sigV.length,
+  "Lengths do not match");                                                      
+            ⋮┆----------------------------------------
+           97┆ require(executor == msg.sender, "Invalid executor");
+            ⋮┆----------------------------------------
+           98┆ require(block.timestamp <= deadline, "Transaction expired");
+            ⋮┆----------------------------------------
+          117┆ require(success, "Transaction execution reverted.");
+            ⋮┆----------------------------------------
+       solidity.performance.use-multiple-require.use-multiple-require           
+          Using multiple require statements is cheaper than using && multiple   
+  check combinations.                                                           
+          There are more advantages, such as easier to read code and better     
+  coverage reports.                                                             
+          Details: https://sg.run/vGA0                                          
+                                                                                
+           28┆ require(_owners.length <= 10 && _threshold <= _owners.length &&  
+  _threshold > 1);                                                              
+            ⋮┆----------------------------------------
+           53┆ require(numOwnersTemp <= 10 && threshold <= numOwnersTemp &&     
+  threshold > 1);                                                               
+            ⋮┆----------------------------------------
+           64┆ require(_threshold <= numOwners && _threshold > 1);
+            ⋮┆----------------------------------------
+           96┆ require(sigR.length == sigS.length && sigR.length == sigV.length,
+  "Lengths do not match");                                                      
+            ⋮┆----------------------------------------
+          106┆ require(recovered > lastAdd && isOwner[recovered]);
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+           45┆ if (addOrRemove[i] && !isOwner[_owners[i]]) {
+           46┆     isOwner[_owners[i]] = true;
+           47┆     numOwnersTemp++;
+           48┆ } else if (!addOrRemove[i] && isOwner[_owners[i]]) {
+           49┆     isOwner[_owners[i]] = false;
+           50┆     numOwnersTemp--;
+           51┆ }
+            ⋮┆----------------------------------------
+           48┆ } else if (!addOrRemove[i] && isOwner[_owners[i]]) {
+           49┆     isOwner[_owners[i]] = false;
+           50┆     numOwnersTemp--;
+           51┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.use-prefix-decrement-not-postfix.use-prefix-decremen
+  t-not-postfix                                                                 
+          Consider using the prefix decrement expression whenever the return    
+  value is not needed. The                                                      
+          prefix decrement expression is cheaper in terms of gas.               
+          Details: https://sg.run/Z024                                          
+                                                                                
+           50┆ numOwnersTemp--;
+            ⋮┆----------------------------------------
+       solidity.performance.use-prefix-increment-not-postfix.use-prefix-incremen
+  t-not-postfix                                                                 
+          Consider using the prefix increment expression whenever the return    
+  value is not needed. The                                                      
+          prefix increment expression is cheaper in terms of gas.               
+          Details: https://sg.run/nxLr                                          
+                                                                                
+           29┆ for (uint256 i = 0; i < _owners.length; i++) {
+            ⋮┆----------------------------------------
+           44┆ for (uint256 i = 0; i < _owners.length; i++) {
+            ⋮┆----------------------------------------
+           47┆ numOwnersTemp++;
+            ⋮┆----------------------------------------
+          113┆ nonce++;
+            ⋮┆----------------------------------------
+       solidity.security.arbitrary-low-level-call.arbitrary-low-level-call      
+          An attacker may perform call() to an arbitrary address with controlled
+  calldata                                                                      
+          Details: https://sg.run/LxRY                                          
+                                                                                
+          116┆ (bool success,) = destination.call{ gas: gasLimit }(data);
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 31 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

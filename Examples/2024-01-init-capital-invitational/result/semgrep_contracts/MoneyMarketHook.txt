@@ -1,0 +1,113 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 15 findings.
+                    
+                    
+┌──────────────────┐
+│ 15 Code Findings │
+└──────────────────┘
+                                            
+    /g4b/contracts/hook/MoneyMarketHook.sol 
+       solidity.best-practice.use-abi-encodecall-instead-of-encodewithselector.u
+  se-abi-encodecall-instead-of-                                                 
+       encodewithselector                                                       
+          To guarantee arguments type safety it is recommended to use           
+  `abi.encodeCall` instead of                                                   
+          `abi.encodeWithSelector`.                                             
+          Details: https://sg.run/9K1y                                          
+                                                                                
+          158┆ data[offset] =                                                   
+  abi.encodeWithSelector(IInitCore.setPosMode.selector, _initPosId,             
+  _params.mode);                                                                
+            ⋮┆----------------------------------------
+          191┆ _data[_offset] =
+          192┆     abi.encodeWithSelector(IInitCore.repay.selector,             
+  _params[i].pool, _params[i].shares, _initPosId);                              
+            ⋮┆----------------------------------------
+          214┆ _data[_offset] = abi.encodeWithSelector(
+          215┆     IInitCore.decollateralize.selector, _initPosId,              
+  _params[i].pool, _params[i].shares, _params[i].pool                           
+          216┆ );
+            ⋮┆----------------------------------------
+          234┆ _data[_offset] =                                                 
+  abi.encodeWithSelector(IInitCore.burnTo.selector, _params[i].pool,            
+  uTokenReceiver);                                                              
+            ⋮┆----------------------------------------
+          258┆ _data[_offset] = abi.encodeWithSelector(
+          259┆     IInitCore.borrow.selector, _params[i].pool, _params[i].amt,  
+  _initPosId, uTokenReceiver                                                    
+          260┆ );
+            ⋮┆----------------------------------------
+          310┆ _data[_offset] =                                                 
+  abi.encodeWithSelector(IInitCore.mintTo.selector, pool, POS_MANAGER);         
+            ⋮┆----------------------------------------
+          313┆ _data[_offset] =                                                 
+  abi.encodeWithSelector(IInitCore.collateralize.selector, _initPosId, pool);   
+            ⋮┆----------------------------------------
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+           89┆ for (uint i; i < _params.withdrawParams.length; i = i.uinc()) {
+            ⋮┆----------------------------------------
+          180┆ for (uint i; i < _params.length; i = i.uinc()) {
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           54┆ constructor(address _initCore, address _wNative, address _acm)   
+  UnderACM(_acm) {                                                              
+           55┆     CORE = _initCore;
+           56┆     POS_MANAGER = IInitCore(_initCore).POS_MANAGER();
+           57┆     WNATIVE = _wNative;
+           58┆     _disableInitializers();
+           59┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+          116┆ whitelistedHelpers[_helpers[i]] = _status;
+            ⋮┆----------------------------------------
+          226┆ _require(whitelistedHelpers[helper], Errors.NOT_WHITELISTED);
+            ⋮┆----------------------------------------
+          299┆ _require(whitelistedHelpers[helper], Errors.NOT_WHITELISTED);
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          222┆ if (uToken == WNATIVE && _returnNative) uTokenReceiver =         
+  address(this);                                                                
+            ⋮┆----------------------------------------
+          257┆ if (uToken == WNATIVE && _returnNative) uTokenReceiver =         
+  address(this);                                                                
+
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

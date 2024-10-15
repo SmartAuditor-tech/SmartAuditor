@@ -1,0 +1,16 @@
+
+/g4b/src/staking/StakingRewards.sol
+    2:1   error    Compiler version =0.8.22 does not satisfy the ^0.5.8 semver requirement                            compiler-version
+   46:3   warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+   67:4   warning  Error message for require is too long                                                              reason-string
+   67:13  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+   70:30  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  102:3   warning  Error message for require is too long                                                              reason-string
+  107:4   warning  Error message for require is too long                                                              reason-string
+  107:13  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  110:30  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  300:9   warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  303:41  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+
+✖ 11 problems (1 error, 10 warnings)
+

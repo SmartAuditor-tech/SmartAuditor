@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "RLPWriter.sol",
+        "coverage": "22.2%",
+        "warnings": []
+    }
+}

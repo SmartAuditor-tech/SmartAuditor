@@ -1,0 +1,60 @@
+{
+    "success": true,
+    "finding_length": 6,
+    "findings": [
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "X509DateUtils.toTimestamp(bytes).yrs (packages/protocol/contracts/automata-attestation/utils/X509DateUtils.sol#9) is a local variable never initialized\n",
+            "filename": "X509DateUtils.sol",
+            "classification": [],
+            "line": 9
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "X509DateUtils.toTimestamp(bytes).secs (packages/protocol/contracts/automata-attestation/utils/X509DateUtils.sol#14) is a local variable never initialized\n",
+            "filename": "X509DateUtils.sol",
+            "classification": [],
+            "line": 14
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "X509DateUtils.toTimestamp(bytes).mins (packages/protocol/contracts/automata-attestation/utils/X509DateUtils.sol#13) is a local variable never initialized\n",
+            "filename": "X509DateUtils.sol",
+            "classification": [],
+            "line": 13
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "X509DateUtils.toTimestamp(bytes).offset (packages/protocol/contracts/automata-attestation/utils/X509DateUtils.sol#15) is a local variable never initialized\n",
+            "filename": "X509DateUtils.sol",
+            "classification": [],
+            "line": 15
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "X509DateUtils.toTimestamp(bytes).dys (packages/protocol/contracts/automata-attestation/utils/X509DateUtils.sol#11) is a local variable never initialized\n",
+            "filename": "X509DateUtils.sol",
+            "classification": [],
+            "line": 11
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "X509DateUtils.toTimestamp(bytes).hrs (packages/protocol/contracts/automata-attestation/utils/X509DateUtils.sol#12) is a local variable never initialized\n",
+            "filename": "X509DateUtils.sol",
+            "classification": [],
+            "line": 12
+        }
+    ]
+}

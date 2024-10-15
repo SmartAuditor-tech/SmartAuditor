@@ -1,0 +1,7 @@
+
+/g4b/packages/protocol/contracts/L2/TaikoL2.sol
+  39:20  error  Parse error: extraneous input 'blockId' expecting '=>'
+  39:39  error  Parse error: extraneous input 'blockHash' expecting ')'
+
+✖ 2 problems (2 errors, 0 warnings)
+

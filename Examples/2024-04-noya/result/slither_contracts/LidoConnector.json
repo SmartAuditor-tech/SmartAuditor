@@ -1,0 +1,295 @@
+{
+    "success": true,
+    "finding_length": 24,
+    "findings": [
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "BaseConnector._updateTokenInRegistry(address) (contracts/helpers/BaseConnector.sol#158-160) uses a dangerous strict equality:\n\t- _updateTokenInRegistry(token,IERC20(token).balanceOf(address(this)) == 0) (contracts/helpers/BaseConnector.sol#159)\n",
+            "filename": "LidoConnector.sol",
+            "classification": [],
+            "function": "_updateTokenInRegistry",
+            "contract": "BaseConnector",
+            "line": 159
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyGovernance() (contracts/governance/NoyaGovernanceBase.sol#85-89) ignores return value by (governer,None,None,None,None,None) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#86)\n",
+            "filename": "LidoConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyGovernance",
+            "contract": "NoyaGovernanceBase",
+            "line": 86
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector.sendTokensToTrustedAddress(address,uint256,address,bytes) (contracts/helpers/BaseConnector.sol#84-108) ignores return value by (None,None,None,None,watcherContract,None) = registry.getGovernanceAddresses(vaultId) (contracts/helpers/BaseConnector.sol#91)\n",
+            "filename": "LidoConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "sendTokensToTrustedAddress",
+            "contract": "BaseConnector",
+            "line": 91
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyMaintainer() (contracts/governance/NoyaGovernanceBase.sol#75-79) ignores return value by (None,maintainer,None,None,None,None) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#76)\n",
+            "filename": "LidoConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyMaintainer",
+            "contract": "NoyaGovernanceBase",
+            "line": 76
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyEmergency() (contracts/governance/NoyaGovernanceBase.sol#43-47) ignores return value by (None,None,None,None,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#44)\n",
+            "filename": "LidoConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyEmergency",
+            "contract": "NoyaGovernanceBase",
+            "line": 44
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyMaintainerOrEmergency() (contracts/governance/NoyaGovernanceBase.sol#65-69) ignores return value by (None,maintainer,None,None,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#66)\n",
+            "filename": "LidoConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyMaintainerOrEmergency",
+            "contract": "NoyaGovernanceBase",
+            "line": 66
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector.addLiquidity(address[],uint256[],bytes) (contracts/helpers/BaseConnector.sol#169-193) ignores return value by ITokenTransferCallBack(msg.sender).sendTokensToTrustedAddress(tokens[i],amounts[i],msg.sender,) (contracts/helpers/BaseConnector.sol#181)\n",
+            "filename": "LidoConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "addLiquidity",
+            "contract": "BaseConnector",
+            "line": 181
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector._updateTokenInRegistry(address,bool) (contracts/helpers/BaseConnector.sol#135-146) ignores return value by registry.updateHoldingPosition(vaultId,positionId,abi.encode(address(this)),,remove) (contracts/helpers/BaseConnector.sol#144)\n",
+            "filename": "LidoConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_updateTokenInRegistry",
+            "contract": "BaseConnector",
+            "line": 144
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "LidoConnector.claimWithdrawal(uint256) (contracts/connectors/LidoConnector.sol#69-87) ignores return value by registry.updateHoldingPosition(vaultId,registry.calculatePositionId(address(this),LIDO_WITHDRAWAL_REQUEST_ID,),abi.encode(requestId),,true) (contracts/connectors/LidoConnector.sol#78-84)\n",
+            "filename": "LidoConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "claimWithdrawal",
+            "contract": "LidoConnector",
+            "line": 78,
+            "line_end": 84
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector.sendTokensToTrustedAddress(address,uint256,address,bytes) (contracts/helpers/BaseConnector.sol#84-108) ignores return value by (accountingManager,None) = registry.getVaultAddresses(vaultId) (contracts/helpers/BaseConnector.sol#89)\n",
+            "filename": "LidoConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "sendTokensToTrustedAddress",
+            "contract": "BaseConnector",
+            "line": 89
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "LidoConnector.deposit(uint256) (contracts/connectors/LidoConnector.sol#37-45) ignores return value by ILido(lido).submit{value: amountIn}(address(0)) (contracts/connectors/LidoConnector.sol#41)\n",
+            "filename": "LidoConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "deposit",
+            "contract": "LidoConnector",
+            "line": 41
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector._updateTokenInRegistry(address,bool) (contracts/helpers/BaseConnector.sol#135-146) ignores return value by (accountingManager,None) = registry.getVaultAddresses(vaultId) (contracts/helpers/BaseConnector.sol#136)\n",
+            "filename": "LidoConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_updateTokenInRegistry",
+            "contract": "BaseConnector",
+            "line": 136
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "LidoConnector.requestWithdrawals(uint256) (contracts/connectors/LidoConnector.sol#51-63) ignores return value by registry.updateHoldingPosition(vaultId,positionId,abi.encode(requestIds[0]),abi.encode(amount),false) (contracts/connectors/LidoConnector.sol#59)\n",
+            "filename": "LidoConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "requestWithdrawals",
+            "contract": "LidoConnector",
+            "line": 59
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyManager() (contracts/governance/NoyaGovernanceBase.sol#31-37) ignores return value by (None,None,None,keeperContract,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#32)\n",
+            "filename": "LidoConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyManager",
+            "contract": "NoyaGovernanceBase",
+            "line": 32
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyEmergencyOrWatcher() (contracts/governance/NoyaGovernanceBase.sol#53-59) ignores return value by (None,None,None,None,watcherContract,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#54)\n",
+            "filename": "LidoConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyEmergencyOrWatcher",
+            "contract": "NoyaGovernanceBase",
+            "line": 54
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "LidoConnector.LIDO_WITHDRAWAL_REQUEST_ID (contracts/connectors/LidoConnector.sol#13) should be constant \n",
+            "filename": "LidoConnector.sol",
+            "classification": [],
+            "line": 13
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "BaseConnector.DUST_LEVEL (contracts/helpers/BaseConnector.sol#31) should be constant \n",
+            "filename": "LidoConnector.sol",
+            "classification": [],
+            "line": 31
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "BaseConnector.MINIMUM_HEALTH_FACTOR (contracts/helpers/BaseConnector.sol#28) should be constant \n",
+            "filename": "LidoConnector.sol",
+            "classification": [],
+            "line": 28
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "LidoConnector.steth (contracts/connectors/LidoConnector.sol#10) should be immutable \n",
+            "filename": "LidoConnector.sol",
+            "classification": [],
+            "line": 10
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "LidoConnector.lido (contracts/connectors/LidoConnector.sol#8) should be immutable \n",
+            "filename": "LidoConnector.sol",
+            "classification": [],
+            "line": 8
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "NoyaGovernanceBase.vaultId (contracts/governance/NoyaGovernanceBase.sol#8) should be immutable \n",
+            "filename": "LidoConnector.sol",
+            "classification": [],
+            "line": 8
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "LidoConnector.weth (contracts/connectors/LidoConnector.sol#11) should be immutable \n",
+            "filename": "LidoConnector.sol",
+            "classification": [],
+            "line": 11
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "NoyaGovernanceBase.registry (contracts/governance/NoyaGovernanceBase.sol#7) should be immutable \n",
+            "filename": "LidoConnector.sol",
+            "classification": [],
+            "line": 7
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "LidoConnector.lidoWithdrawal (contracts/connectors/LidoConnector.sol#9) should be immutable \n",
+            "filename": "LidoConnector.sol",
+            "classification": [],
+            "line": 9
+        }
+    ]
+}

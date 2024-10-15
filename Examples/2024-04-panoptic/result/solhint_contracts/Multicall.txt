@@ -1,0 +1,8 @@
+
+/g4b/contracts/multicall/Multicall.sol
+   2:1   error    Compiler version ^0.8.18 does not satisfy the ^0.5.8 semver requirement  compiler-version
+  15:51  warning  Avoid to use low level calls                                             avoid-low-level-calls
+  25:17  warning  Avoid to use inline assembly. It is acceptable only in rare cases        no-inline-assembly
+
+✖ 3 problems (1 error, 2 warnings)
+

@@ -1,0 +1,7 @@
+
+/g4b/contracts/common/library/InitErrors.sol
+  2:1  error    Compiler version ^0.8.19 does not satisfy the ^0.5.8 semver requirement  compiler-version
+  8:1  warning  Explicitly mark visibility in function                                   func-visibility
+
+✖ 2 problems (1 error, 1 warning)
+

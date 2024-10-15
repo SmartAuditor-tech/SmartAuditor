@@ -1,0 +1,54 @@
+{
+    "success": true,
+    "finding_length": 6,
+    "findings": [
+        {
+            "filename": "LZHelperSender.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version 0.8.20 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "LZHelperSender.sol",
+            "line": 23,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "LZHelperSender.sol",
+            "line": 27,
+            "column": 32,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        },
+        {
+            "filename": "LZHelperSender.sol",
+            "line": 29,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "LZHelperSender.sol",
+            "line": 29,
+            "column": 93,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        },
+        {
+            "filename": "LZHelperSender.sol",
+            "line": 52,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        }
+    ]
+}

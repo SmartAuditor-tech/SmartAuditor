@@ -1,0 +1,34 @@
+{
+    "success": true,
+    "finding_length": 2,
+    "findings": [
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BlastYields.callPrecompile(bytes) (src/blast/libraries/BlastYields.sol#86-88) ignores return value by Address.functionCall(address(BLAST_YIELD_PRECOMPILE),data) (src/blast/libraries/BlastYields.sol#87)\n",
+            "filename": "BlastYields.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "callPrecompile",
+            "contract": "BlastYields",
+            "line": 87
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BlastYields.enableTokenClaimable(address) (src/blast/libraries/BlastYields.sol#20-27) ignores return value by IERC20Rebasing(token).configure(YieldMode.CLAIMABLE) (src/blast/libraries/BlastYields.sol#25)\n",
+            "filename": "BlastYields.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "enableTokenClaimable",
+            "contract": "BlastYields",
+            "line": 25
+        }
+    ]
+}

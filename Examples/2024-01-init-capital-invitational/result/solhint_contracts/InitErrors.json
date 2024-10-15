@@ -1,0 +1,22 @@
+{
+    "success": true,
+    "finding_length": 2,
+    "findings": [
+        {
+            "filename": "InitErrors.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version ^0.8.19 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "InitErrors.sol",
+            "line": 8,
+            "column": 1,
+            "message": "Explicitly mark visibility in function",
+            "level": "warning",
+            "name": "func-visibility"
+        }
+    ]
+}

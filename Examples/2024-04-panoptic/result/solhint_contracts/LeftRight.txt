@@ -1,0 +1,12 @@
+
+/g4b/contracts/types/LeftRight.sol
+    2:1  error    Compiler version ^0.8.0 does not satisfy the ^0.5.8 semver requirement  compiler-version
+  285:9  warning  Variable name must be in mixedCase                                      var-name-mixedcase
+  286:9  warning  Variable name must be in mixedCase                                      var-name-mixedcase
+  287:9  warning  Variable name must be in mixedCase                                      var-name-mixedcase
+  288:9  warning  Variable name must be in mixedCase                                      var-name-mixedcase
+  290:9  warning  Variable name must be in mixedCase                                      var-name-mixedcase
+  291:9  warning  Variable name must be in mixedCase                                      var-name-mixedcase
+
+✖ 7 problems (1 error, 6 warnings)
+

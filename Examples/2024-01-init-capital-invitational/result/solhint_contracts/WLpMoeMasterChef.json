@@ -1,0 +1,174 @@
+{
+    "success": false,
+    "finding_length": 21,
+    "findings": [
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version ^0.8.19 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 4,
+            "column": 8,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 5,
+            "column": 8,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 6,
+            "column": 39,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 7,
+            "column": 35,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 8,
+            "column": 27,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 9,
+            "column": 24,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 10,
+            "column": 27,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 11,
+            "column": 27,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 12,
+            "column": 24,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 32,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 33,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 34,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 35,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 49,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 51,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 69,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 91,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 195,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 201,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "WLpMoeMasterChef.sol",
+            "line": 246,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        }
+    ]
+}

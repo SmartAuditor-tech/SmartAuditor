@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "DataTypes.sol" not found: File not found. Searched the following locations: "".
+ --> /g4b/contracts/libraries/LibBridgeRouter.sol:6:1:
+  |
+6 | import   {STypes} from "DataTypes.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

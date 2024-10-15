@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "TokenId.sol" not found: File not found. Searched the following locations: "".
+ --> /g4b/contracts/types/LiquidityChunk.sol:5:1:
+  |
+5 | import   {TokenId} from "TokenId.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

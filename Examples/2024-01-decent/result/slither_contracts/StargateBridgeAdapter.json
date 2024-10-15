@@ -1,0 +1,45 @@
+{
+    "success": true,
+    "finding_length": 3,
+    "findings": [
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "StargateBridgeAdapter.bridge(uint256,SwapInstructions,uint256,address,address,bytes,bytes,address) (src/bridge_adapters/StargateBridgeAdapter.sol#69-98) ignores return value by IERC20(bridgeToken).transferFrom(msg.sender,address(this),amt2Bridge) (src/bridge_adapters/StargateBridgeAdapter.sol#88)\n",
+            "filename": "StargateBridgeAdapter.sol",
+            "classification": [],
+            "function": "bridge",
+            "contract": "StargateBridgeAdapter",
+            "line": 88
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "StargateBridgeAdapter.bridge(uint256,SwapInstructions,uint256,address,address,bytes,bytes,address) (src/bridge_adapters/StargateBridgeAdapter.sol#69-98) ignores return value by IERC20(bridgeToken).approve(address(router),amt2Bridge) (src/bridge_adapters/StargateBridgeAdapter.sol#89)\n",
+            "filename": "StargateBridgeAdapter.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "bridge",
+            "contract": "StargateBridgeAdapter",
+            "line": 89
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "StargateBridgeAdapter.sgReceive(uint16,bytes,uint256,address,uint256,bytes) (src/bridge_adapters/StargateBridgeAdapter.sol#183-216) ignores return value by IERC20(swapParams.tokenIn).approve(utb,swapParams.amountIn) (src/bridge_adapters/StargateBridgeAdapter.sol#207)\n",
+            "filename": "StargateBridgeAdapter.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "sgReceive",
+            "contract": "StargateBridgeAdapter",
+            "line": 207
+        }
+    ]
+}

@@ -1,0 +1,326 @@
+{
+    "success": false,
+    "finding_length": 40,
+    "findings": [
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version ^0.8.19 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 4,
+            "column": 8,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 5,
+            "column": 24,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 6,
+            "column": 33,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 16,
+            "column": 8,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 17,
+            "column": 24,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 18,
+            "column": 25,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 19,
+            "column": 33,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 20,
+            "column": 26,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 21,
+            "column": 28,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 22,
+            "column": 27,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 23,
+            "column": 27,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 24,
+            "column": 31,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 37,
+            "column": 51,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 39,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 55,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 80,
+            "column": 31,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 80,
+            "column": 74,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 96,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 97,
+            "column": 88,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 130,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 131,
+            "column": 60,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 150,
+            "column": 93,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 189,
+            "column": 18,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 211,
+            "column": 18,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 234,
+            "column": 33,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 264,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 265,
+            "column": 51,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 281,
+            "column": 102,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 341,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 343,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 352,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 354,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 472,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 474,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 507,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 509,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 571,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 627,
+            "column": 47,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MarginTradingHook.sol",
+            "line": 627,
+            "column": 86,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        }
+    ]
+}

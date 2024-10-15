@@ -1,0 +1,58 @@
+{
+    "success": true,
+    "finding_length": 4,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "xRenzoBridge.recoverNative(uint256,address) (contracts/Bridge/L1/xRenzoBridge.sol#294-296) sends eth to arbitrary user\n\tDangerous calls:\n\t- address(_to).transfer(_amount) (contracts/Bridge/L1/xRenzoBridge.sol#295)\n",
+            "filename": "xRenzoBridge.sol",
+            "classification": [],
+            "function": "recoverNative",
+            "contract": "xRenzoBridge",
+            "line": 295
+        },
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "xRenzoBridge.sendPrice(IxRenzoBridge.CCIPDestinationParam[],IxRenzoBridge.ConnextDestinationParam[]) (contracts/Bridge/L1/xRenzoBridge.sol#210-286) sends eth to arbitrary user\n\tDangerous calls:\n\t- connext.xcall{value: _connextDestinationParam[i_scope_0].relayerFee}(_connextDestinationParam[i_scope_0].destinationDomainId,_connextDestinationParam[i_scope_0]._renzoReceiver,address(0),msg.sender,0,0,_callData) (contracts/Bridge/L1/xRenzoBridge.sol#265-273)\n",
+            "filename": "xRenzoBridge.sol",
+            "classification": [],
+            "function": "sendPrice",
+            "contract": "xRenzoBridge",
+            "line": 265,
+            "line_end": 273
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "xRenzoBridge.sendPrice(IxRenzoBridge.CCIPDestinationParam[],IxRenzoBridge.ConnextDestinationParam[]) (contracts/Bridge/L1/xRenzoBridge.sol#210-286) ignores return value by connext.xcall{value: _connextDestinationParam[i_scope_0].relayerFee}(_connextDestinationParam[i_scope_0].destinationDomainId,_connextDestinationParam[i_scope_0]._renzoReceiver,address(0),msg.sender,0,0,_callData) (contracts/Bridge/L1/xRenzoBridge.sol#265-273)\n",
+            "filename": "xRenzoBridge.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "sendPrice",
+            "contract": "xRenzoBridge",
+            "line": 265,
+            "line_end": 273
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "xRenzoBridge.sendPrice(IxRenzoBridge.CCIPDestinationParam[],IxRenzoBridge.ConnextDestinationParam[]) (contracts/Bridge/L1/xRenzoBridge.sol#210-286) ignores return value by linkToken.approve(address(linkRouterClient),fees) (contracts/Bridge/L1/xRenzoBridge.sol#241)\n",
+            "filename": "xRenzoBridge.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "sendPrice",
+            "contract": "xRenzoBridge",
+            "line": 241
+        }
+    ]
+}

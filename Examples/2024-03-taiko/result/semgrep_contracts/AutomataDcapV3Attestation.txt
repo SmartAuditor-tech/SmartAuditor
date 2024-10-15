@@ -1,0 +1,117 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 18 Code Findings │
+└──────────────────┘
+                                                                                
+    /g4b/packages/protocol/contracts/automata-attestation/AutomataDcapV3Attestat
+  ion.sol                                                                       
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+          191┆ for (uint256 i; i < enclaveId.tcbLevels.length; ++i) {
+            ⋮┆----------------------------------------
+          214┆ for (uint256 i; i < tcb.tcbLevels.length; ++i) {
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           54┆ constructor(address sigVerifyLibAddr, address pemCertLibAddr) {
+           55┆     sigVerifyLib = ISigVerifyLib(sigVerifyLibAddr);
+           56┆     pemCertLib = PEMCertChainLib(pemCertLibAddr);
+           57┆     owner = msg.sender;
+           58┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+           81┆ if (_serialNumIsRevoked[index][serialNumBatch[i]]) {
+            ⋮┆----------------------------------------
+           84┆ _serialNumIsRevoked[index][serialNumBatch[i]] = true;
+            ⋮┆----------------------------------------
+           96┆ if (!_serialNumIsRevoked[index][serialNumBatch[i]]) {
+            ⋮┆----------------------------------------
+           99┆ delete _serialNumIsRevoked[index][serialNumBatch[i]];
+            ⋮┆----------------------------------------
+          268┆ certRevoked =                                                    
+  _serialNumIsRevoked[uint256(IPEMCertChainLib.CRL.ROOT)][certs[i]              
+            ⋮┆----------------------------------------
+          271┆ certRevoked =                                                    
+  _serialNumIsRevoked[uint256(IPEMCertChainLib.CRL.PCK)][certs[i]               
+            ⋮┆----------------------------------------
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+           80┆ for (uint256 i; i < serialNumBatch.length; ++i) {
+            ⋮┆----------------------------------------
+           95┆ for (uint256 i; i < serialNumBatch.length; ++i) {
+            ⋮┆----------------------------------------
+          191┆ for (uint256 i; i < enclaveId.tcbLevels.length; ++i) {
+            ⋮┆----------------------------------------
+          214┆ for (uint256 i; i < tcb.tcbLevels.length; ++i) {
+            ⋮┆----------------------------------------
+          240┆ for (uint256 i; i < CPUSVN_LENGTH; ++i) {
+            ⋮┆----------------------------------------
+          259┆ for (uint256 i; i < n; ++i) {
+            ⋮┆----------------------------------------
+          420┆ for (uint256 i; i < 3; ++i) {
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           61┆ require(msg.sender == owner, "onlyOwner");
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          220┆ if (pceSvnIsHigherOrGreater && cpuSvnsAreHigherOrGreater) {
+          221┆     status = current.status;
+          222┆     bool tcbIsRevoked = status ==                                
+  TCBInfoStruct.TCBStatus.TCB_REVOKED;                                          
+          223┆     return (!tcbIsRevoked, status);
+          224┆ }
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+Some files were skipped or only partially analyzed.
+  Partially scanned: 1 files only partially analyzed due to parsing or internal Semgrep errors
+
+Ran 50 rules on 1 file: 18 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

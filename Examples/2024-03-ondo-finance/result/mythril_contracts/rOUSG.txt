@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "contracts/external/openzeppelin/contracts/token/IERC20.sol" not found: File not found. Searched the following locations: "".
+  --> /g4b/contracts/ousg/rOUSG.sol:18:1:
+   |
+18 | import "contracts/external/openzeppelin/contracts/token/IERC20.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

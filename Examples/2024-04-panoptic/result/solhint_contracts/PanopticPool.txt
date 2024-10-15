@@ -1,0 +1,18 @@
+
+/g4b/contracts/PanopticPool.sol
+  238:20  error  Parse error: extraneous input 'account' expecting '=>'
+  238:47  error  Parse error: extraneous input 'tokenId' expecting '=>'
+  238:74  error  Parse error: extraneous input 'leg' expecting '=>'
+  238:99  error  Parse error: extraneous input 'premiaGrowth' expecting ')'
+  245:20  error  Parse error: extraneous input 'chunkKey' expecting '=>'
+  245:50  error  Parse error: extraneous input 'lastGrossPremium' expecting ')'
+  251:20  error  Parse error: extraneous input 'chunkKey' expecting '=>'
+  251:50  error  Parse error: extraneous input 'settledTokens' expecting ')'
+  258:20  error  Parse error: extraneous input 'account' expecting '=>'
+  258:47  error  Parse error: extraneous input 'tokenId' expecting '=>'
+  258:76  error  Parse error: extraneous input 'balanceAndUtilizations' expecting ')'
+  272:20  error  Parse error: extraneous input 'account' expecting '=>'
+  272:39  error  Parse error: extraneous input 'positionsHash' expecting ')'
+
+✖ 13 problems (13 errors, 0 warnings)
+

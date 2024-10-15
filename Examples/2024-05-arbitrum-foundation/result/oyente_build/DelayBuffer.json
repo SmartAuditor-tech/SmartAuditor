@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "DelayBuffer.sol",
+        "incomplete instruction": "248",
+        "coverage": "16.8%",
+        "warnings": []
+    }
+}

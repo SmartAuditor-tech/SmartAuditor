@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "AMProxyAdmin.sol",
+        "incomplete instruction": "3221",
+        "coverage": "0.5%",
+        "warnings": []
+    }
+}

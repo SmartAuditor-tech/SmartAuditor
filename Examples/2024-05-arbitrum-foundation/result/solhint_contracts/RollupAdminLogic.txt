@@ -1,0 +1,8 @@
+
+/g4b/src/rollup/RollupAdminLogic.sol
+    5:1   error    Compiler version ^0.8.0 does not satisfy the ^0.5.8 semver requirement  compiler-version
+  166:77  warning  Code contains empty blocks                                              no-empty-blocks
+  171:86  warning  Code contains empty blocks                                              no-empty-blocks
+
+✖ 3 problems (1 error, 2 warnings)
+

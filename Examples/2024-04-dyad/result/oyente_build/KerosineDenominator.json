@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "KerosineDenominator.sol",
+        "coverage": "50.7%",
+        "warnings": []
+    }
+}

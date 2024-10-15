@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "MockERC20.sol",
+        "coverage": "0.7%",
+        "warnings": []
+    }
+}

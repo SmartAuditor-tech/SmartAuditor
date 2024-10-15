@@ -1,0 +1,11 @@
+'solc --version' running
+'solc /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-cfmm/contracts/ThrusterFactory.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-cfmm/contracts' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-cfmm/contracts/ThrusterFactory.sol:
+/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-cfmm/contracts/ThrusterFactory.sol:7:1: Error: Source "ThrusterPair.sol" not found: File not found.
+import "ThrusterPair.sol";
+^------------------------^
+/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-clmm/contracts/ThrusterGas.sol:2:1: Error: Source file requires different compiler version (current compiler is 0.5.16+commit.9c3226ce.Darwin.appleclang - note that nightly builds are considered to be strictly less than the released version
+pragma solidity =0.7.6;
+^---------------------^
+
+ERROR:Slither:Unable to compile all targets.

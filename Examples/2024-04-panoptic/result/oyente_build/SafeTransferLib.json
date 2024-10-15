@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "SafeTransferLib.sol",
+        "incomplete instruction": "149",
+        "coverage": "37.5%",
+        "warnings": []
+    }
+}

@@ -1,0 +1,84 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 5 Code Findings │
+└─────────────────┘
+                                                                 
+    /g4b/packages/protocol/contracts/L1/hooks/AssignmentHook.sol 
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+          172┆ for (uint256 i; i < _tierFees.length; ++i) {
+            ⋮┆----------------------------------------
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+          172┆ for (uint256 i; i < _tierFees.length; ++i) {
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+           81┆ if (
+           82┆     block.timestamp > assignment.expiry
+           83┆         || assignment.metaHash != 0 && _blk.metaHash !=          
+  assignment.metaHash                                                           
+           84┆         || assignment.parentMetaHash != 0 && _meta.parentMetaHash
+  != assignment.parentMetaHash                                                  
+           85┆         || assignment.maxBlockId != 0 && _meta.id >              
+  assignment.maxBlockId                                                         
+           86┆         || assignment.maxProposedIn != 0 && block.number >       
+  assignment.maxProposedIn                                                      
+           87┆ ) {
+           88┆     revert HOOK_ASSIGNMENT_EXPIRED();
+           89┆ }
+            ⋮┆----------------------------------------
+          120┆ if (input.tip != 0 && block.coinbase != address(0)) {
+          121┆     address(block.coinbase).sendEther(input.tip);
+          122┆ }
+            ⋮┆----------------------------------------
+       solidity.security.arbitrary-send-erc20.arbitrary-send-erc20              
+          msg.sender is not being used when calling erc20.transferFrom. Example 
+  - Alice approves this                                                         
+          contract to spend her ERC20 tokens. Bob can call function 'a' and     
+  specify Alice's address as                                                    
+          the from parameter in transferFrom, allowing him to transfer Alice's  
+  tokens to himself.                                                            
+          Details: https://sg.run/B72A                                          
+                                                                                
+          102┆ tko.transferFrom(_blk.assignedProver, taikoL1Address,            
+  _blk.livenessBond);                                                           
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 5 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

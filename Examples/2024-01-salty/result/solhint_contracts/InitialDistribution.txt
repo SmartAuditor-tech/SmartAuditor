@@ -1,0 +1,9 @@
+
+/g4b/src/launch/InitialDistribution.sol
+   2:1  error    Compiler version =0.8.22 does not satisfy the ^0.5.8 semver requirement                            compiler-version
+  34:2  warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+  52:6  warning  Error message for require is too long                                                              reason-string
+  53:3  warning  Error message for require is too long                                                              reason-string
+
+✖ 4 problems (1 error, 3 warnings)
+

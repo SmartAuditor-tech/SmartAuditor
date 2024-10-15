@@ -1,0 +1,12 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [
+            "Callstack Depth Attack Vulnerability: DASP-5"
+        ],
+        "filename": "RewardHandler.sol",
+        "incomplete instruction": "3944",
+        "coverage": "0.8%",
+        "warnings": []
+    }
+}

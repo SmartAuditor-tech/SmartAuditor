@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "V3Struct.sol",
+        "coverage": "25.0%",
+        "warnings": []
+    }
+}

@@ -1,0 +1,54 @@
+{
+    "success": true,
+    "finding_length": 6,
+    "findings": [
+        {
+            "filename": "MorphoBlueConnector.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version 0.8.20 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "MorphoBlueConnector.sol",
+            "line": 14,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "MorphoBlueConnector.sol",
+            "line": 23,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "MorphoBlueConnector.sol",
+            "line": 23,
+            "column": 17,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MorphoBlueConnector.sol",
+            "line": 24,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "MorphoBlueConnector.sol",
+            "line": 137,
+            "column": 64,
+            "message": "Variable \"collateral\" is unused",
+            "level": "warning",
+            "name": "no-unused-vars"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+'solc --version' running
+'solc /Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-taiko/packages/protocol/contracts/common/EssentialContract.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-taiko/packages/protocol/contracts/common' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-taiko/packages/protocol/contracts/common/EssentialContract.sol:
+Error: Function "tstore" not found.
+   --> packages/protocol/contracts/common/EssentialContract.sol:122:17:
+    |
+122 |                 tstore(_REENTRY_SLOT, _reentry)
+    |                 ^^^^^^
+
+Error: Function "tload" not found.
+   --> packages/protocol/contracts/common/EssentialContract.sol:133:29:
+    |
+133 |                 reentry_ := tload(_REENTRY_SLOT)
+    |                             ^^^^^
+
+Error: Variable count for assignment to "reentry_" does not match number of values (1 vs. 0)
+   --> packages/protocol/contracts/common/EssentialContract.sol:133:17:
+    |
+133 |                 reentry_ := tload(_REENTRY_SLOT)
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+ERROR:Slither:Unable to compile all targets.

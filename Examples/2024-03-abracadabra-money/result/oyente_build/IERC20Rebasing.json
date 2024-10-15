@@ -1,0 +1,9 @@
+{
+    "success": false,
+    "findings": {
+        "vul": [],
+        "filename": "IERC20Rebasing.sol",
+        "coverage": "",
+        "warnings": []
+    }
+}

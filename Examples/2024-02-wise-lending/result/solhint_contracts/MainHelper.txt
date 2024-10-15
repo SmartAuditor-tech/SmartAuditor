@@ -1,0 +1,14 @@
+
+/g4b/contracts/MainHelper.sol
+     3:1   error    Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement  compiler-version
+   357:34  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+   426:9   warning  Avoid to use letters 'I', 'l', 'O' as identifiers                        use-forbidden-name
+   479:9   warning  Avoid to use letters 'I', 'l', 'O' as identifiers                        use-forbidden-name
+   505:31  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+   903:16  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+   979:13  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+  1104:16  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+  1133:16  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+
+✖ 9 problems (1 error, 8 warnings)
+

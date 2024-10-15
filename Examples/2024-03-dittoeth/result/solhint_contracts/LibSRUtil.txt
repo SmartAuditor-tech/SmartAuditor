@@ -1,0 +1,9 @@
+
+/g4b/contracts/libraries/LibSRUtil.sol
+    2:1   error    Compiler version 0.8.21 does not satisfy the ^0.5.8 semver requirement  compiler-version
+   27:9   warning  Variable name must be in mixedCase                                      var-name-mixedcase
+   29:9   warning  Variable name must be in mixedCase                                      var-name-mixedcase
+  112:13  warning  Variable name must be in mixedCase                                      var-name-mixedcase
+
+✖ 4 problems (1 error, 3 warnings)
+

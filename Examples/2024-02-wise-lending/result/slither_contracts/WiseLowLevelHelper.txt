@@ -1,0 +1,28 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/WiseLowLevelHelper.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20 --evm-version shanghai --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts' running
+INFO:Detectors:
+WrapperHelper._wrapETH(uint256) (contracts/TransferHub/WrapperHelper.sol#24-32) sends eth to arbitrary user
+	Dangerous calls:
+	- WETH.deposit{value: _value}() (contracts/TransferHub/WrapperHelper.sol#29-31)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+INFO:Detectors:
+WiseLendingDeclaration.positionLendTokenData (contracts/WiseLendingDeclaration.sol#270) is never initialized. It is used in:
+	- WiseLowLevelHelper.getPositionLendingTokenByIndex(uint256,uint256) (contracts/WiseLowLevelHelper.sol#144-153)
+	- WiseLowLevelHelper.getPositionLendingTokenLength(uint256) (contracts/WiseLowLevelHelper.sol#155-163)
+WiseLendingDeclaration.positionBorrowTokenData (contracts/WiseLendingDeclaration.sol#271) is never initialized. It is used in:
+	- WiseLowLevelHelper.getPositionBorrowTokenByIndex(uint256,uint256) (contracts/WiseLowLevelHelper.sol#165-174)
+	- WiseLowLevelHelper.getPositionBorrowTokenLength(uint256) (contracts/WiseLowLevelHelper.sol#176-184)
+WiseLendingDeclaration.userBorrowShares (contracts/WiseLendingDeclaration.sol#273) is never initialized. It is used in:
+	- WiseLowLevelHelper.getPositionBorrowShares(uint256,address) (contracts/WiseLowLevelHelper.sol#110-119)
+WiseLendingDeclaration.pureCollateralAmount (contracts/WiseLendingDeclaration.sol#274) is never initialized. It is used in:
+	- WiseLowLevelHelper.getPureCollateralAmount(uint256,address) (contracts/WiseLowLevelHelper.sol#121-130)
+WiseLendingDeclaration.userLendingData (contracts/WiseLendingDeclaration.sol#275) is never initialized. It is used in:
+	- WiseLowLevelHelper.getPositionLendingShares(uint256,address) (contracts/WiseLowLevelHelper.sol#99-108)
+WiseLendingDeclaration.verifiedIsolationPool (contracts/WiseLendingDeclaration.sol#288) is never initialized. It is used in:
+	- WiseLowLevelHelper._byPassCase(address) (contracts/WiseLowLevelHelper.sol#393-405)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+INFO:Detectors:
+WiseLendingDeclaration.powerFarmCheck (contracts/WiseLendingDeclaration.sol#186) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/WiseLowLevelHelper.sol analyzed (12 contracts with 58 detectors), 8 result(s) found

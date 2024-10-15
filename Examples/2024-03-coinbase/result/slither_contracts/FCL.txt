@@ -1,0 +1,5 @@
+'forge config --json' running
+Could not detect solc version from Foundry config. Falling back to system version...
+'solc --version' running
+'solc @openzeppelin/contracts/security/=lib/openzeppelin-contracts/contracts/utils/ account-abstraction/=lib/account-abstraction/contracts/ ds-test/=lib/openzeppelin-contracts/lib/forge-std/lib/ds-test/src/ erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/ forge-std/=lib/forge-std/src/ openzeppelin-contracts/=lib/openzeppelin-contracts/ solady/=lib/solady/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-coinbase/src/FreshCryptoLib/FCL.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 200 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-coinbase/src/FreshCryptoLib' running
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-coinbase/src/FreshCryptoLib/FCL.sol analyzed (1 contracts with 58 detectors), 0 result(s) found

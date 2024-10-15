@@ -1,0 +1,17 @@
+
+/g4b/contracts/oracle/Api3OracleReader.sol
+   2:1   error    Compiler version ^0.8.19 does not satisfy the ^0.5.8 semver requirement                            compiler-version
+   8:8   error    Use double quotes for string literals                                                              quotes
+   9:8   error    Use double quotes for string literals                                                              quotes
+  10:24  error    Use double quotes for string literals                                                              quotes
+  12:46  error    Use double quotes for string literals                                                              quotes
+  13:29  error    Use double quotes for string literals                                                              quotes
+  21:51  error    Use double quotes for string literals                                                              quotes
+  34:5   warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+  74:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  74:66  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  87:13  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  88:22  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+
+✖ 12 problems (7 errors, 5 warnings)
+

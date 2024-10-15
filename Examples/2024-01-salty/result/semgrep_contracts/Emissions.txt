@@ -1,0 +1,72 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 3 Code Findings │
+└─────────────────┘
+                                   
+    /g4b/src/rewards/Emissions.sol 
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           27┆     constructor( ISaltRewards _saltRewards, IExchangeConfig      
+  _exchangeConfig, IRewardsConfig _rewardsConfig )                              
+           28┆  
+  {             
+           29┆            saltRewards =   
+  _saltRewards;                           
+           30┆            exchangeConfig =      
+  _exchangeConfig;                              
+           31┆            rewardsConfig =     
+  _rewardsConfig;                             
+           32┆ 
+           33┆            // Cached for
+  efficiency                           
+           34┆            salt =             
+  _exchangeConfig.salt();                    
+           35┆  
+  }             
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           42┆ require( msg.sender == address(exchangeConfig.upkeep()),         
+  "Emissions.performUpkeep is only callable from the Upkeep contract" );        
+            ⋮┆----------------------------------------
+       solidity.performance.use-short-revert-string.use-short-revert-string     
+          Shortening revert strings to fit in 32 bytes will decrease gas costs  
+  for deployment and  gas                                                       
+          costs when the revert condition has been met.                         
+          Details: https://sg.run/E9LB                                          
+                                                                                
+           42┆ require( msg.sender == address(exchangeConfig.upkeep()),         
+  "Emissions.performUpkeep is only callable from the Upkeep contract" );        
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 3 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

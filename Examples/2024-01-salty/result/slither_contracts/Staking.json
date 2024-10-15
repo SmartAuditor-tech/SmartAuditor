@@ -1,0 +1,134 @@
+{
+    "success": true,
+    "finding_length": 11,
+    "findings": [
+        {
+            "name": "incorrect-exp",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) has bitwise-xor operator ^ instead of the exponentiation operator **: \n\t - inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)\n",
+            "filename": "Staking.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 116
+        },
+        {
+            "name": "reentrancy-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "Reentrancy in Staking.transferStakedSaltFromAirdropToUser(address,uint256) (src/staking/Staking.sol#130-138):\n\tExternal calls:\n\t- _decreaseUserShare(msg.sender,PoolUtils.STAKED_SALT,amountToTransfer,false) (src/staking/Staking.sol#134)\n\t\t- returndata = address(token).functionCall(data,SafeERC20: low-level call failed) (lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol#122)\n\t\t- (success,returndata) = target.call{value: value}(data) (lib/openzeppelin-contracts/contracts/utils/Address.sol#135)\n\t\t- salt.safeTransfer(wallet,claimableRewards) (src/staking/StakingRewards.sol#137)\n\tExternal calls sending eth:\n\t- _decreaseUserShare(msg.sender,PoolUtils.STAKED_SALT,amountToTransfer,false) (src/staking/Staking.sol#134)\n\t\t- (success,returndata) = target.call{value: value}(data) (lib/openzeppelin-contracts/contracts/utils/Address.sol#135)\n\tState variables written after the call(s):\n\t- _increaseUserShare(wallet,PoolUtils.STAKED_SALT,amountToTransfer,false) (src/staking/Staking.sol#135)\n\t\t- user.cooldownExpiration = block.timestamp + stakingConfig.modificationCooldown() (src/staking/StakingRewards.sol#70)\n\t\t- user.virtualRewards += uint128(virtualRewardsToAdd) (src/staking/StakingRewards.sol#83)\n\t\t- user.userShare += uint128(increaseShareAmount) (src/staking/StakingRewards.sol#88)\n\tStakingRewards._userShareInfo (src/staking/StakingRewards.sol#36) can be used in cross function reentrancies:\n\t- StakingRewards._decreaseUserShare(address,bytes32,uint256,bool) (src/staking/StakingRewards.sol#97-140)\n\t- StakingRewards._increaseUserShare(address,bytes32,uint256,bool) (src/staking/StakingRewards.sol#57-92)\n\t- StakingRewards.userCooldowns(address,bytes32[]) (src/staking/StakingRewards.sol#290-305)\n\t- StakingRewards.userRewardForPool(address,bytes32) (src/staking/StakingRewards.sol#232-252)\n\t- StakingRewards.userShareForPool(address,bytes32) (src/staking/StakingRewards.sol#266-269)\n\t- StakingRewards.userShareForPools(address,bytes32[]) (src/staking/StakingRewards.sol#273-279)\n\t- StakingRewards.userVirtualRewardsForPool(address,bytes32) (src/staking/StakingRewards.sol#283-286)\n\t- _increaseUserShare(wallet,PoolUtils.STAKED_SALT,amountToTransfer,false) (src/staking/Staking.sol#135)\n\t\t- totalRewards[poolID] += uint128(virtualRewardsToAdd) (src/staking/StakingRewards.sol#84)\n\tStakingRewards.totalRewards (src/staking/StakingRewards.sol#39) can be used in cross function reentrancies:\n\t- StakingRewards._decreaseUserShare(address,bytes32,uint256,bool) (src/staking/StakingRewards.sol#97-140)\n\t- StakingRewards._increaseUserShare(address,bytes32,uint256,bool) (src/staking/StakingRewards.sol#57-92)\n\t- StakingRewards.totalRewards (src/staking/StakingRewards.sol#39)\n\t- StakingRewards.totalRewardsForPools(bytes32[]) (src/staking/StakingRewards.sol#222-228)\n\t- StakingRewards.userRewardForPool(address,bytes32) (src/staking/StakingRewards.sol#232-252)\n\t- _increaseUserShare(wallet,PoolUtils.STAKED_SALT,amountToTransfer,false) (src/staking/Staking.sol#135)\n\t\t- totalShares[poolID] = existingTotalShares + increaseShareAmount (src/staking/StakingRewards.sol#89)\n\tStakingRewards.totalShares (src/staking/StakingRewards.sol#42) can be used in cross function reentrancies:\n\t- StakingRewards._decreaseUserShare(address,bytes32,uint256,bool) (src/staking/StakingRewards.sol#97-140)\n\t- StakingRewards._increaseUserShare(address,bytes32,uint256,bool) (src/staking/StakingRewards.sol#57-92)\n\t- StakingRewards.totalShares (src/staking/StakingRewards.sol#42)\n\t- StakingRewards.totalSharesForPools(bytes32[]) (src/staking/StakingRewards.sol#212-218)\n\t- StakingRewards.userRewardForPool(address,bytes32) (src/staking/StakingRewards.sol#232-252)\n",
+            "filename": "Staking.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "transferStakedSaltFromAirdropToUser",
+            "contract": "Staking",
+            "line": 232,
+            "line_end": 252
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123)\n",
+            "filename": "Staking.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 123
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)\n",
+            "filename": "Staking.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 116
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#120)\n",
+            "filename": "Staking.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 120
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#121)\n",
+            "filename": "Staking.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 121
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#122)\n",
+            "filename": "Staking.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 122
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- prod0 = prod0 / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#104)\n\t- result = prod0 * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#131)\n",
+            "filename": "Staking.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 131
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#125)\n",
+            "filename": "Staking.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 125
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#124)\n",
+            "filename": "Staking.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 124
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PoolUtils._placeInternalSwap(IPools,IERC20,IERC20,uint256,uint256) (src/pools/PoolUtils.sol#54-68) ignores return value by (reservesIn,None) = pools.getPoolReserves(tokenIn,tokenOut) (src/pools/PoolUtils.sol#59)\n",
+            "filename": "Staking.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_placeInternalSwap",
+            "contract": "PoolUtils",
+            "line": 59
+        }
+    ]
+}

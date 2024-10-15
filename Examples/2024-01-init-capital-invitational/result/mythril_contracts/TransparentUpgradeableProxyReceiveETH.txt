@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "/g4b/contracts/.cache/OpenZeppelin/v4.9.3/proxy/transparent/TransparentUpgradeableProxy.sol" not found: File not found. Searched the following locations: "".
+ --> /g4b/contracts/common/TransparentUpgradeableProxyReceiveETH.sol:4:1:
+  |
+4 | import  {TransparentUpgradeableProxy} from "../.cache/OpenZeppelin/v4.9.3/proxy/transparent/TransparentUpgradeableProxy.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

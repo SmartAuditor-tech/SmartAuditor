@@ -1,0 +1,21 @@
+dependencies:
+    - OpenZeppelin/openzeppelin-contracts@4.9.0
+    - OpenZeppelin/openzeppelin-contracts-upgradeable@4.9.0
+
+compiler:
+    solc:
+        remappings:
+          - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@5.0.0"
+          - "@pythnetwork/entropy-sdk-solidity/=interfaces/"
+    vyper:
+        version: 0.3.9
+
+
+project_structure:
+    scripts: brownie-scripts
+    tests: brownie-tests
+
+console:
+    show_colors: true
+    auto_suggest: true
+    completions: true

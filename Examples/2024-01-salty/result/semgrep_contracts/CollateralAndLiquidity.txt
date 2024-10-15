@@ -1,0 +1,143 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 21 Code Findings │
+└──────────────────┘
+                                               
+    /g4b/src/stable/CollateralAndLiquidity.sol 
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           52┆  ... constructor( IPools _pools, IExchangeConfig _exchangeConfig,
+  IPoolsConfig _poolsConfig, IStakingConfig _stakingConfig, IStableConfig       
+  _stableConfig, IPriceAggreg ... [0m                                           
+           53┆            Liquidity( _pools, _exchangeConfig, _poolsConfig,     
+  _stakingConfig )                                                              
+           54┆      
+  {                 
+           55┆            priceAggregator =       
+  _priceAggregator;                               
+           56┆         stableConfig = _stableConfig;
+           57┆         liquidizer = _liquidizer;
+           58┆ 
+           59┆            usds =             
+  _exchangeConfig.usds();                    
+           60┆            wbtc =            
+  exchangeConfig.wbtc();                    
+           61┆            weth =            
+  exchangeConfig.weth();                    
+            [shortened a long line from output, adjust with                     
+  --max-chars-per-line]                                                         
+             [hid 4 additional lines, adjust with --max-lines-per-finding] 
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+          323┆ address wallet = _walletsWithBorrowedUSDS.at(i);
+            ⋮┆----------------------------------------
+          326┆ uint256 minCollateralValue = (usdsBorrowedByUsers[wallet] *      
+  stableConfig.minimumCollateralRatioPercent()) / 100;                          
+            ⋮┆----------------------------------------
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+          321┆ for ( uint256 i = startIndex; i <= endIndex; i++ )
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           83┆ require( userShareForPool( msg.sender, collateralPoolID ) > 0,   
+  "User does not have any collateral" );                                        
+            ⋮┆----------------------------------------
+           84┆ require( collateralToWithdraw <=                                 
+  maxWithdrawableCollateral(msg.sender), "Excessive collateralToWithdraw" );    
+            ⋮┆----------------------------------------
+           97┆ require( exchangeConfig.walletHasAccess(msg.sender), "Sender does
+  not have exchange access" );                                                  
+            ⋮┆----------------------------------------
+           98┆ require( userShareForPool( msg.sender, collateralPoolID ) > 0,   
+  "User does not have any collateral" );                                        
+            ⋮┆----------------------------------------
+           99┆ require( amountBorrowed <= maxBorrowableUSDS(msg.sender),        
+  "Excessive amountBorrowed" );                                                 
+            ⋮┆----------------------------------------
+          117┆ require( userShareForPool( msg.sender, collateralPoolID ) > 0,   
+  "User does not have any collateral" );                                        
+            ⋮┆----------------------------------------
+          118┆ require( amountRepaid <= usdsBorrowedByUsers[msg.sender], "Cannot
+  repay more than the borrowed amount" );                                       
+            ⋮┆----------------------------------------
+          119┆ require( amountRepaid > 0, "Cannot repay zero amount" );
+            ⋮┆----------------------------------------
+          142┆ require( wallet != msg.sender, "Cannot liquidate self" );
+            ⋮┆----------------------------------------
+          145┆ require( canUserBeLiquidated(wallet), "User cannot be liquidated"
+  );                                                                            
+            ⋮┆----------------------------------------
+       solidity.performance.use-prefix-increment-not-postfix.use-prefix-incremen
+  t-not-postfix                                                                 
+          Consider using the prefix increment expression whenever the return    
+  value is not needed. The                                                      
+          prefix increment expression is cheaper in terms of gas.               
+          Details: https://sg.run/nxLr                                          
+                                                                                
+          321┆ for ( uint256 i = startIndex; i <= endIndex; i++ )
+            ⋮┆----------------------------------------
+          338┆ for ( uint256 i = 0; i < count; i++ )
+            ⋮┆----------------------------------------
+       solidity.performance.use-short-revert-string.use-short-revert-string     
+          Shortening revert strings to fit in 32 bytes will decrease gas costs  
+  for deployment and  gas                                                       
+          costs when the revert condition has been met.                         
+          Details: https://sg.run/E9LB                                          
+                                                                                
+           83┆ require( userShareForPool( msg.sender, collateralPoolID ) > 0,   
+  "User does not have any collateral" );                                        
+            ⋮┆----------------------------------------
+           97┆ require( exchangeConfig.walletHasAccess(msg.sender), "Sender does
+  not have exchange access" );                                                  
+            ⋮┆----------------------------------------
+           98┆ require( userShareForPool( msg.sender, collateralPoolID ) > 0,   
+  "User does not have any collateral" );                                        
+            ⋮┆----------------------------------------
+          117┆ require( userShareForPool( msg.sender, collateralPoolID ) > 0,   
+  "User does not have any collateral" );                                        
+            ⋮┆----------------------------------------
+          118┆ require( amountRepaid <= usdsBorrowedByUsers[msg.sender], "Cannot
+  repay more than the borrowed amount" );                                       
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 21 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

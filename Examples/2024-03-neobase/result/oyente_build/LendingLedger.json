@@ -1,0 +1,9 @@
+{
+    "success": false,
+    "findings": {
+        "vul": [],
+        "filename": "LendingLedger.sol",
+        "coverage": "",
+        "warnings": []
+    }
+}

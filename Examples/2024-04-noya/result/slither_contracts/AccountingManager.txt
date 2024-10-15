@@ -1,0 +1,13 @@
+'forge config --json' running
+Could not detect solc version from Foundry config. Falling back to system version...
+'solc --version' running
+'solc @openzeppelin/=node_modules/@openzeppelin/ eth-gas-reporter/=node_modules/eth-gas-reporter/ hardhat/=node_modules/hardhat/ forge-std/=lib/forge-std/src/ ds-test/=node_modules/ds-test/src/ @uniswap/=node_modules/@uniswap/ @gearbox-protocol/=node_modules/@gearbox-protocol/ @balancer-labs/=node_modules/@balancer-labs/ @layerzerolabs/=node_modules/@layerzerolabs/ base64-sol/=node_modules/base64-sol/ hardhat-deploy/=node_modules/hardhat-deploy/ solidity-bytes-utils/=node_modules/solidity-bytes-utils/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-noya/contracts/accountingManager/AccountingManager.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 200 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-noya/contracts/accountingManager' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-noya/contracts/accountingManager/AccountingManager.sol:
+Error: Source file requires different compiler version (current compiler is 0.8.19+commit.7dd6d404.Darwin.appleclang) - note that nightly builds are considered to be strictly less than the released version
+ --> contracts/accountingManager/AccountingManager.sol:2:1:
+  |
+2 | pragma solidity 0.8.20;
+  | ^^^^^^^^^^^^^^^^^^^^^^^
+
+
+ERROR:Slither:Unable to compile all targets.

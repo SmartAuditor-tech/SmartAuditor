@@ -1,0 +1,6 @@
+
+/g4b/packages/protocol/contracts/libs/LibTrieProof.sol
+  7:1  error  Compiler version 0.8.24 does not satisfy the ^0.5.8 semver requirement  compiler-version
+
+✖ 1 problem (1 error, 0 warnings)
+

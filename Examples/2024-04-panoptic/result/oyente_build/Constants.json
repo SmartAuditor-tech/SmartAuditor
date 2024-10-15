@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "Constants.sol",
+        "coverage": "36.4%",
+        "warnings": []
+    }
+}

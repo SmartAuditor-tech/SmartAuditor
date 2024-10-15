@@ -1,0 +1,141 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 15 Code Findings │
+└──────────────────┘
+                                                                                
+    /g4b/packages/protocol/contracts/automata-attestation/lib/QuoteV3Auth/V3Pars
+  er.sol                                                                        
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+          153┆ for (uint256 i; i < encoded.length; ++i) {
+            ⋮┆----------------------------------------
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+          153┆ for (uint256 i; i < encoded.length; ++i) {
+            ⋮┆----------------------------------------
+          281┆ for (uint256 i; i < 3; ++i) {
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           77┆ require(
+           78┆     localEnclaveReport.reserved3.length == 96 &&                 
+  localEnclaveReport.reserved4.length == 60                                     
+           79┆         && localEnclaveReport.reportData.length == 64,
+           80┆     "local QE report has wrong length"
+           81┆ );
+            ⋮┆----------------------------------------
+           82┆ require(
+           83┆     pckSignedQeReport.reserved3.length == 96 &&                  
+  pckSignedQeReport.reserved4.length == 60                                      
+           84┆         && pckSignedQeReport.reportData.length == 64,
+           85┆     "QE report has wrong length"
+           86┆ );
+            ⋮┆----------------------------------------
+           87┆ require(
+           88┆     v3Quote.v3AuthData.certification.certType == 5,
+           89┆     "certType must be 5: Concatenated PCK Cert Chain (PEM        
+  formatted)"                                                                   
+           90┆ );
+            ⋮┆----------------------------------------
+           91┆ require(
+           92┆     v3Quote.v3AuthData.certification.decodedCertDataArray.length 
+  == 3, "3 certs in chain"                                                      
+           93┆ );
+            ⋮┆----------------------------------------
+           94┆ require(
+           95┆     v3Quote.v3AuthData.ecdsa256BitSignature.length == 64
+           96┆         && v3Quote.v3AuthData.ecdsaAttestationKey.length == 64
+           97┆         && v3Quote.v3AuthData.qeReportSignature.length == 64,
+           98┆     "Invalid ECDSA signature format"
+           99┆ );
+            ⋮┆----------------------------------------
+          100┆ require(
+          101┆     v3Quote.v3AuthData.qeAuthData.parsedDataSize
+          102┆         == v3Quote.v3AuthData.qeAuthData.data.length,
+          103┆     "Invalid QEAuthData size"
+          104┆ );
+            ⋮┆----------------------------------------
+          116┆ require(totalQuoteSize >= MINIMUM_QUOTE_LENGTH, "Invalid quote   
+  size");                                                                       
+            ⋮┆----------------------------------------
+          279┆ require(certParsedSuccessfully, "splitCertificateChain failed");
+            ⋮┆----------------------------------------
+       solidity.performance.use-multiple-require.use-multiple-require           
+          Using multiple require statements is cheaper than using && multiple   
+  check combinations.                                                           
+          There are more advantages, such as easier to read code and better     
+  coverage reports.                                                             
+          Details: https://sg.run/vGA0                                          
+                                                                                
+           77┆ require(
+           78┆     localEnclaveReport.reserved3.length == 96 &&                 
+  localEnclaveReport.reserved4.length == 60                                     
+           79┆         && localEnclaveReport.reportData.length == 64,
+           80┆     "local QE report has wrong length"
+           81┆ );
+            ⋮┆----------------------------------------
+           82┆ require(
+           83┆     pckSignedQeReport.reserved3.length == 96 &&                  
+  pckSignedQeReport.reserved4.length == 60                                      
+           84┆         && pckSignedQeReport.reportData.length == 64,
+           85┆     "QE report has wrong length"
+           86┆ );
+            ⋮┆----------------------------------------
+           94┆ require(
+           95┆     v3Quote.v3AuthData.ecdsa256BitSignature.length == 64
+           96┆         && v3Quote.v3AuthData.ecdsaAttestationKey.length == 64
+           97┆         && v3Quote.v3AuthData.qeReportSignature.length == 64,
+           98┆     "Invalid ECDSA signature format"
+           99┆ );
+            ⋮┆----------------------------------------
+       solidity.performance.use-short-revert-string.use-short-revert-string     
+          Shortening revert strings to fit in 32 bytes will decrease gas costs  
+  for deployment and  gas                                                       
+          costs when the revert condition has been met.                         
+          Details: https://sg.run/E9LB                                          
+                                                                                
+           87┆ require(
+           88┆     v3Quote.v3AuthData.certification.certType == 5,
+           89┆     "certType must be 5: Concatenated PCK Cert Chain (PEM        
+  formatted)"                                                                   
+           90┆ );
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 15 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

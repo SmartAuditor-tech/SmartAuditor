@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "LibFixedPointMath.sol",
+        "incomplete instruction": "390",
+        "coverage": "7.8%",
+        "warnings": []
+    }
+}

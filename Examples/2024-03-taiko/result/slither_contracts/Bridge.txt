@@ -1,0 +1,77 @@
+'solc --version' running
+'solc /Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-taiko/packages/protocol/contracts/bridge/Bridge.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-taiko/packages/protocol/contracts/bridge' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-taiko/packages/protocol/contracts/bridge/Bridge.sol:
+Error: Function "tstore" not found.
+   --> packages/protocol/contracts/common/EssentialContract.sol:122:17:
+    |
+122 |                 tstore(_REENTRY_SLOT, _reentry)
+    |                 ^^^^^^
+
+Error: Function "tload" not found.
+   --> packages/protocol/contracts/common/EssentialContract.sol:133:29:
+    |
+133 |                 reentry_ := tload(_REENTRY_SLOT)
+    |                             ^^^^^
+
+Error: Variable count for assignment to "reentry_" does not match number of values (1 vs. 0)
+   --> packages/protocol/contracts/common/EssentialContract.sol:133:17:
+    |
+133 |                 reentry_ := tload(_REENTRY_SLOT)
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Function "tstore" not found.
+   --> packages/protocol/contracts/bridge/Bridge.sol:544:17:
+    |
+544 |                 tstore(_CTX_SLOT, _msgHash)
+    |                 ^^^^^^
+
+Error: Function "tstore" not found.
+   --> packages/protocol/contracts/bridge/Bridge.sol:545:17:
+    |
+545 |                 tstore(add(_CTX_SLOT, 1), _from)
+    |                 ^^^^^^
+
+Error: Function "tstore" not found.
+   --> packages/protocol/contracts/bridge/Bridge.sol:546:17:
+    |
+546 |                 tstore(add(_CTX_SLOT, 2), _srcChainId)
+    |                 ^^^^^^
+
+Error: Function "tload" not found.
+   --> packages/protocol/contracts/bridge/Bridge.sol:561:28:
+    |
+561 |                 msgHash := tload(_CTX_SLOT)
+    |                            ^^^^^
+
+Error: Variable count for assignment to "msgHash" does not match number of values (1 vs. 0)
+   --> packages/protocol/contracts/bridge/Bridge.sol:561:17:
+    |
+561 |                 msgHash := tload(_CTX_SLOT)
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Function "tload" not found.
+   --> packages/protocol/contracts/bridge/Bridge.sol:562:25:
+    |
+562 |                 from := tload(add(_CTX_SLOT, 1))
+    |                         ^^^^^
+
+Error: Variable count for assignment to "from" does not match number of values (1 vs. 0)
+   --> packages/protocol/contracts/bridge/Bridge.sol:562:17:
+    |
+562 |                 from := tload(add(_CTX_SLOT, 1))
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Function "tload" not found.
+   --> packages/protocol/contracts/bridge/Bridge.sol:563:31:
+    |
+563 |                 srcChainId := tload(add(_CTX_SLOT, 2))
+    |                               ^^^^^
+
+Error: Variable count for assignment to "srcChainId" does not match number of values (1 vs. 0)
+   --> packages/protocol/contracts/bridge/Bridge.sol:563:17:
+    |
+563 |                 srcChainId := tload(add(_CTX_SLOT, 2))
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+ERROR:Slither:Unable to compile all targets.

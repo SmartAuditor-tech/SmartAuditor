@@ -1,0 +1,334 @@
+{
+    "success": true,
+    "finding_length": 27,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "WrapperHelper._wrapETH(uint256) (contracts/TransferHub/WrapperHelper.sol#24-32) sends eth to arbitrary user\n\tDangerous calls:\n\t- WETH.deposit{value: _value}() (contracts/TransferHub/WrapperHelper.sol#29-31)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [],
+            "function": "_wrapETH",
+            "contract": "WrapperHelper",
+            "line": 29,
+            "line_end": 31
+        },
+        {
+            "name": "uninitialized-state",
+            "impact": "High",
+            "confidence": "High",
+            "message": "PendlePowerFarmDeclarations.isShutdown (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#43) is never initialized. It is used in:\n\t- PendlePowerFarmDeclarations._isActive() (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#361-368)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [
+                "SWC-109"
+            ],
+            "line": 361,
+            "line_end": 368
+        },
+        {
+            "name": "uninitialized-state",
+            "impact": "High",
+            "confidence": "High",
+            "message": "PendlePowerFarmDeclarations.isAave (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#108) is never initialized. It is used in:\n\t- PendlePowerFarmLeverageLogic._coreLiquidation(uint256,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#560-605)\n\t- PendlePowerFarmMathLogic._checkDebtRatio(uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmMathLogic.sol#389-410)\n\t- PendlePowerFarm.getLiveDebtRatio(uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarm.sol#57-87)\n\t- PendlePowerFarm._manuallyPaybackShares(uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarm.sol#119-148)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [
+                "SWC-109"
+            ],
+            "line": 119,
+            "line_end": 148
+        },
+        {
+            "name": "erc20-interface",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "IPendleMarket (contracts/InterfaceHub/IPendle.sol#139-251) has incorrect ERC20 function interface:IPendleMarket.transferFrom(address,address,uint256) (contracts/InterfaceHub/IPendle.sol#157-162)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [],
+            "line": 157,
+            "line_end": 162
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "PendlePowerFarmLeverageLogic._logicOpenPosition(bool,uint256,uint256,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#414-529) uses a dangerous strict equality:\n\t- _checkDebtRatio(_nftId) == false (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#520)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [],
+            "function": "_logicOpenPosition",
+            "contract": "PendlePowerFarmLeverageLogic",
+            "line": 520
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "PendlePowerFarmLeverageLogic._coreLiquidation(uint256,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#560-605) uses a dangerous strict equality:\n\t- _checkDebtRatio(_nftId) == true (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#571)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [],
+            "function": "_coreLiquidation",
+            "contract": "PendlePowerFarmLeverageLogic",
+            "line": 571
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "CallOptionalReturn._callOptionalReturn(address,bytes) (contracts/TransferHub/CallOptionalReturn.sol#12-38) uses a dangerous strict equality:\n\t- success == false (contracts/TransferHub/CallOptionalReturn.sol#31)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [],
+            "function": "_callOptionalReturn",
+            "contract": "CallOptionalReturn",
+            "line": 31
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "CallOptionalReturn._callOptionalReturn(address,bytes) (contracts/TransferHub/CallOptionalReturn.sol#12-38) uses a dangerous strict equality:\n\t- results = returndata.length == 0 || abi.decode(returndata,(bool)) (contracts/TransferHub/CallOptionalReturn.sol#26-29)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [],
+            "function": "_callOptionalReturn",
+            "contract": "CallOptionalReturn",
+            "line": 26,
+            "line_end": 29
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "PendlePowerFarm.getLiveDebtRatio(uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarm.sol#57-87) uses a dangerous strict equality:\n\t- totalCollateral == 0 (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarm.sol#80)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [],
+            "function": "getLiveDebtRatio",
+            "contract": "PendlePowerFarm",
+            "line": 80
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "PendlePowerFarm._openPosition(bool,uint256,uint256,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarm.sol#185-219) uses a dangerous strict equality:\n\t- _notBelowMinDepositAmount(leveragedAmount) == false (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarm.sol#203)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [],
+            "function": "_openPosition",
+            "contract": "PendlePowerFarm",
+            "line": 203
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "SendValueHelper._sendValue(address,uint256) (contracts/TransferHub/SendValueHelper.sol#12-36) uses a dangerous strict equality:\n\t- success == false (contracts/TransferHub/SendValueHelper.sol#33)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [],
+            "function": "_sendValue",
+            "contract": "SendValueHelper",
+            "line": 33
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmMathLogic.getPositionBorrowETH(uint256).tokenValueEth (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmMathLogic.sol#204) is a local variable never initialized\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [],
+            "line": 204
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmMathLogic.getPositionBorrowETH(uint256).borrowTokenAmount (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmMathLogic.sol#181) is a local variable never initialized\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [],
+            "line": 181
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmMathLogic.getPositionBorrowETH(uint256).borrowTokenAmountAave (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmMathLogic.sol#196) is a local variable never initialized\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [],
+            "line": 196
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmLeverageLogic._logicOpenPosition(bool,uint256,uint256,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#414-529) ignores return value by (receivedShares,None) = IPendleChild(PENDLE_CHILD).depositExactAmount(netLpOut) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#490-495)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_logicOpenPosition",
+            "contract": "PendlePowerFarmLeverageLogic",
+            "line": 490,
+            "line_end": 495
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarm._manuallyPaybackShares(uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarm.sol#119-148) ignores return value by WISE_LENDING.paybackExactShares(_nftId,poolAddress,_paybackShares) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarm.sol#143-147)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_manuallyPaybackShares",
+            "contract": "PendlePowerFarm",
+            "line": 143,
+            "line_end": 147
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmLeverageLogic._borrowExactAmount(bool,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#531-553) ignores return value by WISE_LENDING.borrowExactAmount(_nftId,WETH_ADDRESS,_totalDebtBalancer) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#548-552)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_borrowExactAmount",
+            "contract": "PendlePowerFarmLeverageLogic",
+            "line": 548,
+            "line_end": 552
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmLeverageLogic._logicOpenPosition(bool,uint256,uint256,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#414-529) ignores return value by (None,netPtFromSwap,None,None,None,None) = PENDLE_ROUTER_STATIC.addLiquiditySingleSyStatic(address(PENDLE_MARKET),syReceived) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#454-462)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_logicOpenPosition",
+            "contract": "PendlePowerFarmLeverageLogic",
+            "line": 454,
+            "line_end": 462
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmLeverageLogic._logicClosePosition(uint256,uint256,uint256,uint256,uint256,address,bool,bool) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#134-230) ignores return value by (netSyOut,None) = PENDLE_ROUTER.removeLiquiditySingleSy({_receiver:address(this),_market:address(PENDLE_MARKET),_netLpToRemove:withdrawnLpsAmount,_minSyOut:0}) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#162-172)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_logicClosePosition",
+            "contract": "PendlePowerFarmLeverageLogic",
+            "line": 162,
+            "line_end": 172
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmLeverageLogic._paybackExactShares(bool,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#326-348) ignores return value by WISE_LENDING.paybackExactShares(_nftId,WETH_ADDRESS,_borrowShares) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#343-347)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_paybackExactShares",
+            "contract": "PendlePowerFarmLeverageLogic",
+            "line": 343,
+            "line_end": 347
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmLeverageLogic._logicOpenPosition(bool,uint256,uint256,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#414-529) ignores return value by WISE_LENDING.depositExactAmount(_nftId,PENDLE_CHILD,receivedShares) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#508-512)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_logicOpenPosition",
+            "contract": "PendlePowerFarmLeverageLogic",
+            "line": 508,
+            "line_end": 512
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmLeverageLogic._paybackExactShares(bool,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#326-348) ignores return value by AAVE_HUB.paybackExactShares(_nftId,WETH_ADDRESS,_borrowShares) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#334-338)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_paybackExactShares",
+            "contract": "PendlePowerFarmLeverageLogic",
+            "line": 334,
+            "line_end": 338
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmLeverageLogic._logicOpenPosition(bool,uint256,uint256,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#414-529) ignores return value by (netLpOut,None) = PENDLE_ROUTER.addLiquiditySingleSy({_receiver:address(this),_market:address(PENDLE_MARKET),_netSyIn:syReceived,_minLpOut:0,_guessPtReceivedFromSy:ApproxParams({guessMin:netPtFromSwap - 100,guessMax:netPtFromSwap + 100,guessOffchain:0,maxIteration:50,eps:1e15})}) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#464-483)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_logicOpenPosition",
+            "contract": "PendlePowerFarmLeverageLogic",
+            "line": 464,
+            "line_end": 483
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmLeverageLogic._borrowExactAmount(bool,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#531-553) ignores return value by AAVE_HUB.borrowExactAmount(_nftId,WETH_ADDRESS,_totalDebtBalancer) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#539-543)\n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_borrowExactAmount",
+            "contract": "PendlePowerFarmLeverageLogic",
+            "line": 539,
+            "line_end": 543
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "PendlePowerFarmDeclarations.isShutdown (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#43) should be constant \n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [],
+            "line": 43
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "PendlePowerFarmDeclarations.collateralFactor (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#49) should be immutable \n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [],
+            "line": 49
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "PendlePowerFarmDeclarations.minDepositEthAmount (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#52) should be immutable \n",
+            "filename": "PendlePowerFarm.sol",
+            "classification": [],
+            "line": 52
+        }
+    ]
+}

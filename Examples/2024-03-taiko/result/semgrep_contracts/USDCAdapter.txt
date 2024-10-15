@@ -1,0 +1,42 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                  
+                  
+┌────────────────┐
+│ 1 Code Finding │
+└────────────────┘
+                                                                         
+    /g4b/packages/protocol/contracts/tokenvault/adapters/USDCAdapter.sol 
+       solidity.security.arbitrary-send-erc20.arbitrary-send-erc20              
+          msg.sender is not being used when calling erc20.transferFrom. Example 
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 1 finding.
+  - Alice approves this                                                         
+          contract to spend her ERC20 tokens. Bob can call function 'a' and     
+  specify Alice's address as                                                    
+          the from parameter in transferFrom, allowing him to transfer Alice's  
+  tokens to himself.                                                            
+          Details: https://sg.run/B72A                                          
+                                                                                
+           48┆ usdc.transferFrom(_from, address(this), _amount);
+
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

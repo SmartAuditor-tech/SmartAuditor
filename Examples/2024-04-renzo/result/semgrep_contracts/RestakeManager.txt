@@ -1,0 +1,84 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 9 Code Findings │
+└─────────────────┘
+                                      
+    /g4b/contracts/RestakeManager.sol 
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+          172┆ operatorDelegators[i] =                                          
+  operatorDelegators[operatorDelegators.length - 1];                            
+            ⋮┆----------------------------------------
+          251┆ collateralTokens[i] = collateralTokens[collateralTokens.length - 
+  1];                                                                           
+            ⋮┆----------------------------------------
+          294┆ uint256[] memory operatorValues = new                            
+  uint256[](collateralTokens.length + 1);                                       
+            ⋮┆----------------------------------------
+          298┆ uint256 tokenLength = collateralTokens.length;
+            ⋮┆----------------------------------------
+          332┆ operatorValues[operatorValues.length - 1] = operatorEthBalance;
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           96┆ constructor() {
+           97┆     _disableInitializers();
+           98┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          419┆ if (
+          420┆     operatorDelegatorTVLs[i] >
+          421┆     (operatorDelegatorAllocations[operatorDelegators[i]] *       
+  totalTVL) /                                                                   
+          422┆         BASIS_POINTS /
+          423┆         BASIS_POINTS &&
+          424┆     operatorDelegatorTokenTVLs[i][tokenIndex] >= ezETHValue
+          425┆ ) {
+          426┆     return operatorDelegators[i];
+          427┆ }
+            ⋮┆----------------------------------------
+          510┆ if (maxDepositTVL != 0 && totalTVL + collateralTokenValue >      
+  maxDepositTVL) {                                                              
+          511┆     revert MaxTVLReached();
+          512┆ }
+            ⋮┆----------------------------------------
+          597┆ if (maxDepositTVL != 0 && totalTVL + msg.value > maxDepositTVL) {
+          598┆     revert MaxTVLReached();
+          599┆ }
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 9 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

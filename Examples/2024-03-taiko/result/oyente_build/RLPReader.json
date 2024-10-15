@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "RLPReader.sol",
+        "coverage": "18.2%",
+        "warnings": []
+    }
+}

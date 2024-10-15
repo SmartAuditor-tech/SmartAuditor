@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "libraries/BlastPoints.sol" not found: File not found.
+ --> /g4b/src/blast/BlastDapp.sol:4:1:
+  |
+4 | import  {BlastPoints} from "libraries/BlastPoints.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

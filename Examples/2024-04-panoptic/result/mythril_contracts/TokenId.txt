@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "Constants.sol" not found: File not found. Searched the following locations: "".
+ --> /g4b/contracts/libraries/PanopticMath.sol:8:1:
+  |
+8 | import   {Constants} from "Constants.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

@@ -1,0 +1,103 @@
+{
+    "success": true,
+    "finding_length": 8,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "WrapperHelper._wrapETH(uint256) (contracts/TransferHub/WrapperHelper.sol#24-32) sends eth to arbitrary user\n\tDangerous calls:\n\t- WETH.deposit{value: _value}() (contracts/TransferHub/WrapperHelper.sol#29-31)\n",
+            "filename": "AaveHub.sol",
+            "classification": [],
+            "function": "_wrapETH",
+            "contract": "WrapperHelper",
+            "line": 29,
+            "line_end": 31
+        },
+        {
+            "name": "reentrancy-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "Reentrancy in AaveHub.paybackExactAmountETH(uint256) (contracts/WrapperHub/AaveHub.sol#482-550):\n\tExternal calls:\n\t- WISE_LENDING.syncManually(aaveWrappedETH) (contracts/WrapperHub/AaveHub.sol#503-505)\n\t- _wrapETH(paybackAmount) (contracts/WrapperHub/AaveHub.sol#521-523)\n\t\t- WETH.deposit{value: _value}() (contracts/TransferHub/WrapperHelper.sol#29-31)\n\t- actualAmountDeposit = _wrapAaveReturnValueDeposit(WETH_ADDRESS,paybackAmount,address(this)) (contracts/WrapperHub/AaveHub.sol#525-529)\n\t\t- AAVE.supply(_underlyingAsset,_depositAmount,_targetAddress,REF_CODE) (contracts/WrapperHub/AaveHelper.sol#181-186)\n\t- borrowSharesReduction = WISE_LENDING.paybackExactAmount(_nftId,aaveWrappedETH,actualAmountDeposit) (contracts/WrapperHub/AaveHub.sol#531-535)\n\t- _sendValue(msg.sender,ethRefundAmount) (contracts/WrapperHub/AaveHub.sol#538-541)\n\t\t- (success,None) = address(_recipient).call{value: _amount}() (contracts/WrapperHub/AaveHelper.sol#208-210)\n\tExternal calls sending eth:\n\t- _wrapETH(paybackAmount) (contracts/WrapperHub/AaveHub.sol#521-523)\n\t\t- WETH.deposit{value: _value}() (contracts/TransferHub/WrapperHelper.sol#29-31)\n\t- _sendValue(msg.sender,ethRefundAmount) (contracts/WrapperHub/AaveHub.sol#538-541)\n\t\t- (success,None) = address(_recipient).call{value: _amount}() (contracts/WrapperHub/AaveHelper.sol#208-210)\n\tState variables written after the call(s):\n\t- _sendValue(msg.sender,ethRefundAmount) (contracts/WrapperHub/AaveHub.sol#538-541)\n\t\t- sendingProgressAaveHub = true (contracts/WrapperHub/AaveHelper.sol#206)\n\t\t- sendingProgressAaveHub = false (contracts/WrapperHub/AaveHelper.sol#212)\n\tDeclarations.sendingProgressAaveHub (contracts/WrapperHub/Declarations.sol#25) can be used in cross function reentrancies:\n\t- AaveHelper._nonReentrantCheck() (contracts/WrapperHub/AaveHelper.sol#34-45)\n\t- AaveHelper._sendValue(address,uint256) (contracts/WrapperHub/AaveHelper.sol#196-217)\n\t- Declarations.sendingProgressAaveHub (contracts/WrapperHub/Declarations.sol#25)\n",
+            "filename": "AaveHub.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "paybackExactAmountETH",
+            "contract": "AaveHub",
+            "line": 25
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "CallOptionalReturn._callOptionalReturn(address,bytes) (contracts/TransferHub/CallOptionalReturn.sol#12-38) uses a dangerous strict equality:\n\t- success == false (contracts/TransferHub/CallOptionalReturn.sol#31)\n",
+            "filename": "AaveHub.sol",
+            "classification": [],
+            "function": "_callOptionalReturn",
+            "contract": "CallOptionalReturn",
+            "line": 31
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "CallOptionalReturn._callOptionalReturn(address,bytes) (contracts/TransferHub/CallOptionalReturn.sol#12-38) uses a dangerous strict equality:\n\t- results = returndata.length == 0 || abi.decode(returndata,(bool)) (contracts/TransferHub/CallOptionalReturn.sol#26-29)\n",
+            "filename": "AaveHub.sol",
+            "classification": [],
+            "function": "_callOptionalReturn",
+            "contract": "CallOptionalReturn",
+            "line": 26,
+            "line_end": 29
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "AaveHelper._prepareCollaterals(uint256,address).i (contracts/WrapperHub/AaveHelper.sol#249) is a local variable never initialized\n",
+            "filename": "AaveHub.sol",
+            "classification": [],
+            "line": 249
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "AaveHelper._prepareBorrows(uint256,address).i (contracts/WrapperHub/AaveHelper.sol#285) is a local variable never initialized\n",
+            "filename": "AaveHub.sol",
+            "classification": [],
+            "line": 285
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "AaveHub.paybackExactShares(uint256,address,uint256) (contracts/WrapperHub/AaveHub.sol#556-609) ignores return value by WISE_LENDING.paybackExactShares(_nftId,aaveToken,_shares) (contracts/WrapperHub/AaveHub.sol#597-601)\n",
+            "filename": "AaveHub.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "paybackExactShares",
+            "contract": "AaveHub",
+            "line": 597,
+            "line_end": 601
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "AaveHelper._wrapBorrowExactAmount(uint256,address,address,uint256) (contracts/WrapperHub/AaveHelper.sol#141-163) ignores return value by AAVE.withdraw(_underlyingAsset,_borrowAmount,_underlyingAssetRecipient) (contracts/WrapperHub/AaveHelper.sol#156-160)\n",
+            "filename": "AaveHub.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_wrapBorrowExactAmount",
+            "contract": "AaveHelper",
+            "line": 156,
+            "line_end": 160
+        }
+    ]
+}

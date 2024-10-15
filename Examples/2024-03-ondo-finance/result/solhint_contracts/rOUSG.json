@@ -1,0 +1,78 @@
+{
+    "success": true,
+    "finding_length": 9,
+    "findings": [
+        {
+            "filename": "rOUSG.sol",
+            "line": 16,
+            "column": 1,
+            "message": "Compiler version 0.8.16 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "rOUSG.sol",
+            "line": 98,
+            "column": 3,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "rOUSG.sol",
+            "line": 112,
+            "column": 3,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "rOUSG.sol",
+            "line": 128,
+            "column": 3,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "rOUSG.sol",
+            "line": 282,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "rOUSG.sol",
+            "line": 415,
+            "column": 17,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "rOUSG.sol",
+            "line": 416,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "rOUSG.sol",
+            "line": 432,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "rOUSG.sol",
+            "line": 594,
+            "column": 7,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        }
+    ]
+}

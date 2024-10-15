@@ -1,0 +1,262 @@
+{
+    "success": true,
+    "finding_length": 32,
+    "findings": [
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 16,
+            "column": 1,
+            "message": "Compiler version 0.8.16 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 144,
+            "column": 3,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 163,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 167,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 171,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 175,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 179,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 180,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 181,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 182,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 186,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 190,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 205,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 282,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 286,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 298,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 310,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 344,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 371,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 391,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 395,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 402,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 417,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 459,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 466,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 481,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 557,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 570,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 584,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 602,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 763,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "ousgInstantManager.sol",
+            "line": 805,
+            "column": 42,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        }
+    ]
+}

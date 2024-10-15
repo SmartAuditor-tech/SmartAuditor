@@ -1,0 +1,46 @@
+{
+    "success": true,
+    "finding_length": 5,
+    "findings": [
+        {
+            "filename": "CamelotConnector.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version 0.8.20 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "CamelotConnector.sol",
+            "line": 36,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "CamelotConnector.sol",
+            "line": 37,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "CamelotConnector.sol",
+            "line": 38,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "CamelotConnector.sol",
+            "line": 99,
+            "column": 35,
+            "message": "Variable \"id\" is unused",
+            "level": "warning",
+            "name": "no-unused-vars"
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "success": true,
+    "finding_length": 4,
+    "findings": [
+        {
+            "filename": "BlastWrappers.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version >=0.8.0 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "BlastWrappers.sol",
+            "line": 20,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "BlastWrappers.sol",
+            "line": 29,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "BlastWrappers.sol",
+            "line": 47,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        }
+    ]
+}

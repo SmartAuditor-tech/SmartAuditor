@@ -1,0 +1,38 @@
+{
+    "success": true,
+    "finding_length": 4,
+    "findings": [
+        {
+            "filename": "LibProving.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version 0.8.24 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "LibProving.sol",
+            "line": 78,
+            "column": 50,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "LibProving.sol",
+            "line": 264,
+            "column": 31,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "LibProving.sol",
+            "line": 415,
+            "column": 43,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        }
+    ]
+}

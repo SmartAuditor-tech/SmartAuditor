@@ -1,0 +1,77 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 10 Code Findings │
+└──────────────────┘
+                                                                                
+    /g4b/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol
+       solidity.performance.inefficient-state-variable-increment.inefficient-sta
+  te-variable-increment                                                         
+          <x> += <y> costs more gas than <x> = <x> + <y> for state variables.   
+          Details: https://sg.run/bp9v                                          
+                                                                                
+          343┆ underlyingLpAssetsCurrent += additonalAssets;
+            ⋮┆----------------------------------------
+          512┆ totalLpAssetsToDistribute += _amount;
+            ⋮┆----------------------------------------
+          577┆ underlyingLpAssetsCurrent += _underlyingLpAssetAmount;
+            ⋮┆----------------------------------------
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+          206┆ PENDLE_CONTROLLER.increaseReservedForCompound(
+            ⋮┆----------------------------------------
+          207┆ UNDERLYING_PENDLE_MARKET,
+            ⋮┆----------------------------------------
+          239┆ PENDLE_POWER_FARM_CONTROLLER
+            ⋮┆----------------------------------------
+          243┆ PENDLE_MARKET.redeemRewards(
+            ⋮┆----------------------------------------
+          244┆ PENDLE_POWER_FARM_CONTROLLER
+            ⋮┆----------------------------------------
+          249┆ PENDLE_POWER_FARM_CONTROLLER
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          255┆ if (lastIndex[i] == 0 && index > 0) {
+          256┆     rewardsOutsideArray[i] = 0;
+          257┆     _overWriteIndex(
+          258┆         i
+          259┆     );
+          260┆     unchecked {
+          261┆         ++i;
+          262┆     }
+          263┆     continue;
+          264┆ }
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 10 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

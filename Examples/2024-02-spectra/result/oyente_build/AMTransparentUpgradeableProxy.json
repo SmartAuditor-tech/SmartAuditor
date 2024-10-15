@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "AMTransparentUpgradeableProxy.sol",
+        "incomplete instruction": "2014",
+        "coverage": "1.7%",
+        "warnings": []
+    }
+}

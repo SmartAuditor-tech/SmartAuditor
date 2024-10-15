@@ -1,0 +1,73 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 9 Code Findings │
+└─────────────────┘
+                                     
+    /g4b/src/stable/StableConfig.sol 
+       solidity.best-practice.use-ownable2step.use-ownable2step                 
+          By demanding that the receiver of the owner permissions actively      
+  accept via a contract call                                                    
+          of its own,  `Ownable2Step` and `Ownable2StepUpgradeable` prevent the 
+  contract ownership                                                            
+          from accidentally being transferred  to an address that cannot handle 
+  it.                                                                           
+          Details: https://sg.run/yBAA                                          
+                                                                                
+            9┆ contract StableConfig is IStableConfig, Ownable
+            ⋮┆----------------------------------------
+       solidity.performance.inefficient-state-variable-increment.inefficient-sta
+  te-variable-increment                                                         
+          <x> += <y> costs more gas than <x> = <x> + <y> for state variables.   
+          Details: https://sg.run/bp9v                                          
+                                                                                
+           55┆ rewardPercentForCallingLiquidation += 1;
+            ⋮┆----------------------------------------
+           72┆ maxRewardValueForCallingLiquidation += 100 ether;
+            ⋮┆----------------------------------------
+           89┆ minimumCollateralValueForBorrowing += 500 ether;
+            ⋮┆----------------------------------------
+          106┆ initialCollateralRatioPercent += 25;
+            ⋮┆----------------------------------------
+          123┆ minimumCollateralRatioPercent += 1;
+            ⋮┆----------------------------------------
+          143┆ percentArbitrageProfitsForStablePOL += 1;
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+           54┆ if (remainingRatioAfterReward >= 105 &&                          
+  rewardPercentForCallingLiquidation < 10)                                      
+           55┆     rewardPercentForCallingLiquidation += 1;
+            ⋮┆----------------------------------------
+          130┆ if (remainingRatioAfterReward >= 105 &&                          
+  minimumCollateralRatioPercent > 110)                                          
+          131┆     minimumCollateralRatioPercent -= 1;
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 9 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

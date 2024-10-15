@@ -1,0 +1,90 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 9 Code Findings │
+└─────────────────┘
+                                              
+    /g4b/contracts/hook/MarginTradingHook.sol 
+       solidity.best-practice.use-abi-encodecall-instead-of-encodewithselector.u
+  se-abi-encodecall-instead-of-                                                 
+       encodewithselector                                                       
+          To guarantee arguments type safety it is recommended to use           
+  `abi.encodeCall` instead of                                                   
+          `abi.encodeWithSelector`.                                             
+          Details: https://sg.run/9K1y                                          
+                                                                                
+          159┆ multicallData[0] = abi.encodeWithSelector(
+          160┆     IInitCore(CORE).borrow.selector, _param.borrPool,            
+  _param.borrAmt, _param.initPosId, address(this)                               
+          161┆ );
+            ⋮┆----------------------------------------
+          168┆ multicallData[1] =
+          169┆     abi.encodeWithSelector(IInitCore(CORE).callback.selector,    
+  address(this), 0, abi.encode(swapInfo));                                      
+            ⋮┆----------------------------------------
+          171┆ multicallData[2] =                                               
+  abi.encodeWithSelector(IInitCore(CORE).mintTo.selector, _param.collPool,      
+  POS_MANAGER);                                                                 
+            ⋮┆----------------------------------------
+          172┆ multicallData[3] =
+          173┆                                                                  
+  abi.encodeWithSelector(IInitCore(CORE).collateralize.selector,                
+  _param.initPosId, _param.collPool);                                           
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 9 findings.
+            ⋮┆----------------------------------------
+          305┆ multicallData[0] = abi.encodeWithSelector(
+          306┆     IInitCore(CORE).decollateralize.selector,
+          307┆     _param.initPosId,
+          308┆     marginPos.collPool,
+          309┆     _param.collAmt,
+          310┆     marginPos.collPool
+          311┆ );
+            ⋮┆----------------------------------------
+          312┆ multicallData[1] =                                               
+  abi.encodeWithSelector(IInitCore(CORE).burnTo.selector, marginPos.collPool,   
+  address(this));                                                               
+            ⋮┆----------------------------------------
+          318┆ multicallData[2] =
+          319┆     abi.encodeWithSelector(IInitCore(CORE).callback.selector,    
+  address(this), 0, abi.encode(swapInfo));                                      
+            ⋮┆----------------------------------------
+          321┆ multicallData[3] = abi.encodeWithSelector(
+          322┆     IInitCore(CORE).repay.selector, marginPos.borrPool,          
+  _param.repayShares, _param.initPosId                                          
+          323┆ );
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           55┆ constructor(address _core, address _posManager, address _wNative,
+  address _acm)                                                                 
+           56┆     BaseMappingIdHook(_core, _posManager)
+           57┆     UnderACM(_acm)
+           58┆ {
+           59┆     WNATIVE = _wNative;
+           60┆ }
+
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

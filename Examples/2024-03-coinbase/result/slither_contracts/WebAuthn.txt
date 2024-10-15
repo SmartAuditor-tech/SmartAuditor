@@ -1,0 +1,27 @@
+'forge config --json' running
+Could not detect solc version from Foundry config. Falling back to system version...
+'solc --version' running
+'solc @openzeppelin/contracts/security/=lib/openzeppelin-contracts/contracts/utils/ account-abstraction/=lib/account-abstraction/contracts/ ds-test/=lib/openzeppelin-contracts/lib/forge-std/lib/ds-test/src/ erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/ forge-std/=lib/forge-std/src/ openzeppelin-contracts/=lib/openzeppelin-contracts/ solady/=lib/solady/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-coinbase/src/WebAuthnSol/WebAuthn.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 200 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-coinbase/src/WebAuthnSol' running
+INFO:Detectors:
+LibString.eqs(string,bytes32) (lib/solady/src/utils/LibString.sol#1076-1091) has bitwise-xor operator ^ instead of the exponentiation operator **: 
+	 - result = mload(uint256)(a) == ! x_eqs_asm_0 + 31 ^ r_eqs_asm_0 >> 3 > b >> 8 + r_eqs_asm_0 ^ mload(uint256)(a + 0x20) >> 8 + r_eqs_asm_0 (lib/solady/src/utils/LibString.sol#1088-1089)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-exponentiation
+INFO:Detectors:
+LibString.toCase(string,bool) (lib/solady/src/utils/LibString.sol#888-914) contains an incorrect shift operation: flags_toCase_asm_0 = 0x3ffffff << 70 + toUpper << 5 (lib/solady/src/utils/LibString.sol#899)
+LibString.escapeHTML(string) (lib/solady/src/utils/LibString.sol#969-999) contains an incorrect shift operation: ! 1 << c_escapeHTML_asm_0 & 0x500000c400000000 (lib/solady/src/utils/LibString.sol#984-988)
+LibString.escapeJSON(string,bool) (lib/solady/src/utils/LibString.sol#1003-1060) contains an incorrect shift operation: ! 1 << c_escapeJSON_asm_0 & e_escapeJSON_asm_0 (lib/solady/src/utils/LibString.sol#1027-1032)
+LibString.escapeJSON(string,bool) (lib/solady/src/utils/LibString.sol#1003-1060) contains an incorrect shift operation: ! 1 << c_escapeJSON_asm_0 & 0x3700 (lib/solady/src/utils/LibString.sol#1038-1045)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-shift-in-assembly
+INFO:Detectors:
+Base64._encode(bytes,string,bool) (lib/openzeppelin-contracts/contracts/utils/Base64.sol#34-119) performs a multiplication on the result of a division:
+	- resultLength = 4 * ((data.length + 2) / 3) (lib/openzeppelin-contracts/contracts/utils/Base64.sol#51)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+LibString.indexOf(string,string,uint256).result (lib/solady/src/utils/LibString.sol#499) is written in both
+	result = from (lib/solady/src/utils/LibString.sol#506)
+	result = subjectLength_indexOf_asm_0 (lib/solady/src/utils/LibString.sol#509)
+LibString.indexOf(string,string,uint256).result (lib/solady/src/utils/LibString.sol#499) is written in both
+	result = subjectLength_indexOf_asm_0 (lib/solady/src/utils/LibString.sol#509)
+	result = ~ 0 (lib/solady/src/utils/LibString.sol#515)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#write-after-write
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-coinbase/src/WebAuthnSol/WebAuthn.sol analyzed (4 contracts with 58 detectors), 8 result(s) found

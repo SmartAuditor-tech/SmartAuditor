@@ -1,0 +1,34 @@
+{
+    "success": true,
+    "finding_length": 2,
+    "findings": [
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "RestakeManager.depositTokenRewardsFromProtocol(IERC20,uint256) (contracts/RestakeManager.sol#647-668) ignores return value by operatorDelegator.deposit(_token,_amount) (contracts/RestakeManager.sol#667)\n",
+            "filename": "RestakeManager.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "depositTokenRewardsFromProtocol",
+            "contract": "RestakeManager",
+            "line": 667
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "RestakeManager.deposit(IERC20,uint256,uint256) (contracts/RestakeManager.sol#491-576) ignores return value by operatorDelegator.deposit(_collateralToken,_amount) (contracts/RestakeManager.sol#562)\n",
+            "filename": "RestakeManager.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "deposit",
+            "contract": "RestakeManager",
+            "line": 562
+        }
+    ]
+}

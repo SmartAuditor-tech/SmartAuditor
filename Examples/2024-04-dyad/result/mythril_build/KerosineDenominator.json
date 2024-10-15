@@ -1,0 +1,46 @@
+{
+    "success": true,
+    "finding_length": 4,
+    "findings": [
+        {
+            "filaname": "KerosineDenominator.sol",
+            "SWC ID": " 113",
+            "Severity": " Low",
+            "Contract": " MAIN",
+            "Function name": " denominator()",
+            "PC address": " 403",
+            "Estimated Gas Usage": " 5397 - 75982",
+            "description": "This call is executed following another call within the same transaction. It is possible that the call never gets executed if a prior call fails permanently. This might be caused intentionally by a malicious callee. If possible, refactor the code such that each transaction only executes one external call or make sure that all callees can be trusted (i.e. they\u2019re part of your own codebase)."
+        },
+        {
+            "filaname": "KerosineDenominator.sol",
+            "SWC ID": " 101",
+            "Severity": " High",
+            "Contract": " MAIN",
+            "Function name": " denominator()",
+            "PC address": " 438",
+            "Estimated Gas Usage": " 5397 - 75982",
+            "description": "It is possible to cause an integer overflow or underflow in the arithmetic operation."
+        },
+        {
+            "filaname": "KerosineDenominator.sol",
+            "SWC ID": " 101",
+            "Severity": " High",
+            "Contract": " MAIN",
+            "Function name": " denominator()",
+            "PC address": " 445",
+            "Estimated Gas Usage": " 5397 - 75982",
+            "description": "It is possible to cause an integer overflow or underflow in the arithmetic operation."
+        },
+        {
+            "filaname": "KerosineDenominator.sol",
+            "SWC ID": " 101",
+            "Severity": " High",
+            "Contract": " MAIN",
+            "Function name": " denominator()",
+            "PC address": " 831",
+            "Estimated Gas Usage": " 5397 - 75982",
+            "description": "It is possible to cause an integer overflow or underflow in the arithmetic operation."
+        }
+    ]
+}

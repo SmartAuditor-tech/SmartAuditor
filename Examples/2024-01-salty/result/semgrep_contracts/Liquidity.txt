@@ -1,0 +1,74 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 9 findings.
+                   
+                   
+┌─────────────────┐
+│ 9 Code Findings │
+└─────────────────┘
+                                   
+    /g4b/src/staking/Liquidity.sol 
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           42┆ require(block.timestamp <= deadline, "TX EXPIRED");
+            ⋮┆----------------------------------------
+           85┆ require( exchangeConfig.walletHasAccess(msg.sender), "Sender does
+  not have exchange access" );                                                  
+            ⋮┆----------------------------------------
+          124┆ require( userShareForPool(msg.sender, poolID) >=                 
+  liquidityToWithdraw, "Cannot withdraw more than existing user share" );       
+            ⋮┆----------------------------------------
+          148┆ require( PoolUtils._poolID( tokenA, tokenB ) != collateralPoolID,
+  "Stablecoin collateral cannot be deposited via                                
+  Liquidity.depositLiquidityAndIncreaseShare" );                                
+            ⋮┆----------------------------------------
+          159┆ require( PoolUtils._poolID( tokenA, tokenB ) != collateralPoolID,
+  "Stablecoin collateral cannot be withdrawn via                                
+  Liquidity.withdrawLiquidityAndClaim" );                                       
+            ⋮┆----------------------------------------
+       solidity.performance.use-short-revert-string.use-short-revert-string     
+          Shortening revert strings to fit in 32 bytes will decrease gas costs  
+  for deployment and  gas                                                       
+          costs when the revert condition has been met.                         
+          Details: https://sg.run/E9LB                                          
+                                                                                
+           85┆ require( exchangeConfig.walletHasAccess(msg.sender), "Sender does
+  not have exchange access" );                                                  
+            ⋮┆----------------------------------------
+          124┆ require( userShareForPool(msg.sender, poolID) >=                 
+  liquidityToWithdraw, "Cannot withdraw more than existing user share" );       
+            ⋮┆----------------------------------------
+          148┆ require( PoolUtils._poolID( tokenA, tokenB ) != collateralPoolID,
+  "Stablecoin collateral cannot be deposited via                                
+  Liquidity.depositLiquidityAndIncreaseShare" );                                
+            ⋮┆----------------------------------------
+          159┆ require( PoolUtils._poolID( tokenA, tokenB ) != collateralPoolID,
+  "Stablecoin collateral cannot be withdrawn via                                
+  Liquidity.withdrawLiquidityAndClaim" );                                       
+
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

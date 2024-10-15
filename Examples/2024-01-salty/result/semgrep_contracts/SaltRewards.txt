@@ -1,0 +1,121 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 12 Code Findings │
+└──────────────────┘
+                                     
+    /g4b/src/rewards/SaltRewards.sol 
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+           64┆ for( uint256 i = 0; i < addedRewards.length; i++ )
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           28┆  ... constructor( IRewardsEmitter _stakingRewardsEmitter,        
+  IRewardsEmitter _liquidityRewardsEmitter, IExchangeConfig _exchangeConfig,    
+  IRewardsConfig _rewardsConfig ) ... [0m                                       
+           29┆  
+  {             
+           30┆            stakingRewardsEmitter =             
+  _stakingRewardsEmitter;                                     
+           31┆            liquidityRewardsEmitter =               
+  _liquidityRewardsEmitter;                                       
+           32┆            exchangeConfig =      
+  _exchangeConfig;                              
+           33┆            rewardsConfig =     
+  _rewardsConfig;                             
+           34┆ 
+           35┆            // Cached for
+  efficiency                           
+           36┆            salt =             
+  _exchangeConfig.salt();                    
+           37┆            saltUSDSPoolID = PoolUtils._poolID(salt,              
+  _exchangeConfig.usds());                                                      
+            [shortened a long line from output, adjust with                     
+  --max-chars-per-line]                                                         
+             [hid 6 additional lines, adjust with --max-lines-per-finding] 
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+           64┆ for( uint256 i = 0; i < addedRewards.length; i++ )
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           60┆ require( poolIDs.length == profitsForPools.length, "Incompatible 
+  array lengths" );                                                             
+            ⋮┆----------------------------------------
+          108┆ require( msg.sender ==                                           
+  address(exchangeConfig.initialDistribution()), "SaltRewards.sendInitialRewards
+  is only callable from the InitialDistribution contract" );                    
+            ⋮┆----------------------------------------
+          119┆ require( msg.sender == address(exchangeConfig.upkeep()),         
+  "SaltRewards.performUpkeep is only callable from the Upkeep contract" );      
+            ⋮┆----------------------------------------
+          120┆ require( poolIDs.length == profitsForPools.length, "Incompatible 
+  array lengths" );                                                             
+            ⋮┆----------------------------------------
+       solidity.performance.use-prefix-increment-not-postfix.use-prefix-incremen
+  t-not-postfix                                                                 
+          Consider using the prefix increment expression whenever the return    
+  value is not needed. The                                                      
+          prefix increment expression is cheaper in terms of gas.               
+          Details: https://sg.run/nxLr                                          
+                                                                                
+           64┆ for( uint256 i = 0; i < addedRewards.length; i++ )
+            ⋮┆----------------------------------------
+           87┆ for( uint256 i = 0; i < addedRewards.length; i++ )
+            ⋮┆----------------------------------------
+          129┆ for( uint256 i = 0; i < poolIDs.length; i++ )
+            ⋮┆----------------------------------------
+       solidity.performance.use-short-revert-string.use-short-revert-string     
+          Shortening revert strings to fit in 32 bytes will decrease gas costs  
+  for deployment and  gas                                                       
+          costs when the revert condition has been met.                         
+          Details: https://sg.run/E9LB                                          
+                                                                                
+          108┆ require( msg.sender ==                                           
+  address(exchangeConfig.initialDistribution()), "SaltRewards.sendInitialRewards
+  is only callable from the InitialDistribution contract" );                    
+            ⋮┆----------------------------------------
+          119┆ require( msg.sender == address(exchangeConfig.upkeep()),         
+  "SaltRewards.performUpkeep is only callable from the Upkeep contract" );      
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 12 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

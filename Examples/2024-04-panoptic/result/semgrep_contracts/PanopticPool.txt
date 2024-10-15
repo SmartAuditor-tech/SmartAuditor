@@ -1,0 +1,115 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+Some files were skipped or only partially analyzed.
+  Partially scanned: 1 files only partially analyzed due to parsing or internal Semgrep errors
+
+Ran 50 rules on 1 file: 20 findings.
+                    
+                    
+┌──────────────────┐
+│ 20 Code Findings │
+└──────────────────┘
+                                    
+    /g4b/contracts/PanopticPool.sol 
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+          280┆ constructor(SemiFungiblePositionManager _sfpm) {
+          281┆     SFPM = _sfpm;
+          282┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+          445┆ balances[k][1] =                                                 
+  LeftRightUnsigned.unwrap(s_positionBalance[c_user][tokenId]);                 
+            ⋮┆----------------------------------------
+          471┆ s_settledTokens[chunkKey],
+            ⋮┆----------------------------------------
+          472┆ s_grossPremiumLast[chunkKey],
+            ⋮┆----------------------------------------
+          752┆ address(s_univ3pool),
+            ⋮┆----------------------------------------
+          762┆ s_options[msg.sender][tokenId][leg] = LeftRightUnsigned
+            ⋮┆----------------------------------------
+          870┆ s_options[owner][tokenId][leg] = LeftRightUnsigned.wrap(0);
+            ⋮┆----------------------------------------
+         1530┆ address(s_univ3pool),
+            ⋮┆----------------------------------------
+         1540┆ LeftRightUnsigned premiumAccumulatorLast =                       
+  s_options[owner][tokenId][leg];                                               
+            ⋮┆----------------------------------------
+         1677┆ s_settledTokens[chunkKey] =                                      
+  s_settledTokens[chunkKey].add(collectedByLeg[leg]);                           
+            ⋮┆----------------------------------------
+         1677┆ s_settledTokens[chunkKey] =                                      
+  s_settledTokens[chunkKey].add(collectedByLeg[leg]);                           
+            ⋮┆----------------------------------------
+         1708┆ address(s_univ3pool),
+            ⋮┆----------------------------------------
+         1719┆ LeftRightUnsigned grossPremiumLast =                             
+  s_grossPremiumLast[chunkKey];                                                 
+            ⋮┆----------------------------------------
+         1725┆ s_grossPremiumLast[chunkKey] = LeftRightUnsigned
+            ⋮┆----------------------------------------
+         1860┆ LeftRightUnsigned settledTokens =                                
+  s_settledTokens[chunkKey].add(collectedByLeg[leg]);                           
+            ⋮┆----------------------------------------
+         1886┆ LeftRightUnsigned grossPremiumLast =                             
+  s_grossPremiumLast[chunkKey];                                                 
+            ⋮┆----------------------------------------
+         1928┆ s_grossPremiumLast[chunkKey] = totalLiquidity != 0
+            ⋮┆----------------------------------------
+         1974┆ s_settledTokens[chunkKey] = settledTokens;
+            ⋮┆----------------------------------------
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+         1672┆ for (uint256 leg = 0; leg < numLegs; ++leg) {
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          460┆ if (tokenId.isLong(leg) == 0 && !includePendingPremium) {
+          461┆     bytes32 chunkKey = keccak256(
+          462┆         abi.encodePacked(
+          463┆             tokenId.strike(leg),
+          464┆             tokenId.width(leg),
+          465┆             tokenId.tokenType(leg)
+          466┆         )
+          467┆     );
+          468┆ 
+          469┆     LeftRightUnsigned availablePremium = _getAvailablePremium(
+             [hid 12 additional lines, adjust with --max-lines-per-finding] 
+
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

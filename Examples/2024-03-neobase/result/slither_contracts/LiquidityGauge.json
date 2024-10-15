@@ -1,0 +1,24 @@
+{
+    "success": true,
+    "finding_length": 2,
+    "findings": [
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "LiquidityGauge.underlyingToken (src/LiquidityGauge.sol#16) should be immutable \n",
+            "filename": "LiquidityGauge.sol",
+            "classification": [],
+            "line": 16
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "LiquidityGauge.lendingLedger (src/LiquidityGauge.sol#15) should be immutable \n",
+            "filename": "LiquidityGauge.sol",
+            "classification": [],
+            "line": 15
+        }
+    ]
+}

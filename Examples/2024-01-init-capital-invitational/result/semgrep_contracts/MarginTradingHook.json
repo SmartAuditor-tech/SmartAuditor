@@ -1,0 +1,195 @@
+{
+    "success": true,
+    "finding_length": 27,
+    "findings": [
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 159
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 160
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 161
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 168
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 169
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 171
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 172
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 173
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 305
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 306
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 307
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 308
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 309
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 310
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 311
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 312
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 318
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 319
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 321
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 322
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 323
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 55
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 56
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 57
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 58
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 59
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 60
+        }
+    ]
+}

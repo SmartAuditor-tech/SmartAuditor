@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "LibSignals.sol",
+        "coverage": "8.9%",
+        "warnings": []
+    }
+}

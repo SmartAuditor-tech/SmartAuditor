@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "NoyaFeeReceiver.sol",
+        "coverage": "3.9%",
+        "warnings": []
+    }
+}

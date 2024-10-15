@@ -1,0 +1,10 @@
+
+/g4b/contracts/tokens/ERC20Minimal.sol
+  35:20  error  Parse error: extraneous input 'account' expecting '=>'
+  35:39  error  Parse error: extraneous input 'balance' expecting ')'
+  39:20  error  Parse error: extraneous input 'owner' expecting '=>'
+  39:45  error  Parse error: extraneous input 'spender' expecting '=>'
+  39:64  error  Parse error: extraneous input 'allowance' expecting ')'
+
+✖ 5 problems (5 errors, 0 warnings)
+

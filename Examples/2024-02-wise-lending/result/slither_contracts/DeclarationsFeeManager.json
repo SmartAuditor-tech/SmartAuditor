@@ -1,0 +1,60 @@
+{
+    "success": true,
+    "finding_length": 6,
+    "findings": [
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "DeclarationsFeeManager.proposedIncentiveMaster (contracts/FeeManager/DeclarationsFeeManager.sol#129) should be constant \n",
+            "filename": "DeclarationsFeeManager.sol",
+            "classification": [],
+            "line": 129
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "DeclarationsFeeManager.totalBadDebtETH (contracts/FeeManager/DeclarationsFeeManager.sol#117) should be constant \n",
+            "filename": "DeclarationsFeeManager.sol",
+            "classification": [],
+            "line": 117
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "DeclarationsFeeManager.incentiveOwnerA (contracts/FeeManager/DeclarationsFeeManager.sol#132) should be immutable \n",
+            "filename": "DeclarationsFeeManager.sol",
+            "classification": [],
+            "line": 132
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "DeclarationsFeeManager.incentiveOwnerB (contracts/FeeManager/DeclarationsFeeManager.sol#135) should be immutable \n",
+            "filename": "DeclarationsFeeManager.sol",
+            "classification": [],
+            "line": 135
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "DeclarationsFeeManager.incentiveMaster (contracts/FeeManager/DeclarationsFeeManager.sol#126) should be immutable \n",
+            "filename": "DeclarationsFeeManager.sol",
+            "classification": [],
+            "line": 126
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "DeclarationsFeeManager.paybackIncentive (contracts/FeeManager/DeclarationsFeeManager.sol#120) should be immutable \n",
+            "filename": "DeclarationsFeeManager.sol",
+            "classification": [],
+            "line": 120
+        }
+    ]
+}

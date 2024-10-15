@@ -1,0 +1,7 @@
+
+/g4b/src/core/Vault.kerosine.unbounded.sol
+   2:1  error    Compiler version =0.8.17 does not satisfy the ^0.5.8 semver requirement                            compiler-version
+  21:3  warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+
+✖ 2 problems (1 error, 1 warning)
+

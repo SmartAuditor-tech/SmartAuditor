@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "NoyaValueOracle.sol",
+        "coverage": "0.8%",
+        "warnings": []
+    }
+}

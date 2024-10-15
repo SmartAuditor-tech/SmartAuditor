@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "libraries/BlastYields.sol" not found: File not found.
+ --> /g4b/src/blast/BlastBox.sol:6:1:
+  |
+6 | import  {BlastYields} from "libraries/BlastYields.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

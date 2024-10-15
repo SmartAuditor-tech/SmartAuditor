@@ -1,0 +1,13 @@
+WARNING:root:You are using evm version 1.8.2. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.21, The latest supported version is 0.4.19
+CRITICAL:root:/g4b//thruster-clmm/contracts/libraries/PoolAddress.sol:2:1: Error: Source file requires different compiler version (current compiler is 0.4.21+commit.dfe3193c.Linux.g++ - note that nightly builds are considered to be strictly less than the released version
+pragma solidity >=0.5.0 <0.8.0;
+^-----------------------------^
+/g4b//thruster-clmm/contracts/libraries/PoolAddress.sol:34:21: Error: Undeclared identifier.
+                    abi.encodePacked(
+                    ^-^
+/g4b//thruster-clmm/contracts/libraries/PoolAddress.sol:35:53: Error: Undeclared identifier.
+                        hex"ff", factory, keccak256(abi.encode(key.token0, key.token1, key.fee)), POOL_INIT_CODE_HASH
+                                                    ^-^
+
+CRITICAL:root:Solidity compilation failed.

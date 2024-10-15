@@ -1,0 +1,16 @@
+{
+    "success": true,
+    "finding_length": 1,
+    "findings": [
+        {
+            "filaname": "LibUtils.sol",
+            "SWC ID": " 110",
+            "Severity": " Low",
+            "Contract": " LibUtils",
+            "Function name": " constructor",
+            "PC address": " 14",
+            "Estimated Gas Usage": " 308 - 2705",
+            "description": "It is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values). This issue is reported for internal compiler generated code."
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+
+/g4b/src/rollup/RollupCore.sol
+   5:1  error    Compiler version ^0.8.0 does not satisfy the ^0.5.8 semver requirement  compiler-version
+  22:1  warning  Contract has 25 states declarations but allowed no more than 15         max-states-count
+
+✖ 2 problems (1 error, 1 warning)
+

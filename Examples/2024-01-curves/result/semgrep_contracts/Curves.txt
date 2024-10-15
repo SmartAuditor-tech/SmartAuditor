@@ -1,0 +1,114 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 12 Code Findings │
+└──────────────────┘
+                              
+    /g4b/contracts/Curves.sol 
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+          305┆ for (uint256 i = 0; i < subjects.length; i++) {
+            ⋮┆----------------------------------------
+          330┆ for (uint256 i = 0; i < subjects.length; i++) {
+            ⋮┆----------------------------------------
+       solidity.performance.inefficient-state-variable-increment.inefficient-sta
+  te-variable-increment                                                         
+          <x> += <y> costs more gas than <x> = <x> + <y> for state variables.   
+          Details: https://sg.run/bp9v                                          
+                                                                                
+          345┆ _curvesTokenCounter += 1;
+            ⋮┆----------------------------------------
+       solidity.performance.init-variables-with-default-value.init-variables-wit
+  h-default-value                                                               
+          Uninitialized variables are assigned with the types default value.    
+  Explicitly initializing a                                                     
+          variable with its default value costs unnecessary gas.                
+          Details: https://sg.run/Ne5N                                          
+                                                                                
+           47┆ uint256 private _curvesTokenCounter = 0;
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+          108┆ constructor(address curvesERC20Factory_, address                 
+  feeRedistributor_) Security() {                                               
+          109┆     curvesERC20Factory = curvesERC20Factory_;
+          110┆     feeRedistributor = FeeSplitter(payable(feeRedistributor_));
+          111┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+          306┆ uint256 amount = curvesTokenBalance[subjects[i]][msg.sender];
+            ⋮┆----------------------------------------
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+          305┆ for (uint256 i = 0; i < subjects.length; i++) {
+            ⋮┆----------------------------------------
+          330┆ for (uint256 i = 0; i < subjects.length; i++) {
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          213┆ if (startTime != 0 && startTime >= block.timestamp) revert       
+  SaleNotOpen();                                                                
+            ⋮┆----------------------------------------
+          246┆ if (feesEconomics.holdersFeePercent > 0 &&                       
+  address(feeRedistributor) != address(0)) {                                    
+          247┆     feeRedistributor.onBalanceChange(curvesTokenSubject,         
+  msg.sender);                                                                  
+          248┆     feeRedistributor.addFees{value:                              
+  holderFee}(curvesTokenSubject);                                               
+          249┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.use-prefix-increment-not-postfix.use-prefix-incremen
+  t-not-postfix                                                                 
+          Consider using the prefix increment expression whenever the return    
+  value is not needed. The                                                      
+          prefix increment expression is cheaper in terms of gas.               
+          Details: https://sg.run/nxLr                                          
+                                                                                
+          305┆ for (uint256 i = 0; i < subjects.length; i++) {
+            ⋮┆----------------------------------------
+          330┆ for (uint256 i = 0; i < subjects.length; i++) {
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 12 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

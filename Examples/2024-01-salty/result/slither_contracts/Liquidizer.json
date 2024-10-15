@@ -1,0 +1,266 @@
+{
+    "success": true,
+    "finding_length": 21,
+    "findings": [
+        {
+            "name": "incorrect-exp",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) has bitwise-xor operator ^ instead of the exponentiation operator **: \n\t - inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 116
+        },
+        {
+            "name": "reentrancy-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "Reentrancy in Liquidizer._possiblyBurnUSDS() (src/stable/Liquidizer.sol#101-126):\n\tExternal calls:\n\t- _burnUSDS(usdsThatShouldBeBurned) (src/stable/Liquidizer.sol#112)\n\t\t- returndata = address(token).functionCall(data,SafeERC20: low-level call failed) (lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol#122)\n\t\t- usds.safeTransfer(address(usds),amountToBurn) (src/stable/Liquidizer.sol#94)\n\t\t- usds.burnTokensInContract() (src/stable/Liquidizer.sol#95)\n\t\t- (success,returndata) = target.call{value: value}(data) (lib/openzeppelin-contracts/contracts/utils/Address.sol#135)\n\tExternal calls sending eth:\n\t- _burnUSDS(usdsThatShouldBeBurned) (src/stable/Liquidizer.sol#112)\n\t\t- (success,returndata) = target.call{value: value}(data) (lib/openzeppelin-contracts/contracts/utils/Address.sol#135)\n\tState variables written after the call(s):\n\t- usdsThatShouldBeBurned = 0 (src/stable/Liquidizer.sol#113)\n\tLiquidizer.usdsThatShouldBeBurned (src/stable/Liquidizer.sol#46) can be used in cross function reentrancies:\n\t- Liquidizer._possiblyBurnUSDS() (src/stable/Liquidizer.sol#101-126)\n\t- Liquidizer.incrementBurnableUSDS(uint256) (src/stable/Liquidizer.sol#81-88)\n\t- Liquidizer.usdsThatShouldBeBurned (src/stable/Liquidizer.sol#46)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "_possiblyBurnUSDS",
+            "contract": "Liquidizer",
+            "line": 46
+        },
+        {
+            "name": "reentrancy-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "Reentrancy in Liquidizer._possiblyBurnUSDS() (src/stable/Liquidizer.sol#101-126):\n\tExternal calls:\n\t- _burnUSDS(usdsBalance) (src/stable/Liquidizer.sol#118)\n\t\t- returndata = address(token).functionCall(data,SafeERC20: low-level call failed) (lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol#122)\n\t\t- usds.safeTransfer(address(usds),amountToBurn) (src/stable/Liquidizer.sol#94)\n\t\t- usds.burnTokensInContract() (src/stable/Liquidizer.sol#95)\n\t\t- (success,returndata) = target.call{value: value}(data) (lib/openzeppelin-contracts/contracts/utils/Address.sol#135)\n\tExternal calls sending eth:\n\t- _burnUSDS(usdsBalance) (src/stable/Liquidizer.sol#118)\n\t\t- (success,returndata) = target.call{value: value}(data) (lib/openzeppelin-contracts/contracts/utils/Address.sol#135)\n\tState variables written after the call(s):\n\t- usdsThatShouldBeBurned -= usdsBalance (src/stable/Liquidizer.sol#119)\n\tLiquidizer.usdsThatShouldBeBurned (src/stable/Liquidizer.sol#46) can be used in cross function reentrancies:\n\t- Liquidizer._possiblyBurnUSDS() (src/stable/Liquidizer.sol#101-126)\n\t- Liquidizer.incrementBurnableUSDS(uint256) (src/stable/Liquidizer.sol#81-88)\n\t- Liquidizer.usdsThatShouldBeBurned (src/stable/Liquidizer.sol#46)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "_possiblyBurnUSDS",
+            "contract": "Liquidizer",
+            "line": 46
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 123
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 116
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#120)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 120
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#121)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 121
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#122)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 122
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- prod0 = prod0 / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#104)\n\t- result = prod0 * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#131)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 131
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#125)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 125
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#124)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 124
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "Liquidizer._possiblyBurnUSDS() (src/stable/Liquidizer.sol#101-126) uses a dangerous strict equality:\n\t- usdsThatShouldBeBurned == 0 (src/stable/Liquidizer.sol#104)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [],
+            "function": "_possiblyBurnUSDS",
+            "contract": "Liquidizer",
+            "line": 104
+        },
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in Liquidizer.setContracts(ICollateralAndLiquidity,IPools,IDAO) (src/stable/Liquidizer.sol#63-77):\n\tExternal calls:\n\t- wbtc.approve(address(pools),type()(uint256).max) (src/stable/Liquidizer.sol#71)\n\t- weth.approve(address(pools),type()(uint256).max) (src/stable/Liquidizer.sol#72)\n\t- dai.approve(address(pools),type()(uint256).max) (src/stable/Liquidizer.sol#73)\n\tState variables written after the call(s):\n\t- renounceOwnership() (src/stable/Liquidizer.sol#76)\n\t\t- _owner = newOwner (lib/openzeppelin-contracts/contracts/access/Ownable.sol#80)\n\tOwnable._owner (lib/openzeppelin-contracts/contracts/access/Ownable.sol#21) can be used in cross function reentrancies:\n\t- Ownable._transferOwnership(address) (lib/openzeppelin-contracts/contracts/access/Ownable.sol#78-82)\n\t- Ownable.owner() (lib/openzeppelin-contracts/contracts/access/Ownable.sol#43-45)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "setContracts",
+            "contract": "Liquidizer",
+            "line": 43,
+            "line_end": 45
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Liquidizer.performUpkeep() (src/stable/Liquidizer.sol#132-152) ignores return value by PoolUtils._placeInternalSwap(pools,wbtc,usds,wbtc.balanceOf(address(this)),maximumInternalSwapPercentTimes1000) (src/stable/Liquidizer.sol#139)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "performUpkeep",
+            "contract": "Liquidizer",
+            "line": 139
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Liquidizer.setContracts(ICollateralAndLiquidity,IPools,IDAO) (src/stable/Liquidizer.sol#63-77) ignores return value by wbtc.approve(address(pools),type()(uint256).max) (src/stable/Liquidizer.sol#71)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "setContracts",
+            "contract": "Liquidizer",
+            "line": 71
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Liquidizer.performUpkeep() (src/stable/Liquidizer.sol#132-152) ignores return value by PoolUtils._placeInternalSwap(pools,weth,usds,weth.balanceOf(address(this)),maximumInternalSwapPercentTimes1000) (src/stable/Liquidizer.sol#140)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "performUpkeep",
+            "contract": "Liquidizer",
+            "line": 140
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Liquidizer.performUpkeep() (src/stable/Liquidizer.sol#132-152) ignores return value by PoolUtils._placeInternalSwap(pools,dai,usds,dai.balanceOf(address(this)),maximumInternalSwapPercentTimes1000) (src/stable/Liquidizer.sol#141)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "performUpkeep",
+            "contract": "Liquidizer",
+            "line": 141
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Liquidizer.setContracts(ICollateralAndLiquidity,IPools,IDAO) (src/stable/Liquidizer.sol#63-77) ignores return value by dai.approve(address(pools),type()(uint256).max) (src/stable/Liquidizer.sol#73)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "setContracts",
+            "contract": "Liquidizer",
+            "line": 73
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PoolUtils._placeInternalSwap(IPools,IERC20,IERC20,uint256,uint256) (src/pools/PoolUtils.sol#54-68) ignores return value by (reservesIn,None) = pools.getPoolReserves(tokenIn,tokenOut) (src/pools/PoolUtils.sol#59)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_placeInternalSwap",
+            "contract": "PoolUtils",
+            "line": 59
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Liquidizer.setContracts(ICollateralAndLiquidity,IPools,IDAO) (src/stable/Liquidizer.sol#63-77) ignores return value by weth.approve(address(pools),type()(uint256).max) (src/stable/Liquidizer.sol#72)\n",
+            "filename": "Liquidizer.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "setContracts",
+            "contract": "Liquidizer",
+            "line": 72
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "Liquidizer.exchangeConfig (src/stable/Liquidizer.sol#37) should be immutable \n",
+            "filename": "Liquidizer.sol",
+            "classification": [],
+            "line": 37
+        }
+    ]
+}

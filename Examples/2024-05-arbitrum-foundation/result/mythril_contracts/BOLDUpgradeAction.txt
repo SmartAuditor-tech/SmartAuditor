@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "/g4b/node_modules/@openzeppelin/contracts-upgradeable/utils/Create2Upgradeable.sol" not found: File not found. Searched the following locations: "".
+ --> /g4b/src/rollup/BOLDUpgradeAction.sol:7:1:
+  |
+7 | import "../../node_modules/@openzeppelin/contracts-upgradeable/utils/Create2Upgradeable.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

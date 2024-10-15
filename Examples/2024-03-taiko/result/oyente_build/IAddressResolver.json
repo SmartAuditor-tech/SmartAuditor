@@ -1,0 +1,9 @@
+{
+    "success": false,
+    "findings": {
+        "vul": [],
+        "filename": "IAddressResolver.sol",
+        "coverage": "",
+        "warnings": []
+    }
+}

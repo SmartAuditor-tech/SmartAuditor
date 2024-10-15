@@ -1,0 +1,302 @@
+{
+    "success": true,
+    "finding_length": 25,
+    "findings": [
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmControllerHelper._calcExpiry(uint128) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerHelper.sol#32-43) performs a multiplication on the result of a division:\n\t- startTime = uint128((block.timestamp / WEEK) * WEEK) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerHelper.sol#39-40)\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [],
+            "function": "_calcExpiry",
+            "contract": "PendlePowerFarmControllerHelper",
+            "line": 39,
+            "line_end": 40
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmToken.previewDistribution() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#386-414) performs a multiplication on the result of a division:\n\t- currentRate = totalLpAssetsToDistribute / ONE_WEEK (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#403-404)\n\t- additonalAssets = currentRate * (block.timestamp - lastInteraction) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#406-407)\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [],
+            "function": "previewDistribution",
+            "contract": "PendlePowerFarmToken",
+            "line": 406,
+            "line_end": 407
+        },
+        {
+            "name": "erc20-interface",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "IPendleMarket (contracts/InterfaceHub/IPendle.sol#139-251) has incorrect ERC20 function interface:IPendleMarket.transferFrom(address,address,uint256) (contracts/InterfaceHub/IPendle.sol#157-162)\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [],
+            "line": 157,
+            "line_end": 162
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "PendlePowerFarmToken.previewDistribution() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#386-414) uses a dangerous strict equality:\n\t- totalLpAssetsToDistribute == 0 (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#391)\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [],
+            "function": "previewDistribution",
+            "contract": "PendlePowerFarmToken",
+            "line": 391
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "PendlePowerFarmToken._syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#334-345) uses a dangerous strict equality:\n\t- additonalAssets == 0 (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#339)\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [],
+            "function": "_syncSupply",
+            "contract": "PendlePowerFarmToken",
+            "line": 339
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "CallOptionalReturn._callOptionalReturn(address,bytes) (contracts/TransferHub/CallOptionalReturn.sol#12-38) uses a dangerous strict equality:\n\t- success == false (contracts/TransferHub/CallOptionalReturn.sol#31)\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [],
+            "function": "_callOptionalReturn",
+            "contract": "CallOptionalReturn",
+            "line": 31
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "CallOptionalReturn._callOptionalReturn(address,bytes) (contracts/TransferHub/CallOptionalReturn.sol#12-38) uses a dangerous strict equality:\n\t- results = returndata.length == 0 || abi.decode(returndata,(bool)) (contracts/TransferHub/CallOptionalReturn.sol#26-29)\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [],
+            "function": "_callOptionalReturn",
+            "contract": "CallOptionalReturn",
+            "line": 26,
+            "line_end": 29
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "PendlePowerFarmToken.previewDistribution() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#386-414) uses a dangerous strict equality:\n\t- block.timestamp == lastInteraction (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#395)\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [],
+            "function": "previewDistribution",
+            "contract": "PendlePowerFarmToken",
+            "line": 395
+        },
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in PendlePowerFarmToken.syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#81-96):\n\tExternal calls:\n\t- _triggerIndexUpdate() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#83)\n\t\t- PENDLE_CONTROLLER.withdrawLp(UNDERLYING_PENDLE_MARKET,_to,_amount) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#365-369)\n\t- _overWriteCheck() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#84)\n\t\t- PENDLE_CONTROLLER.updateRewardTokens(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#164-166)\n\t\t- PENDLE_CONTROLLER.overWriteIndexAll(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#172-174)\n\t\t- PENDLE_CONTROLLER.overWriteAmounts(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#191-193)\n\t- _updateRewards() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#86)\n\t\t- PENDLE_CONTROLLER.overWriteIndex(UNDERLYING_PENDLE_MARKET,_index) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#182-185)\n\t\t- PENDLE_CONTROLLER.increaseReservedForCompound(UNDERLYING_PENDLE_MARKET,rewardsOutsideArray) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#206-209)\n\t\t- PENDLE_MARKET.redeemRewards(PENDLE_POWER_FARM_CONTROLLER) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#243-245)\n\tState variables written after the call(s):\n\t- _setLastInteraction() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#87)\n\t\t- lastInteraction = block.timestamp (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#419)\n\tPendlePowerFarmToken.lastInteraction (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#50) can be used in cross function reentrancies:\n\t- PendlePowerFarmToken._setLastInteraction() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#416-420)\n\t- PendlePowerFarmToken.initialize(address,address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#682-732)\n\t- PendlePowerFarmToken.lastInteraction (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#50)\n\t- PendlePowerFarmToken.previewDistribution() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#386-414)\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "syncSupply",
+            "contract": "PendlePowerFarmToken",
+            "line": 386,
+            "line_end": 414
+        },
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in PendlePowerFarmToken.withdrawExactAmount(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#647-680):\n\tExternal calls:\n\t- syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#651)\n\t\t- PENDLE_CONTROLLER.overWriteAmounts(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#191-193)\n\t\t- PENDLE_CONTROLLER.overWriteIndex(UNDERLYING_PENDLE_MARKET,_index) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#182-185)\n\t\t- PENDLE_CONTROLLER.overWriteIndexAll(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#172-174)\n\t\t- PENDLE_CONTROLLER.updateRewardTokens(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#164-166)\n\t\t- PENDLE_CONTROLLER.withdrawLp(UNDERLYING_PENDLE_MARKET,_to,_amount) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#365-369)\n\t\t- PENDLE_MARKET.increaseObservationsCardinalityNext(storageMarket.observationCardinalityNext + 1) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#353-355)\n\t\t- PENDLE_CONTROLLER.increaseReservedForCompound(UNDERLYING_PENDLE_MARKET,rewardsOutsideArray) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#206-209)\n\t\t- PENDLE_MARKET.redeemRewards(PENDLE_POWER_FARM_CONTROLLER) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#243-245)\n\tState variables written after the call(s):\n\t- _burn(msg.sender,shares) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#667-670)\n\t\t- _totalSupply -= _amount (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#155)\n\tSimpleERC20._totalSupply (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#20) can be used in cross function reentrancies:\n\t- SimpleERC20._burn(address,uint256) (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#135-163)\n\t- SimpleERC20._mint(address,uint256) (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#112-133)\n\t- PendlePowerFarmToken.initialize(address,address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#682-732)\n\t- SimpleERC20.totalSupply() (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#65-71)\n\t- underlyingLpAssetsCurrent -= _underlyingLpAssetAmount (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#672)\n\tPendlePowerFarmToken.underlyingLpAssetsCurrent (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#32) can be used in cross function reentrancies:\n\t- PendlePowerFarmToken._syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#334-345)\n\t- PendlePowerFarmToken.depositExactAmount(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#529-590)\n\t- PendlePowerFarmToken.initialize(address,address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#682-732)\n\t- PendlePowerFarmToken.previewUnderlyingLpAssets() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#443-450)\n\t- PendlePowerFarmToken.totalLpAssets() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#434-441)\n\t- PendlePowerFarmToken.underlyingLpAssetsCurrent (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#32)\n\t- PendlePowerFarmToken.withdrawExactAmount(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#647-680)\n\t- PendlePowerFarmToken.withdrawExactShares(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#608-645)\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "withdrawExactAmount",
+            "contract": "PendlePowerFarmToken",
+            "line": 608,
+            "line_end": 645
+        },
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in PendlePowerFarmController.addPendleMarket(address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmController.sol#211-291):\n\tExternal calls:\n\t- pendleChild = PENDLE_POWER_FARM_TOKEN_FACTORY.deploy(_pendleMarket,_tokenName,_symbolName,_maxCardinality) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmController.sol#224-229)\n\tState variables written after the call(s):\n\t- pendleChildAddress[_pendleMarket] = pendleChild (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmController.sol#231)\n\tPendlePowerFarmControllerBase.pendleChildAddress (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#58) can be used in cross function reentrancies:\n\t- PendlePowerFarmControllerBase._onlyChildContract(address) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#245-254)\n\t- PendlePowerFarmControllerBase._syncSupply(address) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#256-270)\n\t- PendlePowerFarmController.addPendleMarket(address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmController.sol#211-291)\n\t- PendlePowerFarmController.changeMintFee(address,uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmController.sol#334-359)\n\t- PendlePowerFarmController.exchangeLpFeesForPendleWithIncentive(address,uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmController.sol#113-170)\n\t- PendlePowerFarmController.exchangeRewardsForCompoundingWithIncentive(address,address,uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmController.sol#53-111)\n\t- PendlePowerFarmControllerBase.pendleChildAddress (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#58)\n\t- PendlePowerFarmController.skim(address) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmController.sol#172-209)\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "addPendleMarket",
+            "contract": "PendlePowerFarmController",
+            "line": 172,
+            "line_end": 209
+        },
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in PendlePowerFarmToken.depositExactAmount(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#529-590):\n\tExternal calls:\n\t- syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#533)\n\t\t- PENDLE_CONTROLLER.overWriteAmounts(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#191-193)\n\t\t- PENDLE_CONTROLLER.overWriteIndex(UNDERLYING_PENDLE_MARKET,_index) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#182-185)\n\t\t- PENDLE_CONTROLLER.overWriteIndexAll(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#172-174)\n\t\t- PENDLE_CONTROLLER.updateRewardTokens(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#164-166)\n\t\t- PENDLE_CONTROLLER.withdrawLp(UNDERLYING_PENDLE_MARKET,_to,_amount) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#365-369)\n\t\t- PENDLE_MARKET.increaseObservationsCardinalityNext(storageMarket.observationCardinalityNext + 1) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#353-355)\n\t\t- PENDLE_CONTROLLER.increaseReservedForCompound(UNDERLYING_PENDLE_MARKET,rewardsOutsideArray) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#206-209)\n\t\t- PENDLE_MARKET.redeemRewards(PENDLE_POWER_FARM_CONTROLLER) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#243-245)\n\tState variables written after the call(s):\n\t- _mint(msg.sender,reducedShares) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#567-570)\n\t\t- _totalSupply += _amount (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#122)\n\tSimpleERC20._totalSupply (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#20) can be used in cross function reentrancies:\n\t- SimpleERC20._burn(address,uint256) (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#135-163)\n\t- SimpleERC20._mint(address,uint256) (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#112-133)\n\t- PendlePowerFarmToken.initialize(address,address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#682-732)\n\t- SimpleERC20.totalSupply() (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#65-71)\n\t- _mint(PENDLE_POWER_FARM_CONTROLLER,feeShares) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#572-575)\n\t\t- _totalSupply += _amount (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#122)\n\tSimpleERC20._totalSupply (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#20) can be used in cross function reentrancies:\n\t- SimpleERC20._burn(address,uint256) (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#135-163)\n\t- SimpleERC20._mint(address,uint256) (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#112-133)\n\t- PendlePowerFarmToken.initialize(address,address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#682-732)\n\t- SimpleERC20.totalSupply() (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#65-71)\n\t- underlyingLpAssetsCurrent += _underlyingLpAssetAmount (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#577)\n\tPendlePowerFarmToken.underlyingLpAssetsCurrent (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#32) can be used in cross function reentrancies:\n\t- PendlePowerFarmToken._syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#334-345)\n\t- PendlePowerFarmToken.depositExactAmount(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#529-590)\n\t- PendlePowerFarmToken.initialize(address,address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#682-732)\n\t- PendlePowerFarmToken.previewUnderlyingLpAssets() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#443-450)\n\t- PendlePowerFarmToken.totalLpAssets() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#434-441)\n\t- PendlePowerFarmToken.underlyingLpAssetsCurrent (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#32)\n\t- PendlePowerFarmToken.withdrawExactAmount(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#647-680)\n\t- PendlePowerFarmToken.withdrawExactShares(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#608-645)\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "depositExactAmount",
+            "contract": "PendlePowerFarmToken",
+            "line": 608,
+            "line_end": 645
+        },
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in PendlePowerFarmToken.withdrawExactShares(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#608-645):\n\tExternal calls:\n\t- syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#612)\n\t\t- PENDLE_CONTROLLER.overWriteAmounts(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#191-193)\n\t\t- PENDLE_CONTROLLER.overWriteIndex(UNDERLYING_PENDLE_MARKET,_index) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#182-185)\n\t\t- PENDLE_CONTROLLER.overWriteIndexAll(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#172-174)\n\t\t- PENDLE_CONTROLLER.updateRewardTokens(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#164-166)\n\t\t- PENDLE_CONTROLLER.withdrawLp(UNDERLYING_PENDLE_MARKET,_to,_amount) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#365-369)\n\t\t- PENDLE_MARKET.increaseObservationsCardinalityNext(storageMarket.observationCardinalityNext + 1) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#353-355)\n\t\t- PENDLE_CONTROLLER.increaseReservedForCompound(UNDERLYING_PENDLE_MARKET,rewardsOutsideArray) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#206-209)\n\t\t- PENDLE_MARKET.redeemRewards(PENDLE_POWER_FARM_CONTROLLER) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#243-245)\n\tState variables written after the call(s):\n\t- _burn(msg.sender,_shares) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#630-633)\n\t\t- _totalSupply -= _amount (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#155)\n\tSimpleERC20._totalSupply (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#20) can be used in cross function reentrancies:\n\t- SimpleERC20._burn(address,uint256) (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#135-163)\n\t- SimpleERC20._mint(address,uint256) (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#112-133)\n\t- PendlePowerFarmToken.initialize(address,address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#682-732)\n\t- SimpleERC20.totalSupply() (contracts/PowerFarms/PendlePowerFarmController/SimpleERC20Clone.sol#65-71)\n\t- underlyingLpAssetsCurrent -= tokenAmount (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#628)\n\tPendlePowerFarmToken.underlyingLpAssetsCurrent (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#32) can be used in cross function reentrancies:\n\t- PendlePowerFarmToken._syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#334-345)\n\t- PendlePowerFarmToken.depositExactAmount(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#529-590)\n\t- PendlePowerFarmToken.initialize(address,address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#682-732)\n\t- PendlePowerFarmToken.previewUnderlyingLpAssets() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#443-450)\n\t- PendlePowerFarmToken.totalLpAssets() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#434-441)\n\t- PendlePowerFarmToken.underlyingLpAssetsCurrent (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#32)\n\t- PendlePowerFarmToken.withdrawExactAmount(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#647-680)\n\t- PendlePowerFarmToken.withdrawExactShares(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#608-645)\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "withdrawExactShares",
+            "contract": "PendlePowerFarmToken",
+            "line": 608,
+            "line_end": 645
+        },
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in PendlePowerFarmToken.addCompoundRewards(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#502-524):\n\tExternal calls:\n\t- syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#506)\n\t\t- PENDLE_CONTROLLER.overWriteAmounts(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#191-193)\n\t\t- PENDLE_CONTROLLER.overWriteIndex(UNDERLYING_PENDLE_MARKET,_index) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#182-185)\n\t\t- PENDLE_CONTROLLER.overWriteIndexAll(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#172-174)\n\t\t- PENDLE_CONTROLLER.updateRewardTokens(UNDERLYING_PENDLE_MARKET) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#164-166)\n\t\t- PENDLE_CONTROLLER.withdrawLp(UNDERLYING_PENDLE_MARKET,_to,_amount) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#365-369)\n\t\t- PENDLE_MARKET.increaseObservationsCardinalityNext(storageMarket.observationCardinalityNext + 1) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#353-355)\n\t\t- PENDLE_CONTROLLER.increaseReservedForCompound(UNDERLYING_PENDLE_MARKET,rewardsOutsideArray) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#206-209)\n\t\t- PENDLE_MARKET.redeemRewards(PENDLE_POWER_FARM_CONTROLLER) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#243-245)\n\tState variables written after the call(s):\n\t- totalLpAssetsToDistribute += _amount (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#512)\n\tPendlePowerFarmToken.totalLpAssetsToDistribute (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#35) can be used in cross function reentrancies:\n\t- PendlePowerFarmToken._syncSupply() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#334-345)\n\t- PendlePowerFarmToken.addCompoundRewards(uint256) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#502-524)\n\t- PendlePowerFarmToken.previewDistribution() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#386-414)\n\t- PendlePowerFarmToken.totalLpAssets() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#434-441)\n\t- PendlePowerFarmToken.totalLpAssetsToDistribute (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#35)\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "addCompoundRewards",
+            "contract": "PendlePowerFarmToken",
+            "line": 35
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmController.vote(address[],uint64[]).i (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmController.sol#623) is a local variable never initialized\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [],
+            "line": 623
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmController.increaseReservedForCompound(address,uint256[]).i (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmController.sol#508) is a local variable never initialized\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [],
+            "line": 508
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmToken._calculateRewardsClaimedOutside().i (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#233) is a local variable never initialized\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [],
+            "line": 233
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmController.overWriteIndexAll(address).i (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmController.sol#550) is a local variable never initialized\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [],
+            "line": 550
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmControllerHelper._findIndex(address[],address).i (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerHelper.sol#17) is a local variable never initialized\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [],
+            "line": 17
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmControllerBase.syncAllSupply().i (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#275) is a local variable never initialized\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [],
+            "line": 275
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmToken._updateRewards().i (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#201) is a local variable never initialized\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [],
+            "line": 201
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmToken.initialize(address,address,string,string,uint16) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#682-732) ignores return value by (pendleSyAddress,None,None) = PENDLE_MARKET.readTokens() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#715-718)\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "initialize",
+            "contract": "PendlePowerFarmToken",
+            "line": 715,
+            "line_end": 718
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmController.claimVoteRewards(uint256,bytes32[]) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmController.sol#581-598) ignores return value by PENDLE_VOTE_REWARDS.claimRetail(address(this),_amount,_merkleProof) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmController.sol#587-591)\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "claimVoteRewards",
+            "contract": "PendlePowerFarmController",
+            "line": 587,
+            "line_end": 591
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PendlePowerFarmToken._calculateRewardsClaimedOutside() (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#218-303) ignores return value by PENDLE_MARKET.redeemRewards(PENDLE_POWER_FARM_CONTROLLER) (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol#243-245)\n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_calculateRewardsClaimedOutside",
+            "contract": "PendlePowerFarmToken",
+            "line": 243,
+            "line_end": 245
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "PendlePowerFarmControllerBase.ARB_REWARDS (contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmControllerBase.sol#72) should be immutable \n",
+            "filename": "PendlePowerFarmController.sol",
+            "classification": [],
+            "line": 72
+        }
+    ]
+}

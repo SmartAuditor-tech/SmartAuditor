@@ -1,0 +1,10 @@
+
+/g4b/packages/protocol/contracts/L1/provers/Guardians.sol
+  16:20  error  Parse error: extraneous input 'guardian' expecting '=>'
+  16:40  error  Parse error: extraneous input 'id' expecting ')'
+  19:19  error  Parse error: extraneous input 'version' expecting '=>'
+  19:46  error  Parse error: extraneous input 'hash' expecting '=>'
+  19:62  error  Parse error: extraneous input 'approvalBits' expecting ')'
+
+✖ 5 problems (5 errors, 0 warnings)
+

@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Expected '=>' but got identifier
+  --> /g4b/src/mimswap/periphery/Factory.sol:35:21:
+   |
+35 |     mapping(address base => mapping(address quote => address[] pools)) public pools;
+   |                     ^^^^
+
+

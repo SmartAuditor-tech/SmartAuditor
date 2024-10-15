@@ -1,0 +1,38 @@
+{
+    "success": false,
+    "finding_length": 4,
+    "findings": [
+        {
+            "filename": "UnderACM.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version ^0.8.19 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "UnderACM.sol",
+            "line": 4,
+            "column": 37,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "UnderACM.sol",
+            "line": 8,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "UnderACM.sol",
+            "line": 11,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+
+/g4b/contracts/core/InitCore.sol
+    2:1   error    Compiler version ^0.8.19 does not satisfy the ^0.5.8 semver requirement                            compiler-version
+    4:25  error    Use double quotes for string literals                                                              quotes
+    5:8   error    Use double quotes for string literals                                                              quotes
+    6:8   error    Use double quotes for string literals                                                              quotes
+    7:24  error    Use double quotes for string literals                                                              quotes
+    9:25  error    Use double quotes for string literals                                                              quotes
+   10:27  error    Use double quotes for string literals                                                              quotes
+   11:61  error    Use double quotes for string literals                                                              quotes
+   12:28  error    Use double quotes for string literals                                                              quotes
+   13:27  error    Use double quotes for string literals                                                              quotes
+   14:27  error    Use double quotes for string literals                                                              quotes
+   15:39  error    Use double quotes for string literals                                                              quotes
+   16:33  error    Use double quotes for string literals                                                              quotes
+   17:30  error    Use double quotes for string literals                                                              quotes
+   18:28  error    Use double quotes for string literals                                                              quotes
+   36:51  error    Use double quotes for string literals                                                              quotes
+   37:51  error    Use double quotes for string literals                                                              quotes
+   40:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   75:5   warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+  305:13  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  458:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  458:82  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  466:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  469:13  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  470:13  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  476:17  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  477:17  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  486:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  486:78  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  491:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  495:13  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  497:13  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  505:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  505:75  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  506:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  579:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+
+✖ 36 problems (17 errors, 19 warnings)
+

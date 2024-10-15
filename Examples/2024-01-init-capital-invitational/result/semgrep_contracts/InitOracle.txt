@@ -1,0 +1,71 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 5 findings.
+┌─────────────────┐
+│ 5 Code Findings │
+└─────────────────┘
+                                         
+    /g4b/contracts/oracle/InitOracle.sol 
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           31┆ constructor(address _acm) UnderACM(_acm) {
+           32┆     _disableInitializers();
+           33┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+           97┆ primarySources[_tokens[i]] = _sources[i];
+            ⋮┆----------------------------------------
+          106┆ secondarySources[_tokens[i]] = _sources[i];
+            ⋮┆----------------------------------------
+          121┆ maxPriceDeviations_e18[_tokens[i]] = _maxPriceDeviations_e18[i];
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+           71┆ if (isPrimarySourceValid && isSecondarySourceValid) {
+           72┆     // sort Price
+           73┆     (uint minPrice_e36, uint maxPrice_e36) = primaryPrice_e36 <  
+  secondaryPrice_e36                                                            
+           74┆         ? (primaryPrice_e36, secondaryPrice_e36)
+           75┆         : (secondaryPrice_e36, primaryPrice_e36);
+           76┆ 
+           77┆     // check deviation
+           78┆     _require(
+           79┆         (maxPrice_e36 * ONE_E18) / minPrice_e36 <=               
+  maxPriceDeviations_e18[_token], Errors.TOO_MUCH_DEVIATION                     
+           80┆     );
+             [hid 1 additional lines, adjust with --max-lines-per-finding] 
+
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

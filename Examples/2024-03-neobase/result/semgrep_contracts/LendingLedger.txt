@@ -1,0 +1,107 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 14 Code Findings │
+└──────────────────┘
+                               
+    /g4b/src/LendingLedger.sol 
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           51┆ constructor(address _gaugeController, address _governance) {
+           52┆     gaugeController = GaugeController(_gaugeController);
+           53┆     governance = _governance;
+           54┆     referenceBlockNumber = block.number;
+           55┆     referenceBlockTime = block.timestamp;
+           56┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+           77┆ uint256 epochTime = referenceBlockTime +
+            ⋮┆----------------------------------------
+           78┆ ((block.number - referenceBlockNumber) * averageBlockTime) /
+            ⋮┆----------------------------------------
+           78┆ ((block.number - referenceBlockNumber) * averageBlockTime) /
+            ⋮┆----------------------------------------
+           82┆ cantoPerBlock[epoch] *
+            ⋮┆----------------------------------------
+           83┆ gaugeController.gauge_relative_weight_write(_market, epochTime)) 
+  / marketSupply                                                                
+            ⋮┆----------------------------------------
+          147┆ cantoPerBlock[i] = _amountPerBlock;
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           65┆ require(lendingMarketWhitelist[_market], "Market not             
+  whitelisted");                                                                
+            ⋮┆----------------------------------------
+          115┆ require(updatedMarketBalance >= 0, "Market balance underflow");  
+  // Sanity check performed here, but the market should ensure that this never  
+  happens                                                                       
+            ⋮┆----------------------------------------
+          132┆ require(success, "Failed to send CANTO");
+            ⋮┆----------------------------------------
+          145┆ require(_fromEpoch % BLOCK_EPOCH == 0 && _toEpoch % BLOCK_EPOCH  
+  == 0, "Invalid block number");                                                
+            ⋮┆----------------------------------------
+          159┆ require(lendingMarketWhitelist[_market] != _isWhiteListed, "No   
+  change");                                                                     
+            ⋮┆----------------------------------------
+       solidity.performance.use-multiple-require.use-multiple-require           
+          Using multiple require statements is cheaper than using && multiple   
+  check combinations.                                                           
+          There are more advantages, such as easier to read code and better     
+  coverage reports.                                                             
+          Details: https://sg.run/vGA0                                          
+                                                                                
+          145┆ require(_fromEpoch % BLOCK_EPOCH == 0 && _toEpoch % BLOCK_EPOCH  
+  == 0, "Invalid block number");                                                
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          160┆ if (_hasGauge && liquidityGauges[_market] == address(0)) {
+          161┆     LiquidityGauge liquidityGauge = new LiquidityGauge(_market,  
+  address(this));                                                               
+          162┆     liquidityGauges[_market] = address(liquidityGauge);
+          163┆     // add reverse also for reference in sync_ledger
+          164┆     liquidityGauges[address(liquidityGauge)] = _market;
+          165┆ }
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 14 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

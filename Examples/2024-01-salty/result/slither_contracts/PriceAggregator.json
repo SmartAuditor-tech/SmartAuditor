@@ -1,0 +1,33 @@
+{
+    "success": true,
+    "finding_length": 3,
+    "findings": [
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PriceAggregator._aggregatePrices(uint256,uint256,uint256).priceA (src/price_feed/PriceAggregator.sol#129) is a local variable never initialized\n",
+            "filename": "PriceAggregator.sol",
+            "classification": [],
+            "line": 129
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PriceAggregator._aggregatePrices(uint256,uint256,uint256).numNonZero (src/price_feed/PriceAggregator.sol#110) is a local variable never initialized\n",
+            "filename": "PriceAggregator.sol",
+            "classification": [],
+            "line": 110
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PriceAggregator._aggregatePrices(uint256,uint256,uint256).priceB (src/price_feed/PriceAggregator.sol#130) is a local variable never initialized\n",
+            "filename": "PriceAggregator.sol",
+            "classification": [],
+            "line": 130
+        }
+    ]
+}

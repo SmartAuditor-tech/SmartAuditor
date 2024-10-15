@@ -1,0 +1,7 @@
+
+/g4b/contracts/PanopticFactory.sol
+  102:27  error  Parse error: extraneous input 'univ3pool' expecting '=>'
+  102:53  error  Parse error: extraneous input 'panopticPool' expecting ')'
+
+✖ 2 problems (2 errors, 0 warnings)
+

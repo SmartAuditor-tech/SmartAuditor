@@ -1,0 +1,52 @@
+==== Exception State ====
+SWC ID: 110
+Severity: Medium
+Contract: AccountingManager
+Function name: constructor
+PC address: 42
+Estimated Gas Usage: 20063 - 100158
+An assertion violation was triggered.
+It is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).
+--------------------
+In file: /g4b/contracts/accountingManager/AccountingManager.sol:94
+
+constructor(AccountingManagerConstructorParams memory p)
+        ERC4626(IERC20(p._baseTokenAddress))
+        ERC20(p._name, p._symbol)
+        NoyaGovernanceBase(PositionRegistry(p._registry), p._vaultId)
+    {
+        baseToken = IERC20(p._baseTokenAddress);
+        valueOracle = INoyaValueOracle(p._valueOracle);
+        lastFeeDistributionTime = block.timestamp;
+        withdrawFeeReceiver = p._withdrawFeeReceiver;
+        performanceFeeReceiver = p._performanceFeeReceiver;
+        managementFeeReceiver = p._managementFeeReceiver;
+
+        require(p._baseTokenAddress != address(0));
+        require(p._valueOracle != address(0));
+        require(p._withdrawFeeReceiver != address(0));
+        require(p._performanceFeeReceiver != address(0));
+        require(p._managementFeeReceiver != address(0));
+
+        if (
+            p._withdrawFee > WITHDRAWAL_MAX_FEE || p._performanceFee > PERFORMANCE_MAX_FEE
+                || p._managementFee > MANAGEMENT_MAX_FEE
+        ) {
+            revert NoyaAccounting_INVALID_FEE();
+        }
+        withdrawFee = p._withdrawFee;
+        performanceFee = p._performanceFee;
+        managementFee = p._managementFee;
+    }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x1
+
+

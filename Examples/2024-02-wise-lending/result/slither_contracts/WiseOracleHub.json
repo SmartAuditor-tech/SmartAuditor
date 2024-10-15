@@ -1,0 +1,499 @@
+{
+    "success": true,
+    "finding_length": 44,
+    "findings": [
+        {
+            "name": "incorrect-exp",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "FullMath.mulDiv(uint256,uint256,uint256) (contracts/WiseOracleHub/Libraries/FullMath.sol#14-112) has bitwise-xor operator ^ instead of the exponentiation operator **: \n\t - inv = (3 * _denominator) ^ 2 (contracts/WiseOracleHub/Libraries/FullMath.sol#92)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "FullMath",
+            "line": 92
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0x2216e584f5fa1ea926041bedfe98) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#57)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xf987a7253ac413176f2b074cf7815e54) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#48)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0x31be135f97d08fd981231505542fcfa6) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#54)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FullMath.mulDiv(uint256,uint256,uint256) (contracts/WiseOracleHub/Libraries/FullMath.sol#14-112) performs a multiplication on the result of a division:\n\t- _denominator = _denominator / twos (contracts/WiseOracleHub/Libraries/FullMath.sol#72)\n\t- inv *= 2 - _denominator * inv (contracts/WiseOracleHub/Libraries/FullMath.sol#101)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "FullMath",
+            "line": 101
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xff973b41fa98c081472e6896dfb254c0) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#44)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FullMath.mulDiv(uint256,uint256,uint256) (contracts/WiseOracleHub/Libraries/FullMath.sol#14-112) performs a multiplication on the result of a division:\n\t- _denominator = _denominator / twos (contracts/WiseOracleHub/Libraries/FullMath.sol#72)\n\t- inv *= 2 - _denominator * inv (contracts/WiseOracleHub/Libraries/FullMath.sol#98)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "FullMath",
+            "line": 98
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xff2ea16466c96a3843ec78b326b52861) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#45)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FullMath.mulDiv(uint256,uint256,uint256) (contracts/WiseOracleHub/Libraries/FullMath.sol#14-112) performs a multiplication on the result of a division:\n\t- _denominator = _denominator / twos (contracts/WiseOracleHub/Libraries/FullMath.sol#72)\n\t- inv *= 2 - _denominator * inv (contracts/WiseOracleHub/Libraries/FullMath.sol#97)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "FullMath",
+            "line": 97
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xd097f3bdfd2022b8845ad8f792aa5825) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#51)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FullMath.mulDiv(uint256,uint256,uint256) (contracts/WiseOracleHub/Libraries/FullMath.sol#14-112) performs a multiplication on the result of a division:\n\t- _denominator = _denominator / twos (contracts/WiseOracleHub/Libraries/FullMath.sol#72)\n\t- inv *= 2 - _denominator * inv (contracts/WiseOracleHub/Libraries/FullMath.sol#99)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "FullMath",
+            "line": 99
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FullMath.mulDiv(uint256,uint256,uint256) (contracts/WiseOracleHub/Libraries/FullMath.sol#14-112) performs a multiplication on the result of a division:\n\t- _denominator = _denominator / twos (contracts/WiseOracleHub/Libraries/FullMath.sol#72)\n\t- inv *= 2 - _denominator * inv (contracts/WiseOracleHub/Libraries/FullMath.sol#100)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "FullMath",
+            "line": 100
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xf3392b0822b70005940c7a398e4b70f3) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#49)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0x9aa508b5b7a84e1c677de54f3e99bc9) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#55)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xe7159475a2c29b7443b29c7fa6e889d9) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#50)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xfe5dee046a99a2a811c461f1969c3053) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#46)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xffe5caca7e10e4e61c3624eaa0941cd0) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#42)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0x48a170391f7dc42444e8fa2) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#58)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xfff2e50f5f656932ef12357cf3c7fdcc) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#41)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0x70d869a156d2a1b890bb3df62baf32f7) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#53)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xffcb9843d60f6159c9db58835c926644) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#43)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xfff97272373d413259a46990580e213a) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#40)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0x5d6af8dedb81196699c329225ee604) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#56)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FullMath.mulDiv(uint256,uint256,uint256) (contracts/WiseOracleHub/Libraries/FullMath.sol#14-112) performs a multiplication on the result of a division:\n\t- _denominator = _denominator / twos (contracts/WiseOracleHub/Libraries/FullMath.sol#72)\n\t- inv *= 2 - _denominator * inv (contracts/WiseOracleHub/Libraries/FullMath.sol#96)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "FullMath",
+            "line": 96
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xa9f746462d870fdf8a65dc1f90e061e5) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#52)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FullMath.mulDiv(uint256,uint256,uint256) (contracts/WiseOracleHub/Libraries/FullMath.sol#14-112) performs a multiplication on the result of a division:\n\t- prod0 = prod0 / twos (contracts/WiseOracleHub/Libraries/FullMath.sol#77)\n\t- result = prod0 * inv (contracts/WiseOracleHub/Libraries/FullMath.sol#109)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "FullMath",
+            "line": 109
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FullMath.mulDiv(uint256,uint256,uint256) (contracts/WiseOracleHub/Libraries/FullMath.sol#14-112) performs a multiplication on the result of a division:\n\t- _denominator = _denominator / twos (contracts/WiseOracleHub/Libraries/FullMath.sol#72)\n\t- inv = (3 * _denominator) ^ 2 (contracts/WiseOracleHub/Libraries/FullMath.sol#92)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "FullMath",
+            "line": 92
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TickMath.getSqrtRatioAtTick(int24) (contracts/WiseOracleHub/Libraries/TickMath.sol#26-67) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0xfcbe86c7900a88aedcffc83b479aa3a4) >> 128 (contracts/WiseOracleHub/Libraries/TickMath.sol#47)\n\t- ratio = type()(uint256).max / ratio (contracts/WiseOracleHub/Libraries/TickMath.sol#60)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getSqrtRatioAtTick",
+            "contract": "TickMath",
+            "line": 60
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "WiseOracleHub.latestResolver(address) (contracts/WiseOracleHub/WiseOracleHub.sol#69-83) uses a dangerous strict equality:\n\t- chainLinkIsDead(_tokenAddress) == true (contracts/WiseOracleHub/WiseOracleHub.sol#76)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "latestResolver",
+            "contract": "WiseOracleHub",
+            "line": 76
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "OracleHelper.getETHPriceInUSD() (contracts/WiseOracleHub/OracleHelper.sol#265-277) uses a dangerous strict equality:\n\t- _chainLinkIsDead(ETH_USD_PLACEHOLDER) == true (contracts/WiseOracleHub/OracleHelper.sol#270)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "getETHPriceInUSD",
+            "contract": "OracleHelper",
+            "line": 270
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "WiseOracleHub.chainLinkIsDead(address) (contracts/WiseOracleHub/WiseOracleHub.sol#439-481) uses a dangerous strict equality:\n\t- state == true (contracts/WiseOracleHub/WiseOracleHub.sol#475)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "function": "chainLinkIsDead",
+            "contract": "WiseOracleHub",
+            "line": 475
+        },
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in OracleHelper._addAggregator(address) (contracts/WiseOracleHub/OracleHelper.sol#32-58):\n\tExternal calls:\n\t- _checkFunctionExistence(address(tokenAggregator)) == false (contracts/WiseOracleHub/OracleHelper.sol#45)\n\t\t- (success,None) = _tokenAggregator.call(abi.encodeWithSignature(maxAnswer())) (contracts/WiseOracleHub/OracleHelper.sol#78-82)\n\tState variables written after the call(s):\n\t- tokenAggregatorFromTokenAddress[_tokenAddress] = tokenAggregator (contracts/WiseOracleHub/OracleHelper.sol#57)\n\tDeclarations.tokenAggregatorFromTokenAddress (contracts/WiseOracleHub/Declarations.sol#148) can be used in cross function reentrancies:\n\t- OracleHelper._validateAnswer(address) (contracts/WiseOracleHub/OracleHelper.sol#131-174)\n\t- Declarations.tokenAggregatorFromTokenAddress (contracts/WiseOracleHub/Declarations.sol#148)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "_addAggregator",
+            "contract": "OracleHelper",
+            "line": 148
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "OracleHelper._recalibratePreview(address).currentBiggest (contracts/WiseOracleHub/OracleHelper.sol#622) is a local variable never initialized\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "line": 622
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "WiseOracleHub.addOracleBulk(address[],IPriceFeed[],address[][]).i (contracts/WiseOracleHub/WiseOracleHub.sol#387) is a local variable never initialized\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "line": 387
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "WiseOracleHub.chainLinkIsDead(address).i (contracts/WiseOracleHub/WiseOracleHub.sol#446) is a local variable never initialized\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "line": 446
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "WiseOracleHub.addTwapOracleDerivative(address,address,address[2],address[2],address[2],uint24[2]).i (contracts/WiseOracleHub/WiseOracleHub.sol#291) is a local variable never initialized\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "line": 291
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "OracleHelper._validateAnswer(address).fetchTwapValue (contracts/WiseOracleHub/OracleHelper.sol#142) is a local variable never initialized\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "line": 142
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "WiseOracleHub.recalibrateBulk(address[]).i (contracts/WiseOracleHub/WiseOracleHub.sol#506) is a local variable never initialized\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "line": 506
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "OracleHelper._getChainlinkAnswer(address) (contracts/WiseOracleHub/OracleHelper.sol#246-263) ignores return value by (None,answer,None,None,None) = priceFeed[_tokenAddress].latestRoundData() (contracts/WiseOracleHub/OracleHelper.sol#253-258)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_getChainlinkAnswer",
+            "contract": "OracleHelper",
+            "line": 253,
+            "line_end": 258
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "OracleHelper.sequencerIsDead() (contracts/WiseOracleHub/OracleHelper.sol#521-549) ignores return value by (None,answer,startedAt,None,None) = SEQUENCER.latestRoundData() (contracts/WiseOracleHub/OracleHelper.sol#530-535)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "sequencerIsDead",
+            "contract": "OracleHelper",
+            "line": 530,
+            "line_end": 535
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "OracleHelper.getLatestRoundId(address) (contracts/WiseOracleHub/OracleHelper.sol#699-715) ignores return value by (roundId,None,None,None,None) = priceFeed[_tokenAddress].latestRoundData() (contracts/WiseOracleHub/OracleHelper.sol#708-714)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "getLatestRoundId",
+            "contract": "OracleHelper",
+            "line": 708,
+            "line_end": 714
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "OracleHelper._getAverageTick(address) (contracts/WiseOracleHub/OracleHelper.sol#406-444) ignores return value by (tickCumulatives,None) = IUniswapV3Pool(_oracle).observe(secondsAgo) (contracts/WiseOracleHub/OracleHelper.sol#420-425)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_getAverageTick",
+            "contract": "OracleHelper",
+            "line": 420,
+            "line_end": 425
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "OracleHelper._getRoundTimestamp(address,uint80) (contracts/WiseOracleHub/OracleHelper.sol#674-693) ignores return value by (None,None,None,timestamp,None) = priceFeed[_tokenAddress].getRoundData(_roundId) (contracts/WiseOracleHub/OracleHelper.sol#682-690)\n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_getRoundTimestamp",
+            "contract": "OracleHelper",
+            "line": 682,
+            "line_end": 690
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "Declarations.ALLOWED_DIFFERENCE (contracts/WiseOracleHub/Declarations.sol#112) should be constant \n",
+            "filename": "WiseOracleHub.sol",
+            "classification": [],
+            "line": 112
+        }
+    ]
+}

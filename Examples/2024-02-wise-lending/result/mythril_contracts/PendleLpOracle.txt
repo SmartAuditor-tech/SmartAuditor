@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "/g4b/node_modules/@pendle/core-v2/contracts/oracles/PendleLpOracleLib.sol" not found: File not found. Searched the following locations: "".
+  --> /g4b/contracts/DerivativeOracles/PendleLpOracle.sol:19:1:
+   |
+19 | import  {
+   | ^ (Relevant source part starts here and spans across multiple lines).
+
+

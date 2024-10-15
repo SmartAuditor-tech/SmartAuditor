@@ -1,0 +1,12 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [
+            "Callstack Depth Attack Vulnerability: DASP-5"
+        ],
+        "filename": "CompoundConnector.sol",
+        "incomplete instruction": "16222",
+        "coverage": "0.2%",
+        "warnings": []
+    }
+}

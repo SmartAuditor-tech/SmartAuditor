@@ -1,0 +1,72 @@
+{
+    "success": true,
+    "finding_length": 6,
+    "findings": [
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "LibProving._overrideWithHigherProof(TaikoData.TransitionState,TaikoData.Transition,TaikoData.TierProof,ITierProvider.Tier,IERC20,bool) (packages/protocol/contracts/L1/libs/LibProving.sol#350-398) ignores return value by _tko.transfer(_ts.prover,_ts.validityBond + reward) (packages/protocol/contracts/L1/libs/LibProving.sol#367)\n",
+            "filename": "LibProving.sol",
+            "classification": [],
+            "function": "_overrideWithHigherProof",
+            "contract": "LibProving",
+            "line": 367
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "LibProving.proveBlock(TaikoData.State,TaikoData.Config,IAddressResolver,TaikoData.BlockMetadata,TaikoData.Transition,TaikoData.TierProof) (packages/protocol/contracts/L1/libs/LibProving.sol#91-266) ignores return value by tko.transferFrom(msg.sender,address(this),tier.contestBond) (packages/protocol/contracts/L1/libs/LibProving.sol#242)\n",
+            "filename": "LibProving.sol",
+            "classification": [],
+            "function": "proveBlock",
+            "contract": "LibProving",
+            "line": 242
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "LibProving._overrideWithHigherProof(TaikoData.TransitionState,TaikoData.Transition,TaikoData.TierProof,ITierProvider.Tier,IERC20,bool) (packages/protocol/contracts/L1/libs/LibProving.sol#350-398) ignores return value by _tko.transfer(_ts.contester,_ts.contestBond + reward) (packages/protocol/contracts/L1/libs/LibProving.sol#371)\n",
+            "filename": "LibProving.sol",
+            "classification": [],
+            "function": "_overrideWithHigherProof",
+            "contract": "LibProving",
+            "line": 371
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "LibProving._overrideWithHigherProof(TaikoData.TransitionState,TaikoData.Transition,TaikoData.TierProof,ITierProvider.Tier,IERC20,bool) (packages/protocol/contracts/L1/libs/LibProving.sol#350-398) ignores return value by _tko.transferFrom(msg.sender,address(this),_tier.validityBond - reward) (packages/protocol/contracts/L1/libs/LibProving.sol#384)\n",
+            "filename": "LibProving.sol",
+            "classification": [],
+            "function": "_overrideWithHigherProof",
+            "contract": "LibProving",
+            "line": 384
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "LibProving._overrideWithHigherProof(TaikoData.TransitionState,TaikoData.Transition,TaikoData.TierProof,ITierProvider.Tier,IERC20,bool) (packages/protocol/contracts/L1/libs/LibProving.sol#350-398) ignores return value by _tko.transfer(msg.sender,reward - _tier.validityBond) (packages/protocol/contracts/L1/libs/LibProving.sol#382)\n",
+            "filename": "LibProving.sol",
+            "classification": [],
+            "function": "_overrideWithHigherProof",
+            "contract": "LibProving",
+            "line": 382
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "LibProving.proveBlock(TaikoData.State,TaikoData.Config,IAddressResolver,TaikoData.BlockMetadata,TaikoData.Transition,TaikoData.TierProof) (packages/protocol/contracts/L1/libs/LibProving.sol#91-266) ignores return value by tko.transfer(blk.assignedProver,blk.livenessBond) (packages/protocol/contracts/L1/libs/LibProving.sol#196)\n",
+            "filename": "LibProving.sol",
+            "classification": [],
+            "function": "proveBlock",
+            "contract": "LibProving",
+            "line": 196
+        }
+    ]
+}

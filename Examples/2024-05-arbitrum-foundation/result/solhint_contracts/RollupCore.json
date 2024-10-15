@@ -1,0 +1,22 @@
+{
+    "success": true,
+    "finding_length": 2,
+    "findings": [
+        {
+            "filename": "RollupCore.sol",
+            "line": 5,
+            "column": 1,
+            "message": "Compiler version ^0.8.0 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "RollupCore.sol",
+            "line": 22,
+            "column": 1,
+            "message": "Contract has 25 states declarations but allowed no more than 15",
+            "level": "warning",
+            "name": "max-states-count"
+        }
+    ]
+}

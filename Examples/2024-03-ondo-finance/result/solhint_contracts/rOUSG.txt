@@ -1,0 +1,14 @@
+
+/g4b/contracts/ousg/rOUSG.sol
+   16:1   error    Compiler version 0.8.16 does not satisfy the ^0.5.8 semver requirement                             compiler-version
+   98:3   warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+  112:3   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  128:3   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  282:5   warning  Error message for require is too long                                                              reason-string
+  415:17  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  416:5   warning  Error message for require is too long                                                              reason-string
+  432:5   warning  Error message for require is too long                                                              reason-string
+  594:7   warning  Error message for require is too long                                                              reason-string
+
+✖ 9 problems (1 error, 8 warnings)
+

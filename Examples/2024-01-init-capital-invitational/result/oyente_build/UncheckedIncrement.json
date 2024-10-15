@@ -1,0 +1,9 @@
+{
+    "success": false,
+    "findings": {
+        "vul": [],
+        "filename": "UncheckedIncrement.sol",
+        "coverage": "",
+        "warnings": []
+    }
+}

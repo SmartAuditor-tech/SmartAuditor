@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "VaultManagerV2.sol",
+        "incomplete instruction": "16958",
+        "coverage": "0.2%",
+        "warnings": []
+    }
+}

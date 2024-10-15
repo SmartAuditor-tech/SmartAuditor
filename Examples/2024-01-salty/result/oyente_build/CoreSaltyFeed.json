@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "CoreSaltyFeed.sol",
+        "coverage": "2.3%",
+        "warnings": []
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "BootstrapBallot.sol",
+        "coverage": "0.7%",
+        "warnings": []
+    }
+}

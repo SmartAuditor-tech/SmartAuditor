@@ -1,0 +1,12 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/DerivativeOracles/PtOraclePure.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20 --evm-version shanghai --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/DerivativeOracles' running
+INFO:Detectors:
+PtOraclePure.latestAnswer() (contracts/DerivativeOracles/PtOraclePure.sol#68-108) performs a multiplication on the result of a division:
+	- uint256(answerFeed) * PRECISION_FACTOR_E18 / POW_FEED * ptToAssetRate / PRECISION_FACTOR_E18 (contracts/DerivativeOracles/PtOraclePure.sol#103-107)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+PtOraclePure.latestAnswer() (contracts/DerivativeOracles/PtOraclePure.sol#68-108) ignores return value by (None,answerFeed,None,None,None) = FEED_ASSET.latestRoundData() (contracts/DerivativeOracles/PtOraclePure.sol#73-79)
+PtOraclePure.latestAnswer() (contracts/DerivativeOracles/PtOraclePure.sol#68-108) ignores return value by (increaseCardinalityRequired,None,oldestObservationSatisfied) = ORACLE_PENDLE_PT.getOracleState(PENDLE_MARKET_ADDRESS,DURATION) (contracts/DerivativeOracles/PtOraclePure.sol#81-88)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/DerivativeOracles/PtOraclePure.sol analyzed (3 contracts with 58 detectors), 3 result(s) found

@@ -1,0 +1,72 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/FeeManager/FeeManager.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20 --evm-version shanghai --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/FeeManager' running
+INFO:Detectors:
+Reentrancy in FeeManager.paybackBadDebtForToken(uint256,address,address,uint256) (contracts/FeeManager/FeeManager.sol#730-809):
+	External calls:
+	- updatePositionCurrentBadDebt(_nftId) (contracts/FeeManager/FeeManager.sol#742-744)
+		- WISE_LENDING.syncManually(currentAddress) (contracts/FeeManager/FeeManagerHelper.sol#32-34)
+		- WISE_LENDING.syncManually(currentAddress) (contracts/FeeManager/FeeManagerHelper.sol#64-66)
+	- WISE_LENDING.corePaybackFeeManager(_paybackToken,_nftId,paybackAmount,_shares) (contracts/FeeManager/FeeManager.sol#766-771)
+	State variables written after the call(s):
+	- _updateUserBadDebt(_nftId) (contracts/FeeManager/FeeManager.sol#773-775)
+		- badDebtPosition[_nftId] = _amount (contracts/FeeManager/FeeManagerHelper.sol#83)
+		- delete badDebtPosition[_nftId] (contracts/FeeManager/FeeManagerHelper.sol#126)
+	DeclarationsFeeManager.badDebtPosition (contracts/FeeManager/DeclarationsFeeManager.sol#140) can be used in cross function reentrancies:
+	- FeeManagerHelper._eraseBadDebtUser(uint256) (contracts/FeeManager/FeeManagerHelper.sol#121-127)
+	- FeeManagerHelper._setBadDebtPosition(uint256,uint256) (contracts/FeeManager/FeeManagerHelper.sol#77-84)
+	- FeeManagerHelper._updateUserBadDebt(uint256) (contracts/FeeManager/FeeManagerHelper.sol#134-189)
+	- DeclarationsFeeManager.badDebtPosition (contracts/FeeManager/DeclarationsFeeManager.sol#140)
+	- FeeManager.paybackBadDebtForToken(uint256,address,address,uint256) (contracts/FeeManager/FeeManager.sol#730-809)
+	- FeeManager.paybackBadDebtNoReward(uint256,address,uint256) (contracts/FeeManager/FeeManager.sol#816-866)
+	- _updateUserBadDebt(_nftId) (contracts/FeeManager/FeeManager.sol#773-775)
+		- totalBadDebtETH += _amount (contracts/FeeManager/FeeManagerHelper.sol#94)
+		- totalBadDebtETH -= _amount (contracts/FeeManager/FeeManagerHelper.sol#110)
+	DeclarationsFeeManager.totalBadDebtETH (contracts/FeeManager/DeclarationsFeeManager.sol#117) can be used in cross function reentrancies:
+	- FeeManagerHelper._decreaseTotalBadDebt(uint256) (contracts/FeeManager/FeeManagerHelper.sol#105-116)
+	- FeeManagerHelper._increaseTotalBadDebt(uint256) (contracts/FeeManager/FeeManagerHelper.sol#89-100)
+	- FeeManager.claimFeesBeneficial(address,uint256) (contracts/FeeManager/FeeManager.sol#689-722)
+	- FeeManager.claimWiseFees(address) (contracts/FeeManager/FeeManager.sol#628-682)
+	- DeclarationsFeeManager.totalBadDebtETH (contracts/FeeManager/DeclarationsFeeManager.sol#117)
+Reentrancy in FeeManager.paybackBadDebtNoReward(uint256,address,uint256) (contracts/FeeManager/FeeManager.sol#816-866):
+	External calls:
+	- updatePositionCurrentBadDebt(_nftId) (contracts/FeeManager/FeeManager.sol#824-826)
+		- WISE_LENDING.syncManually(currentAddress) (contracts/FeeManager/FeeManagerHelper.sol#32-34)
+		- WISE_LENDING.syncManually(currentAddress) (contracts/FeeManager/FeeManagerHelper.sol#64-66)
+	- WISE_LENDING.corePaybackFeeManager(_paybackToken,_nftId,paybackAmount,_shares) (contracts/FeeManager/FeeManager.sol#841-846)
+	State variables written after the call(s):
+	- _updateUserBadDebt(_nftId) (contracts/FeeManager/FeeManager.sol#848-850)
+		- badDebtPosition[_nftId] = _amount (contracts/FeeManager/FeeManagerHelper.sol#83)
+		- delete badDebtPosition[_nftId] (contracts/FeeManager/FeeManagerHelper.sol#126)
+	DeclarationsFeeManager.badDebtPosition (contracts/FeeManager/DeclarationsFeeManager.sol#140) can be used in cross function reentrancies:
+	- FeeManagerHelper._eraseBadDebtUser(uint256) (contracts/FeeManager/FeeManagerHelper.sol#121-127)
+	- FeeManagerHelper._setBadDebtPosition(uint256,uint256) (contracts/FeeManager/FeeManagerHelper.sol#77-84)
+	- FeeManagerHelper._updateUserBadDebt(uint256) (contracts/FeeManager/FeeManagerHelper.sol#134-189)
+	- DeclarationsFeeManager.badDebtPosition (contracts/FeeManager/DeclarationsFeeManager.sol#140)
+	- FeeManager.paybackBadDebtForToken(uint256,address,address,uint256) (contracts/FeeManager/FeeManager.sol#730-809)
+	- FeeManager.paybackBadDebtNoReward(uint256,address,uint256) (contracts/FeeManager/FeeManager.sol#816-866)
+	- _updateUserBadDebt(_nftId) (contracts/FeeManager/FeeManager.sol#848-850)
+		- totalBadDebtETH += _amount (contracts/FeeManager/FeeManagerHelper.sol#94)
+		- totalBadDebtETH -= _amount (contracts/FeeManager/FeeManagerHelper.sol#110)
+	DeclarationsFeeManager.totalBadDebtETH (contracts/FeeManager/DeclarationsFeeManager.sol#117) can be used in cross function reentrancies:
+	- FeeManagerHelper._decreaseTotalBadDebt(uint256) (contracts/FeeManager/FeeManagerHelper.sol#105-116)
+	- FeeManagerHelper._increaseTotalBadDebt(uint256) (contracts/FeeManager/FeeManagerHelper.sol#89-100)
+	- FeeManager.claimFeesBeneficial(address,uint256) (contracts/FeeManager/FeeManager.sol#689-722)
+	- FeeManager.claimWiseFees(address) (contracts/FeeManager/FeeManager.sol#628-682)
+	- DeclarationsFeeManager.totalBadDebtETH (contracts/FeeManager/DeclarationsFeeManager.sol#117)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+INFO:Detectors:
+FeeManagerHelper._prepareBorrows(uint256).i (contracts/FeeManager/FeeManagerHelper.sol#20) is a local variable never initialized
+FeeManager.setPoolFeeBulk(address[],uint256[]).i (contracts/FeeManager/FeeManager.sol#142) is a local variable never initialized
+FeeManager.removePoolTokenManual(address).found (contracts/FeeManager/FeeManager.sol#447) is a local variable never initialized
+FeeManagerHelper._distributeIncentives(uint256,address,address).reduceAmount (contracts/FeeManager/FeeManagerHelper.sol#300) is a local variable never initialized
+FeeManagerHelper._prepareCollaterals(uint256).i (contracts/FeeManager/FeeManagerHelper.sol#52) is a local variable never initialized
+FeeManager.syncAllPools().i (contracts/FeeManager/FeeManager.sol#901) is a local variable never initialized
+FeeManager.revokeBeneficial(address,address[]).i (contracts/FeeManager/FeeManager.sol#578) is a local variable never initialized
+FeeManager.setBeneficial(address,address[]).i (contracts/FeeManager/FeeManager.sol#545) is a local variable never initialized
+FeeManager.setAaveFlagBulk(address[],address[]).i (contracts/FeeManager/FeeManager.sol#89) is a local variable never initialized
+FeeManager.claimIncentivesBulk().i (contracts/FeeManager/FeeManager.sol#254) is a local variable never initialized
+FeeManager.claimWiseFeesBulk().i (contracts/FeeManager/FeeManager.sol#606) is a local variable never initialized
+FeeManager.removePoolTokenManual(address).i (contracts/FeeManager/FeeManager.sol#444) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/FeeManager/FeeManager.sol analyzed (14 contracts with 58 detectors), 14 result(s) found

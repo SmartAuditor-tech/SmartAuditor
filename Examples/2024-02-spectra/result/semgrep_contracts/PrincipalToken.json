@@ -1,0 +1,167 @@
+{
+    "success": true,
+    "finding_length": 23,
+    "findings": [
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 398
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 729
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 730
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 731
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 732
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 733
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 734
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 735
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 736
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 737
+        },
+        {
+            "classification": [],
+            "name": "use-abi-encodecall-instead-of-encodewithselector",
+            "category": "best-practice",
+            "message": "se-abi-encodecall-instead-of- encodewithselector To guarantee arguments type safety it is recommended to use `abi.encodeCall` instead of `abi.encodeWithSelector`. Details: https://sg.run/9K1y",
+            "line": 738
+        },
+        {
+            "classification": [],
+            "name": "inefficient-state-variable-increment",
+            "category": "performance",
+            "message": "te-variable-increment <x> += <y> costs more gas than <x> = <x> + <y> for state variables. Details: https://sg.run/bp9v",
+            "line": 714
+        },
+        {
+            "classification": [],
+            "name": "inefficient-state-variable-increment",
+            "category": "performance",
+            "message": "te-variable-increment <x> += <y> costs more gas than <x> = <x> + <y> for state variables. Details: https://sg.run/bp9v",
+            "line": 715
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 102
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 103
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 104
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 105
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 106
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 107
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 108
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 903
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 904
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 905
+        }
+    ]
+}

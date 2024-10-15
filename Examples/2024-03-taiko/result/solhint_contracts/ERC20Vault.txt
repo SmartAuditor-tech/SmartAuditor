@@ -1,0 +1,17 @@
+/usr/local/lib/node_modules/solhint/lib/index.js:40
+      throw e
+      ^
+
+Error: Assertion error: unhandled type name case
+    at ASTBuilder.visitTypeName (/usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:35757:11)
+    at ASTBuilder.visitMapping (/usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:36063:23)
+    at ASTBuilder.visitTypeName (/usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:35752:19)
+    at ASTBuilder.visitMapping (/usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:36063:23)
+    at ASTBuilder.visitTypeName (/usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:35752:19)
+    at ASTBuilder.visitStateVariableDeclaration (/usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:35441:23)
+    at StateVariableDeclarationContext.accept (/usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:32324:22)
+    at ASTBuilder.visit (/usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:17669:19)
+    at ASTBuilder.visitContractPart (/usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:35425:17)
+    at ContractPartContext.accept (/usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:32248:22)
+
+Node.js v18.14.0

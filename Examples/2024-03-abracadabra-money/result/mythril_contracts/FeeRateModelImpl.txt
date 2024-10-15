@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "DecimalMath.sol" not found: File not found.
+  --> /g4b/src/mimswap/libraries/Math.sol:10:1:
+   |
+10 | import   {DecimalMath} from "DecimalMath.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

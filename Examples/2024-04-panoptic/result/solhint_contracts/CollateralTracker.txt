@@ -1,0 +1,35 @@
+
+/g4b/contracts/CollateralTracker.sol
+    2:1  error    Compiler version ^0.8.18 does not satisfy the ^0.5.8 semver requirement                            compiler-version
+   89:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   93:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   96:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   99:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  102:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  109:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  112:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  115:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  121:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  124:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  131:5  warning  Explicitly mark visibility of state                                                                state-visibility
+  131:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  136:5  warning  Explicitly mark visibility of state                                                                state-visibility
+  136:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  141:5  warning  Explicitly mark visibility of state                                                                state-visibility
+  141:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  145:5  warning  Explicitly mark visibility of state                                                                state-visibility
+  145:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  149:5  warning  Explicitly mark visibility of state                                                                state-visibility
+  149:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  154:5  warning  Explicitly mark visibility of state                                                                state-visibility
+  154:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  158:5  warning  Explicitly mark visibility of state                                                                state-visibility
+  158:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  162:5  warning  Explicitly mark visibility of state                                                                state-visibility
+  162:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  178:5  warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+  185:9  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  773:9  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+
+✖ 30 problems (1 error, 29 warnings)
+

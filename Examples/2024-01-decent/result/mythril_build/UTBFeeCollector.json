@@ -1,0 +1,16 @@
+{
+    "success": true,
+    "finding_length": 1,
+    "findings": [
+        {
+            "filaname": "UTBFeeCollector.sol",
+            "SWC ID": " 107",
+            "Severity": " Low",
+            "Contract": " MAIN",
+            "Function name": " _function_0x6b725ce9",
+            "PC address": " 1448",
+            "Estimated Gas Usage": " 3782 - 39289",
+            "description": "An external message call to an address specified by the caller is executed. Note that the callee account might contain arbitrary code and could re-enter any function within this contract. Reentering the contract in an intermediate state may lead to unexpected behaviour. Make sure that no state modifications are executed after this call and/or reentrancy guards are in place."
+        }
+    ]
+}

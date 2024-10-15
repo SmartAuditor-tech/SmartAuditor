@@ -1,0 +1,105 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 15 Code Findings │
+└──────────────────┘
+                                
+    /g4b/src/launch/Airdrop.sol 
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           35┆ constructor( IExchangeConfig _exchangeConfig, IStaking _staking )
+           36┆  
+  {             
+           37┆    exchangeConfig =              
+  _exchangeConfig;                              
+           38┆    staking =       
+  _staking;                       
+           39┆ 
+           40┆    salt =                     
+  _exchangeConfig.salt();                    
+           41┆  
+  }             
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           48┆ require( msg.sender ==                                           
+  address(exchangeConfig.initialDistribution().bootstrapBallot()), "Only the    
+  BootstrapBallot can call Airdrop.authorizeWallet" );                          
+            ⋮┆----------------------------------------
+           49┆ require( ! claimingAllowed, "Cannot authorize after claiming is  
+  allowed" );                                                                   
+            ⋮┆----------------------------------------
+           58┆ require( msg.sender ==                                           
+  address(exchangeConfig.initialDistribution()), "Airdrop.allowClaiming can only
+  be called by the InitialDistribution contract" );                             
+            ⋮┆----------------------------------------
+           59┆ require( ! claimingAllowed, "Claiming is already allowed" );
+            ⋮┆----------------------------------------
+           60┆ require(numberAuthorized() > 0, "No addresses authorized to claim
+  airdrop.");                                                                   
+            ⋮┆----------------------------------------
+           76┆ require( claimingAllowed, "Claiming is not allowed yet" );
+            ⋮┆----------------------------------------
+           77┆ require( isAuthorized(msg.sender), "Wallet is not authorized for 
+  airdrop" );                                                                   
+            ⋮┆----------------------------------------
+           78┆ require( ! claimed[msg.sender], "Wallet already claimed the      
+  airdrop" );                                                                   
+            ⋮┆----------------------------------------
+       solidity.performance.use-short-revert-string.use-short-revert-string     
+          Shortening revert strings to fit in 32 bytes will decrease gas costs  
+  for deployment and  gas                                                       
+          costs when the revert condition has been met.                         
+          Details: https://sg.run/E9LB                                          
+                                                                                
+           48┆ require( msg.sender ==                                           
+  address(exchangeConfig.initialDistribution().bootstrapBallot()), "Only the    
+  BootstrapBallot can call Airdrop.authorizeWallet" );                          
+            ⋮┆----------------------------------------
+           49┆ require( ! claimingAllowed, "Cannot authorize after claiming is  
+  allowed" );                                                                   
+            ⋮┆----------------------------------------
+           58┆ require( msg.sender ==                                           
+  address(exchangeConfig.initialDistribution()), "Airdrop.allowClaiming can only
+  be called by the InitialDistribution contract" );                             
+            ⋮┆----------------------------------------
+           60┆ require(numberAuthorized() > 0, "No addresses authorized to claim
+  airdrop.");                                                                   
+            ⋮┆----------------------------------------
+           77┆ require( isAuthorized(msg.sender), "Wallet is not authorized for 
+  airdrop" );                                                                   
+            ⋮┆----------------------------------------
+           78┆ require( ! claimed[msg.sender], "Wallet already claimed the      
+  airdrop" );                                                                   
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 15 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

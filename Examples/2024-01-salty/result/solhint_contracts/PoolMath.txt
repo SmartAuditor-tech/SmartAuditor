@@ -1,0 +1,9 @@
+
+/g4b/src/pools/PoolMath.sol
+    1:1  error    Compiler version =0.8.22 does not satisfy the ^0.5.8 semver requirement  compiler-version
+  183:3  warning  Variable name must be in mixedCase                                       var-name-mixedcase
+  184:9  warning  Variable name must be in mixedCase                                       var-name-mixedcase
+  192:9  warning  Variable name must be in mixedCase                                       var-name-mixedcase
+
+✖ 4 problems (1 error, 3 warnings)
+

@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "BaseAdapter.sol",
+        "coverage": "10.2%",
+        "warnings": []
+    }
+}

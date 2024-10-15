@@ -1,0 +1,16 @@
+
+/g4b/contracts/WiseLendingDeclaration.sol
+    3:1  error    Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement                            compiler-version
+   30:1  warning  Contract has 22 states declarations but allowed no more than 15                                    max-states-count
+  105:5  warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+  162:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  165:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  168:5  warning  Explicitly mark visibility of state                                                                state-visibility
+  168:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  174:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  177:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  180:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  183:5  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+
+✖ 11 problems (1 error, 10 warnings)
+

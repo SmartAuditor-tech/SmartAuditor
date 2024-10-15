@@ -1,0 +1,3 @@
+'solc --version' running
+'solc /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-clmm/contracts/libraries/PoolAddress.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-clmm/contracts/libraries' running
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-clmm/contracts/libraries/PoolAddress.sol analyzed (1 contracts with 58 detectors), 0 result(s) found

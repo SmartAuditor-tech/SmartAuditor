@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "WrapperHelper.sol",
+        "coverage": "11.4%",
+        "warnings": []
+    }
+}

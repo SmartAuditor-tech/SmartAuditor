@@ -1,0 +1,11 @@
+
+/g4b/src/blast/BlastOnboarding.sol
+  36:20  error  Parse error: extraneous input 'token' expecting '=>'
+  37:20  error  Parse error: extraneous input 'token' expecting '=>'
+  38:20  error  Parse error: extraneous input 'token' expecting '=>'
+  38:37  error  Parse error: extraneous input 'cap' expecting ')'
+  41:20  error  Parse error: extraneous input 'user' expecting '=>'
+  41:44  error  Parse error: extraneous input 'token' expecting '=>'
+
+✖ 6 problems (6 errors, 0 warnings)
+

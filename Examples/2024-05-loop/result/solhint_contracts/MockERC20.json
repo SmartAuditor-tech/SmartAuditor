@@ -1,0 +1,62 @@
+{
+    "success": true,
+    "finding_length": 7,
+    "findings": [
+        {
+            "filename": "MockERC20.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version >=0.6.2 <0.9.0 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "MockERC20.sol",
+            "line": 39,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MockERC20.sol",
+            "line": 41,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MockERC20.sol",
+            "line": 109,
+            "column": 29,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "MockERC20.sol",
+            "line": 142,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "MockERC20.sol",
+            "line": 201,
+            "column": 9,
+            "message": "Avoid to use inline assembly. It is acceptable only in rare cases",
+            "level": "warning",
+            "name": "no-inline-assembly"
+        },
+        {
+            "filename": "MockERC20.sol",
+            "line": 211,
+            "column": 9,
+            "message": "Avoid to use inline assembly. It is acceptable only in rare cases",
+            "level": "warning",
+            "name": "no-inline-assembly"
+        }
+    ]
+}

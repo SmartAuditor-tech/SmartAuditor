@@ -1,0 +1,9 @@
+{
+    "success": false,
+    "findings": {
+        "vul": [],
+        "filename": "BaseRebaseHelper.sol",
+        "coverage": "",
+        "warnings": []
+    }
+}

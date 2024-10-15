@@ -1,0 +1,12 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [
+            "Callstack Depth Attack Vulnerability: DASP-5"
+        ],
+        "filename": "CurveConnector.sol",
+        "incomplete instruction": "34217",
+        "coverage": "0.1%",
+        "warnings": []
+    }
+}

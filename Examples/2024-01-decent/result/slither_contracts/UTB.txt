@@ -1,0 +1,40 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.20/solc-0.8.20 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.20/solc-0.8.20 forge-std/=lib/forge-std/src/ solmate/=lib/solmate/src/ @uniswap/v3-periphery/=lib/v3-periphery/ @uniswap/v3-core/=lib/v3-core/ @uniswap/swap-contracts/=lib/swap-router-contracts/contracts/ decent-bridge/=lib/decent-bridge/ better-deployer/=lib/decent-bridge/lib/better-deployer/src/ forge-toolkit/=lib/forge-toolkit/src/ openzeppelin-contracts/=lib/decent-bridge/lib/openzeppelin-contracts/contracts/ @openzeppelin/=lib/decent-bridge/lib/openzeppelin-contracts/ @openzeppelin/contracts/=lib/decent-bridge/lib/openzeppelin-contracts/contracts/ LayerZero/=lib/forge-toolkit/lib/LayerZero/contracts/ ds-test/=lib/forge-std/lib/ds-test/src/ erc4626-tests/=lib/decent-bridge/lib/openzeppelin-contracts/lib/erc4626-tests/ openzeppelin/=lib/decent-bridge/lib/openzeppelin-contracts/contracts/ solidity-examples/=lib/decent-bridge/lib/solidity-examples/contracts/ solidity-stringutils/=lib/decent-bridge/lib/solidity-stringutils/ swap-router-contracts/=lib/swap-router-contracts/contracts/ v3-core/=lib/v3-core/ v3-periphery/=lib/v3-periphery/contracts/ lib/forge-std:ds-test/=lib/decent-bridge/lib/forge-std/lib/ds-test/src/ lib/openzeppelin-contracts:ds-test/=lib/decent-bridge/lib/openzeppelin-contracts/lib/forge-std/lib/ds-test/src/ lib/openzeppelin-contracts:erc4626-tests/=lib/decent-bridge/lib/openzeppelin-contracts/lib/erc4626-tests/ lib/openzeppelin-contracts:forge-std/=lib/decent-bridge/lib/openzeppelin-contracts/lib/forge-std/src/ lib/openzeppelin-contracts:openzeppelin/=lib/decent-bridge/lib/openzeppelin-contracts/contracts/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-decent/src/UTB.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 200 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-decent/src' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-decent/src/UTB.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> lib/decent-bridge/src/interfaces/IWETH.sol
+
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> src/interfaces/IBridgeAdapter.sol
+
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> src/interfaces/ISwapper.sol
+
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> src/interfaces/IUTBExecutor.sol
+
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> src/interfaces/IUTBFeeCollector.sol
+
+
+INFO:Detectors:
+UTB._swapAndExecute(SwapInstructions,address,address,bytes,address) (src/UTB.sol#134-162) sends eth to arbitrary user
+	Dangerous calls:
+	- executor.execute{value: amountOut}(target,paymentOperator,payload,tokenOut,amountOut,refund) (src/UTB.sol#143-150)
+UTB.callBridge(uint256,uint256,BridgeInstructions) (src/UTB.sol#282-301) sends eth to arbitrary user
+	Dangerous calls:
+	- IBridgeAdapter(bridgeAdapters[instructions.bridgeId]).bridge{value: bridgeFee + amt2Bridge}(amt2Bridge,instructions.postBridge,instructions.dstChainId,instructions.target,instructions.paymentOperator,instructions.payload,instructions.additionalArgs,instructions.refund) (src/UTB.sol#288-300)
+	- IBridgeAdapter(bridgeAdapters[instructions.bridgeId]).bridge{value: bridgeFee + 0}(amt2Bridge,instructions.postBridge,instructions.dstChainId,instructions.target,instructions.paymentOperator,instructions.payload,instructions.additionalArgs,instructions.refund) (src/UTB.sol#288-300)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+INFO:Detectors:
+UTB.performSwap(SwapInstructions,bool) (src/UTB.sol#63-100) ignores return value by IERC20(swapParams.tokenIn).transferFrom(msg.sender,address(this),swapParams.amountIn) (src/UTB.sol#83-87)
+UTB.retrieveAndCollectFees(FeeStructure,bytes,bytes) (src/UTB.sol#228-251) ignores return value by IERC20(fees.feeToken).transferFrom(msg.sender,address(this),fees.feeAmount) (src/UTB.sol#236-240)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+INFO:Detectors:
+UTB.performSwap(SwapInstructions,bool) (src/UTB.sol#63-100) ignores return value by IERC20(swapParams.tokenIn).approve(address(swapper),swapParams.amountIn) (src/UTB.sol#90-93)
+UTB._swapAndExecute(SwapInstructions,address,address,bytes,address) (src/UTB.sol#134-162) ignores return value by IERC20(tokenOut).approve(address(executor),amountOut) (src/UTB.sol#152)
+UTB.approveAndCheckIfNative(BridgeInstructions,uint256) (src/UTB.sol#207-220) ignores return value by IERC20(bridgeToken).approve(address(bridgeAdapter),amt2Bridge) (src/UTB.sol#216)
+UTB.retrieveAndCollectFees(FeeStructure,bytes,bytes) (src/UTB.sol#228-251) ignores return value by IERC20(fees.feeToken).approve(address(feeCollector),fees.feeAmount) (src/UTB.sol#241-244)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-decent/src/UTB.sol analyzed (9 contracts with 58 detectors), 8 result(s) found

@@ -1,0 +1,11 @@
+
+/g4b/contracts/common/Multicall.sol
+   2:1   error    Compiler version ^0.8.19 does not satisfy the ^0.5.8 semver requirement  compiler-version
+   4:8   error    Use double quotes for string literals                                    quotes
+   5:8   error    Use double quotes for string literals                                    quotes
+  15:51  warning  Avoid to use low level calls                                             avoid-low-level-calls
+  21:28  error    Use double quotes for string literals                                    quotes
+  32:39  error    Use double quotes for string literals                                    quotes
+
+✖ 6 problems (5 errors, 1 warning)
+

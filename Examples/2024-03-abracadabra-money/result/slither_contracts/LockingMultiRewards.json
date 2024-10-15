@@ -1,0 +1,44 @@
+{
+    "success": true,
+    "finding_length": 4,
+    "findings": [
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "LockingMultiRewards.epoch() (src/staking/LockingMultiRewards.sol#257-259) performs a multiplication on the result of a division:\n\t- (block.timestamp / rewardsDuration) * rewardsDuration (src/staking/LockingMultiRewards.sol#258)\n",
+            "filename": "LockingMultiRewards.sol",
+            "classification": [],
+            "function": "epoch",
+            "contract": "LockingMultiRewards",
+            "line": 258
+        },
+        {
+            "name": "cache-array-length",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "Loop condition i < rewardTokens.length (src/staking/LockingMultiRewards.sol#547) should use cached array length instead of referencing `length` member of the storage array.\n ",
+            "filename": "LockingMultiRewards.sol",
+            "classification": [],
+            "line": 547
+        },
+        {
+            "name": "cache-array-length",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "Loop condition i < rewardTokens.length (src/staking/LockingMultiRewards.sol#561) should use cached array length instead of referencing `length` member of the storage array.\n ",
+            "filename": "LockingMultiRewards.sol",
+            "classification": [],
+            "line": 561
+        },
+        {
+            "name": "cache-array-length",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "Loop condition i < rewardTokens.length (src/staking/LockingMultiRewards.sol#575) should use cached array length instead of referencing `length` member of the storage array.\n ",
+            "filename": "LockingMultiRewards.sol",
+            "classification": [],
+            "line": 575
+        }
+    ]
+}

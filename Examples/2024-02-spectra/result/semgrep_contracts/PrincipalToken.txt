@@ -1,0 +1,87 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 6 Code Findings │
+└─────────────────┘
+                                       
+    /g4b/src/tokens/PrincipalToken.sol 
+       solidity.best-practice.use-abi-encodecall-instead-of-encodewithselector.u
+  se-abi-encodecall-instead-of-                                                 
+       encodewithselector                                                       
+          To guarantee arguments type safety it is recommended to use           
+  `abi.encodeCall` instead of                                                   
+          `abi.encodeWithSelector`.                                             
+          Details: https://sg.run/9K1y                                          
+                                                                                
+          398┆ _data =                                                          
+  abi.encodeWithSelector(IRewardsProxy(rewardsProxy).claimRewards.selector,     
+  _data);                                                                       
+            ⋮┆----------------------------------------
+          729┆ _yt = address(
+          730┆     new BeaconProxy(
+          731┆         ytBeacon,
+          732┆         abi.encodeWithSelector(
+          733┆             IYieldToken(address(0)).initialize.selector,
+          734┆             _name,
+          735┆             _symbol,
+          736┆             address(this)
+          737┆         )
+          738┆     )
+             [hid 1 additional lines, adjust with --max-lines-per-finding] 
+       solidity.performance.inefficient-state-variable-increment.inefficient-sta
+  te-variable-increment                                                         
+          <x> += <y> costs more gas than <x> = <x> + <y> for state variables.   
+          Details: https://sg.run/bp9v                                          
+                                                                                
+          714┆ unclaimedFeesInIBT += _feesInIBT;
+            ⋮┆----------------------------------------
+          715┆ totalFeesInIBT += _feesInIBT;
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+          102┆ constructor(address _registry) {
+          103┆     if (_registry == address(0)) {
+          104┆         revert AddressError();
+          105┆     }
+          106┆     registry = _registry;
+          107┆     _disableInitializers(); // using this so that the deployed   
+  logic contract cannot later be initialized                                    
+          108┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          903┆ if (IERC4626(ibt).totalAssets() == 0 &&                          
+  IERC4626(ibt).totalSupply() != 0) {                                           
+          904┆     currentIBTRate = 0;
+          905┆ }
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 6 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

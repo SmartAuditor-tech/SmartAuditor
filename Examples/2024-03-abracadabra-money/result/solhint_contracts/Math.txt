@@ -1,0 +1,17 @@
+
+/g4b/src/mimswap/libraries/Math.sol
+    8:1   error    Compiler version >=0.8.0 does not satisfy the ^0.5.8 semver requirement  compiler-version
+   51:5   warning  Function name must be in mixedCase                                       func-name-mixedcase
+   51:32  warning  Variable name must be in mixedCase                                       var-name-mixedcase
+   51:44  warning  Variable name must be in mixedCase                                       var-name-mixedcase
+   51:56  warning  Variable name must be in mixedCase                                       var-name-mixedcase
+   62:9   warning  Variable name must be in mixedCase                                       var-name-mixedcase
+   79:5   warning  Function name must be in mixedCase                                       func-name-mixedcase
+   79:47  warning  Variable name must be in mixedCase                                       var-name-mixedcase
+  131:5   warning  Function name must be in mixedCase                                       func-name-mixedcase
+  131:46  warning  Variable name must be in mixedCase                                       var-name-mixedcase
+  131:58  warning  Variable name must be in mixedCase                                       var-name-mixedcase
+  199:9   warning  Variable name must be in mixedCase                                       var-name-mixedcase
+
+✖ 12 problems (1 error, 11 warnings)
+

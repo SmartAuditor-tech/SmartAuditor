@@ -1,0 +1,38 @@
+{
+    "success": true,
+    "finding_length": 4,
+    "findings": [
+        {
+            "filename": "PoolManager.sol",
+            "line": 3,
+            "column": 1,
+            "message": "Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "PoolManager.sol",
+            "line": 255,
+            "column": 24,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "PoolManager.sol",
+            "line": 256,
+            "column": 31,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "PoolManager.sol",
+            "line": 257,
+            "column": 31,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        }
+    ]
+}

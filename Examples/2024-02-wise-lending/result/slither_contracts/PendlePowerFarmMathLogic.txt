@@ -1,0 +1,31 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmMathLogic.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20 --evm-version shanghai --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/PowerFarms/PendlePowerFarm' running
+INFO:Detectors:
+WrapperHelper._wrapETH(uint256) (contracts/TransferHub/WrapperHelper.sol#24-32) sends eth to arbitrary user
+	Dangerous calls:
+	- WETH.deposit{value: _value}() (contracts/TransferHub/WrapperHelper.sol#29-31)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+INFO:Detectors:
+PendlePowerFarmDeclarations.isShutdown (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#43) is never initialized. It is used in:
+	- PendlePowerFarmDeclarations._isActive() (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#361-368)
+PendlePowerFarmDeclarations.isAave (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#108) is never initialized. It is used in:
+	- PendlePowerFarmMathLogic._checkDebtRatio(uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmMathLogic.sol#389-410)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+INFO:Detectors:
+IPendleMarket (contracts/InterfaceHub/IPendle.sol#139-251) has incorrect ERC20 function interface:IPendleMarket.transferFrom(address,address,uint256) (contracts/InterfaceHub/IPendle.sol#157-162)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+INFO:Detectors:
+PendlePowerFarmMathLogic.getPositionBorrowETH(uint256).borrowTokenAmount (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmMathLogic.sol#181) is a local variable never initialized
+PendlePowerFarmMathLogic.getPositionBorrowETH(uint256).tokenValueEth (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmMathLogic.sol#204) is a local variable never initialized
+PendlePowerFarmMathLogic.getPositionBorrowETH(uint256).borrowTokenAmountAave (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmMathLogic.sol#196) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+INFO:Detectors:
+PendlePowerFarmDeclarations.allowEnter (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#46) should be constant 
+PendlePowerFarmDeclarations.isShutdown (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#43) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+INFO:Detectors:
+PendlePowerFarmDeclarations.collateralFactor (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#49) should be immutable 
+PendlePowerFarmDeclarations.minDepositEthAmount (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#52) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmMathLogic.sol analyzed (31 contracts with 58 detectors), 11 result(s) found

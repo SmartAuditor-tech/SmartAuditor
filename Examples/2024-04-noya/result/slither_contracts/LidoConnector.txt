@@ -1,0 +1,38 @@
+'forge config --json' running
+Could not detect solc version from Foundry config. Falling back to system version...
+'solc --version' running
+'solc @openzeppelin/=node_modules/@openzeppelin/ eth-gas-reporter/=node_modules/eth-gas-reporter/ hardhat/=node_modules/hardhat/ forge-std/=lib/forge-std/src/ ds-test/=node_modules/ds-test/src/ @uniswap/=node_modules/@uniswap/ @gearbox-protocol/=node_modules/@gearbox-protocol/ @balancer-labs/=node_modules/@balancer-labs/ @layerzerolabs/=node_modules/@layerzerolabs/ base64-sol/=node_modules/base64-sol/ hardhat-deploy/=node_modules/hardhat-deploy/ solidity-bytes-utils/=node_modules/solidity-bytes-utils/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-noya/contracts/connectors/LidoConnector.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 200 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-noya/contracts/connectors' running
+INFO:Detectors:
+BaseConnector._updateTokenInRegistry(address) (contracts/helpers/BaseConnector.sol#158-160) uses a dangerous strict equality:
+	- _updateTokenInRegistry(token,IERC20(token).balanceOf(address(this)) == 0) (contracts/helpers/BaseConnector.sol#159)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+BaseConnector.sendTokensToTrustedAddress(address,uint256,address,bytes) (contracts/helpers/BaseConnector.sol#84-108) ignores return value by (accountingManager,None) = registry.getVaultAddresses(vaultId) (contracts/helpers/BaseConnector.sol#89)
+BaseConnector.sendTokensToTrustedAddress(address,uint256,address,bytes) (contracts/helpers/BaseConnector.sol#84-108) ignores return value by (None,None,None,None,watcherContract,None) = registry.getGovernanceAddresses(vaultId) (contracts/helpers/BaseConnector.sol#91)
+BaseConnector._updateTokenInRegistry(address,bool) (contracts/helpers/BaseConnector.sol#135-146) ignores return value by (accountingManager,None) = registry.getVaultAddresses(vaultId) (contracts/helpers/BaseConnector.sol#136)
+BaseConnector._updateTokenInRegistry(address,bool) (contracts/helpers/BaseConnector.sol#135-146) ignores return value by registry.updateHoldingPosition(vaultId,positionId,abi.encode(address(this)),,remove) (contracts/helpers/BaseConnector.sol#144)
+BaseConnector.addLiquidity(address[],uint256[],bytes) (contracts/helpers/BaseConnector.sol#169-193) ignores return value by ITokenTransferCallBack(msg.sender).sendTokensToTrustedAddress(tokens[i],amounts[i],msg.sender,) (contracts/helpers/BaseConnector.sol#181)
+LidoConnector.deposit(uint256) (contracts/connectors/LidoConnector.sol#37-45) ignores return value by ILido(lido).submit{value: amountIn}(address(0)) (contracts/connectors/LidoConnector.sol#41)
+LidoConnector.requestWithdrawals(uint256) (contracts/connectors/LidoConnector.sol#51-63) ignores return value by registry.updateHoldingPosition(vaultId,positionId,abi.encode(requestIds[0]),abi.encode(amount),false) (contracts/connectors/LidoConnector.sol#59)
+LidoConnector.claimWithdrawal(uint256) (contracts/connectors/LidoConnector.sol#69-87) ignores return value by registry.updateHoldingPosition(vaultId,registry.calculatePositionId(address(this),LIDO_WITHDRAWAL_REQUEST_ID,),abi.encode(requestId),,true) (contracts/connectors/LidoConnector.sol#78-84)
+NoyaGovernanceBase.onlyManager() (contracts/governance/NoyaGovernanceBase.sol#31-37) ignores return value by (None,None,None,keeperContract,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#32)
+NoyaGovernanceBase.onlyEmergency() (contracts/governance/NoyaGovernanceBase.sol#43-47) ignores return value by (None,None,None,None,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#44)
+NoyaGovernanceBase.onlyEmergencyOrWatcher() (contracts/governance/NoyaGovernanceBase.sol#53-59) ignores return value by (None,None,None,None,watcherContract,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#54)
+NoyaGovernanceBase.onlyMaintainerOrEmergency() (contracts/governance/NoyaGovernanceBase.sol#65-69) ignores return value by (None,maintainer,None,None,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#66)
+NoyaGovernanceBase.onlyMaintainer() (contracts/governance/NoyaGovernanceBase.sol#75-79) ignores return value by (None,maintainer,None,None,None,None) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#76)
+NoyaGovernanceBase.onlyGovernance() (contracts/governance/NoyaGovernanceBase.sol#85-89) ignores return value by (governer,None,None,None,None,None) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#86)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Detectors:
+BaseConnector.DUST_LEVEL (contracts/helpers/BaseConnector.sol#31) should be constant 
+BaseConnector.MINIMUM_HEALTH_FACTOR (contracts/helpers/BaseConnector.sol#28) should be constant 
+LidoConnector.LIDO_WITHDRAWAL_REQUEST_ID (contracts/connectors/LidoConnector.sol#13) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+INFO:Detectors:
+LidoConnector.lido (contracts/connectors/LidoConnector.sol#8) should be immutable 
+LidoConnector.lidoWithdrawal (contracts/connectors/LidoConnector.sol#9) should be immutable 
+LidoConnector.steth (contracts/connectors/LidoConnector.sol#10) should be immutable 
+LidoConnector.weth (contracts/connectors/LidoConnector.sol#11) should be immutable 
+NoyaGovernanceBase.registry (contracts/governance/NoyaGovernanceBase.sol#7) should be immutable 
+NoyaGovernanceBase.vaultId (contracts/governance/NoyaGovernanceBase.sol#8) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-noya/contracts/connectors/LidoConnector.sol analyzed (41 contracts with 58 detectors), 24 result(s) found

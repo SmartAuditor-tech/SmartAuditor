@@ -1,0 +1,7 @@
+
+/g4b/src/challengeV2/libraries/ArrayUtilsLib.sol
+   5:1  error    Compiler version ^0.8.17 does not satisfy the ^0.5.8 semver requirement  compiler-version
+  33:9  warning  Error message for require is too long                                    reason-string
+
+✖ 2 problems (1 error, 1 warning)
+

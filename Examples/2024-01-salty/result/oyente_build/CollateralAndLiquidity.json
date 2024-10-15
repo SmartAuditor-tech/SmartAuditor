@@ -1,0 +1,12 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [
+            "Callstack Depth Attack Vulnerability: DASP-5"
+        ],
+        "filename": "CollateralAndLiquidity.sol",
+        "incomplete instruction": "29403",
+        "coverage": "0.1%",
+        "warnings": []
+    }
+}

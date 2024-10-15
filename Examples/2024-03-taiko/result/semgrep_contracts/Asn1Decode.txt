@@ -1,0 +1,56 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 9 Code Findings │
+└─────────────────┘
+                                                                               
+    /g4b/packages/protocol/contracts/automata-attestation/utils/Asn1Decode.sol 
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           57┆ require(der[ptr.ixs()] == 0x03, "Not type BIT STRING");
+            ⋮┆----------------------------------------
+           67┆ require(der[ptr.ixs()] == 0x04, "Not type OCTET STRING");
+            ⋮┆----------------------------------------
+           88┆ require(der[ptr.ixs()] & 0x20 == 0x20, "Not a constructed type");
+            ⋮┆----------------------------------------
+          142┆ require(der[ptr.ixs()] == 0x02, "Not type INTEGER");
+            ⋮┆----------------------------------------
+          143┆ require(der[ptr.ixf()] & 0x80 == 0, "Not positive");
+            ⋮┆----------------------------------------
+          155┆ require(der[ptr.ixs()] == 0x02, "Not type INTEGER");
+            ⋮┆----------------------------------------
+          156┆ require(der[ptr.ixf()] & 0x80 == 0, "Not positive");
+            ⋮┆----------------------------------------
+          180┆ require(der[ptr.ixs()] == 0x03, "ixs Not type BIT STRING 0x03");
+            ⋮┆----------------------------------------
+          182┆ require(der[ptr.ixf()] == 0x00, "ixf Not 0");
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 9 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

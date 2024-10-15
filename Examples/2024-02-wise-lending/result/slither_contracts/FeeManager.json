@@ -1,0 +1,142 @@
+{
+    "success": true,
+    "finding_length": 14,
+    "findings": [
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in FeeManager.paybackBadDebtForToken(uint256,address,address,uint256) (contracts/FeeManager/FeeManager.sol#730-809):\n\tExternal calls:\n\t- updatePositionCurrentBadDebt(_nftId) (contracts/FeeManager/FeeManager.sol#742-744)\n\t\t- WISE_LENDING.syncManually(currentAddress) (contracts/FeeManager/FeeManagerHelper.sol#64-66)\n\t\t- WISE_LENDING.syncManually(currentAddress) (contracts/FeeManager/FeeManagerHelper.sol#32-34)\n\t- WISE_LENDING.corePaybackFeeManager(_paybackToken,_nftId,paybackAmount,_shares) (contracts/FeeManager/FeeManager.sol#766-771)\n\tState variables written after the call(s):\n\t- _updateUserBadDebt(_nftId) (contracts/FeeManager/FeeManager.sol#773-775)\n\t\t- delete badDebtPosition[_nftId] (contracts/FeeManager/FeeManagerHelper.sol#126)\n\t\t- badDebtPosition[_nftId] = _amount (contracts/FeeManager/FeeManagerHelper.sol#83)\n\tDeclarationsFeeManager.badDebtPosition (contracts/FeeManager/DeclarationsFeeManager.sol#140) can be used in cross function reentrancies:\n\t- FeeManagerHelper._eraseBadDebtUser(uint256) (contracts/FeeManager/FeeManagerHelper.sol#121-127)\n\t- FeeManagerHelper._setBadDebtPosition(uint256,uint256) (contracts/FeeManager/FeeManagerHelper.sol#77-84)\n\t- FeeManagerHelper._updateUserBadDebt(uint256) (contracts/FeeManager/FeeManagerHelper.sol#134-189)\n\t- DeclarationsFeeManager.badDebtPosition (contracts/FeeManager/DeclarationsFeeManager.sol#140)\n\t- FeeManager.paybackBadDebtForToken(uint256,address,address,uint256) (contracts/FeeManager/FeeManager.sol#730-809)\n\t- FeeManager.paybackBadDebtNoReward(uint256,address,uint256) (contracts/FeeManager/FeeManager.sol#816-866)\n\t- _updateUserBadDebt(_nftId) (contracts/FeeManager/FeeManager.sol#773-775)\n\t\t- totalBadDebtETH -= _amount (contracts/FeeManager/FeeManagerHelper.sol#110)\n\t\t- totalBadDebtETH += _amount (contracts/FeeManager/FeeManagerHelper.sol#94)\n\tDeclarationsFeeManager.totalBadDebtETH (contracts/FeeManager/DeclarationsFeeManager.sol#117) can be used in cross function reentrancies:\n\t- FeeManagerHelper._decreaseTotalBadDebt(uint256) (contracts/FeeManager/FeeManagerHelper.sol#105-116)\n\t- FeeManagerHelper._increaseTotalBadDebt(uint256) (contracts/FeeManager/FeeManagerHelper.sol#89-100)\n\t- FeeManager.claimFeesBeneficial(address,uint256) (contracts/FeeManager/FeeManager.sol#689-722)\n\t- FeeManager.claimWiseFees(address) (contracts/FeeManager/FeeManager.sol#628-682)\n\t- DeclarationsFeeManager.totalBadDebtETH (contracts/FeeManager/DeclarationsFeeManager.sol#117)\n",
+            "filename": "FeeManager.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "paybackBadDebtForToken",
+            "contract": "FeeManager",
+            "line": 117
+        },
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in FeeManager.paybackBadDebtNoReward(uint256,address,uint256) (contracts/FeeManager/FeeManager.sol#816-866):\n\tExternal calls:\n\t- updatePositionCurrentBadDebt(_nftId) (contracts/FeeManager/FeeManager.sol#824-826)\n\t\t- WISE_LENDING.syncManually(currentAddress) (contracts/FeeManager/FeeManagerHelper.sol#64-66)\n\t\t- WISE_LENDING.syncManually(currentAddress) (contracts/FeeManager/FeeManagerHelper.sol#32-34)\n\t- WISE_LENDING.corePaybackFeeManager(_paybackToken,_nftId,paybackAmount,_shares) (contracts/FeeManager/FeeManager.sol#841-846)\n\tState variables written after the call(s):\n\t- _updateUserBadDebt(_nftId) (contracts/FeeManager/FeeManager.sol#848-850)\n\t\t- delete badDebtPosition[_nftId] (contracts/FeeManager/FeeManagerHelper.sol#126)\n\t\t- badDebtPosition[_nftId] = _amount (contracts/FeeManager/FeeManagerHelper.sol#83)\n\tDeclarationsFeeManager.badDebtPosition (contracts/FeeManager/DeclarationsFeeManager.sol#140) can be used in cross function reentrancies:\n\t- FeeManagerHelper._eraseBadDebtUser(uint256) (contracts/FeeManager/FeeManagerHelper.sol#121-127)\n\t- FeeManagerHelper._setBadDebtPosition(uint256,uint256) (contracts/FeeManager/FeeManagerHelper.sol#77-84)\n\t- FeeManagerHelper._updateUserBadDebt(uint256) (contracts/FeeManager/FeeManagerHelper.sol#134-189)\n\t- DeclarationsFeeManager.badDebtPosition (contracts/FeeManager/DeclarationsFeeManager.sol#140)\n\t- FeeManager.paybackBadDebtForToken(uint256,address,address,uint256) (contracts/FeeManager/FeeManager.sol#730-809)\n\t- FeeManager.paybackBadDebtNoReward(uint256,address,uint256) (contracts/FeeManager/FeeManager.sol#816-866)\n\t- _updateUserBadDebt(_nftId) (contracts/FeeManager/FeeManager.sol#848-850)\n\t\t- totalBadDebtETH -= _amount (contracts/FeeManager/FeeManagerHelper.sol#110)\n\t\t- totalBadDebtETH += _amount (contracts/FeeManager/FeeManagerHelper.sol#94)\n\tDeclarationsFeeManager.totalBadDebtETH (contracts/FeeManager/DeclarationsFeeManager.sol#117) can be used in cross function reentrancies:\n\t- FeeManagerHelper._decreaseTotalBadDebt(uint256) (contracts/FeeManager/FeeManagerHelper.sol#105-116)\n\t- FeeManagerHelper._increaseTotalBadDebt(uint256) (contracts/FeeManager/FeeManagerHelper.sol#89-100)\n\t- FeeManager.claimFeesBeneficial(address,uint256) (contracts/FeeManager/FeeManager.sol#689-722)\n\t- FeeManager.claimWiseFees(address) (contracts/FeeManager/FeeManager.sol#628-682)\n\t- DeclarationsFeeManager.totalBadDebtETH (contracts/FeeManager/DeclarationsFeeManager.sol#117)\n",
+            "filename": "FeeManager.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "paybackBadDebtNoReward",
+            "contract": "FeeManager",
+            "line": 117
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FeeManagerHelper._prepareBorrows(uint256).i (contracts/FeeManager/FeeManagerHelper.sol#20) is a local variable never initialized\n",
+            "filename": "FeeManager.sol",
+            "classification": [],
+            "line": 20
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FeeManager.revokeBeneficial(address,address[]).i (contracts/FeeManager/FeeManager.sol#578) is a local variable never initialized\n",
+            "filename": "FeeManager.sol",
+            "classification": [],
+            "line": 578
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FeeManager.syncAllPools().i (contracts/FeeManager/FeeManager.sol#901) is a local variable never initialized\n",
+            "filename": "FeeManager.sol",
+            "classification": [],
+            "line": 901
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FeeManager.claimIncentivesBulk().i (contracts/FeeManager/FeeManager.sol#254) is a local variable never initialized\n",
+            "filename": "FeeManager.sol",
+            "classification": [],
+            "line": 254
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FeeManager.claimWiseFeesBulk().i (contracts/FeeManager/FeeManager.sol#606) is a local variable never initialized\n",
+            "filename": "FeeManager.sol",
+            "classification": [],
+            "line": 606
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FeeManagerHelper._distributeIncentives(uint256,address,address).reduceAmount (contracts/FeeManager/FeeManagerHelper.sol#300) is a local variable never initialized\n",
+            "filename": "FeeManager.sol",
+            "classification": [],
+            "line": 300
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FeeManager.setPoolFeeBulk(address[],uint256[]).i (contracts/FeeManager/FeeManager.sol#142) is a local variable never initialized\n",
+            "filename": "FeeManager.sol",
+            "classification": [],
+            "line": 142
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FeeManager.removePoolTokenManual(address).found (contracts/FeeManager/FeeManager.sol#447) is a local variable never initialized\n",
+            "filename": "FeeManager.sol",
+            "classification": [],
+            "line": 447
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FeeManager.setBeneficial(address,address[]).i (contracts/FeeManager/FeeManager.sol#545) is a local variable never initialized\n",
+            "filename": "FeeManager.sol",
+            "classification": [],
+            "line": 545
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FeeManager.setAaveFlagBulk(address[],address[]).i (contracts/FeeManager/FeeManager.sol#89) is a local variable never initialized\n",
+            "filename": "FeeManager.sol",
+            "classification": [],
+            "line": 89
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FeeManagerHelper._prepareCollaterals(uint256).i (contracts/FeeManager/FeeManagerHelper.sol#52) is a local variable never initialized\n",
+            "filename": "FeeManager.sol",
+            "classification": [],
+            "line": 52
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FeeManager.removePoolTokenManual(address).i (contracts/FeeManager/FeeManager.sol#444) is a local variable never initialized\n",
+            "filename": "FeeManager.sol",
+            "classification": [],
+            "line": 444
+        }
+    ]
+}

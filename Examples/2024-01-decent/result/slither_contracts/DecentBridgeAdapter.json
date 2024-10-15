@@ -1,0 +1,91 @@
+{
+    "success": true,
+    "finding_length": 7,
+    "findings": [
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "DecentBridgeAdapter.receiveFromBridge(SwapInstructions,address,address,bytes,address) (src/bridge_adapters/DecentBridgeAdapter.sol#127-154) ignores return value by IERC20(swapParams.tokenIn).transferFrom(msg.sender,address(this),swapParams.amountIn) (src/bridge_adapters/DecentBridgeAdapter.sol#139-143)\n",
+            "filename": "DecentBridgeAdapter.sol",
+            "classification": [],
+            "function": "receiveFromBridge",
+            "contract": "DecentBridgeAdapter",
+            "line": 139,
+            "line_end": 143
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "DecentBridgeAdapter.bridge(uint256,SwapInstructions,uint256,address,address,bytes,bytes,address) (src/bridge_adapters/DecentBridgeAdapter.sol#81-125) ignores return value by IERC20(bridgeToken).transferFrom(msg.sender,address(this),amt2Bridge) (src/bridge_adapters/DecentBridgeAdapter.sol#109-113)\n",
+            "filename": "DecentBridgeAdapter.sol",
+            "classification": [],
+            "function": "bridge",
+            "contract": "DecentBridgeAdapter",
+            "line": 109,
+            "line_end": 113
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "DecentBridgeAdapter.estimateFees(SwapInstructions,uint256,address,uint64,bytes) (src/bridge_adapters/DecentBridgeAdapter.sol#44-65) ignores return value by router.estimateSendAndCallFee(router.MT_ETH_TRANSFER_WITH_PAYLOAD(),lzIdLookup[dstChainId],target,swapParams.amountIn,dstGas,false,payload) (src/bridge_adapters/DecentBridgeAdapter.sol#55-64)\n",
+            "filename": "DecentBridgeAdapter.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "estimateFees",
+            "contract": "DecentBridgeAdapter",
+            "line": 55,
+            "line_end": 64
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "DecentBridgeAdapter.receiveFromBridge(SwapInstructions,address,address,bytes,address) (src/bridge_adapters/DecentBridgeAdapter.sol#127-154) ignores return value by IERC20(swapParams.tokenIn).approve(utb,swapParams.amountIn) (src/bridge_adapters/DecentBridgeAdapter.sol#145)\n",
+            "filename": "DecentBridgeAdapter.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "receiveFromBridge",
+            "contract": "DecentBridgeAdapter",
+            "line": 145
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "DecentBridgeAdapter.bridge(uint256,SwapInstructions,uint256,address,address,bytes,bytes,address) (src/bridge_adapters/DecentBridgeAdapter.sol#81-125) ignores return value by IERC20(bridgeToken).approve(address(router),amt2Bridge) (src/bridge_adapters/DecentBridgeAdapter.sol#114)\n",
+            "filename": "DecentBridgeAdapter.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "bridge",
+            "contract": "DecentBridgeAdapter",
+            "line": 114
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "DecentBridgeAdapter.gasIsEth (src/bridge_adapters/DecentBridgeAdapter.sol#18) should be immutable \n",
+            "filename": "DecentBridgeAdapter.sol",
+            "classification": [],
+            "line": 18
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "DecentBridgeAdapter.bridgeToken (src/bridge_adapters/DecentBridgeAdapter.sol#19) should be immutable \n",
+            "filename": "DecentBridgeAdapter.sol",
+            "classification": [],
+            "line": 19
+        }
+    ]
+}

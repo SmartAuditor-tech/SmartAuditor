@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Expected '=>' but got identifier
+  --> /g4b/src/blast/BlastOnboardingBoot.sol:30:21:
+   |
+30 |     mapping(address user => bool claimed) public claimed;
+   |                     ^^^^
+
+

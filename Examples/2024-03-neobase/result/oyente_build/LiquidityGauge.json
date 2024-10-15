@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "LiquidityGauge.sol",
+        "coverage": "0.9%",
+        "warnings": []
+    }
+}

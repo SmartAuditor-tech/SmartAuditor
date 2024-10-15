@@ -1,0 +1,478 @@
+{
+    "success": true,
+    "finding_length": 59,
+    "findings": [
+        {
+            "filename": "FCL.sol",
+            "line": 24,
+            "column": 1,
+            "message": "Compiler version >=0.8.19 <0.9.0 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 29,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 31,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 31,
+            "column": 5,
+            "message": "Constant name must be in capitalized SNAKE_CASE",
+            "level": "warning",
+            "name": "const-name-snakecase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 33,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 33,
+            "column": 5,
+            "message": "Constant name must be in capitalized SNAKE_CASE",
+            "level": "warning",
+            "name": "const-name-snakecase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 35,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 35,
+            "column": 5,
+            "message": "Constant name must be in capitalized SNAKE_CASE",
+            "level": "warning",
+            "name": "const-name-snakecase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 37,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 37,
+            "column": 5,
+            "message": "Constant name must be in capitalized SNAKE_CASE",
+            "level": "warning",
+            "name": "const-name-snakecase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 38,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 38,
+            "column": 5,
+            "message": "Constant name must be in capitalized SNAKE_CASE",
+            "level": "warning",
+            "name": "const-name-snakecase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 40,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 40,
+            "column": 5,
+            "message": "Constant name must be in capitalized SNAKE_CASE",
+            "level": "warning",
+            "name": "const-name-snakecase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 42,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 42,
+            "column": 5,
+            "message": "Constant name must be in capitalized SNAKE_CASE",
+            "level": "warning",
+            "name": "const-name-snakecase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 44,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 44,
+            "column": 5,
+            "message": "Constant name must be in capitalized SNAKE_CASE",
+            "level": "warning",
+            "name": "const-name-snakecase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 46,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 46,
+            "column": 5,
+            "message": "Constant name must be in capitalized SNAKE_CASE",
+            "level": "warning",
+            "name": "const-name-snakecase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 50,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 50,
+            "column": 66,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 50,
+            "column": 78,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 61,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 62,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 78,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 83,
+            "column": 13,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 84,
+            "column": 13,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 94,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 95,
+            "column": 9,
+            "message": "Avoid to use inline assembly. It is acceptable only in rare cases",
+            "level": "warning",
+            "name": "no-inline-assembly"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 117,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 118,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 119,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 120,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 121,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 122,
+            "column": 30,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 125,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 127,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 128,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 140,
+            "column": 13,
+            "message": "Avoid to use inline assembly. It is acceptable only in rare cases",
+            "level": "warning",
+            "name": "no-inline-assembly"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 144,
+            "column": 19,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 164,
+            "column": 21,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 274,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 293,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 301,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 318,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 321,
+            "column": 18,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 321,
+            "column": 30,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 321,
+            "column": 42,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 321,
+            "column": 54,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 324,
+            "column": 13,
+            "message": "Avoid to use inline assembly. It is acceptable only in rare cases",
+            "level": "warning",
+            "name": "no-inline-assembly"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 344,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 347,
+            "column": 18,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 347,
+            "column": 30,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 347,
+            "column": 42,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 347,
+            "column": 54,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 354,
+            "column": 13,
+            "message": "Avoid to use inline assembly. It is acceptable only in rare cases",
+            "level": "warning",
+            "name": "no-inline-assembly"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 374,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "FCL.sol",
+            "line": 375,
+            "column": 9,
+            "message": "Avoid to use inline assembly. It is acceptable only in rare cases",
+            "level": "warning",
+            "name": "no-inline-assembly"
+        }
+    ]
+}

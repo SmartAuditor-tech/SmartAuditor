@@ -1,0 +1,21 @@
+
+/g4b/contracts/PowerFarms/PendlePowerFarmController/PendlePowerFarmToken.sol
+    3:1   error    Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement  compiler-version
+   28:5   warning  Variable name must be in mixedCase                                       var-name-mixedcase
+   29:5   warning  Variable name must be in mixedCase                                       var-name-mixedcase
+   38:5   warning  Variable name must be in mixedCase                                       var-name-mixedcase
+   41:5   warning  Variable name must be in mixedCase                                       var-name-mixedcase
+   44:5   warning  Variable name must be in mixedCase                                       var-name-mixedcase
+   47:5   warning  Variable name must be in mixedCase                                       var-name-mixedcase
+   61:5   warning  Variable name must be in mixedCase                                       var-name-mixedcase
+  120:34  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+  202:9   warning  Avoid to use letters 'I', 'l', 'O' as identifiers                        use-forbidden-name
+  230:9   warning  Avoid to use letters 'I', 'l', 'O' as identifiers                        use-forbidden-name
+  395:13  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+  407:16  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+  419:27  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+  726:27  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+  731:30  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+
+✖ 16 problems (1 error, 15 warnings)
+

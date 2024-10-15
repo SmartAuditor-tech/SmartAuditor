@@ -1,0 +1,114 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 13 Code Findings │
+└──────────────────┘
+                                            
+    /g4b/src/price_feed/PriceAggregator.sol 
+       solidity.best-practice.use-ownable2step.use-ownable2step                 
+          By demanding that the receiver of the owner permissions actively      
+  accept via a contract call                                                    
+          of its own,  `Ownable2Step` and `Ownable2StepUpgradeable` prevent the 
+  contract ownership                                                            
+          from accidentally being transferred  to an address that cannot handle 
+  it.                                                                           
+          Details: https://sg.run/yBAA                                          
+                                                                                
+           13┆ contract PriceAggregator is IPriceAggregator, Ownable
+            ⋮┆----------------------------------------
+       solidity.performance.inefficient-state-variable-increment.inefficient-sta
+  te-variable-increment                                                         
+          <x> += <y> costs more gas than <x> = <x> + <y> for state variables.   
+          Details: https://sg.run/bp9v                                          
+                                                                                
+           70┆ maximumPriceFeedPercentDifferenceTimes1000 += 500;
+            ⋮┆----------------------------------------
+           87┆ priceFeedModificationCooldown += 5 days;
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           39┆ require( address(priceFeed1) == address(0), "setInitialFeeds()   
+  can only be called once" );                                                   
+            ⋮┆----------------------------------------
+          183┆ require (price != 0, "Invalid BTC price" );
+            ⋮┆----------------------------------------
+          195┆ require (price != 0, "Invalid ETH price" );
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          132┆ if ( ( diff12 <= diff13 ) && ( diff12 <= diff23 ) )
+          133┆    (priceA, priceB) = (price1,      
+  price2);                                         
+          134┆ else if ( ( diff13 <= diff12 ) && ( diff13 <= diff23 ) )
+          135┆    (priceA, priceB) = (price1,      
+  price3);                                         
+          136┆ else if ( ( diff23 <= diff12 ) && ( diff23 <= diff13 ) )
+          137┆    (priceA, priceB) = (price2,      
+  price3);                                         
+            ⋮┆----------------------------------------
+          134┆ else if ( ( diff13 <= diff12 ) && ( diff13 <= diff23 ) )
+          135┆    (priceA, priceB) = (price1,      
+  price3);                                         
+          136┆ else if ( ( diff23 <= diff12 ) && ( diff23 <= diff13 ) )
+          137┆    (priceA, priceB) = (price2,      
+  price3);                                         
+            ⋮┆----------------------------------------
+          136┆ else if ( ( diff23 <= diff12 ) && ( diff23 <= diff13 ) )
+          137┆    (priceA, priceB) = (price2,      
+  price3);                                         
+            ⋮┆----------------------------------------
+       solidity.performance.use-prefix-increment-not-postfix.use-prefix-incremen
+  t-not-postfix                                                                 
+          Consider using the prefix increment expression whenever the return    
+  value is not needed. The                                                      
+          prefix increment expression is cheaper in terms of gas.               
+          Details: https://sg.run/nxLr                                          
+                                                                                
+          113┆ numNonZero++;
+            ⋮┆----------------------------------------
+          116┆ numNonZero++;
+            ⋮┆----------------------------------------
+          119┆ numNonZero++;
+            ⋮┆----------------------------------------
+       solidity.performance.use-short-revert-string.use-short-revert-string     
+          Shortening revert strings to fit in 32 bytes will decrease gas costs  
+  for deployment and  gas                                                       
+          costs when the revert condition has been met.                         
+          Details: https://sg.run/E9LB                                          
+                                                                                
+           39┆ require( address(priceFeed1) == address(0), "setInitialFeeds()   
+  can only be called once" );                                                   
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 13 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

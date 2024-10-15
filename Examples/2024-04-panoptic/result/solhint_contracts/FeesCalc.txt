@@ -1,0 +1,7 @@
+
+/g4b/contracts/libraries/FeesCalc.sol
+  48:24  error  Parse error: extraneous input 'tokenId' expecting '=>'
+  48:53  error  Parse error: extraneous input 'balance' expecting ')'
+
+✖ 2 problems (2 errors, 0 warnings)
+

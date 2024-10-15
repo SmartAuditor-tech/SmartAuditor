@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Expected '=>' but got identifier
+  --> /g4b/src/blast/BlastOnboarding.sol:36:21:
+   |
+36 |     mapping(address token => bool) public supportedTokens;
+   |                     ^^^^^
+
+

@@ -1,0 +1,38 @@
+{
+    "success": true,
+    "finding_length": 3,
+    "findings": [
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "UniswapValueOracle.getValue(address,address,uint256) (contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol#60-86) ignores return value by (tickCumulatives,None) = IUniswapV3Pool(pool).observe(secondsAgos) (contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol#74)\n",
+            "filename": "UniswapValueOracle.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "getValue",
+            "contract": "UniswapValueOracle",
+            "line": 74
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "UniswapValueOracle.factory (contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol#16) should be immutable \n",
+            "filename": "UniswapValueOracle.sol",
+            "classification": [],
+            "line": 16
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "UniswapValueOracle.registry (contracts/helpers/valueOracle/oracles/UniswapValueOracle.sol#17) should be immutable \n",
+            "filename": "UniswapValueOracle.sol",
+            "classification": [],
+            "line": 17
+        }
+    ]
+}

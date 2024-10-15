@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "WBETHShim.sol",
+        "coverage": "1.0%",
+        "warnings": []
+    }
+}

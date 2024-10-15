@@ -1,0 +1,122 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 22 Code Findings │
+└──────────────────┘
+                                        
+    /g4b/src/staking/StakingRewards.sol 
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+          296┆ for( uint256 i = 0; i < cooldowns.length; i++ )
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 22 findings.
+            ⋮┆----------------------------------------
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+          194┆ totalRewards[ poolID ] += amountToAdd;
+            ⋮┆----------------------------------------
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+          152┆ for( uint256 i = 0; i < poolIDs.length; i++ )
+            ⋮┆----------------------------------------
+          185┆ for( uint256 i = 0; i < addedRewards.length; i++ )
+            ⋮┆----------------------------------------
+          296┆ for( uint256 i = 0; i < cooldowns.length; i++ )
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           59┆ require( poolsConfig.isWhitelisted( poolID ), "Invalid pool" );
+            ⋮┆----------------------------------------
+           60┆ require( increaseShareAmount != 0, "Cannot increase zero share"  
+  );                                                                            
+            ⋮┆----------------------------------------
+           67┆ require( block.timestamp >= user.cooldownExpiration, "Must wait  
+  for the cooldown to expire" );                                                
+            ⋮┆----------------------------------------
+           99┆ require( decreaseShareAmount != 0, "Cannot decrease zero share"  
+  );                                                                            
+            ⋮┆----------------------------------------
+          102┆ require( decreaseShareAmount <= user.userShare, "Cannot decrease 
+  more than existing user share" );                                             
+            ⋮┆----------------------------------------
+          107┆ require( block.timestamp >= user.cooldownExpiration, "Must wait  
+  for the cooldown to expire" );                                                
+            ⋮┆----------------------------------------
+          190┆ require( poolsConfig.isWhitelisted( poolID ), "Invalid pool" );
+            ⋮┆----------------------------------------
+       solidity.performance.use-prefix-increment-not-postfix.use-prefix-incremen
+  t-not-postfix                                                                 
+          Consider using the prefix increment expression whenever the return    
+  value is not needed. The                                                      
+          prefix increment expression is cheaper in terms of gas.               
+          Details: https://sg.run/nxLr                                          
+                                                                                
+          152┆ for( uint256 i = 0; i < poolIDs.length; i++ )
+            ⋮┆----------------------------------------
+          185┆ for( uint256 i = 0; i < addedRewards.length; i++ )
+            ⋮┆----------------------------------------
+          216┆ for( uint256 i = 0; i < shares.length; i++ )
+            ⋮┆----------------------------------------
+          226┆ for( uint256 i = 0; i < rewards.length; i++ )
+            ⋮┆----------------------------------------
+          260┆ for( uint256 i = 0; i < rewards.length; i++ )
+            ⋮┆----------------------------------------
+          277┆ for( uint256 i = 0; i < shares.length; i++ )
+            ⋮┆----------------------------------------
+          296┆ for( uint256 i = 0; i < cooldowns.length; i++ )
+            ⋮┆----------------------------------------
+       solidity.performance.use-short-revert-string.use-short-revert-string     
+          Shortening revert strings to fit in 32 bytes will decrease gas costs  
+  for deployment and  gas                                                       
+          costs when the revert condition has been met.                         
+          Details: https://sg.run/E9LB                                          
+                                                                                
+           67┆ require( block.timestamp >= user.cooldownExpiration, "Must wait  
+  for the cooldown to expire" );                                                
+            ⋮┆----------------------------------------
+          102┆ require( decreaseShareAmount <= user.userShare, "Cannot decrease 
+  more than existing user share" );                                             
+            ⋮┆----------------------------------------
+          107┆ require( block.timestamp >= user.cooldownExpiration, "Must wait  
+  for the cooldown to expire" );                                                
+
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

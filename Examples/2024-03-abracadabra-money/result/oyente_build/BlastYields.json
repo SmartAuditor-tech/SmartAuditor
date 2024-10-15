@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "BlastYields.sol",
+        "incomplete instruction": "74",
+        "coverage": "34.5%",
+        "warnings": []
+    }
+}

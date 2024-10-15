@@ -1,0 +1,60 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 2 findings.
+                   
+                   
+┌─────────────────┐
+│ 2 Code Findings │
+└─────────────────┘
+                                                           
+    /g4b/contracts/Bridge/L2/PriceFeed/ConnextReceiver.sol 
+       solidity.best-practice.use-ownable2step.use-ownable2step                 
+          By demanding that the receiver of the owner permissions actively      
+  accept via a contract call                                                    
+          of its own,  `Ownable2Step` and `Ownable2StepUpgradeable` prevent the 
+  contract ownership                                                            
+          from accidentally being transferred  to an address that cannot handle 
+  it.                                                                           
+          Details: https://sg.run/yBAA                                          
+                                                                                
+           10┆ contract ConnextReceiver is IXReceiver, Ownable, Pausable {
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           52┆ constructor(address _connext, address _xRenzoBridgeL1, uint32    
+  _connextEthChainDomain) {                                                     
+           53┆     if (_xRenzoBridgeL1 == address(0) || _connextEthChainDomain  
+  == 0 || _connext == address(0))                                               
+           54┆         revert InvalidZeroInput();
+           55┆ 
+           56┆     // Set connext bridge address
+           57┆     connext = _connext;
+           58┆ 
+           59┆     // Set xRenzoBridge L1 contract address
+           60┆     xRenzoBridgeL1 = _xRenzoBridgeL1;
+           61┆ 
+             [hid 6 additional lines, adjust with --max-lines-per-finding] 
+
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

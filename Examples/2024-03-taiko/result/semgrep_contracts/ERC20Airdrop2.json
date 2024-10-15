@@ -1,0 +1,13 @@
+{
+    "success": true,
+    "finding_length": 1,
+    "findings": [
+        {
+            "classification": [],
+            "name": "arbitrary-send-erc20",
+            "category": "security",
+            "message": "msg.sender is not being used when calling erc20.transferFrom. Example - Alice approves this contract to spend her ERC20 tokens. Bob can call function 'a' and specify Alice's address as the from parameter in transferFrom, allowing him to transfer Alice's tokens to himself. Details: https://sg.run/B72A",
+            "line": 91
+        }
+    ]
+}

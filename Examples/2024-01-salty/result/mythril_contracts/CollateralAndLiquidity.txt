@@ -1,0 +1,38 @@
+==== Exception State ====
+SWC ID: 110
+Severity: Medium
+Contract: CollateralAndLiquidity
+Function name: constructor
+PC address: 14
+Estimated Gas Usage: 39 - 134
+An assertion violation was triggered.
+It is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).
+--------------------
+In file: /g4b/src/stable/CollateralAndLiquidity.sol:52
+
+constructor( IPools _pools, IExchangeConfig _exchangeConfig, IPoolsConfig _poolsConfig, IStakingConfig _stakingConfig, IStableConfig _stableConfig, IPriceAggregator _priceAggregator, ILiquidizer _liquidizer )
+		Liquidity( _pools, _exchangeConfig, _poolsConfig, _stakingConfig )
+    	{
+		priceAggregator = _priceAggregator;
+        stableConfig = _stableConfig;
+        liquidizer = _liquidizer;
+
+		usds = _exchangeConfig.usds();
+		wbtc = exchangeConfig.wbtc();
+		weth = exchangeConfig.weth();
+
+		wbtcTenToTheDecimals = 10 ** IERC20Metadata(address(wbtc)).decimals();
+		wethTenToTheDecimals = 10 ** IERC20Metadata(address(weth)).decimals();
+    	}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x1
+
+

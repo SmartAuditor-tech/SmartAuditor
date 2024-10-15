@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "Math.sol",
+        "coverage": "37.5%",
+        "warnings": []
+    }
+}

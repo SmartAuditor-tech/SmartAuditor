@@ -1,0 +1,4 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.20/solc-0.8.20 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.20/solc-0.8.20 forge-std/=lib/forge-std/src/ @openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/ ds-test/=lib/forge-std/lib/ds-test/src/ erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/ openzeppelin-contracts/=lib/openzeppelin-contracts/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-05-loop/lib/forge-std/src/mocks/MockERC20.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 100 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-05-loop/lib/forge-std/src/mocks' running
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-05-loop/lib/forge-std/src/mocks/MockERC20.sol analyzed (1 contracts with 58 detectors), 0 result(s) found

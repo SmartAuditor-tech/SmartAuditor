@@ -1,0 +1,20 @@
+
+/g4b/src/mimswap/libraries/PMMPricing.sol
+    8:1   error    Compiler version >=0.8.0 does not satisfy the ^0.5.8 semver requirement  compiler-version
+   29:9   warning  Variable name must be in mixedCase                                       var-name-mixedcase
+   30:9   warning  Variable name must be in mixedCase                                       var-name-mixedcase
+   31:9   warning  Variable name must be in mixedCase                                       var-name-mixedcase
+   32:9   warning  Variable name must be in mixedCase                                       var-name-mixedcase
+   33:9   warning  Variable name must be in mixedCase                                       var-name-mixedcase
+   34:9   warning  Variable name must be in mixedCase                                       var-name-mixedcase
+  104:5   warning  Function name must be in mixedCase                                       func-name-mixedcase
+  119:5   warning  Function name must be in mixedCase                                       func-name-mixedcase
+  134:5   warning  Function name must be in mixedCase                                       func-name-mixedcase
+  147:5   warning  Function name must be in mixedCase                                       func-name-mixedcase
+  162:5   warning  Function name must be in mixedCase                                       func-name-mixedcase
+  175:5   warning  Function name must be in mixedCase                                       func-name-mixedcase
+  205:13  warning  Variable name must be in mixedCase                                       var-name-mixedcase
+  209:13  warning  Variable name must be in mixedCase                                       var-name-mixedcase
+
+✖ 15 problems (1 error, 14 warnings)
+

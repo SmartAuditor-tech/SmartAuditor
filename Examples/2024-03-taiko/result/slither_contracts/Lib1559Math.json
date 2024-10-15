@@ -1,0 +1,83 @@
+{
+    "success": true,
+    "finding_length": 7,
+    "findings": [
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "LibFixedPointMath.exp(int256) (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#13-81) performs a multiplication on the result of a division:\n\t- x = (x << 78) / 5 ** 18 (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#33)\n\t- q = ((q * x) >> 96) - 14_423_608_567_350_463_180_887_372_962_807_573 (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#57)\n",
+            "filename": "Lib1559Math.sol",
+            "classification": [],
+            "function": "exp",
+            "contract": "LibFixedPointMath",
+            "line": 57
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "LibFixedPointMath.exp(int256) (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#13-81) performs a multiplication on the result of a division:\n\t- x = (x << 78) / 5 ** 18 (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#33)\n\t- q = ((q * x) >> 96) + 50_020_603_652_535_783_019_961_831_881_945 (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#54)\n",
+            "filename": "Lib1559Math.sol",
+            "classification": [],
+            "function": "exp",
+            "contract": "LibFixedPointMath",
+            "line": 54
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "LibFixedPointMath.exp(int256) (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#13-81) performs a multiplication on the result of a division:\n\t- x = (x << 78) / 5 ** 18 (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#33)\n\t- p = p * x + (4_385_272_521_454_847_904_659_076_985_693_276 << 96) (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#49)\n",
+            "filename": "Lib1559Math.sol",
+            "classification": [],
+            "function": "exp",
+            "contract": "LibFixedPointMath",
+            "line": 49
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "LibFixedPointMath.exp(int256) (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#13-81) performs a multiplication on the result of a division:\n\t- x = (x << 78) / 5 ** 18 (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#33)\n\t- y = ((y * x) >> 96) + 57_155_421_227_552_351_082_224_309_758_442 (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#46)\n",
+            "filename": "Lib1559Math.sol",
+            "classification": [],
+            "function": "exp",
+            "contract": "LibFixedPointMath",
+            "line": 46
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "LibFixedPointMath.exp(int256) (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#13-81) performs a multiplication on the result of a division:\n\t- x = (x << 78) / 5 ** 18 (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#33)\n\t- q = ((q * x) >> 96) - 533_845_033_583_426_703_283_633_433_725_380 (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#55)\n",
+            "filename": "Lib1559Math.sol",
+            "classification": [],
+            "function": "exp",
+            "contract": "LibFixedPointMath",
+            "line": 55
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "LibFixedPointMath.exp(int256) (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#13-81) performs a multiplication on the result of a division:\n\t- x = (x << 78) / 5 ** 18 (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#33)\n\t- q = ((q * x) >> 96) + 26_449_188_498_355_588_339_934_803_723_976_023 (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#58)\n",
+            "filename": "Lib1559Math.sol",
+            "classification": [],
+            "function": "exp",
+            "contract": "LibFixedPointMath",
+            "line": 58
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "LibFixedPointMath.exp(int256) (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#13-81) performs a multiplication on the result of a division:\n\t- x = (x << 78) / 5 ** 18 (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#33)\n\t- q = ((q * x) >> 96) + 3_604_857_256_930_695_427_073_651_918_091_429 (packages/protocol/contracts/thirdparty/solmate/LibFixedPointMath.sol#56)\n",
+            "filename": "Lib1559Math.sol",
+            "classification": [],
+            "function": "exp",
+            "contract": "LibFixedPointMath",
+            "line": 56
+        }
+    ]
+}

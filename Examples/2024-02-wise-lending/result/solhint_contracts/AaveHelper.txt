@@ -1,0 +1,9 @@
+
+/g4b/contracts/WrapperHub/AaveHelper.sol
+    3:1   error    Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement  compiler-version
+  208:28  warning  Avoid to use low level calls                                             avoid-low-level-calls
+  250:9   warning  Avoid to use letters 'I', 'l', 'O' as identifiers                        use-forbidden-name
+  286:9   warning  Avoid to use letters 'I', 'l', 'O' as identifiers                        use-forbidden-name
+
+✖ 4 problems (1 error, 3 warnings)
+

@@ -1,0 +1,54 @@
+{
+    "success": false,
+    "finding_length": 6,
+    "findings": [
+        {
+            "filename": "Multicall.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version ^0.8.19 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "Multicall.sol",
+            "line": 4,
+            "column": 8,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "Multicall.sol",
+            "line": 5,
+            "column": 8,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "Multicall.sol",
+            "line": 15,
+            "column": 51,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        },
+        {
+            "filename": "Multicall.sol",
+            "line": 21,
+            "column": 28,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "Multicall.sol",
+            "line": 32,
+            "column": 39,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        }
+    ]
+}

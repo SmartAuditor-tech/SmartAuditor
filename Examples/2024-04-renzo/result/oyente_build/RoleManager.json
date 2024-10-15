@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "RoleManager.sol",
+        "incomplete instruction": "7487",
+        "coverage": "0.5%",
+        "warnings": []
+    }
+}

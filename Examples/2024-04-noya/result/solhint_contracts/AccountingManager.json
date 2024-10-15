@@ -1,0 +1,390 @@
+{
+    "success": true,
+    "finding_length": 48,
+    "findings": [
+        {
+            "filename": "AccountingManager.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version 0.8.20 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 16,
+            "column": 1,
+            "message": "Contract has 24 states declarations but allowed no more than 15",
+            "level": "warning",
+            "name": "max-states-count"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 94,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 101,
+            "column": 35,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 106,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 107,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 108,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 109,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 110,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 125,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 140,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 141,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 142,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 215,
+            "column": 74,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 216,
+            "column": 57,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 241,
+            "column": 36,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 243,
+            "column": 44,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 269,
+            "column": 90,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 275,
+            "column": 43,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 313,
+            "column": 89,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 314,
+            "column": 78,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 346,
+            "column": 36,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 349,
+            "column": 96,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 361,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 371,
+            "column": 9,
+            "message": "Provide an error message for require",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 408,
+            "column": 92,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 430,
+            "column": 93,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 477,
+            "column": 28,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 486,
+            "column": 100,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 496,
+            "column": 62,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 506,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 509,
+            "column": 30,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 521,
+            "column": 35,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 528,
+            "column": 64,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 529,
+            "column": 20,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 549,
+            "column": 9,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 627,
+            "column": 5,
+            "message": "Function name must be in mixedCase",
+            "level": "warning",
+            "name": "func-name-mixedcase"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 685,
+            "column": 31,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 693,
+            "column": 19,
+            "message": "Variable \"shares\" is unused",
+            "level": "warning",
+            "name": "no-unused-vars"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 693,
+            "column": 35,
+            "message": "Variable \"receiver\" is unused",
+            "level": "warning",
+            "name": "no-unused-vars"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 697,
+            "column": 23,
+            "message": "Variable \"assets\" is unused",
+            "level": "warning",
+            "name": "no-unused-vars"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 697,
+            "column": 39,
+            "message": "Variable \"receiver\" is unused",
+            "level": "warning",
+            "name": "no-unused-vars"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 697,
+            "column": 57,
+            "message": "Variable \"owner\" is unused",
+            "level": "warning",
+            "name": "no-unused-vars"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 701,
+            "column": 21,
+            "message": "Variable \"shares\" is unused",
+            "level": "warning",
+            "name": "no-unused-vars"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 701,
+            "column": 37,
+            "message": "Variable \"receiver\" is unused",
+            "level": "warning",
+            "name": "no-unused-vars"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 701,
+            "column": 55,
+            "message": "Variable \"shareOwner\" is unused",
+            "level": "warning",
+            "name": "no-unused-vars"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 705,
+            "column": 22,
+            "message": "Variable \"assets\" is unused",
+            "level": "warning",
+            "name": "no-unused-vars"
+        },
+        {
+            "filename": "AccountingManager.sol",
+            "line": 705,
+            "column": 38,
+            "message": "Variable \"receiver\" is unused",
+            "level": "warning",
+            "name": "no-unused-vars"
+        }
+    ]
+}

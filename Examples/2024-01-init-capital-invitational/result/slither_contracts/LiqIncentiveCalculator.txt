@@ -1,0 +1,18 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 @forge-std/=lib/forge-std/src/ @openzeppelin-contracts/=contracts/.cache/OpenZeppelin/v4.9.3/ @openzeppelin-contracts-upgradeable/=contracts/.cache/OpenZeppelin-Upgradeable/v4.9.3/ ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-init-capital-invitational/contracts/core/LiqIncentiveCalculator.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 200 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-init-capital-invitational/contracts/core' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-init-capital-invitational/contracts/core/LiqIncentiveCalculator.sol:
+Error: Source "contracts/.cache/OpenZeppelin-Upgradeable/v4.9.3/proxy/utils/Initializable.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/core/LiqIncentiveCalculator.sol:10:1:
+   |
+10 | import  {Initializable} from "../.cache/OpenZeppelin-Upgradeable/v4.9.3/proxy/utils/Initializable.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/utils/math/Math.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/core/LiqIncentiveCalculator.sol:11:1:
+   |
+11 | import  {Math} from "../.cache/OpenZeppelin/v4.9.3/utils/math/Math.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+ERROR:Slither:Unable to compile all targets.

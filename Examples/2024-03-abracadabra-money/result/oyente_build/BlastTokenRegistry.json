@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "BlastTokenRegistry.sol",
+        "coverage": "3.7%",
+        "warnings": []
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "OwnableMaster.sol",
+        "coverage": "2.8%",
+        "warnings": []
+    }
+}

@@ -1,0 +1,9 @@
+
+/g4b/packages/protocol/contracts/team/airdrop/ERC20Airdrop2.sol
+  22:20  error  Parse error: extraneous input 'addr' expecting '=>'
+  22:36  error  Parse error: extraneous input 'amountClaimed' expecting ')'
+  25:20  error  Parse error: extraneous input 'addr' expecting '=>'
+  25:36  error  Parse error: extraneous input 'amountWithdrawn' expecting ')'
+
+✖ 4 problems (4 errors, 0 warnings)
+

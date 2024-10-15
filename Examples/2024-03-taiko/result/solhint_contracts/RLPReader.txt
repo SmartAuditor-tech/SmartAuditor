@@ -1,0 +1,33 @@
+
+/g4b/packages/protocol/contracts/thirdparty/optimism/rlp/RLPReader.sol
+    2:1   error    Compiler version 0.8.24 does not satisfy the ^0.5.8 semver requirement  compiler-version
+   37:9   warning  Error message for require is too long                                   reason-string
+   43:9   warning  Avoid to use inline assembly. It is acceptable only in rare cases       no-inline-assembly
+   56:9   warning  Error message for require is too long                                   reason-string
+   61:9   warning  Error message for require is too long                                   reason-string
+   94:9   warning  Avoid to use inline assembly. It is acceptable only in rare cases       no-inline-assembly
+  112:9   warning  Error message for require is too long                                   reason-string
+  117:9   warning  Error message for require is too long                                   reason-string
+  152:9   warning  Error message for require is too long                                   reason-string
+  159:9   warning  Avoid to use inline assembly. It is acceptable only in rare cases       no-inline-assembly
+  172:13  warning  Error message for require is too long                                   reason-string
+  178:13  warning  Avoid to use inline assembly. It is acceptable only in rare cases       no-inline-assembly
+  182:13  warning  Error message for require is too long                                   reason-string
+  192:13  warning  Error message for require is too long                                   reason-string
+  198:13  warning  Avoid to use inline assembly. It is acceptable only in rare cases       no-inline-assembly
+  202:13  warning  Error message for require is too long                                   reason-string
+  208:13  warning  Avoid to use inline assembly. It is acceptable only in rare cases       no-inline-assembly
+  212:13  warning  Error message for require is too long                                   reason-string
+  217:13  warning  Error message for require is too long                                   reason-string
+  228:13  warning  Error message for require is too long                                   reason-string
+  238:13  warning  Error message for require is too long                                   reason-string
+  244:13  warning  Avoid to use inline assembly. It is acceptable only in rare cases       no-inline-assembly
+  248:13  warning  Error message for require is too long                                   reason-string
+  254:13  warning  Avoid to use inline assembly. It is acceptable only in rare cases       no-inline-assembly
+  258:13  warning  Error message for require is too long                                   reason-string
+  263:13  warning  Error message for require is too long                                   reason-string
+  295:9   warning  Avoid to use inline assembly. It is acceptable only in rare cases       no-inline-assembly
+  298:17  warning  Code contains empty blocks                                              no-empty-blocks
+
+✖ 28 problems (1 error, 27 warnings)
+

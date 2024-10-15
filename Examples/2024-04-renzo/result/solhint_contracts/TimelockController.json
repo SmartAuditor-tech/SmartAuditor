@@ -1,0 +1,150 @@
+{
+    "success": true,
+    "finding_length": 18,
+    "findings": [
+        {
+            "filename": "TimelockController.sol",
+            "line": 4,
+            "column": 1,
+            "message": "Compiler version ^0.8.0 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "TimelockController.sol",
+            "line": 87,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "TimelockController.sol",
+            "line": 137,
+            "column": 32,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        },
+        {
+            "filename": "TimelockController.sol",
+            "line": 170,
+            "column": 60,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "TimelockController.sol",
+            "line": 267,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "TimelockController.sol",
+            "line": 268,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "TimelockController.sol",
+            "line": 284,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "TimelockController.sol",
+            "line": 285,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "TimelockController.sol",
+            "line": 286,
+            "column": 27,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "TimelockController.sol",
+            "line": 297,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "TimelockController.sol",
+            "line": 349,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "TimelockController.sol",
+            "line": 350,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "TimelockController.sol",
+            "line": 369,
+            "column": 28,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        },
+        {
+            "filename": "TimelockController.sol",
+            "line": 370,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "TimelockController.sol",
+            "line": 377,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "TimelockController.sol",
+            "line": 378,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "TimelockController.sol",
+            "line": 388,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "TimelockController.sol",
+            "line": 403,
+            "column": 9,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        }
+    ]
+}

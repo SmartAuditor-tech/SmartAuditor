@@ -1,0 +1,122 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 22 Code Findings │
+└──────────────────┘
+                                  
+    /g4b/contracts/ousg/rOUSG.sol 
+       solidity.performance.inefficient-state-variable-increment.inefficient-sta
+  te-variable-increment                                                         
+          <x> += <y> costs more gas than <x> = <x> + <y> for state variables.   
+          Details: https://sg.run/bp9v                                          
+                                                                                
+          537┆ totalShares += _sharesAmount;
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           98┆ constructor() {
+           99┆   _disableInitializers();
+          100┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+          282┆ require(currentAllowance >= _amount,                             
+  "TRANSFER_AMOUNT_EXCEEDS_ALLOWANCE");                                         
+            ⋮┆----------------------------------------
+          333┆ require(
+          334┆   currentAllowance >= _subtractedValue,
+          335┆   "DECREASED_ALLOWANCE_BELOW_ZERO"
+          336┆ );
+            ⋮┆----------------------------------------
+          416┆ require(_OUSGAmount > 0, "rOUSG: can't wrap zero OUSG tokens");
+            ⋮┆----------------------------------------
+          432┆ require(_rOUSGAmount > 0, "rOUSG: can't unwrap zero rOUSG        
+  tokens");                                                                     
+            ⋮┆----------------------------------------
+          477┆ require(_owner != address(0), "APPROVE_FROM_ZERO_ADDRESS");
+            ⋮┆----------------------------------------
+          478┆ require(_spender != address(0), "APPROVE_TO_ZERO_ADDRESS");
+            ⋮┆----------------------------------------
+          506┆ require(_sender != address(0), "TRANSFER_FROM_THE_ZERO_ADDRESS");
+            ⋮┆----------------------------------------
+          507┆ require(_recipient != address(0),                                
+  "TRANSFER_TO_THE_ZERO_ADDRESS");                                              
+            ⋮┆----------------------------------------
+          512┆ require(
+          513┆   _sharesAmount <= currentSenderShares,
+          514┆   "TRANSFER_AMOUNT_EXCEEDS_BALANCE"
+          515┆ );
+            ⋮┆----------------------------------------
+          533┆ require(_recipient != address(0), "MINT_TO_THE_ZERO_ADDRESS");
+            ⋮┆----------------------------------------
+          558┆ require(_account != address(0), "BURN_FROM_THE_ZERO_ADDRESS");
+            ⋮┆----------------------------------------
+          563┆ require(_sharesAmount <= accountShares,                          
+  "BURN_AMOUNT_EXCEEDS_BALANCE");                                               
+            ⋮┆----------------------------------------
+          594┆ require(_getKYCStatus(msg.sender), "rOUSG: 'sender' address not  
+  KYC'd");                                                                      
+            ⋮┆----------------------------------------
+          599┆ require(_getKYCStatus(from), "rOUSG: 'from' address not KYC'd");
+            ⋮┆----------------------------------------
+          604┆ require(_getKYCStatus(to), "rOUSG: 'to' address not KYC'd");
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          593┆ if (from != msg.sender && to != msg.sender) {
+          594┆   require(_getKYCStatus(msg.sender), "rOUSG: 'sender' address not
+  KYC'd");                                                                      
+          595┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.use-short-revert-string.use-short-revert-string     
+          Shortening revert strings to fit in 32 bytes will decrease gas costs  
+  for deployment and  gas                                                       
+          costs when the revert condition has been met.                         
+          Details: https://sg.run/E9LB                                          
+                                                                                
+          282┆ require(currentAllowance >= _amount,                             
+  "TRANSFER_AMOUNT_EXCEEDS_ALLOWANCE");                                         
+            ⋮┆----------------------------------------
+          416┆ require(_OUSGAmount > 0, "rOUSG: can't wrap zero OUSG tokens");
+            ⋮┆----------------------------------------
+          432┆ require(_rOUSGAmount > 0, "rOUSG: can't unwrap zero rOUSG        
+  tokens");                                                                     
+            ⋮┆----------------------------------------
+          594┆ require(_getKYCStatus(msg.sender), "rOUSG: 'sender' address not  
+  KYC'd");                                                                      
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 22 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

@@ -1,0 +1,49 @@
+
+/g4b/contracts/connectors/PendleConnector.sol
+    2:1   error    Compiler version 0.8.20 does not satisfy the ^0.5.8 semver requirement                             compiler-version
+   37:45  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   37:63  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   57:5   warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+   57:76  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   60:9   warning  Provide an error message for require                                                               reason-string
+   61:9   warning  Provide an error message for require                                                               reason-string
+   62:9   warning  Provide an error message for require                                                               reason-string
+   79:10  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   79:35  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   79:35  warning  Variable "_PT" is unused                                                                           no-unused-vars
+   98:10  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   98:35  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   98:57  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   98:35  warning  Variable "_PT" is unused                                                                           no-unused-vars
+  112:49  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  112:67  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  113:10  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  113:35  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  153:10  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  153:35  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  153:57  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  153:10  warning  Variable "_SY" is unused                                                                           no-unused-vars
+  153:35  warning  Variable "_PT" is unused                                                                           no-unused-vars
+  170:10  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  170:35  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  170:57  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  170:10  warning  Variable "_SY" is unused                                                                           no-unused-vars
+  170:35  warning  Variable "_PT" is unused                                                                           no-unused-vars
+  188:10  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  188:35  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  188:10  warning  Variable "_SY" is unused                                                                           no-unused-vars
+  190:28  warning  Variable "netSyFee" is unused                                                                      no-unused-vars
+  217:10  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  262:14  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  262:39  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  262:61  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  265:13  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  274:13  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  277:13  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  304:10  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  304:35  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  304:57  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  313:10  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+
+✖ 44 problems (1 error, 43 warnings)
+

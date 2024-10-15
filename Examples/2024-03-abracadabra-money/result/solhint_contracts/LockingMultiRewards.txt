@@ -1,0 +1,21 @@
+
+/g4b/src/staking/LockingMultiRewards.sol
+  89:20  error  Parse error: extraneous input 'token' expecting '=>'
+  89:36  error  Parse error: extraneous input 'info' expecting ')'
+  90:20  error  Parse error: extraneous input 'user' expecting '=>'
+  90:37  error  Parse error: extraneous input 'balances' expecting ')'
+  91:20  error  Parse error: extraneous input 'user' expecting '=>'
+  91:44  error  Parse error: extraneous input 'locks' expecting ')'
+  92:20  error  Parse error: extraneous input 'user' expecting '=>'
+  92:39  error  Parse error: extraneous input 'rewardLock' expecting ')'
+  94:20  error  Parse error: extraneous input 'user' expecting '=>'
+  94:44  error  Parse error: extraneous input 'token' expecting '=>'
+  94:61  error  Parse error: extraneous input 'amount' expecting ')'
+  95:20  error  Parse error: extraneous input 'user' expecting '=>'
+  95:44  error  Parse error: extraneous input 'token' expecting '=>'
+  95:61  error  Parse error: extraneous input 'amount' expecting ')'
+  96:20  error  Parse error: extraneous input 'user' expecting '=>'
+  96:36  error  Parse error: extraneous input 'index' expecting ')'
+
+✖ 16 problems (16 errors, 0 warnings)
+

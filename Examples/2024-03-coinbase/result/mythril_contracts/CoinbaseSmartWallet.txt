@@ -1,0 +1,30 @@
+==== Exception State ====
+SWC ID: 110
+Severity: Medium
+Contract: CoinbaseSmartWallet
+Function name: constructor
+PC address: 42
+Estimated Gas Usage: 67 - 257
+An assertion violation was triggered.
+It is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).
+--------------------
+In file: /g4b/src/SmartWallet/CoinbaseSmartWallet.sol:102
+
+constructor() {
+        // Implementation should not be initializable (does not affect proxies which use their own storage).
+        bytes[] memory owners = new bytes[](1);
+        owners[0] = abi.encode(address(0));
+        _initializeOwners(owners);
+    }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x1
+
+

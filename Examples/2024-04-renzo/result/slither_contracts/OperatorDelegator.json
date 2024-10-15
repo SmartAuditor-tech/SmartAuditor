@@ -1,0 +1,80 @@
+{
+    "success": true,
+    "finding_length": 6,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "OperatorDelegator._refundGas() (contracts/Delegation/OperatorDelegator.sol#481-493) sends eth to arbitrary user\n\tDangerous calls:\n\t- success = address(tx.origin).send(gasRefund) (contracts/Delegation/OperatorDelegator.sol#485)\n",
+            "filename": "OperatorDelegator.sol",
+            "classification": [],
+            "function": "_refundGas",
+            "contract": "OperatorDelegator",
+            "line": 485
+        },
+        {
+            "name": "reentrancy-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "Reentrancy in OperatorDelegator.completeQueuedWithdrawal(IDelegationManager.Withdrawal,IERC20[],uint256) (contracts/Delegation/OperatorDelegator.sol#265-324):\n\tExternal calls:\n\t- delegationManager.completeQueuedWithdrawal(withdrawal,tokens,middlewareTimesIndex,true) (contracts/Delegation/OperatorDelegator.sol#274)\n\t- tokens[i].safeApprove(address(restakeManager.depositQueue()),bufferToFill) (contracts/Delegation/OperatorDelegator.sol#297)\n\t- restakeManager.depositQueue().fillERC20withdrawBuffer(address(tokens[i]),bufferToFill) (contracts/Delegation/OperatorDelegator.sol#300-303)\n\t- _deposit(tokens[i],balanceOfToken) (contracts/Delegation/OperatorDelegator.sol#308)\n\t\t- _token.safeApprove(address(strategyManager),_tokenAmount) (contracts/Delegation/OperatorDelegator.sol#164)\n\t\t- returndata = address(token).functionCall(data,SafeERC20: low-level call failed) (node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol#122)\n\t\t- strategyManager.depositIntoStrategy(tokenStrategyMapping[_token],_token,_tokenAmount) (contracts/Delegation/OperatorDelegator.sol#167-168)\n\t\t- (success,returndata) = target.call{value: value}(data) (node_modules/@openzeppelin/contracts/utils/Address.sol#135)\n\tExternal calls sending eth:\n\t- _deposit(tokens[i],balanceOfToken) (contracts/Delegation/OperatorDelegator.sol#308)\n\t\t- (success,returndata) = target.call{value: value}(data) (node_modules/@openzeppelin/contracts/utils/Address.sol#135)\n\tState variables written after the call(s):\n\t- queuedShares[address(tokens[i])] -= withdrawal.shares[i] (contracts/Delegation/OperatorDelegator.sol#281)\n\tOperatorDelegatorStorageV4.queuedShares (contracts/Delegation/OperatorDelegatorStorage.sol#61) can be used in cross function reentrancies:\n\t- OperatorDelegator.getStakedETHBalance() (contracts/Delegation/OperatorDelegator.sol#338-345)\n\t- OperatorDelegator.getTokenBalanceFromStrategy(IERC20) (contracts/Delegation/OperatorDelegator.sol#327-335)\n\t- OperatorDelegatorStorageV4.queuedShares (contracts/Delegation/OperatorDelegatorStorage.sol#61)\n",
+            "filename": "OperatorDelegator.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "completeQueuedWithdrawal",
+            "contract": "OperatorDelegator",
+            "line": 61
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "OperatorDelegator.receive() (contracts/Delegation/OperatorDelegator.sol#501-525) uses a dangerous strict equality:\n\t- remainingAmount == 0 (contracts/Delegation/OperatorDelegator.sol#514)\n",
+            "filename": "OperatorDelegator.sol",
+            "classification": [],
+            "function": "receive",
+            "contract": "OperatorDelegator",
+            "line": 514
+        },
+        {
+            "name": "tx-origin",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "OperatorDelegator._refundGas() (contracts/Delegation/OperatorDelegator.sol#481-493) uses tx.origin for authorization: address(this).balance >= adminGasSpentInWei[tx.origin] (contracts/Delegation/OperatorDelegator.sol#482-484)\n",
+            "filename": "OperatorDelegator.sol",
+            "classification": [
+                "SWC-115",
+                " DASP-2"
+            ],
+            "function": "_refundGas",
+            "contract": "OperatorDelegator",
+            "line": 482,
+            "line_end": 484
+        },
+        {
+            "name": "tx-origin",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "OperatorDelegator.receive() (contracts/Delegation/OperatorDelegator.sol#501-525) uses tx.origin for authorization: adminGasSpentInWei[tx.origin] > 0 (contracts/Delegation/OperatorDelegator.sol#509)\n",
+            "filename": "OperatorDelegator.sol",
+            "classification": [
+                "SWC-115",
+                " DASP-2"
+            ],
+            "function": "receive",
+            "contract": "OperatorDelegator",
+            "line": 509
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "OperatorDelegatorStorageV2.pendingUnstakedDelayedWithdrawalAmount (contracts/Delegation/OperatorDelegatorStorage.sol#48) should be constant \n",
+            "filename": "OperatorDelegator.sol",
+            "classification": [],
+            "line": 48
+        }
+    ]
+}

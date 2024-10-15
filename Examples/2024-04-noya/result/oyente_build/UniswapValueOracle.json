@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "UniswapValueOracle.sol",
+        "coverage": "0.6%",
+        "warnings": []
+    }
+}

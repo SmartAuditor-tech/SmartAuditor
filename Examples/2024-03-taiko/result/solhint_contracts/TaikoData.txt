@@ -1,0 +1,17 @@
+
+/g4b/packages/protocol/contracts/L1/TaikoData.sol
+  181:23  error  Parse error: extraneous input 'blockId_mod_blockRingBufferSize' expecting '=>'
+  181:64  error  Parse error: extraneous input 'blk' expecting ')'
+  183:23  error  Parse error: extraneous input 'blockId' expecting '=>'
+  183:50  error  Parse error: extraneous input 'parentHash' expecting '=>'
+  183:71  error  Parse error: extraneous input 'transitionId' expecting ')'
+  186:19  error  Parse error: extraneous input 'blockId_mod_blockRingBufferSize' expecting '=>'
+  187:34  error  Parse error: extraneous input 'transitionId' expecting '=>'
+  187:66  error  Parse error: extraneous input 'ts' expecting ')'
+  190:24  error  Parse error: extraneous input 'depositId_mod_ethDepositRingBufferSize' expecting '=>'
+  190:74  error  Parse error: extraneous input 'depositAmount' expecting ')'
+  192:24  error  Parse error: extraneous input 'blobHash' expecting '=>'
+  192:44  error  Parse error: extraneous input 'since' expecting ')'
+
+✖ 12 problems (12 errors, 0 warnings)
+

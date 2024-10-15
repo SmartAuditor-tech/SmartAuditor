@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "LibUtils.sol",
+        "incomplete instruction": "2885",
+        "coverage": "0.9%",
+        "warnings": []
+    }
+}

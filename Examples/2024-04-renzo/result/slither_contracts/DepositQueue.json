@@ -1,0 +1,55 @@
+{
+    "success": true,
+    "finding_length": 4,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "DepositQueue.stakeEthFromQueue(IOperatorDelegator,bytes,bytes,bytes32) (contracts/Deposits/DepositQueue.sol#187-206) sends eth to arbitrary user\n\tDangerous calls:\n\t- restakeManager.stakeEthInOperatorDelegator{value: 32000000000000000000}(operatorDelegator,pubkey,signature,depositDataRoot) (contracts/Deposits/DepositQueue.sol#195-200)\n",
+            "filename": "DepositQueue.sol",
+            "classification": [],
+            "function": "stakeEthFromQueue",
+            "contract": "DepositQueue",
+            "line": 195,
+            "line_end": 200
+        },
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "DepositQueue.stakeEthFromQueueMulti(IOperatorDelegator[],bytes[],bytes[],bytes32[]) (contracts/Deposits/DepositQueue.sol#211-250) sends eth to arbitrary user\n\tDangerous calls:\n\t- restakeManager.stakeEthInOperatorDelegator{value: 32000000000000000000}(operatorDelegators[i],pubkeys[i],signatures[i],depositDataRoots[i]) (contracts/Deposits/DepositQueue.sol#229-234)\n",
+            "filename": "DepositQueue.sol",
+            "classification": [],
+            "function": "stakeEthFromQueueMulti",
+            "contract": "DepositQueue",
+            "line": 229,
+            "line_end": 234
+        },
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "DepositQueue._refundGas(uint256) (contracts/Deposits/DepositQueue.sol#283-289) sends eth to arbitrary user\n\tDangerous calls:\n\t- (success,None) = address(msg.sender).call{value: gasRefund}() (contracts/Deposits/DepositQueue.sol#286)\n",
+            "filename": "DepositQueue.sol",
+            "classification": [],
+            "function": "_refundGas",
+            "contract": "DepositQueue",
+            "line": 286
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "DepositQueue.sweepERC20(IERC20) (contracts/Deposits/DepositQueue.sol#254-277) ignores return value by token.approve(address(restakeManager),balance - feeAmount) (contracts/Deposits/DepositQueue.sol#268)\n",
+            "filename": "DepositQueue.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "sweepERC20",
+            "contract": "DepositQueue",
+            "line": 268
+        }
+    ]
+}

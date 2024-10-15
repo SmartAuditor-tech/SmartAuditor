@@ -1,0 +1,78 @@
+{
+    "success": true,
+    "finding_length": 9,
+    "findings": [
+        {
+            "filename": "CoinbaseSmartWallet.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version 0.8.23 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "CoinbaseSmartWallet.sol",
+            "line": 94,
+            "column": 9,
+            "message": "Avoid to use inline assembly. It is acceptable only in rare cases",
+            "level": "warning",
+            "name": "no-inline-assembly"
+        },
+        {
+            "filename": "CoinbaseSmartWallet.sol",
+            "line": 102,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "CoinbaseSmartWallet.sol",
+            "line": 241,
+            "column": 52,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "CoinbaseSmartWallet.sol",
+            "line": 242,
+            "column": 9,
+            "message": "Avoid to use inline assembly. It is acceptable only in rare cases",
+            "level": "warning",
+            "name": "no-inline-assembly"
+        },
+        {
+            "filename": "CoinbaseSmartWallet.sol",
+            "line": 273,
+            "column": 47,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        },
+        {
+            "filename": "CoinbaseSmartWallet.sol",
+            "line": 275,
+            "column": 13,
+            "message": "Avoid to use inline assembly. It is acceptable only in rare cases",
+            "level": "warning",
+            "name": "no-inline-assembly"
+        },
+        {
+            "filename": "CoinbaseSmartWallet.sol",
+            "line": 309,
+            "column": 13,
+            "message": "Avoid to use inline assembly. It is acceptable only in rare cases",
+            "level": "warning",
+            "name": "no-inline-assembly"
+        },
+        {
+            "filename": "CoinbaseSmartWallet.sol",
+            "line": 330,
+            "column": 99,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        }
+    ]
+}

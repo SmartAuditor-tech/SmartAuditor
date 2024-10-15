@@ -1,0 +1,156 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 18 Code Findings │
+└──────────────────┘
+                                          
+    /g4b/src/rollup/BOLDUpgradeAction.sol 
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+          528┆ for (uint256 i = 0; i < validators.length; i++) {
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+          126┆ constructor(IOldRollup _rollup) {
+          127┆     rollup = _rollup;
+          128┆ }
+            ⋮┆----------------------------------------
+          169┆ constructor(uint256[] memory __array) {
+          170┆     _array = __array;
+          171┆ }
+            ⋮┆----------------------------------------
+          287┆ constructor(
+          288┆     Contracts memory contracts,
+          289┆     ProxyAdmins memory proxyAdmins,
+          290┆     Implementations memory implementations,
+          291┆     Settings memory settings
+          292┆ ) {
+          293┆     L1_TIMELOCK = contracts.l1Timelock;
+          294┆     OLD_ROLLUP = contracts.rollup;
+          295┆     BRIDGE = contracts.bridge;
+          296┆     SEQ_INBOX = contracts.sequencerInbox;
+             [hid 41 additional lines, adjust with --max-lines-per-finding] 
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+          350┆ for (uint64 i = 0; i < stakerCount; i++) {
+            ⋮┆----------------------------------------
+          528┆ for (uint256 i = 0; i < validators.length; i++) {
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+          107┆ require(h == stateHash(executionState, inboxMaxCount), "Invalid  
+  hash");                                                                       
+            ⋮┆----------------------------------------
+          114┆ require(inboxMaxCount != 0, "Hash not yet set");
+            ⋮┆----------------------------------------
+          378┆ require(
+          379┆                                                                  
+  PREIMAGE_LOOKUP.stateHash(genesisAssertionState.toExecutionState(),           
+  inboxMaxCount)                                                                
+          380┆         == latestConfirmedStateHash,
+          381┆     "Invalid latest execution hash"
+          382┆ );
+            ⋮┆----------------------------------------
+          453┆ require(
+          454┆                                                                  
+  PROXY_ADMIN_SEQUENCER_INBOX.getProxyImplementation(sequencerInbox) ==         
+  IMPL_SEQUENCER_INBOX,                                                         
+          455┆     "DelayBuffer: new seq inbox implementation not set"
+          456┆ );
+            ⋮┆----------------------------------------
+          457┆ require(
+          458┆     ISequencerInbox(SEQ_INBOX).isDelayBufferable() ==            
+  IS_DELAY_BUFFERABLE,                                                          
+          459┆     "DelayBuffer: isDelayBufferable not set"
+          460┆ );
+            ⋮┆----------------------------------------
+          517┆ require(address(rollup) == expectedRollupAddress,                
+  "UNEXPCTED_ROLLUP_ADDR");                                                     
+            ⋮┆----------------------------------------
+          529┆ require(ROLLUP_READER.isValidator(validators[i]),                
+  "UNEXPECTED_NEW_VALIDATOR");                                                  
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          353┆ if (staker.isStaked && staker.currentChallenge == 0) {
+          354┆     address[] memory stakersToRefund = new address[](1);
+          355┆     stakersToRefund[0] = stakerAddr;
+          356┆ 
+          357┆                                                                  
+  IOldRollupAdmin(address(OLD_ROLLUP)).forceRefundStaker(stakersToRefund);      
+          358┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.use-prefix-increment-not-postfix.use-prefix-incremen
+  t-not-postfix                                                                 
+          Consider using the prefix increment expression whenever the return    
+  value is not needed. The                                                      
+          prefix increment expression is cheaper in terms of gas.               
+          Details: https://sg.run/nxLr                                          
+                                                                                
+          350┆ for (uint64 i = 0; i < stakerCount; i++) {
+            ⋮┆----------------------------------------
+          528┆ for (uint256 i = 0; i < validators.length; i++) {
+            ⋮┆----------------------------------------
+       solidity.performance.use-short-revert-string.use-short-revert-string     
+          Shortening revert strings to fit in 32 bytes will decrease gas costs  
+  for deployment and  gas                                                       
+          costs when the revert condition has been met.                         
+          Details: https://sg.run/E9LB                                          
+                                                                                
+          453┆ require(
+          454┆                                                                  
+  PROXY_ADMIN_SEQUENCER_INBOX.getProxyImplementation(sequencerInbox) ==         
+  IMPL_SEQUENCER_INBOX,                                                         
+          455┆     "DelayBuffer: new seq inbox implementation not set"
+          456┆ );
+            ⋮┆----------------------------------------
+          457┆ require(
+          458┆     ISequencerInbox(SEQ_INBOX).isDelayBufferable() ==            
+  IS_DELAY_BUFFERABLE,                                                          
+          459┆     "DelayBuffer: isDelayBufferable not set"
+          460┆ );
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 18 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

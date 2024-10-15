@@ -1,0 +1,7 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.17/solc-0.8.17 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.17/solc-0.8.17 @openzeppelin/contracts-upgradeable/=node_modules/@openzeppelin/contracts-upgradeable/ @openzeppelin/contracts/=node_modules/@openzeppelin/contracts/ @offchainlabs/upgrade-executor/=node_modules/@offchainlabs/upgrade-executor/ @ensdomains/=node_modules/@ensdomains/ eth-gas-reporter/=node_modules/eth-gas-reporter/ forge-std/=node_modules/forge-std/ hardhat-deploy/=node_modules/hardhat-deploy/ hardhat/=node_modules/hardhat/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-05-arbitrum-foundation/src/challengeV2/IAssertionChain.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 2000 --evm-version london --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-05-arbitrum-foundation/src/challengeV2' running
+INFO:Detectors:
+AssertionNodeLib.createAssertion(bool,bytes32).assertion (src/rollup/Assertion.sol#74) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-05-arbitrum-foundation/src/challengeV2/IAssertionChain.sol analyzed (22 contracts with 58 detectors), 1 result(s) found

@@ -1,0 +1,20 @@
+{
+    "success": true,
+    "finding_length": 1,
+    "findings": [
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in BootstrapBallot.finalizeBallot() (src/launch/BootstrapBallot.sol#69-85):\n\tExternal calls:\n\t- exchangeConfig.initialDistribution().distributionApproved() (src/launch/BootstrapBallot.sol#76)\n\t- exchangeConfig.dao().pools().startExchangeApproved() (src/launch/BootstrapBallot.sol#77)\n\tState variables written after the call(s):\n\t- ballotFinalized = true (src/launch/BootstrapBallot.sol#84)\n\tBootstrapBallot.ballotFinalized (src/launch/BootstrapBallot.sol#21) can be used in cross function reentrancies:\n\t- BootstrapBallot.ballotFinalized (src/launch/BootstrapBallot.sol#21)\n",
+            "filename": "BootstrapBallot.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "finalizeBallot",
+            "contract": "BootstrapBallot",
+            "line": 21
+        }
+    ]
+}

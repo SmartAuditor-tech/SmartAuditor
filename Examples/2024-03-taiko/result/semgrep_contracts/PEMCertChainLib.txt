@@ -1,0 +1,68 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 6 Code Findings │
+└─────────────────┘
+                                                                                
+    /g4b/packages/protocol/contracts/automata-attestation/lib/PEMCertChainLib.so
+  l                                                                             
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+          244┆ for (uint256 i; i < split.length; ++i) {
+            ⋮┆----------------------------------------
+          358┆ uint16 svnValue = svnValueBytes.length < 2
+            ⋮┆----------------------------------------
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+           54┆ for (uint256 i; i < size; ++i) {
+            ⋮┆----------------------------------------
+          244┆ for (uint256 i; i < split.length; ++i) {
+            ⋮┆----------------------------------------
+          354┆ for (uint256 i; i < SGX_TCB_CPUSVN_SIZE + 1; ++i) {
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          134┆ if (
+          135┆     (notBeforeTag != 0x17 && notBeforeTag == 0x18)
+          136┆         || (notAfterTag != 0x17 && notAfterTag != 0x18)
+          137┆ ) {
+          138┆     return (false, cert);
+          139┆ }
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 6 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

@@ -1,0 +1,17 @@
+{
+    "success": true,
+    "finding_length": 1,
+    "findings": [
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "InitialDistribution.distributionApproved() (src/launch/InitialDistribution.sol#50-74) uses a dangerous strict equality:\n\t- require(bool,string)(salt.balanceOf(address(this)) == 100 * MILLION_ETHER,SALT has already been sent from the contract) (src/launch/InitialDistribution.sol#53)\n",
+            "filename": "InitialDistribution.sol",
+            "classification": [],
+            "function": "distributionApproved",
+            "contract": "InitialDistribution",
+            "line": 53
+        }
+    ]
+}

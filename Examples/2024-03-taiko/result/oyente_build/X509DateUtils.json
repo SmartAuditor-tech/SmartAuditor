@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "X509DateUtils.sol",
+        "coverage": "27.1%",
+        "warnings": []
+    }
+}

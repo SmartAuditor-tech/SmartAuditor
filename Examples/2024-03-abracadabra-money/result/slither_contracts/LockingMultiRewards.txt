@@ -1,0 +1,13 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.20/solc-0.8.20 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.20/solc-0.8.20 /=src/ openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/ BoringSolidity/=lib/BoringSolidity/contracts/ ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ solmate/=lib/solmate/src/ utils/=utils/ libraries/=src/libraries/ interfaces/=src/interfaces/ cauldrons/=src/cauldrons/ staking/=src/staking/ oracles/=src/oracles/ tokens/=src/tokens/ mixins/=src/mixins/ solady/=lib/solady/src/ forge-deploy/=lib/forge-deploy/contracts/ /Users/tanzezhong/Desktop/tzz/Research/GPT4Bugs-main/Examples/2024-03-abracadabra-money/src/staking/LockingMultiRewards.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 400 --evm-version paris --allow-paths .,/Users/tanzezhong/Desktop/tzz/Research/GPT4Bugs-main/Examples/2024-03-abracadabra-money/src/staking' running
+INFO:Detectors:
+LockingMultiRewards.epoch() (src/staking/LockingMultiRewards.sol#257-259) performs a multiplication on the result of a division:
+	- (block.timestamp / rewardsDuration) * rewardsDuration (src/staking/LockingMultiRewards.sol#258)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+Loop condition i < rewardTokens.length (src/staking/LockingMultiRewards.sol#547) should use cached array length instead of referencing `length` member of the storage array.
+ Loop condition i < rewardTokens.length (src/staking/LockingMultiRewards.sol#561) should use cached array length instead of referencing `length` member of the storage array.
+ Loop condition i < rewardTokens.length (src/staking/LockingMultiRewards.sol#575) should use cached array length instead of referencing `length` member of the storage array.
+ Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#cache-array-length
+INFO:Slither:/Users/tanzezhong/Desktop/tzz/Research/GPT4Bugs-main/Examples/2024-03-abracadabra-money/src/staking/LockingMultiRewards.sol analyzed (7 contracts with 58 detectors), 4 result(s) found

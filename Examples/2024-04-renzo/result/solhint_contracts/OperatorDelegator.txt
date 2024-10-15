@@ -1,0 +1,15 @@
+
+/g4b/contracts/Delegation/OperatorDelegator.sol
+    2:1   error    Compiler version 0.8.19 does not satisfy the ^0.5.8 semver requirement                             compiler-version
+   69:5   warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+  482:73  warning  Avoid to use tx.origin                                                                             avoid-tx-origin
+  483:34  warning  Avoid to use tx.origin                                                                             avoid-tx-origin
+  485:24  warning  Check result of "send" call                                                                        check-send-result
+  485:32  warning  Avoid to use tx.origin                                                                             avoid-tx-origin
+  489:28  warning  Avoid to use tx.origin                                                                             avoid-tx-origin
+  491:26  warning  Avoid to use tx.origin                                                                             avoid-tx-origin
+  509:36  warning  Avoid to use tx.origin                                                                             avoid-tx-origin
+  520:32  warning  Avoid to use low level calls                                                                       avoid-low-level-calls
+
+✖ 10 problems (1 error, 9 warnings)
+

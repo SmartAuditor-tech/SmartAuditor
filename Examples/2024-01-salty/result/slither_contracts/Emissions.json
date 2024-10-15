@@ -1,0 +1,17 @@
+{
+    "success": true,
+    "finding_length": 1,
+    "findings": [
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "Emissions.performUpkeep(uint256) (src/rewards/Emissions.sol#40-61) uses a dangerous strict equality:\n\t- saltToSend == 0 (src/rewards/Emissions.sol#56)\n",
+            "filename": "Emissions.sol",
+            "classification": [],
+            "function": "performUpkeep",
+            "contract": "Emissions",
+            "line": 56
+        }
+    ]
+}

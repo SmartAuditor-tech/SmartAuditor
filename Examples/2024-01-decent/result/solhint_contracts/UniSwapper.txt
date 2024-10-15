@@ -1,0 +1,10 @@
+
+/g4b/src/swappers/UniSwapper.sol
+    2:1   error    Compiler version ^0.8.0 does not satisfy the ^0.5.8 semver requirement                             compiler-version
+   14:5   warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+   14:30  warning  Code contains empty blocks                                                                         no-empty-blocks
+   17:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  171:32  warning  Code contains empty blocks                                                                         no-empty-blocks
+
+✖ 5 problems (1 error, 4 warnings)
+

@@ -1,0 +1,33 @@
+{
+    "success": true,
+    "finding_length": 3,
+    "findings": [
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TVLHelper.getTVL(uint256,PositionRegistry,address).totalTVL (contracts/helpers/TVLHelper.sol#15) is a local variable never initialized\n",
+            "filename": "TVLHelper.sol",
+            "classification": [],
+            "line": 15
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TVLHelper.getTVL(uint256,PositionRegistry,address).totalDebt (contracts/helpers/TVLHelper.sol#16) is a local variable never initialized\n",
+            "filename": "TVLHelper.sol",
+            "classification": [],
+            "line": 16
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "TVLHelper.getLatestUpdateTime(uint256,PositionRegistry).latestUpdateTime (contracts/helpers/TVLHelper.sol#42) is a local variable never initialized\n",
+            "filename": "TVLHelper.sol",
+            "classification": [],
+            "line": 42
+        }
+    ]
+}

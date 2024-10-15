@@ -1,0 +1,37 @@
+
+/g4b/contracts/ousg/ousgInstantManager.sol
+   16:1   error    Compiler version 0.8.16 does not satisfy the ^0.5.8 semver requirement                             compiler-version
+  144:3   warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+  163:5   warning  Error message for require is too long                                                              reason-string
+  167:5   warning  Error message for require is too long                                                              reason-string
+  171:5   warning  Error message for require is too long                                                              reason-string
+  175:5   warning  Error message for require is too long                                                              reason-string
+  179:5   warning  Error message for require is too long                                                              reason-string
+  180:5   warning  Error message for require is too long                                                              reason-string
+  181:5   warning  Error message for require is too long                                                              reason-string
+  182:5   warning  Error message for require is too long                                                              reason-string
+  186:5   warning  Error message for require is too long                                                              reason-string
+  190:5   warning  Error message for require is too long                                                              reason-string
+  205:5   warning  Error message for require is too long                                                              reason-string
+  282:5   warning  Error message for require is too long                                                              reason-string
+  286:5   warning  Error message for require is too long                                                              reason-string
+  298:5   warning  Error message for require is too long                                                              reason-string
+  310:5   warning  Error message for require is too long                                                              reason-string
+  344:5   warning  Error message for require is too long                                                              reason-string
+  371:5   warning  Error message for require is too long                                                              reason-string
+  391:5   warning  Error message for require is too long                                                              reason-string
+  395:5   warning  Error message for require is too long                                                              reason-string
+  402:5   warning  Error message for require is too long                                                              reason-string
+  417:5   warning  Error message for require is too long                                                              reason-string
+  459:5   warning  Error message for require is too long                                                              reason-string
+  466:5   warning  Error message for require is too long                                                              reason-string
+  481:5   warning  Error message for require is too long                                                              reason-string
+  557:5   warning  Error message for require is too long                                                              reason-string
+  570:5   warning  Error message for require is too long                                                              reason-string
+  584:5   warning  Error message for require is too long                                                              reason-string
+  602:5   warning  Error message for require is too long                                                              reason-string
+  763:5   warning  Error message for require is too long                                                              reason-string
+  805:42  warning  Avoid to use low level calls                                                                       avoid-low-level-calls
+
+✖ 32 problems (1 error, 31 warnings)
+

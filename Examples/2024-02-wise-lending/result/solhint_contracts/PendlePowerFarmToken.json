@@ -1,0 +1,134 @@
+{
+    "success": true,
+    "finding_length": 16,
+    "findings": [
+        {
+            "filename": "PendlePowerFarmToken.sol",
+            "line": 3,
+            "column": 1,
+            "message": "Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "PendlePowerFarmToken.sol",
+            "line": 28,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "PendlePowerFarmToken.sol",
+            "line": 29,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "PendlePowerFarmToken.sol",
+            "line": 38,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "PendlePowerFarmToken.sol",
+            "line": 41,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "PendlePowerFarmToken.sol",
+            "line": 44,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "PendlePowerFarmToken.sol",
+            "line": 47,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "PendlePowerFarmToken.sol",
+            "line": 61,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "PendlePowerFarmToken.sol",
+            "line": 120,
+            "column": 34,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "PendlePowerFarmToken.sol",
+            "line": 202,
+            "column": 9,
+            "message": "Avoid to use letters 'I', 'l', 'O' as identifiers",
+            "level": "warning",
+            "name": "use-forbidden-name"
+        },
+        {
+            "filename": "PendlePowerFarmToken.sol",
+            "line": 230,
+            "column": 9,
+            "message": "Avoid to use letters 'I', 'l', 'O' as identifiers",
+            "level": "warning",
+            "name": "use-forbidden-name"
+        },
+        {
+            "filename": "PendlePowerFarmToken.sol",
+            "line": 395,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "PendlePowerFarmToken.sol",
+            "line": 407,
+            "column": 16,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "PendlePowerFarmToken.sol",
+            "line": 419,
+            "column": 27,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "PendlePowerFarmToken.sol",
+            "line": 726,
+            "column": 27,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "PendlePowerFarmToken.sol",
+            "line": 731,
+            "column": 30,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        }
+    ]
+}

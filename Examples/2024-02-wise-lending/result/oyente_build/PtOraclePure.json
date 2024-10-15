@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "PtOraclePure.sol",
+        "incomplete instruction": "5812",
+        "coverage": "0.6%",
+        "warnings": []
+    }
+}

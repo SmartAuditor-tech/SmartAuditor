@@ -1,0 +1,55 @@
+{
+    "success": true,
+    "finding_length": 5,
+    "findings": [
+        {
+            "name": "write-after-write",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "SafeTransferLib.permit2(address,address,address,uint256,uint256,uint8,bytes32,bytes32).success (lib/solady/src/utils/SafeTransferLib.sol#464) is written in both\n\tsuccess = call(uint256,uint256,uint256,uint256,uint256,uint256,uint256)(gas()(),token,0,m_permit2_asm_0 + 0x10,0x104,codesize()(),0x00) (lib/solady/src/utils/SafeTransferLib.sol#491)\n\tsuccess = call(uint256,uint256,uint256,uint256,uint256,uint256,uint256)(gas()(),token,0,m_permit2_asm_0 + 0x10,0xe4,codesize()(),0x00) (lib/solady/src/utils/SafeTransferLib.sol#499)\n",
+            "filename": "MagicSpend.sol",
+            "classification": [],
+            "line": 499
+        },
+        {
+            "name": "write-after-write",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "SignatureCheckerLib.isValidSignatureNow(address,bytes32,bytes32,bytes32).isValid (lib/solady/src/utils/SignatureCheckerLib.sol#211) is written in both\n\tisValid = 1 (lib/solady/src/utils/SignatureCheckerLib.sol#233)\n\tisValid = mload(uint256)(d_isValidSignatureNow_asm_0) == f_isValidSignatureNow_asm_0 & staticcall(uint256,uint256,uint256,uint256,uint256,uint256)(gas()(),signer,m_isValidSignatureNow_asm_0,0xa5,d_isValidSignatureNow_asm_0,0x20) (lib/solady/src/utils/SignatureCheckerLib.sol#249-263)\n",
+            "filename": "MagicSpend.sol",
+            "classification": [],
+            "line": 249,
+            "line_end": 263
+        },
+        {
+            "name": "write-after-write",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "SignatureCheckerLib.isValidSignatureNow(address,bytes32,bytes).isValid (lib/solady/src/utils/SignatureCheckerLib.sol#35) is written in both\n\tisValid = 1 (lib/solady/src/utils/SignatureCheckerLib.sol#79)\n\tisValid = mload(uint256)(d_isValidSignatureNow_asm_0) == f_isValidSignatureNow_asm_0 & staticcall(uint256,uint256,uint256,uint256,uint256,uint256)(gas()(),signer,m_isValidSignatureNow_asm_0,returndatasize()() + 0x44,d_isValidSignatureNow_asm_0,0x20) (lib/solady/src/utils/SignatureCheckerLib.sol#97-111)\n",
+            "filename": "MagicSpend.sol",
+            "classification": [],
+            "line": 97,
+            "line_end": 111
+        },
+        {
+            "name": "write-after-write",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "SignatureCheckerLib.isValidSignatureNowCalldata(address,bytes32,bytes).isValid (lib/solady/src/utils/SignatureCheckerLib.sol#123) is written in both\n\tisValid = 1 (lib/solady/src/utils/SignatureCheckerLib.sol#167)\n\tisValid = mload(uint256)(d_isValidSignatureNowCalldata_asm_0) == f_isValidSignatureNowCalldata_asm_0 & staticcall(uint256,uint256,uint256,uint256,uint256,uint256)(gas()(),signer,m_isValidSignatureNowCalldata_asm_0,signature + 0x64,d_isValidSignatureNowCalldata_asm_0,0x20) (lib/solady/src/utils/SignatureCheckerLib.sol#185-199)\n",
+            "filename": "MagicSpend.sol",
+            "classification": [],
+            "line": 185,
+            "line_end": 199
+        },
+        {
+            "name": "write-after-write",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "SignatureCheckerLib.isValidSignatureNow(address,bytes32,uint8,bytes32,bytes32).isValid (lib/solady/src/utils/SignatureCheckerLib.sol#277) is written in both\n\tisValid = 1 (lib/solady/src/utils/SignatureCheckerLib.sol#299)\n\tisValid = mload(uint256)(d_isValidSignatureNow_asm_0) == f_isValidSignatureNow_asm_0 & staticcall(uint256,uint256,uint256,uint256,uint256,uint256)(gas()(),signer,m_isValidSignatureNow_asm_0,0xa5,d_isValidSignatureNow_asm_0,0x20) (lib/solady/src/utils/SignatureCheckerLib.sol#315-329)\n",
+            "filename": "MagicSpend.sol",
+            "classification": [],
+            "line": 315,
+            "line_end": 329
+        }
+    ]
+}

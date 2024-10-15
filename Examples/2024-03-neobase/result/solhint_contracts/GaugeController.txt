@@ -1,0 +1,136 @@
+
+/g4b/src/GaugeController.sol
+    2:1   error    Compiler version ^0.8.16 does not satisfy the ^0.5.8 semver requirement                            compiler-version
+   13:1   warning  Contract has 18 states declarations but allowed no more than 15                                    max-states-count
+   19:32  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   20:20  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   20:51  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   21:24  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   27:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   28:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   31:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   33:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   34:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   35:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   37:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   38:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   39:5   warning  Explicitly mark visibility of state                                                                state-visibility
+   39:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   41:5   warning  Explicitly mark visibility of state                                                                state-visibility
+   41:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   42:5   warning  Explicitly mark visibility of state                                                                state-visibility
+   42:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   43:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   45:5   warning  Explicitly mark visibility of state                                                                state-visibility
+   45:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   46:5   warning  Explicitly mark visibility of state                                                                state-visibility
+   46:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   48:5   warning  Explicitly mark visibility of state                                                                state-visibility
+   48:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   49:5   warning  Explicitly mark visibility of state                                                                state-visibility
+   49:5   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   63:9   warning  Provide an error message for require                                                               reason-string
+   69:5   warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+   72:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   72:31  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+   85:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+   86:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+   96:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+   96:31  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  101:25  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  104:25  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  114:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  114:23  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  119:25  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  121:17  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  124:21  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  131:25  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  142:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  144:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  145:17  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  151:14  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  157:21  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  160:18  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  161:17  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  162:17  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  167:21  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  178:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  178:26  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  183:25  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  185:17  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  188:21  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  195:25  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  206:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  206:38  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  211:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  211:31  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  224:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  238:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  249:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  251:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  253:13  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  254:13  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  255:13  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  268:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  278:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  287:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  287:34  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  288:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  289:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  290:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  291:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  291:31  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  303:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  304:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  316:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  316:33  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  323:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  324:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  325:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  326:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  327:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  328:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  329:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  329:31  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  334:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  346:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  350:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  351:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  352:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  352:31  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  354:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  355:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  356:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  361:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  367:13  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  368:13  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  378:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  385:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  385:37  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  385:58  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  397:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  398:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  398:31  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  401:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  404:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  405:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  407:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  408:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  413:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  414:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  417:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  425:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  426:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  427:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  428:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  443:29  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  466:51  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  472:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  479:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  479:30  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  485:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  492:5   warning  Function name must be in mixedCase                                                                 func-name-mixedcase
+  492:39  warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+
+✖ 131 problems (1 error, 130 warnings)
+

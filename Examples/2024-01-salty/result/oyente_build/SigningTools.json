@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "SigningTools.sol",
+        "incomplete instruction": "228",
+        "coverage": "14.5%",
+        "warnings": []
+    }
+}

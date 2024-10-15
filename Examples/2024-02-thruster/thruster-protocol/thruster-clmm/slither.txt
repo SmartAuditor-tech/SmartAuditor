@@ -1,0 +1,1265 @@
+INFO:Detectors:
+PeripheryPayments.pay(address,address,address,uint256) (contracts/base/PeripheryPayments.sol#47-59) uses arbitrary from in transferFrom: TransferHelper.safeTransferFrom(token,payer,recipient,value) (contracts/base/PeripheryPayments.sol#57)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#arbitrary-from-in-transferfrom
+INFO:Detectors:
+Multicall.multicall(bytes[]) (contracts/base/Multicall.sol#11-27) has delegatecall inside a loop in a payable function: (success,result) = address(this).delegatecall(data[i]) (contracts/base/Multicall.sol#14)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#payable-functions-using-delegatecall-inside-a-loop
+INFO:Detectors:
+NFTDescriptor.constructTokenURI(NFTDescriptor.ConstructTokenURIParams) (contracts/libraries/NFTDescriptor.sol#46-82) calls abi.encodePacked() with multiple dynamic arguments:
+	- string(abi.encodePacked(data:application/json;base64,,Base64.encode(bytes(abi.encodePacked({"name":",name,", "description":",descriptionPartOne,descriptionPartTwo,", "image": ",data:image/svg+xml;base64,,image,"}))))) (contracts/libraries/NFTDescriptor.sol#62-81)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#abi-encodePacked-collision
+INFO:Detectors:
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/libraries/FullMath.sol#14-102) has bitwise-xor operator ^ instead of the exponentiation operator **: 
+	 - inv = (3 * denominator) ^ 2 (contracts/libraries/FullMath.sol#83)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-exponentiation
+INFO:Detectors:
+PeripheryPayments.pay(address,address,address,uint256) (contracts/base/PeripheryPayments.sol#47-59) ignores return value by IWETH9(WETH9).transfer(recipient,value) (contracts/base/PeripheryPayments.sol#51)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+INFO:Detectors:
+Base64.encode(bytes) (contracts/libraries/Base64.sol#10-61) performs a multiplication on the result of a division:
+	- encodedLen = 4 * ((data.length + 2) / 3) (contracts/libraries/Base64.sol#17)
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/libraries/FullMath.sol#14-102) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (contracts/libraries/FullMath.sol#63)
+	- inv = (3 * denominator) ^ 2 (contracts/libraries/FullMath.sol#83)
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/libraries/FullMath.sol#14-102) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (contracts/libraries/FullMath.sol#63)
+	- inv *= 2 - denominator * inv (contracts/libraries/FullMath.sol#87)
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/libraries/FullMath.sol#14-102) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (contracts/libraries/FullMath.sol#63)
+	- inv *= 2 - denominator * inv (contracts/libraries/FullMath.sol#88)
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/libraries/FullMath.sol#14-102) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (contracts/libraries/FullMath.sol#63)
+	- inv *= 2 - denominator * inv (contracts/libraries/FullMath.sol#89)
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/libraries/FullMath.sol#14-102) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (contracts/libraries/FullMath.sol#63)
+	- inv *= 2 - denominator * inv (contracts/libraries/FullMath.sol#90)
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/libraries/FullMath.sol#14-102) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (contracts/libraries/FullMath.sol#63)
+	- inv *= 2 - denominator * inv (contracts/libraries/FullMath.sol#91)
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/libraries/FullMath.sol#14-102) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (contracts/libraries/FullMath.sol#63)
+	- inv *= 2 - denominator * inv (contracts/libraries/FullMath.sol#92)
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/libraries/FullMath.sol#14-102) performs a multiplication on the result of a division:
+	- prod0 = prod0 / twos (contracts/libraries/FullMath.sol#68)
+	- result = prod0 * inv (contracts/libraries/FullMath.sol#100)
+NFTDescriptor.tickToDecimalString(int24,int24,uint8,uint8,bool) (contracts/libraries/NFTDescriptor.sol#229-247) performs a multiplication on the result of a division:
+	- tick == (TickMath.MIN_TICK / tickSpacing) * tickSpacing (contracts/libraries/NFTDescriptor.sol#236)
+NFTDescriptor.tickToDecimalString(int24,int24,uint8,uint8,bool) (contracts/libraries/NFTDescriptor.sol#229-247) performs a multiplication on the result of a division:
+	- tick == (TickMath.MAX_TICK / tickSpacing) * tickSpacing (contracts/libraries/NFTDescriptor.sol#238)
+Oracle.observeSingle(Oracle.Observation[65535],uint32,uint32,int24,uint16,uint128,uint16) (contracts/libraries/Oracle.sol#235-278) performs a multiplication on the result of a division:
+	- (beforeOrAt.tickCumulative + ((atOrAfter.tickCumulative - beforeOrAt.tickCumulative) / observationTimeDelta) * targetDelta,beforeOrAt.secondsPerLiquidityCumulativeX128 + uint160((uint256(atOrAfter.secondsPerLiquidityCumulativeX128 - beforeOrAt.secondsPerLiquidityCumulativeX128) * targetDelta) / observationTimeDelta)) (contracts/libraries/Oracle.sol#265-276)
+Tick.tickSpacingToMaxLiquidityPerTick(int24) (contracts/libraries/Tick.sol#43-48) performs a multiplication on the result of a division:
+	- minTick = (TickMath.MIN_TICK / tickSpacing) * tickSpacing (contracts/libraries/Tick.sol#44)
+Tick.tickSpacingToMaxLiquidityPerTick(int24) (contracts/libraries/Tick.sol#43-48) performs a multiplication on the result of a division:
+	- maxTick = (TickMath.MAX_TICK / tickSpacing) * tickSpacing (contracts/libraries/Tick.sol#45)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x48a170391f7dc42444e8fa2) >> 128 (contracts/libraries/TickMath.sol#46)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x2216e584f5fa1ea926041bedfe98) >> 128 (contracts/libraries/TickMath.sol#45)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x5d6af8dedb81196699c329225ee604) >> 128 (contracts/libraries/TickMath.sol#44)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x9aa508b5b7a84e1c677de54f3e99bc9) >> 128 (contracts/libraries/TickMath.sol#43)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x31be135f97d08fd981231505542fcfa6) >> 128 (contracts/libraries/TickMath.sol#42)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0x70d869a156d2a1b890bb3df62baf32f7) >> 128 (contracts/libraries/TickMath.sol#41)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xa9f746462d870fdf8a65dc1f90e061e5) >> 128 (contracts/libraries/TickMath.sol#40)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xd097f3bdfd2022b8845ad8f792aa5825) >> 128 (contracts/libraries/TickMath.sol#39)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xe7159475a2c29b7443b29c7fa6e889d9) >> 128 (contracts/libraries/TickMath.sol#38)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xf3392b0822b70005940c7a398e4b70f3) >> 128 (contracts/libraries/TickMath.sol#37)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xf987a7253ac413176f2b074cf7815e54) >> 128 (contracts/libraries/TickMath.sol#36)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xfcbe86c7900a88aedcffc83b479aa3a4) >> 128 (contracts/libraries/TickMath.sol#35)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xfe5dee046a99a2a811c461f1969c3053) >> 128 (contracts/libraries/TickMath.sol#34)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xff2ea16466c96a3843ec78b326b52861) >> 128 (contracts/libraries/TickMath.sol#33)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xff973b41fa98c081472e6896dfb254c0) >> 128 (contracts/libraries/TickMath.sol#32)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xffcb9843d60f6159c9db58835c926644) >> 128 (contracts/libraries/TickMath.sol#31)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xffe5caca7e10e4e61c3624eaa0941cd0) >> 128 (contracts/libraries/TickMath.sol#30)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xfff2e50f5f656932ef12357cf3c7fdcc) >> 128 (contracts/libraries/TickMath.sol#29)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) performs a multiplication on the result of a division:
+	- ratio = (ratio * 0xfff97272373d413259a46990580e213a) >> 128 (contracts/libraries/TickMath.sol#28)
+	- ratio = type()(uint256).max / ratio (contracts/libraries/TickMath.sol#48)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+ThrusterPool.initialize(uint160) (contracts/ThrusterPool.sol#269-287) uses a dangerous strict equality:
+	- require(bool,string)(slot0.sqrtPriceX96 == 0,AI) (contracts/ThrusterPool.sol#270)
+ThrusterPool.swap(address,bool,int256,uint160,bytes) (contracts/ThrusterPool.sol#567-761) uses a dangerous strict equality:
+	- state.sqrtPriceX96 == step.sqrtPriceNextX96 (contracts/ThrusterPool.sol#664)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+Reentrancy in NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams) (contracts/NonfungiblePositionManager.sol#296-359):
+	External calls:
+	- pool.burn(position.tickLower,position.tickUpper,0) (contracts/NonfungiblePositionManager.sol#317)
+	State variables written after the call(s):
+	- position.feeGrowthInside0LastX128 = feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#332)
+	NonfungiblePositionManager._positions (contracts/NonfungiblePositionManager.sol#63) can be used in cross function reentrancies:
+	- NonfungiblePositionManager._approve(address,uint256) (contracts/NonfungiblePositionManager.sol#381-384)
+	- NonfungiblePositionManager._getAndIncrementNonce(uint256) (contracts/NonfungiblePositionManager.sol#369-371)
+	- NonfungiblePositionManager.burn(uint256) (contracts/NonfungiblePositionManager.sol#362-367)
+	- NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams) (contracts/NonfungiblePositionManager.sol#296-359)
+	- NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#248-293)
+	- NonfungiblePositionManager.getApproved(uint256) (contracts/NonfungiblePositionManager.sol#374-378)
+	- NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#195-245)
+	- NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams) (contracts/NonfungiblePositionManager.sol#130-179)
+	- NonfungiblePositionManager.positions(uint256) (contracts/NonfungiblePositionManager.sol#82-118)
+	- position.feeGrowthInside1LastX128 = feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#333)
+	NonfungiblePositionManager._positions (contracts/NonfungiblePositionManager.sol#63) can be used in cross function reentrancies:
+	- NonfungiblePositionManager._approve(address,uint256) (contracts/NonfungiblePositionManager.sol#381-384)
+	- NonfungiblePositionManager._getAndIncrementNonce(uint256) (contracts/NonfungiblePositionManager.sol#369-371)
+	- NonfungiblePositionManager.burn(uint256) (contracts/NonfungiblePositionManager.sol#362-367)
+	- NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams) (contracts/NonfungiblePositionManager.sol#296-359)
+	- NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#248-293)
+	- NonfungiblePositionManager.getApproved(uint256) (contracts/NonfungiblePositionManager.sol#374-378)
+	- NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#195-245)
+	- NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams) (contracts/NonfungiblePositionManager.sol#130-179)
+	- NonfungiblePositionManager.positions(uint256) (contracts/NonfungiblePositionManager.sol#82-118)
+Reentrancy in NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams) (contracts/NonfungiblePositionManager.sol#296-359):
+	External calls:
+	- pool.burn(position.tickLower,position.tickUpper,0) (contracts/NonfungiblePositionManager.sol#317)
+	- (amount0,amount1) = pool.collect(recipient,position.tickLower,position.tickUpper,amount0Collect,amount1Collect) (contracts/NonfungiblePositionManager.sol#343-344)
+	State variables written after the call(s):
+	- (position.tokensOwed0,position.tokensOwed1) = (tokensOwed0 - amount0Collect,tokensOwed1 - amount1Collect) (contracts/NonfungiblePositionManager.sol#348)
+	NonfungiblePositionManager._positions (contracts/NonfungiblePositionManager.sol#63) can be used in cross function reentrancies:
+	- NonfungiblePositionManager._approve(address,uint256) (contracts/NonfungiblePositionManager.sol#381-384)
+	- NonfungiblePositionManager._getAndIncrementNonce(uint256) (contracts/NonfungiblePositionManager.sol#369-371)
+	- NonfungiblePositionManager.burn(uint256) (contracts/NonfungiblePositionManager.sol#362-367)
+	- NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams) (contracts/NonfungiblePositionManager.sol#296-359)
+	- NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#248-293)
+	- NonfungiblePositionManager.getApproved(uint256) (contracts/NonfungiblePositionManager.sol#374-378)
+	- NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#195-245)
+	- NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams) (contracts/NonfungiblePositionManager.sol#130-179)
+	- NonfungiblePositionManager.positions(uint256) (contracts/NonfungiblePositionManager.sol#82-118)
+Reentrancy in ThrusterPool.collectProtocol(address,uint128,uint128) (contracts/ThrusterPool.sol#773-795):
+	External calls:
+	- TransferHelper.safeTransfer(token0,recipient,amount0) (contracts/ThrusterPool.sol#786)
+	State variables written after the call(s):
+	- protocolFees.token1 -= amount1 (contracts/ThrusterPool.sol#790)
+	ThrusterPool.protocolFees (contracts/ThrusterPool.sol#94) can be used in cross function reentrancies:
+	- ThrusterPool.collectProtocol(address,uint128,uint128) (contracts/ThrusterPool.sol#773-795)
+	- ThrusterPool.protocolFees (contracts/ThrusterPool.sol#94)
+	- ThrusterPool.swap(address,bool,int256,uint160,bytes) (contracts/ThrusterPool.sol#567-761)
+Reentrancy in ThrusterPoolFactory.createPool(address,address,uint24) (contracts/ThrusterPoolFactory.sol#43-61):
+	External calls:
+	- pool = IThrusterPoolDeployer(deployer).deploy(address(this),token0,token1,fee,tickSpacing) (contracts/ThrusterPoolFactory.sol#55)
+	State variables written after the call(s):
+	- getPool[token0][token1][fee] = pool (contracts/ThrusterPoolFactory.sol#56)
+	ThrusterPoolFactory.getPool (contracts/ThrusterPoolFactory.sol#26) can be used in cross function reentrancies:
+	- ThrusterPoolFactory.createPool(address,address,uint24) (contracts/ThrusterPoolFactory.sol#43-61)
+	- ThrusterPoolFactory.getPool (contracts/ThrusterPoolFactory.sol#26)
+	- getPool[token1][token0][fee] = pool (contracts/ThrusterPoolFactory.sol#58)
+	ThrusterPoolFactory.getPool (contracts/ThrusterPoolFactory.sol#26) can be used in cross function reentrancies:
+	- ThrusterPoolFactory.createPool(address,address,uint24) (contracts/ThrusterPoolFactory.sol#43-61)
+	- ThrusterPoolFactory.getPool (contracts/ThrusterPoolFactory.sol#26)
+Reentrancy in NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#248-293):
+	External calls:
+	- (amount0,amount1) = pool.burn(position.tickLower,position.tickUpper,params.liquidity) (contracts/NonfungiblePositionManager.sol#264)
+	State variables written after the call(s):
+	- position.tokensOwed0 += uint128(amount0) + uint128(FullMath.mulDiv(feeGrowthInside0LastX128 - position.feeGrowthInside0LastX128,positionLiquidity,FixedPoint128.Q128)) (contracts/NonfungiblePositionManager.sol#272-277)
+	NonfungiblePositionManager._positions (contracts/NonfungiblePositionManager.sol#63) can be used in cross function reentrancies:
+	- NonfungiblePositionManager._approve(address,uint256) (contracts/NonfungiblePositionManager.sol#381-384)
+	- NonfungiblePositionManager._getAndIncrementNonce(uint256) (contracts/NonfungiblePositionManager.sol#369-371)
+	- NonfungiblePositionManager.burn(uint256) (contracts/NonfungiblePositionManager.sol#362-367)
+	- NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams) (contracts/NonfungiblePositionManager.sol#296-359)
+	- NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#248-293)
+	- NonfungiblePositionManager.getApproved(uint256) (contracts/NonfungiblePositionManager.sol#374-378)
+	- NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#195-245)
+	- NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams) (contracts/NonfungiblePositionManager.sol#130-179)
+	- NonfungiblePositionManager.positions(uint256) (contracts/NonfungiblePositionManager.sol#82-118)
+	- position.tokensOwed1 += uint128(amount1) + uint128(FullMath.mulDiv(feeGrowthInside1LastX128 - position.feeGrowthInside1LastX128,positionLiquidity,FixedPoint128.Q128)) (contracts/NonfungiblePositionManager.sol#278-283)
+	NonfungiblePositionManager._positions (contracts/NonfungiblePositionManager.sol#63) can be used in cross function reentrancies:
+	- NonfungiblePositionManager._approve(address,uint256) (contracts/NonfungiblePositionManager.sol#381-384)
+	- NonfungiblePositionManager._getAndIncrementNonce(uint256) (contracts/NonfungiblePositionManager.sol#369-371)
+	- NonfungiblePositionManager.burn(uint256) (contracts/NonfungiblePositionManager.sol#362-367)
+	- NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams) (contracts/NonfungiblePositionManager.sol#296-359)
+	- NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#248-293)
+	- NonfungiblePositionManager.getApproved(uint256) (contracts/NonfungiblePositionManager.sol#374-378)
+	- NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#195-245)
+	- NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams) (contracts/NonfungiblePositionManager.sol#130-179)
+	- NonfungiblePositionManager.positions(uint256) (contracts/NonfungiblePositionManager.sol#82-118)
+	- position.feeGrowthInside0LastX128 = feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#285)
+	NonfungiblePositionManager._positions (contracts/NonfungiblePositionManager.sol#63) can be used in cross function reentrancies:
+	- NonfungiblePositionManager._approve(address,uint256) (contracts/NonfungiblePositionManager.sol#381-384)
+	- NonfungiblePositionManager._getAndIncrementNonce(uint256) (contracts/NonfungiblePositionManager.sol#369-371)
+	- NonfungiblePositionManager.burn(uint256) (contracts/NonfungiblePositionManager.sol#362-367)
+	- NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams) (contracts/NonfungiblePositionManager.sol#296-359)
+	- NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#248-293)
+	- NonfungiblePositionManager.getApproved(uint256) (contracts/NonfungiblePositionManager.sol#374-378)
+	- NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#195-245)
+	- NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams) (contracts/NonfungiblePositionManager.sol#130-179)
+	- NonfungiblePositionManager.positions(uint256) (contracts/NonfungiblePositionManager.sol#82-118)
+	- position.feeGrowthInside1LastX128 = feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#286)
+	NonfungiblePositionManager._positions (contracts/NonfungiblePositionManager.sol#63) can be used in cross function reentrancies:
+	- NonfungiblePositionManager._approve(address,uint256) (contracts/NonfungiblePositionManager.sol#381-384)
+	- NonfungiblePositionManager._getAndIncrementNonce(uint256) (contracts/NonfungiblePositionManager.sol#369-371)
+	- NonfungiblePositionManager.burn(uint256) (contracts/NonfungiblePositionManager.sol#362-367)
+	- NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams) (contracts/NonfungiblePositionManager.sol#296-359)
+	- NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#248-293)
+	- NonfungiblePositionManager.getApproved(uint256) (contracts/NonfungiblePositionManager.sol#374-378)
+	- NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#195-245)
+	- NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams) (contracts/NonfungiblePositionManager.sol#130-179)
+	- NonfungiblePositionManager.positions(uint256) (contracts/NonfungiblePositionManager.sol#82-118)
+	- position.liquidity = positionLiquidity - params.liquidity (contracts/NonfungiblePositionManager.sol#288)
+	NonfungiblePositionManager._positions (contracts/NonfungiblePositionManager.sol#63) can be used in cross function reentrancies:
+	- NonfungiblePositionManager._approve(address,uint256) (contracts/NonfungiblePositionManager.sol#381-384)
+	- NonfungiblePositionManager._getAndIncrementNonce(uint256) (contracts/NonfungiblePositionManager.sol#369-371)
+	- NonfungiblePositionManager.burn(uint256) (contracts/NonfungiblePositionManager.sol#362-367)
+	- NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams) (contracts/NonfungiblePositionManager.sol#296-359)
+	- NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#248-293)
+	- NonfungiblePositionManager.getApproved(uint256) (contracts/NonfungiblePositionManager.sol#374-378)
+	- NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#195-245)
+	- NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams) (contracts/NonfungiblePositionManager.sol#130-179)
+	- NonfungiblePositionManager.positions(uint256) (contracts/NonfungiblePositionManager.sol#82-118)
+Reentrancy in NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#195-245):
+	External calls:
+	- (liquidity,amount0,amount1,pool) = addLiquidity(AddLiquidityParams({token0:poolKey.token0,token1:poolKey.token1,fee:poolKey.fee,tickLower:position.tickLower,tickUpper:position.tickUpper,amount0Desired:params.amount0Desired,amount1Desired:params.amount1Desired,amount0Min:params.amount0Min,amount1Min:params.amount1Min,recipient:address(this)})) (contracts/NonfungiblePositionManager.sol#207-220)
+		- (amount0,amount1) = pool.mint(params.recipient,params.tickLower,params.tickUpper,liquidity,abi.encode(MintCallbackData({poolKey:poolKey,payer:msg.sender}))) (contracts/base/LiquidityManagement.sol#67-73)
+	State variables written after the call(s):
+	- position.tokensOwed0 += uint128(FullMath.mulDiv(feeGrowthInside0LastX128 - position.feeGrowthInside0LastX128,position.liquidity,FixedPoint128.Q128)) (contracts/NonfungiblePositionManager.sol#227-231)
+	NonfungiblePositionManager._positions (contracts/NonfungiblePositionManager.sol#63) can be used in cross function reentrancies:
+	- NonfungiblePositionManager._approve(address,uint256) (contracts/NonfungiblePositionManager.sol#381-384)
+	- NonfungiblePositionManager._getAndIncrementNonce(uint256) (contracts/NonfungiblePositionManager.sol#369-371)
+	- NonfungiblePositionManager.burn(uint256) (contracts/NonfungiblePositionManager.sol#362-367)
+	- NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams) (contracts/NonfungiblePositionManager.sol#296-359)
+	- NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#248-293)
+	- NonfungiblePositionManager.getApproved(uint256) (contracts/NonfungiblePositionManager.sol#374-378)
+	- NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#195-245)
+	- NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams) (contracts/NonfungiblePositionManager.sol#130-179)
+	- NonfungiblePositionManager.positions(uint256) (contracts/NonfungiblePositionManager.sol#82-118)
+	- position.tokensOwed1 += uint128(FullMath.mulDiv(feeGrowthInside1LastX128 - position.feeGrowthInside1LastX128,position.liquidity,FixedPoint128.Q128)) (contracts/NonfungiblePositionManager.sol#232-236)
+	NonfungiblePositionManager._positions (contracts/NonfungiblePositionManager.sol#63) can be used in cross function reentrancies:
+	- NonfungiblePositionManager._approve(address,uint256) (contracts/NonfungiblePositionManager.sol#381-384)
+	- NonfungiblePositionManager._getAndIncrementNonce(uint256) (contracts/NonfungiblePositionManager.sol#369-371)
+	- NonfungiblePositionManager.burn(uint256) (contracts/NonfungiblePositionManager.sol#362-367)
+	- NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams) (contracts/NonfungiblePositionManager.sol#296-359)
+	- NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#248-293)
+	- NonfungiblePositionManager.getApproved(uint256) (contracts/NonfungiblePositionManager.sol#374-378)
+	- NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#195-245)
+	- NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams) (contracts/NonfungiblePositionManager.sol#130-179)
+	- NonfungiblePositionManager.positions(uint256) (contracts/NonfungiblePositionManager.sol#82-118)
+	- position.feeGrowthInside0LastX128 = feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#238)
+	NonfungiblePositionManager._positions (contracts/NonfungiblePositionManager.sol#63) can be used in cross function reentrancies:
+	- NonfungiblePositionManager._approve(address,uint256) (contracts/NonfungiblePositionManager.sol#381-384)
+	- NonfungiblePositionManager._getAndIncrementNonce(uint256) (contracts/NonfungiblePositionManager.sol#369-371)
+	- NonfungiblePositionManager.burn(uint256) (contracts/NonfungiblePositionManager.sol#362-367)
+	- NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams) (contracts/NonfungiblePositionManager.sol#296-359)
+	- NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#248-293)
+	- NonfungiblePositionManager.getApproved(uint256) (contracts/NonfungiblePositionManager.sol#374-378)
+	- NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#195-245)
+	- NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams) (contracts/NonfungiblePositionManager.sol#130-179)
+	- NonfungiblePositionManager.positions(uint256) (contracts/NonfungiblePositionManager.sol#82-118)
+	- position.feeGrowthInside1LastX128 = feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#239)
+	NonfungiblePositionManager._positions (contracts/NonfungiblePositionManager.sol#63) can be used in cross function reentrancies:
+	- NonfungiblePositionManager._approve(address,uint256) (contracts/NonfungiblePositionManager.sol#381-384)
+	- NonfungiblePositionManager._getAndIncrementNonce(uint256) (contracts/NonfungiblePositionManager.sol#369-371)
+	- NonfungiblePositionManager.burn(uint256) (contracts/NonfungiblePositionManager.sol#362-367)
+	- NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams) (contracts/NonfungiblePositionManager.sol#296-359)
+	- NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#248-293)
+	- NonfungiblePositionManager.getApproved(uint256) (contracts/NonfungiblePositionManager.sol#374-378)
+	- NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#195-245)
+	- NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams) (contracts/NonfungiblePositionManager.sol#130-179)
+	- NonfungiblePositionManager.positions(uint256) (contracts/NonfungiblePositionManager.sol#82-118)
+	- position.liquidity += liquidity (contracts/NonfungiblePositionManager.sol#240)
+	NonfungiblePositionManager._positions (contracts/NonfungiblePositionManager.sol#63) can be used in cross function reentrancies:
+	- NonfungiblePositionManager._approve(address,uint256) (contracts/NonfungiblePositionManager.sol#381-384)
+	- NonfungiblePositionManager._getAndIncrementNonce(uint256) (contracts/NonfungiblePositionManager.sol#369-371)
+	- NonfungiblePositionManager.burn(uint256) (contracts/NonfungiblePositionManager.sol#362-367)
+	- NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams) (contracts/NonfungiblePositionManager.sol#296-359)
+	- NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#248-293)
+	- NonfungiblePositionManager.getApproved(uint256) (contracts/NonfungiblePositionManager.sol#374-378)
+	- NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#195-245)
+	- NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams) (contracts/NonfungiblePositionManager.sol#130-179)
+	- NonfungiblePositionManager.positions(uint256) (contracts/NonfungiblePositionManager.sol#82-118)
+Reentrancy in ThrusterPool.swap(address,bool,int256,uint160,bytes) (contracts/ThrusterPool.sol#567-761):
+	External calls:
+	- IThrusterGauge(gauge).checkpoint(cache.blockTimestamp) (contracts/ThrusterPool.sol#598)
+	- IThrusterGauge(gauge).cross(step.tickNext,zeroForOne) (contracts/ThrusterPool.sol#682)
+	State variables written after the call(s):
+	- feeGrowthGlobal0X128 = state.feeGrowthGlobalX128 (contracts/ThrusterPool.sol#730)
+	ThrusterPool.feeGrowthGlobal0X128 (contracts/ThrusterPool.sol#83) can be used in cross function reentrancies:
+	- ThrusterPool._updatePosition(address,int24,int24,int128,int24) (contracts/ThrusterPool.sol#363-428)
+	- ThrusterPool.feeGrowthGlobal0X128 (contracts/ThrusterPool.sol#83)
+	- ThrusterPool.swap(address,bool,int256,uint160,bytes) (contracts/ThrusterPool.sol#567-761)
+	- feeGrowthGlobal1X128 = state.feeGrowthGlobalX128 (contracts/ThrusterPool.sol#733)
+	ThrusterPool.feeGrowthGlobal1X128 (contracts/ThrusterPool.sol#85) can be used in cross function reentrancies:
+	- ThrusterPool._updatePosition(address,int24,int24,int128,int24) (contracts/ThrusterPool.sol#363-428)
+	- ThrusterPool.feeGrowthGlobal1X128 (contracts/ThrusterPool.sol#85)
+	- ThrusterPool.swap(address,bool,int256,uint160,bytes) (contracts/ThrusterPool.sol#567-761)
+	- liquidity = state.liquidity (contracts/ThrusterPool.sol#725)
+	ThrusterPool.liquidity (contracts/ThrusterPool.sol#97) can be used in cross function reentrancies:
+	- ThrusterPool._modifyPosition(ThrusterPool.ModifyPositionParams) (contracts/ThrusterPool.sol#304-356)
+	- ThrusterPool._updatePosition(address,int24,int24,int128,int24) (contracts/ThrusterPool.sol#363-428)
+	- ThrusterPool.liquidity (contracts/ThrusterPool.sol#97)
+	- ThrusterPool.observe(uint32[]) (contracts/ThrusterPool.sol#234-249)
+	- ThrusterPool.snapshotCumulativesInside(int24,int24) (contracts/ThrusterPool.sol#167-231)
+	- ThrusterPool.swap(address,bool,int256,uint160,bytes) (contracts/ThrusterPool.sol#567-761)
+	- (slot0.sqrtPriceX96,slot0.tick,slot0.observationIndex,slot0.observationCardinality) = (state.sqrtPriceX96,state.tick,observationIndex,observationCardinality) (contracts/ThrusterPool.sol#717-718)
+	ThrusterPool.slot0 (contracts/ThrusterPool.sol#80) can be used in cross function reentrancies:
+	- ThrusterPool._modifyPosition(ThrusterPool.ModifyPositionParams) (contracts/ThrusterPool.sol#304-356)
+	- ThrusterPool._updatePosition(address,int24,int24,int128,int24) (contracts/ThrusterPool.sol#363-428)
+	- ThrusterPool.increaseObservationCardinalityNext(uint16) (contracts/ThrusterPool.sol#252-265)
+	- ThrusterPool.initialize(uint160) (contracts/ThrusterPool.sol#269-287)
+	- ThrusterPool.lock() (contracts/ThrusterPool.sol#114-119)
+	- ThrusterPool.observe(uint32[]) (contracts/ThrusterPool.sol#234-249)
+	- ThrusterPool.setFeeProtocol(uint8,uint8) (contracts/ThrusterPool.sol#764-770)
+	- ThrusterPool.slot0 (contracts/ThrusterPool.sol#80)
+	- ThrusterPool.snapshotCumulativesInside(int24,int24) (contracts/ThrusterPool.sol#167-231)
+	- ThrusterPool.swap(address,bool,int256,uint160,bytes) (contracts/ThrusterPool.sol#567-761)
+	- slot0.sqrtPriceX96 = state.sqrtPriceX96 (contracts/ThrusterPool.sol#721)
+	ThrusterPool.slot0 (contracts/ThrusterPool.sol#80) can be used in cross function reentrancies:
+	- ThrusterPool._modifyPosition(ThrusterPool.ModifyPositionParams) (contracts/ThrusterPool.sol#304-356)
+	- ThrusterPool._updatePosition(address,int24,int24,int128,int24) (contracts/ThrusterPool.sol#363-428)
+	- ThrusterPool.increaseObservationCardinalityNext(uint16) (contracts/ThrusterPool.sol#252-265)
+	- ThrusterPool.initialize(uint160) (contracts/ThrusterPool.sol#269-287)
+	- ThrusterPool.lock() (contracts/ThrusterPool.sol#114-119)
+	- ThrusterPool.observe(uint32[]) (contracts/ThrusterPool.sol#234-249)
+	- ThrusterPool.setFeeProtocol(uint8,uint8) (contracts/ThrusterPool.sol#764-770)
+	- ThrusterPool.slot0 (contracts/ThrusterPool.sol#80)
+	- ThrusterPool.snapshotCumulativesInside(int24,int24) (contracts/ThrusterPool.sol#167-231)
+	- ThrusterPool.swap(address,bool,int256,uint160,bytes) (contracts/ThrusterPool.sol#567-761)
+Reentrancy in ThrusterPool.swap(address,bool,int256,uint160,bytes) (contracts/ThrusterPool.sol#567-761):
+	External calls:
+	- IThrusterGauge(gauge).checkpoint(cache.blockTimestamp) (contracts/ThrusterPool.sol#598)
+	- IThrusterGauge(gauge).cross(step.tickNext,zeroForOne) (contracts/ThrusterPool.sol#682)
+	- TransferHelper.safeTransfer(token1,recipient,uint256(- amount1)) (contracts/ThrusterPool.sol#743)
+	- IThrusterSwapCallback(msg.sender).thrusterSwapCallback(amount0,amount1,data) (contracts/ThrusterPool.sol#746)
+	- TransferHelper.safeTransfer(token0,recipient,uint256(- amount0)) (contracts/ThrusterPool.sol#749)
+	- IThrusterSwapCallback(msg.sender).thrusterSwapCallback(amount0,amount1,data) (contracts/ThrusterPool.sol#752)
+	- IThrusterPoolFactory(factory).emitSwap(msg.sender,recipient,amount0,amount1,state.sqrtPriceX96,state.liquidity,state.tick) (contracts/ThrusterPool.sol#757-759)
+	State variables written after the call(s):
+	- slot0.unlocked = true (contracts/ThrusterPool.sol#760)
+	ThrusterPool.slot0 (contracts/ThrusterPool.sol#80) can be used in cross function reentrancies:
+	- ThrusterPool._modifyPosition(ThrusterPool.ModifyPositionParams) (contracts/ThrusterPool.sol#304-356)
+	- ThrusterPool._updatePosition(address,int24,int24,int128,int24) (contracts/ThrusterPool.sol#363-428)
+	- ThrusterPool.increaseObservationCardinalityNext(uint16) (contracts/ThrusterPool.sol#252-265)
+	- ThrusterPool.initialize(uint160) (contracts/ThrusterPool.sol#269-287)
+	- ThrusterPool.lock() (contracts/ThrusterPool.sol#114-119)
+	- ThrusterPool.observe(uint32[]) (contracts/ThrusterPool.sol#234-249)
+	- ThrusterPool.setFeeProtocol(uint8,uint8) (contracts/ThrusterPool.sol#764-770)
+	- ThrusterPool.slot0 (contracts/ThrusterPool.sol#80)
+	- ThrusterPool.snapshotCumulativesInside(int24,int24) (contracts/ThrusterPool.sol#167-231)
+	- ThrusterPool.swap(address,bool,int256,uint160,bytes) (contracts/ThrusterPool.sol#567-761)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+INFO:Detectors:
+ThrusterPool._updatePosition(address,int24,int24,int128,int24).flippedLower (contracts/ThrusterPool.sol#373) is a local variable never initialized
+NFTDescriptor.fixedPointToDecimalString(uint160,uint8,uint8).params (contracts/libraries/NFTDescriptor.sol#329) is a local variable never initialized
+ThrusterPool._updatePosition(address,int24,int24,int128,int24).flippedUpper (contracts/ThrusterPool.sol#374) is a local variable never initialized
+TickLens.getPopulatedTicksInWord(address,int16).numberOfPopulatedTicks (contracts/lens/TickLens.sol#21) is a local variable never initialized
+SqrtPriceMath.getNextSqrtPriceFromAmount0RoundingUp(uint160,uint128,uint256,bool).product_scope_0 (contracts/libraries/SqrtPriceMath.sol#48) is a local variable never initialized
+NFTDescriptor.sigfigsRounded(uint256,uint8).extraDigit (contracts/libraries/NFTDescriptor.sol#250) is a local variable never initialized
+ThrusterPool.mint(address,int24,int24,uint128,bytes).balance1Before (contracts/ThrusterPool.sol#452) is a local variable never initialized
+NFTDescriptor.feeToPercentString(uint24).params (contracts/libraries/NFTDescriptor.sol#375) is a local variable never initialized
+ThrusterPool.mint(address,int24,int24,uint128,bytes).balance0Before (contracts/ThrusterPool.sol#451) is a local variable never initialized
+SqrtPriceMath.getNextSqrtPriceFromAmount0RoundingUp(uint160,uint128,uint256,bool).product (contracts/libraries/SqrtPriceMath.sol#37) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+INFO:Detectors:
+LiquidityManagement.thrusterMintCallback(uint256,uint256,bytes) (contracts/base/LiquidityManagement.sol#25-31) ignores return value by CallbackValidation.verifyCallback(factory,decoded.poolKey) (contracts/base/LiquidityManagement.sol#27)
+LiquidityManagement.addLiquidity(LiquidityManagement.AddLiquidityParams) (contracts/base/LiquidityManagement.sol#47-76) ignores return value by (sqrtPriceX96) = pool.slot0() (contracts/base/LiquidityManagement.sol#58)
+PoolInitializer.createAndInitializePoolIfNecessary(address,address,uint24,uint160) (contracts/base/PoolInitializer.sol#14-32) ignores return value by (sqrtPriceX96Existing) = IThrusterPool(pool).slot0() (contracts/base/PoolInitializer.sol#27)
+ERC721.tokenByIndex(uint256) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#180-183) ignores return value by (tokenId) = _tokenOwners.at(index) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#181)
+ERC721._mint(address,uint256) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#333-344) ignores return value by _holderTokens[to].add(tokenId) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#339)
+ERC721._mint(address,uint256) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#333-344) ignores return value by _tokenOwners.set(tokenId,to) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#341)
+ERC721._burn(uint256) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#356-374) ignores return value by _holderTokens[owner].remove(tokenId) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#369)
+ERC721._burn(uint256) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#356-374) ignores return value by _tokenOwners.remove(tokenId) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#371)
+ERC721._transfer(address,address,uint256) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#387-402) ignores return value by _holderTokens[from].remove(tokenId) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#396)
+ERC721._transfer(address,address,uint256) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#387-402) ignores return value by _holderTokens[to].add(tokenId) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#397)
+ERC721._transfer(address,address,uint256) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#387-402) ignores return value by _tokenOwners.set(tokenId,to) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#399)
+NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams) (contracts/NonfungiblePositionManager.sol#130-179) ignores return value by (feeGrowthInside0LastX128,feeGrowthInside1LastX128) = pool.positions(positionKey) (contracts/NonfungiblePositionManager.sol#157)
+NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#195-245) ignores return value by (feeGrowthInside0LastX128,feeGrowthInside1LastX128) = pool.positions(positionKey) (contracts/NonfungiblePositionManager.sol#225)
+NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#248-293) ignores return value by (feeGrowthInside0LastX128,feeGrowthInside1LastX128) = pool.positions(positionKey) (contracts/NonfungiblePositionManager.sol#270)
+NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams) (contracts/NonfungiblePositionManager.sol#296-359) ignores return value by pool.burn(position.tickLower,position.tickUpper,0) (contracts/NonfungiblePositionManager.sol#317)
+NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams) (contracts/NonfungiblePositionManager.sol#296-359) ignores return value by (feeGrowthInside0LastX128,feeGrowthInside1LastX128) = pool.positions(PositionKey.compute(address(this),position.tickLower,position.tickUpper)) (contracts/NonfungiblePositionManager.sol#318-319)
+NonfungibleTokenPositionDescriptor.tokenURI(INonfungiblePositionManager,uint256) (contracts/NonfungibleTokenPositionDescriptor.sol#45-87) ignores return value by (token0,token1,fee,tickLower,tickUpper) = positionManager.positions(tokenId) (contracts/NonfungibleTokenPositionDescriptor.sol#51-52)
+NonfungibleTokenPositionDescriptor.tokenURI(INonfungiblePositionManager,uint256) (contracts/NonfungibleTokenPositionDescriptor.sol#45-87) ignores return value by (tick) = pool.slot0() (contracts/NonfungibleTokenPositionDescriptor.sol#63)
+SwapRouter.thrusterSwapCallback(int256,int256,bytes) (contracts/SwapRouter.sol#58-79) ignores return value by CallbackValidation.verifyCallback(factory,tokenIn,tokenOut,fee) (contracts/SwapRouter.sol#62)
+ThrusterPool.constructor() (contracts/ThrusterPool.sol#127-137) ignores return value by USDB.configure(YieldMode.CLAIMABLE) (contracts/ThrusterPool.sol#131)
+ThrusterPool.constructor() (contracts/ThrusterPool.sol#127-137) ignores return value by WETHB.configure(YieldMode.CLAIMABLE) (contracts/ThrusterPool.sol#132)
+ThrusterPool.observe(uint32[]) (contracts/ThrusterPool.sol#234-249) ignores return value by observations.observe(uint32(block.timestamp),secondsAgos,slot0.tick,slot0.observationIndex,liquidity,slot0.observationCardinality) (contracts/ThrusterPool.sol#241-248)
+ThrusterPoolFactory.claimDeployerGas(address) (contracts/ThrusterPoolFactory.sol#90-93) ignores return value by IThrusterPoolDeployer(deployer).claimGas(_recipient) (contracts/ThrusterPoolFactory.sol#92)
+Quoter.thrusterSwapCallback(int256,int256,bytes) (contracts/lens/Quoter.sol#34-57) ignores return value by CallbackValidation.verifyCallback(factory,tokenIn,tokenOut,fee) (contracts/lens/Quoter.sol#37)
+Quoter.quoteExactInputSingle(address,address,uint24,uint256,uint160) (contracts/lens/Quoter.sol#72-92) ignores return value by getPool(tokenIn,tokenOut,fee).swap(address(this),zeroForOne,amountIn.toInt256(),sqrtPriceLimitX96,abi.encodePacked(tokenIn,fee,tokenOut)) (contracts/lens/Quoter.sol#81-91)
+Quoter.quoteExactInputSingle(address,address,uint24,uint256,uint160) (contracts/lens/Quoter.sol#72-92) ignores return value by getPool(tokenIn,tokenOut,fee).swap(address(this),zeroForOne,amountIn.toInt256(),TickMath.MIN_SQRT_RATIO + 1,abi.encodePacked(tokenIn,fee,tokenOut)) (contracts/lens/Quoter.sol#81-91)
+Quoter.quoteExactInputSingle(address,address,uint24,uint256,uint160) (contracts/lens/Quoter.sol#72-92) ignores return value by getPool(tokenIn,tokenOut,fee).swap(address(this),zeroForOne,amountIn.toInt256(),TickMath.MAX_SQRT_RATIO - 1,abi.encodePacked(tokenIn,fee,tokenOut)) (contracts/lens/Quoter.sol#81-91)
+Quoter.quoteExactOutputSingle(address,address,uint24,uint256,uint160) (contracts/lens/Quoter.sol#114-137) ignores return value by getPool(tokenIn,tokenOut,fee).swap(address(this),zeroForOne,- amountOut.toInt256(),sqrtPriceLimitX96,abi.encodePacked(tokenOut,fee,tokenIn)) (contracts/lens/Quoter.sol#125-136)
+Quoter.quoteExactOutputSingle(address,address,uint24,uint256,uint160) (contracts/lens/Quoter.sol#114-137) ignores return value by getPool(tokenIn,tokenOut,fee).swap(address(this),zeroForOne,- amountOut.toInt256(),TickMath.MIN_SQRT_RATIO + 1,abi.encodePacked(tokenOut,fee,tokenIn)) (contracts/lens/Quoter.sol#125-136)
+Quoter.quoteExactOutputSingle(address,address,uint24,uint256,uint160) (contracts/lens/Quoter.sol#114-137) ignores return value by getPool(tokenIn,tokenOut,fee).swap(address(this),zeroForOne,- amountOut.toInt256(),TickMath.MAX_SQRT_RATIO - 1,abi.encodePacked(tokenOut,fee,tokenIn)) (contracts/lens/Quoter.sol#125-136)
+QuoterV2.thrusterSwapCallback(int256,int256,bytes) (contracts/lens/QuoterV2.sol#37-68) ignores return value by CallbackValidation.verifyCallback(factory,tokenIn,tokenOut,fee) (contracts/lens/QuoterV2.sol#40)
+QuoterV2.thrusterSwapCallback(int256,int256,bytes) (contracts/lens/QuoterV2.sol#37-68) ignores return value by (sqrtPriceX96After,tickAfter) = pool.slot0() (contracts/lens/QuoterV2.sol#47)
+QuoterV2.handleRevert(bytes,IThrusterPool,uint256) (contracts/lens/QuoterV2.sol#86-99) ignores return value by (None,tickBefore,None,None,None,None,None) = pool.slot0() (contracts/lens/QuoterV2.sol#93)
+QuoterV2.quoteExactInputSingle(IQuoterV2.QuoteExactInputSingleParams) (contracts/lens/QuoterV2.sol#101-122) ignores return value by pool.swap(address(this),zeroForOne,params.amountIn.toInt256(),params.sqrtPriceLimitX96,abi.encodePacked(params.tokenIn,params.fee,params.tokenOut)) (contracts/lens/QuoterV2.sol#110-121)
+QuoterV2.quoteExactInputSingle(IQuoterV2.QuoteExactInputSingleParams) (contracts/lens/QuoterV2.sol#101-122) ignores return value by pool.swap(address(this),zeroForOne,params.amountIn.toInt256(),TickMath.MIN_SQRT_RATIO + 1,abi.encodePacked(params.tokenIn,params.fee,params.tokenOut)) (contracts/lens/QuoterV2.sol#110-121)
+QuoterV2.quoteExactInputSingle(IQuoterV2.QuoteExactInputSingleParams) (contracts/lens/QuoterV2.sol#101-122) ignores return value by pool.swap(address(this),zeroForOne,params.amountIn.toInt256(),TickMath.MAX_SQRT_RATIO - 1,abi.encodePacked(params.tokenIn,params.fee,params.tokenOut)) (contracts/lens/QuoterV2.sol#110-121)
+QuoterV2.quoteExactOutputSingle(IQuoterV2.QuoteExactOutputSingleParams) (contracts/lens/QuoterV2.sol#168-192) ignores return value by pool.swap(address(this),zeroForOne,- params.amount.toInt256(),params.sqrtPriceLimitX96,abi.encodePacked(params.tokenOut,params.fee,params.tokenIn)) (contracts/lens/QuoterV2.sol#179-191)
+QuoterV2.quoteExactOutputSingle(IQuoterV2.QuoteExactOutputSingleParams) (contracts/lens/QuoterV2.sol#168-192) ignores return value by pool.swap(address(this),zeroForOne,- params.amount.toInt256(),TickMath.MIN_SQRT_RATIO + 1,abi.encodePacked(params.tokenOut,params.fee,params.tokenIn)) (contracts/lens/QuoterV2.sol#179-191)
+QuoterV2.quoteExactOutputSingle(IQuoterV2.QuoteExactOutputSingleParams) (contracts/lens/QuoterV2.sol#168-192) ignores return value by pool.swap(address(this),zeroForOne,- params.amount.toInt256(),TickMath.MAX_SQRT_RATIO - 1,abi.encodePacked(params.tokenOut,params.fee,params.tokenIn)) (contracts/lens/QuoterV2.sol#179-191)
+TickLens.getPopulatedTicksInWord(address,int16) (contracts/lens/TickLens.sol#11-37) ignores return value by (liquidityGross,liquidityNet) = IThrusterPool(pool).ticks(populatedTick) (contracts/lens/TickLens.sol#32)
+OracleLibrary.getOldestObservationSecondsAgo(address) (contracts/libraries/OracleLibrary.sol#74-88) ignores return value by (observationIndex,observationCardinality) = IThrusterPool(pool).slot0() (contracts/libraries/OracleLibrary.sol#75)
+OracleLibrary.getOldestObservationSecondsAgo(address) (contracts/libraries/OracleLibrary.sol#74-88) ignores return value by (observationTimestamp,initialized) = IThrusterPool(pool).observations((observationIndex + 1) % observationCardinality) (contracts/libraries/OracleLibrary.sol#78-79)
+OracleLibrary.getOldestObservationSecondsAgo(address) (contracts/libraries/OracleLibrary.sol#74-88) ignores return value by (observationTimestamp,None,None,None) = IThrusterPool(pool).observations(0) (contracts/libraries/OracleLibrary.sol#84)
+OracleLibrary.getBlockStartingTickAndLiquidity(address) (contracts/libraries/OracleLibrary.sol#93-125) ignores return value by (tick,observationIndex,observationCardinality) = IThrusterPool(pool).slot0() (contracts/libraries/OracleLibrary.sol#94)
+OracleLibrary.getBlockStartingTickAndLiquidity(address) (contracts/libraries/OracleLibrary.sol#93-125) ignores return value by (observationTimestamp,tickCumulative,secondsPerLiquidityCumulativeX128) = IThrusterPool(pool).observations(observationIndex) (contracts/libraries/OracleLibrary.sol#102-103)
+PositionValue.principal(INonfungiblePositionManager,uint256,uint160) (contracts/libraries/PositionValue.sol#40-50) ignores return value by (tickLower,tickUpper,liquidity) = positionManager.positions(tokenId) (contracts/libraries/PositionValue.sol#45)
+PositionValue.principal(INonfungiblePositionManager,uint256,uint160) (contracts/libraries/PositionValue.sol#40-50) ignores return value by LiquidityAmounts.getAmountsForLiquidity(sqrtRatioX96,TickMath.getSqrtRatioAtTick(tickLower),TickMath.getSqrtRatioAtTick(tickUpper),liquidity) (contracts/libraries/PositionValue.sol#47-49)
+PositionValue.fees(INonfungiblePositionManager,uint256) (contracts/libraries/PositionValue.sol#70-105) ignores return value by (token0,token1,fee,tickLower,tickUpper,liquidity,positionFeeGrowthInside0LastX128,positionFeeGrowthInside1LastX128,tokensOwed0,tokensOwed1) = positionManager.positions(tokenId) (contracts/libraries/PositionValue.sol#75-88)
+PositionValue._getFeeGrowthInside(IThrusterPool,int24,int24) (contracts/libraries/PositionValue.sol#136-157) ignores return value by (tickCurrent) = pool.slot0() (contracts/libraries/PositionValue.sol#141)
+PositionValue._getFeeGrowthInside(IThrusterPool,int24,int24) (contracts/libraries/PositionValue.sol#136-157) ignores return value by (lowerFeeGrowthOutside0X128,lowerFeeGrowthOutside1X128) = pool.ticks(tickLower) (contracts/libraries/PositionValue.sol#142)
+PositionValue._getFeeGrowthInside(IThrusterPool,int24,int24) (contracts/libraries/PositionValue.sol#136-157) ignores return value by (upperFeeGrowthOutside0X128,upperFeeGrowthOutside1X128) = pool.ticks(tickUpper) (contracts/libraries/PositionValue.sol#143)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Detectors:
+PoolTicksCounter.countInitializedTicksCrossed(IThrusterPool,int24,int24).mask (contracts/libraries/PoolTicksCounter.sol#58) is written in both
+	mask = mask & (type()(uint256).max >> (255 - bitPosHigher)) (contracts/libraries/PoolTicksCounter.sol#63)
+	mask = type()(uint256).max (contracts/libraries/PoolTicksCounter.sol#70)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#write-after-write
+INFO:Detectors:
+ThrusterGas.setManager(address) (contracts/ThrusterGas.sol#35-37) should emit an event for: 
+	- manager = _manager (contracts/ThrusterGas.sol#36) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-access-control
+INFO:Detectors:
+SwapRouter.thrusterSwapCallback(int256,int256,bytes) (contracts/SwapRouter.sol#58-79) should emit an event for: 
+	- amountInCached = amountToPay (contracts/SwapRouter.sol#74) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+INFO:Detectors:
+ThrusterGas.constructor(address)._manager (contracts/ThrusterGas.sol#16) lacks a zero-check on :
+		- manager = _manager (contracts/ThrusterGas.sol#18)
+ThrusterGas.setManager(address)._manager (contracts/ThrusterGas.sol#35) lacks a zero-check on :
+		- manager = _manager (contracts/ThrusterGas.sol#36)
+NonfungiblePositionManager.constructor(address,address,address,address)._tokenDescriptor_ (contracts/NonfungiblePositionManager.sol#73) lacks a zero-check on :
+		- _tokenDescriptor = _tokenDescriptor_ (contracts/NonfungiblePositionManager.sol#78)
+NonfungibleTokenPositionDescriptor.constructor(address,bytes32)._WETH9 (contracts/NonfungibleTokenPositionDescriptor.sol#26) lacks a zero-check on :
+		- WETH9 = _WETH9 (contracts/NonfungibleTokenPositionDescriptor.sol#27)
+ThrusterPool.setGauge(address)._gauge (contracts/ThrusterPool.sol#798) lacks a zero-check on :
+		- gauge = _gauge (contracts/ThrusterPool.sol#799)
+ThrusterPoolDeployer.constructor(address)._factory (contracts/ThrusterPoolDeployer.sol#28) lacks a zero-check on :
+		- factory = _factory (contracts/ThrusterPoolDeployer.sol#30)
+ThrusterPoolFactory.constructor(address,address)._owner (contracts/ThrusterPoolFactory.sol#29) lacks a zero-check on :
+		- owner = _owner (contracts/ThrusterPoolFactory.sol#30)
+ThrusterPoolFactory.constructor(address,address)._pointsAdmin (contracts/ThrusterPoolFactory.sol#29) lacks a zero-check on :
+		- pointsAdmin = _pointsAdmin (contracts/ThrusterPoolFactory.sol#32)
+ThrusterPoolFactory.setDeployer(address)._deployer (contracts/ThrusterPoolFactory.sol#71) lacks a zero-check on :
+		- deployer = _deployer (contracts/ThrusterPoolFactory.sol#73)
+ThrusterMulticall.multicall(ThrusterMulticall.Call[]).target (contracts/lens/ThrusterMulticall.sol#35) lacks a zero-check on :
+		- (success,ret) = target.call{gas: gasLimit}(callData) (contracts/lens/ThrusterMulticall.sol#38)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+INFO:Detectors:
+Multicall.multicall(bytes[]) (contracts/base/Multicall.sol#11-27) has external calls inside a loop: (success,result) = address(this).delegatecall(data[i]) (contracts/base/Multicall.sol#14)
+SwapRouter.exactInputInternal(uint256,address,uint160,SwapRouter.SwapCallbackData) (contracts/SwapRouter.sol#82-106) has external calls inside a loop: (amount0,amount1) = getPool(tokenIn,tokenOut,fee).swap(recipient,zeroForOne,amountIn.toInt256(),TickMath.MIN_SQRT_RATIO + 1,abi.encode(data)) (contracts/SwapRouter.sol#95-103)
+SwapRouter.exactInputInternal(uint256,address,uint160,SwapRouter.SwapCallbackData) (contracts/SwapRouter.sol#82-106) has external calls inside a loop: (amount0,amount1) = getPool(tokenIn,tokenOut,fee).swap(recipient,zeroForOne,amountIn.toInt256(),TickMath.MAX_SQRT_RATIO - 1,abi.encode(data)) (contracts/SwapRouter.sol#95-103)
+SwapRouter.exactInputInternal(uint256,address,uint160,SwapRouter.SwapCallbackData) (contracts/SwapRouter.sol#82-106) has external calls inside a loop: (amount0,amount1) = getPool(tokenIn,tokenOut,fee).swap(recipient,zeroForOne,amountIn.toInt256(),sqrtPriceLimitX96,abi.encode(data)) (contracts/SwapRouter.sol#95-103)
+ThrusterPool.swap(address,bool,int256,uint160,bytes) (contracts/ThrusterPool.sol#567-761) has external calls inside a loop: IThrusterGauge(gauge).cross(step.tickNext,zeroForOne) (contracts/ThrusterPool.sol#682)
+Quoter.quoteExactInputSingle(address,address,uint24,uint256,uint160) (contracts/lens/Quoter.sol#72-92) has external calls inside a loop: getPool(tokenIn,tokenOut,fee).swap(address(this),zeroForOne,amountIn.toInt256(),TickMath.MIN_SQRT_RATIO + 1,abi.encodePacked(tokenIn,fee,tokenOut)) (contracts/lens/Quoter.sol#81-91)
+Quoter.quoteExactInputSingle(address,address,uint24,uint256,uint160) (contracts/lens/Quoter.sol#72-92) has external calls inside a loop: getPool(tokenIn,tokenOut,fee).swap(address(this),zeroForOne,amountIn.toInt256(),TickMath.MAX_SQRT_RATIO - 1,abi.encodePacked(tokenIn,fee,tokenOut)) (contracts/lens/Quoter.sol#81-91)
+Quoter.quoteExactInputSingle(address,address,uint24,uint256,uint160) (contracts/lens/Quoter.sol#72-92) has external calls inside a loop: getPool(tokenIn,tokenOut,fee).swap(address(this),zeroForOne,amountIn.toInt256(),sqrtPriceLimitX96,abi.encodePacked(tokenIn,fee,tokenOut)) (contracts/lens/Quoter.sol#81-91)
+Quoter.quoteExactOutputSingle(address,address,uint24,uint256,uint160) (contracts/lens/Quoter.sol#114-137) has external calls inside a loop: getPool(tokenIn,tokenOut,fee).swap(address(this),zeroForOne,- amountOut.toInt256(),TickMath.MIN_SQRT_RATIO + 1,abi.encodePacked(tokenOut,fee,tokenIn)) (contracts/lens/Quoter.sol#125-136)
+Quoter.quoteExactOutputSingle(address,address,uint24,uint256,uint160) (contracts/lens/Quoter.sol#114-137) has external calls inside a loop: getPool(tokenIn,tokenOut,fee).swap(address(this),zeroForOne,- amountOut.toInt256(),TickMath.MAX_SQRT_RATIO - 1,abi.encodePacked(tokenOut,fee,tokenIn)) (contracts/lens/Quoter.sol#125-136)
+Quoter.quoteExactOutputSingle(address,address,uint24,uint256,uint160) (contracts/lens/Quoter.sol#114-137) has external calls inside a loop: getPool(tokenIn,tokenOut,fee).swap(address(this),zeroForOne,- amountOut.toInt256(),sqrtPriceLimitX96,abi.encodePacked(tokenOut,fee,tokenIn)) (contracts/lens/Quoter.sol#125-136)
+QuoterV2.quoteExactInputSingle(IQuoterV2.QuoteExactInputSingleParams) (contracts/lens/QuoterV2.sol#101-122) has external calls inside a loop: pool.swap(address(this),zeroForOne,params.amountIn.toInt256(),TickMath.MIN_SQRT_RATIO + 1,abi.encodePacked(params.tokenIn,params.fee,params.tokenOut)) (contracts/lens/QuoterV2.sol#110-121)
+QuoterV2.handleRevert(bytes,IThrusterPool,uint256) (contracts/lens/QuoterV2.sol#86-99) has external calls inside a loop: (None,tickBefore,None,None,None,None,None) = pool.slot0() (contracts/lens/QuoterV2.sol#93)
+PoolTicksCounter.countInitializedTicksCrossed(IThrusterPool,int24,int24) (contracts/libraries/PoolTicksCounter.sol#11-82) has external calls inside a loop: bitPosAfter = uint8((tickAfter / self.tickSpacing()) % 256) (contracts/libraries/PoolTicksCounter.sol#29)
+PoolTicksCounter.countInitializedTicksCrossed(IThrusterPool,int24,int24) (contracts/libraries/PoolTicksCounter.sol#11-82) has external calls inside a loop: wordPos = int16((tickBefore / self.tickSpacing()) >> 8) (contracts/libraries/PoolTicksCounter.sol#25)
+PoolTicksCounter.countInitializedTicksCrossed(IThrusterPool,int24,int24) (contracts/libraries/PoolTicksCounter.sol#11-82) has external calls inside a loop: masked = self.tickBitmap(wordPosLower) & mask (contracts/libraries/PoolTicksCounter.sol#66)
+PoolTicksCounter.countInitializedTicksCrossed(IThrusterPool,int24,int24) (contracts/libraries/PoolTicksCounter.sol#11-82) has external calls inside a loop: bitPos = uint8((tickBefore / self.tickSpacing()) % 256) (contracts/libraries/PoolTicksCounter.sol#26)
+PoolTicksCounter.countInitializedTicksCrossed(IThrusterPool,int24,int24) (contracts/libraries/PoolTicksCounter.sol#11-82) has external calls inside a loop: tickBeforeInitialized = ((self.tickBitmap(wordPos) & (1 << bitPos)) > 0) && ((tickBefore % self.tickSpacing()) == 0) && (tickBefore < tickAfter) (contracts/libraries/PoolTicksCounter.sol#40-41)
+PoolTicksCounter.countInitializedTicksCrossed(IThrusterPool,int24,int24) (contracts/libraries/PoolTicksCounter.sol#11-82) has external calls inside a loop: wordPosAfter = int16((tickAfter / self.tickSpacing()) >> 8) (contracts/libraries/PoolTicksCounter.sol#28)
+PoolTicksCounter.countInitializedTicksCrossed(IThrusterPool,int24,int24) (contracts/libraries/PoolTicksCounter.sol#11-82) has external calls inside a loop: tickAfterInitialized = ((self.tickBitmap(wordPosAfter) & (1 << bitPosAfter)) > 0) && ((tickAfter % self.tickSpacing()) == 0) && (tickBefore > tickAfter) (contracts/libraries/PoolTicksCounter.sol#35-36)
+QuoterV2.quoteExactInputSingle(IQuoterV2.QuoteExactInputSingleParams) (contracts/lens/QuoterV2.sol#101-122) has external calls inside a loop: pool.swap(address(this),zeroForOne,params.amountIn.toInt256(),TickMath.MAX_SQRT_RATIO - 1,abi.encodePacked(params.tokenIn,params.fee,params.tokenOut)) (contracts/lens/QuoterV2.sol#110-121)
+QuoterV2.quoteExactInputSingle(IQuoterV2.QuoteExactInputSingleParams) (contracts/lens/QuoterV2.sol#101-122) has external calls inside a loop: pool.swap(address(this),zeroForOne,params.amountIn.toInt256(),params.sqrtPriceLimitX96,abi.encodePacked(params.tokenIn,params.fee,params.tokenOut)) (contracts/lens/QuoterV2.sol#110-121)
+QuoterV2.quoteExactOutputSingle(IQuoterV2.QuoteExactOutputSingleParams) (contracts/lens/QuoterV2.sol#168-192) has external calls inside a loop: pool.swap(address(this),zeroForOne,- params.amount.toInt256(),TickMath.MIN_SQRT_RATIO + 1,abi.encodePacked(params.tokenOut,params.fee,params.tokenIn)) (contracts/lens/QuoterV2.sol#179-191)
+QuoterV2.quoteExactOutputSingle(IQuoterV2.QuoteExactOutputSingleParams) (contracts/lens/QuoterV2.sol#168-192) has external calls inside a loop: pool.swap(address(this),zeroForOne,- params.amount.toInt256(),TickMath.MAX_SQRT_RATIO - 1,abi.encodePacked(params.tokenOut,params.fee,params.tokenIn)) (contracts/lens/QuoterV2.sol#179-191)
+QuoterV2.quoteExactOutputSingle(IQuoterV2.QuoteExactOutputSingleParams) (contracts/lens/QuoterV2.sol#168-192) has external calls inside a loop: pool.swap(address(this),zeroForOne,- params.amount.toInt256(),params.sqrtPriceLimitX96,abi.encodePacked(params.tokenOut,params.fee,params.tokenIn)) (contracts/lens/QuoterV2.sol#179-191)
+ThrusterMulticall.multicall(ThrusterMulticall.Call[]) (contracts/lens/ThrusterMulticall.sol#31-42) has external calls inside a loop: (success,ret) = target.call{gas: gasLimit}(callData) (contracts/lens/ThrusterMulticall.sol#38)
+TickLens.getPopulatedTicksInWord(address,int16) (contracts/lens/TickLens.sol#11-37) has external calls inside a loop: (liquidityGross,liquidityNet) = IThrusterPool(pool).ticks(populatedTick) (contracts/lens/TickLens.sol#32)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+INFO:Detectors:
+Reentrancy in ThrusterPoolFactory.createPool(address,address,uint24) (contracts/ThrusterPoolFactory.sol#43-61):
+	External calls:
+	- pool = IThrusterPoolDeployer(deployer).deploy(address(this),token0,token1,fee,tickSpacing) (contracts/ThrusterPoolFactory.sol#55)
+	State variables written after the call(s):
+	- poolExists[pool] = true (contracts/ThrusterPoolFactory.sol#59)
+Reentrancy in ThrusterPoolDeployer.deploy(address,address,address,uint24,int24) (contracts/ThrusterPoolDeployer.sol#34-43):
+	External calls:
+	- pool = address(new ThrusterPool()) (contracts/ThrusterPoolDeployer.sol#41)
+	State variables written after the call(s):
+	- delete parameters (contracts/ThrusterPoolDeployer.sol#42)
+Reentrancy in SwapRouter.exactOutput(ISwapRouter.ExactOutputParams) (contracts/SwapRouter.sol#217-233):
+	External calls:
+	- exactOutputInternal(params.amountOut,params.recipient,0,SwapCallbackData({path:params.path,payer:msg.sender})) (contracts/SwapRouter.sol#226-228)
+		- (amount0Delta,amount1Delta) = getPool(tokenIn,tokenOut,fee).swap(recipient,zeroForOne,- amountOut.toInt256(),sqrtPriceLimitX96,abi.encode(data)) (contracts/SwapRouter.sol#176-184)
+		- (amount0Delta,amount1Delta) = getPool(tokenIn,tokenOut,fee).swap(recipient,zeroForOne,- amountOut.toInt256(),TickMath.MIN_SQRT_RATIO + 1,abi.encode(data)) (contracts/SwapRouter.sol#176-184)
+		- (amount0Delta,amount1Delta) = getPool(tokenIn,tokenOut,fee).swap(recipient,zeroForOne,- amountOut.toInt256(),TickMath.MAX_SQRT_RATIO - 1,abi.encode(data)) (contracts/SwapRouter.sol#176-184)
+	State variables written after the call(s):
+	- amountInCached = DEFAULT_AMOUNT_IN_CACHED (contracts/SwapRouter.sol#232)
+Reentrancy in SwapRouter.exactOutputSingle(ISwapRouter.ExactOutputSingleParams) (contracts/SwapRouter.sol#196-214):
+	External calls:
+	- amountIn = exactOutputInternal(params.amountOut,params.recipient,params.sqrtPriceLimitX96,SwapCallbackData({path:abi.encodePacked(params.tokenOut,params.fee,params.tokenIn),payer:msg.sender})) (contracts/SwapRouter.sol#204-209)
+		- (amount0Delta,amount1Delta) = getPool(tokenIn,tokenOut,fee).swap(recipient,zeroForOne,- amountOut.toInt256(),sqrtPriceLimitX96,abi.encode(data)) (contracts/SwapRouter.sol#176-184)
+		- (amount0Delta,amount1Delta) = getPool(tokenIn,tokenOut,fee).swap(recipient,zeroForOne,- amountOut.toInt256(),TickMath.MIN_SQRT_RATIO + 1,abi.encode(data)) (contracts/SwapRouter.sol#176-184)
+		- (amount0Delta,amount1Delta) = getPool(tokenIn,tokenOut,fee).swap(recipient,zeroForOne,- amountOut.toInt256(),TickMath.MAX_SQRT_RATIO - 1,abi.encode(data)) (contracts/SwapRouter.sol#176-184)
+	State variables written after the call(s):
+	- amountInCached = DEFAULT_AMOUNT_IN_CACHED (contracts/SwapRouter.sol#213)
+Reentrancy in NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams) (contracts/NonfungiblePositionManager.sol#130-179):
+	External calls:
+	- (liquidity,amount0,amount1,pool) = addLiquidity(AddLiquidityParams({token0:params.token0,token1:params.token1,fee:params.fee,recipient:address(this),tickLower:params.tickLower,tickUpper:params.tickUpper,amount0Desired:params.amount0Desired,amount1Desired:params.amount1Desired,amount0Min:params.amount0Min,amount1Min:params.amount1Min})) (contracts/NonfungiblePositionManager.sol#138-151)
+		- (amount0,amount1) = pool.mint(params.recipient,params.tickLower,params.tickUpper,liquidity,abi.encode(MintCallbackData({poolKey:poolKey,payer:msg.sender}))) (contracts/base/LiquidityManagement.sol#67-73)
+	State variables written after the call(s):
+	- _mint(params.recipient,(tokenId = _nextId ++)) (contracts/NonfungiblePositionManager.sol#153)
+	- poolId = cachePoolKey(address(pool),PoolAddress.PoolKey({token0:params.token0,token1:params.token1,fee:params.fee})) (contracts/NonfungiblePositionManager.sol#160-162)
+		- _poolIds[pool] = (poolId = _nextPoolId ++) (contracts/NonfungiblePositionManager.sol#124)
+	- poolId = cachePoolKey(address(pool),PoolAddress.PoolKey({token0:params.token0,token1:params.token1,fee:params.fee})) (contracts/NonfungiblePositionManager.sol#160-162)
+		- _poolIdToPoolKey[poolId] = poolKey (contracts/NonfungiblePositionManager.sol#125)
+	- poolId = cachePoolKey(address(pool),PoolAddress.PoolKey({token0:params.token0,token1:params.token1,fee:params.fee})) (contracts/NonfungiblePositionManager.sol#160-162)
+		- _poolIds[pool] = (poolId = _nextPoolId ++) (contracts/NonfungiblePositionManager.sol#124)
+	- _positions[tokenId] = Position({nonce:0,operator:address(0),poolId:poolId,tickLower:params.tickLower,tickUpper:params.tickUpper,liquidity:liquidity,feeGrowthInside0LastX128:feeGrowthInside0LastX128,feeGrowthInside1LastX128:feeGrowthInside1LastX128,tokensOwed0:0,tokensOwed1:0}) (contracts/NonfungiblePositionManager.sol#164-175)
+Reentrancy in Quoter.quoteExactOutputSingle(address,address,uint24,uint256,uint160) (contracts/lens/Quoter.sol#114-137):
+	External calls:
+	- getPool(tokenIn,tokenOut,fee).swap(address(this),zeroForOne,- amountOut.toInt256(),sqrtPriceLimitX96,abi.encodePacked(tokenOut,fee,tokenIn)) (contracts/lens/Quoter.sol#125-136)
+	- getPool(tokenIn,tokenOut,fee).swap(address(this),zeroForOne,- amountOut.toInt256(),TickMath.MIN_SQRT_RATIO + 1,abi.encodePacked(tokenOut,fee,tokenIn)) (contracts/lens/Quoter.sol#125-136)
+	- getPool(tokenIn,tokenOut,fee).swap(address(this),zeroForOne,- amountOut.toInt256(),TickMath.MAX_SQRT_RATIO - 1,abi.encodePacked(tokenOut,fee,tokenIn)) (contracts/lens/Quoter.sol#125-136)
+	State variables written after the call(s):
+	- delete amountOutCached (contracts/lens/Quoter.sol#134)
+Reentrancy in QuoterV2.quoteExactOutputSingle(IQuoterV2.QuoteExactOutputSingleParams) (contracts/lens/QuoterV2.sol#168-192):
+	External calls:
+	- pool.swap(address(this),zeroForOne,- params.amount.toInt256(),params.sqrtPriceLimitX96,abi.encodePacked(params.tokenOut,params.fee,params.tokenIn)) (contracts/lens/QuoterV2.sol#179-191)
+	- pool.swap(address(this),zeroForOne,- params.amount.toInt256(),TickMath.MIN_SQRT_RATIO + 1,abi.encodePacked(params.tokenOut,params.fee,params.tokenIn)) (contracts/lens/QuoterV2.sol#179-191)
+	- pool.swap(address(this),zeroForOne,- params.amount.toInt256(),TickMath.MAX_SQRT_RATIO - 1,abi.encodePacked(params.tokenOut,params.fee,params.tokenIn)) (contracts/lens/QuoterV2.sol#179-191)
+	State variables written after the call(s):
+	- delete amountOutCached (contracts/lens/QuoterV2.sol#189)
+Reentrancy in ThrusterPool.swap(address,bool,int256,uint160,bytes) (contracts/ThrusterPool.sol#567-761):
+	External calls:
+	- IThrusterGauge(gauge).checkpoint(cache.blockTimestamp) (contracts/ThrusterPool.sol#598)
+	- IThrusterGauge(gauge).cross(step.tickNext,zeroForOne) (contracts/ThrusterPool.sol#682)
+	State variables written after the call(s):
+	- protocolFees.token0 += state.protocolFee (contracts/ThrusterPool.sol#731)
+	- protocolFees.token1 += state.protocolFee (contracts/ThrusterPool.sol#734)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+INFO:Detectors:
+Reentrancy in ThrusterGas.claimGas(address,uint256) (contracts/ThrusterGas.sol#21-33):
+	External calls:
+	- amount = BLAST.claimMaxGas(address(this),_recipient) (contracts/ThrusterGas.sol#28)
+	- amount = BLAST.claimGasAtMinClaimRate(address(this),_recipient,_minClaimRateBips) (contracts/ThrusterGas.sol#30)
+	Event emitted after the call(s):
+	- ClaimGas(_recipient,amount) (contracts/ThrusterGas.sol#32)
+Reentrancy in NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams) (contracts/NonfungiblePositionManager.sol#296-359):
+	External calls:
+	- pool.burn(position.tickLower,position.tickUpper,0) (contracts/NonfungiblePositionManager.sol#317)
+	- (amount0,amount1) = pool.collect(recipient,position.tickLower,position.tickUpper,amount0Collect,amount1Collect) (contracts/NonfungiblePositionManager.sol#343-344)
+	Event emitted after the call(s):
+	- Collect(params.tokenId,recipient,amount0Collect,amount1Collect,position.tickLower,position.tickUpper,address(pool)) (contracts/NonfungiblePositionManager.sol#350-358)
+Reentrancy in ThrusterPool.collect(address,int24,int24,uint128,uint128) (contracts/ThrusterPool.sol#463-486):
+	External calls:
+	- TransferHelper.safeTransfer(token0,recipient,amount0) (contracts/ThrusterPool.sol#478)
+	- TransferHelper.safeTransfer(token1,recipient,amount1) (contracts/ThrusterPool.sol#482)
+	Event emitted after the call(s):
+	- Collect(msg.sender,recipient,tickLower,tickUpper,amount0,amount1) (contracts/ThrusterPool.sol#485)
+Reentrancy in ThrusterPool.collectProtocol(address,uint128,uint128) (contracts/ThrusterPool.sol#773-795):
+	External calls:
+	- TransferHelper.safeTransfer(token0,recipient,amount0) (contracts/ThrusterPool.sol#786)
+	- TransferHelper.safeTransfer(token1,recipient,amount1) (contracts/ThrusterPool.sol#791)
+	Event emitted after the call(s):
+	- CollectProtocol(msg.sender,recipient,amount0,amount1) (contracts/ThrusterPool.sol#794)
+Reentrancy in ThrusterPoolFactory.createPool(address,address,uint24) (contracts/ThrusterPoolFactory.sol#43-61):
+	External calls:
+	- pool = IThrusterPoolDeployer(deployer).deploy(address(this),token0,token1,fee,tickSpacing) (contracts/ThrusterPoolFactory.sol#55)
+	Event emitted after the call(s):
+	- PoolCreated(token0,token1,fee,tickSpacing,pool) (contracts/ThrusterPoolFactory.sol#60)
+Reentrancy in NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#248-293):
+	External calls:
+	- (amount0,amount1) = pool.burn(position.tickLower,position.tickUpper,params.liquidity) (contracts/NonfungiblePositionManager.sol#264)
+	Event emitted after the call(s):
+	- DecreaseLiquidity(params.tokenId,params.liquidity,amount0,amount1,position.tickLower,position.tickUpper,address(pool)) (contracts/NonfungiblePositionManager.sol#290-292)
+Reentrancy in NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams) (contracts/NonfungiblePositionManager.sol#195-245):
+	External calls:
+	- (liquidity,amount0,amount1,pool) = addLiquidity(AddLiquidityParams({token0:poolKey.token0,token1:poolKey.token1,fee:poolKey.fee,tickLower:position.tickLower,tickUpper:position.tickUpper,amount0Desired:params.amount0Desired,amount1Desired:params.amount1Desired,amount0Min:params.amount0Min,amount1Min:params.amount1Min,recipient:address(this)})) (contracts/NonfungiblePositionManager.sol#207-220)
+		- (amount0,amount1) = pool.mint(params.recipient,params.tickLower,params.tickUpper,liquidity,abi.encode(MintCallbackData({poolKey:poolKey,payer:msg.sender}))) (contracts/base/LiquidityManagement.sol#67-73)
+	Event emitted after the call(s):
+	- IncreaseLiquidity(params.tokenId,liquidity,amount0,amount1,position.tickLower,position.tickUpper,address(pool)) (contracts/NonfungiblePositionManager.sol#242-244)
+Reentrancy in NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams) (contracts/NonfungiblePositionManager.sol#130-179):
+	External calls:
+	- (liquidity,amount0,amount1,pool) = addLiquidity(AddLiquidityParams({token0:params.token0,token1:params.token1,fee:params.fee,recipient:address(this),tickLower:params.tickLower,tickUpper:params.tickUpper,amount0Desired:params.amount0Desired,amount1Desired:params.amount1Desired,amount0Min:params.amount0Min,amount1Min:params.amount1Min})) (contracts/NonfungiblePositionManager.sol#138-151)
+		- (amount0,amount1) = pool.mint(params.recipient,params.tickLower,params.tickUpper,liquidity,abi.encode(MintCallbackData({poolKey:poolKey,payer:msg.sender}))) (contracts/base/LiquidityManagement.sol#67-73)
+	Event emitted after the call(s):
+	- IncreaseLiquidity(tokenId,liquidity,amount0,amount1,params.tickLower,params.tickUpper,address(pool)) (contracts/NonfungiblePositionManager.sol#178)
+	- Transfer(address(0),to,tokenId) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#343)
+		- _mint(params.recipient,(tokenId = _nextId ++)) (contracts/NonfungiblePositionManager.sol#153)
+Reentrancy in ThrusterPool.mint(address,int24,int24,uint128,bytes) (contracts/ThrusterPool.sol#432-460):
+	External calls:
+	- IThrusterMintCallback(msg.sender).thrusterMintCallback(amount0,amount1,data) (contracts/ThrusterPool.sol#455)
+	Event emitted after the call(s):
+	- Mint(msg.sender,recipient,tickLower,tickUpper,amount,amount0,amount1) (contracts/ThrusterPool.sol#459)
+Reentrancy in ThrusterPool.swap(address,bool,int256,uint160,bytes) (contracts/ThrusterPool.sol#567-761):
+	External calls:
+	- IThrusterGauge(gauge).checkpoint(cache.blockTimestamp) (contracts/ThrusterPool.sol#598)
+	- IThrusterGauge(gauge).cross(step.tickNext,zeroForOne) (contracts/ThrusterPool.sol#682)
+	- TransferHelper.safeTransfer(token1,recipient,uint256(- amount1)) (contracts/ThrusterPool.sol#743)
+	- IThrusterSwapCallback(msg.sender).thrusterSwapCallback(amount0,amount1,data) (contracts/ThrusterPool.sol#746)
+	- TransferHelper.safeTransfer(token0,recipient,uint256(- amount0)) (contracts/ThrusterPool.sol#749)
+	- IThrusterSwapCallback(msg.sender).thrusterSwapCallback(amount0,amount1,data) (contracts/ThrusterPool.sol#752)
+	Event emitted after the call(s):
+	- Swap(msg.sender,recipient,amount0,amount1,state.sqrtPriceX96,state.liquidity,state.tick) (contracts/ThrusterPool.sol#756)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+INFO:Detectors:
+ThrusterMulticall.multicall(ThrusterMulticall.Call[]) (contracts/lens/ThrusterMulticall.sol#31-42) tries to limit the gas of an external call that controls implicit decoding
+	(success,ret) = target.call{gas: gasLimit}(callData) (contracts/lens/ThrusterMulticall.sol#38)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#return-bomb
+INFO:Detectors:
+ThrusterPool.initialize(uint160) (contracts/ThrusterPool.sol#269-287) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(slot0.sqrtPriceX96 == 0,AI) (contracts/ThrusterPool.sol#270)
+ThrusterPool.swap(address,bool,int256,uint160,bytes) (contracts/ThrusterPool.sol#567-761) uses timestamp for comparisons
+	Dangerous comparisons:
+	- state.amountSpecifiedRemaining != 0 && state.sqrtPriceX96 != sqrtPriceLimitX96 (contracts/ThrusterPool.sol#614)
+	- step.tickNext < TickMath.MIN_TICK (contracts/ThrusterPool.sol#623)
+	- step.tickNext > TickMath.MAX_TICK (contracts/ThrusterPool.sol#625)
+	- cache.feeProtocol > 0 (contracts/ThrusterPool.sol#652)
+	- state.liquidity > 0 (contracts/ThrusterPool.sol#659)
+	- state.sqrtPriceX96 == step.sqrtPriceNextX96 (contracts/ThrusterPool.sol#664)
+	- state.sqrtPriceX96 != step.sqrtPriceStartX96 (contracts/ThrusterPool.sol#701)
+	- state.tick != slot0Start.tick (contracts/ThrusterPool.sol#708)
+	- cache.liquidityStart != state.liquidity (contracts/ThrusterPool.sol#725)
+	- state.protocolFee > 0 (contracts/ThrusterPool.sol#731)
+	- state.protocolFee > 0 (contracts/ThrusterPool.sol#734)
+	- amount1 < 0 (contracts/ThrusterPool.sol#743)
+	- require(bool,string)(balance0Before.add(uint256(amount0)) <= balance0(),IIA) (contracts/ThrusterPool.sol#747)
+	- amount0 < 0 (contracts/ThrusterPool.sol#749)
+	- require(bool,string)(balance1Before.add(uint256(amount1)) <= balance1(),IIA) (contracts/ThrusterPool.sol#753)
+	- (step.sqrtPriceNextX96 < sqrtPriceLimitX96) (contracts/ThrusterPool.sol#633-641)
+	- (step.sqrtPriceNextX96 > sqrtPriceLimitX96) (contracts/ThrusterPool.sol#633-641)
+ERC721Permit.permit(address,uint256,uint256,uint8,bytes32,bytes32) (contracts/base/ERC721Permit.sol#51-77) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(_blockTimestamp() <= deadline,Permit expired) (contracts/base/ERC721Permit.sol#56)
+OracleLibrary.getBlockStartingTickAndLiquidity(address) (contracts/libraries/OracleLibrary.sol#93-125) uses timestamp for comparisons
+	Dangerous comparisons:
+	- observationTimestamp != uint32(block.timestamp) (contracts/libraries/OracleLibrary.sol#104)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+INFO:Detectors:
+Multicall.multicall(bytes[]) (contracts/base/Multicall.sol#11-27) uses assembly
+	- INLINE ASM (contracts/base/Multicall.sol#19-21)
+Quoter.thrusterSwapCallback(int256,int256,bytes) (contracts/lens/Quoter.sol#34-57) uses assembly
+	- INLINE ASM (contracts/lens/Quoter.sol#43-47)
+	- INLINE ASM (contracts/lens/Quoter.sol#51-55)
+Quoter.parseRevertReason(bytes) (contracts/lens/Quoter.sol#60-69) uses assembly
+	- INLINE ASM (contracts/lens/Quoter.sol#63-65)
+QuoterV2.thrusterSwapCallback(int256,int256,bytes) (contracts/lens/QuoterV2.sol#37-68) uses assembly
+	- INLINE ASM (contracts/lens/QuoterV2.sol#50-56)
+	- INLINE ASM (contracts/lens/QuoterV2.sol#60-66)
+QuoterV2.parseRevertReason(bytes) (contracts/lens/QuoterV2.sol#71-84) uses assembly
+	- INLINE ASM (contracts/lens/QuoterV2.sol#78-80)
+Base64.encode(bytes) (contracts/libraries/Base64.sol#10-61) uses assembly
+	- INLINE ASM (contracts/libraries/Base64.sol#22-58)
+BytesLib.slice(bytes,uint256,uint256) (contracts/libraries/BytesLib.sol#12-70) uses assembly
+	- INLINE ASM (contracts/libraries/BytesLib.sol#19-67)
+BytesLib.toAddress(bytes,uint256) (contracts/libraries/BytesLib.sol#72-82) uses assembly
+	- INLINE ASM (contracts/libraries/BytesLib.sol#77-79)
+BytesLib.toUint24(bytes,uint256) (contracts/libraries/BytesLib.sol#84-94) uses assembly
+	- INLINE ASM (contracts/libraries/BytesLib.sol#89-91)
+ChainId.get() (contracts/libraries/ChainId.sol#8-12) uses assembly
+	- INLINE ASM (contracts/libraries/ChainId.sol#9-11)
+FullMath.mulDiv(uint256,uint256,uint256) (contracts/libraries/FullMath.sol#14-102) uses assembly
+	- INLINE ASM (contracts/libraries/FullMath.sol#22-26)
+	- INLINE ASM (contracts/libraries/FullMath.sol#31-33)
+	- INLINE ASM (contracts/libraries/FullMath.sol#48-50)
+	- INLINE ASM (contracts/libraries/FullMath.sol#52-55)
+	- INLINE ASM (contracts/libraries/FullMath.sol#62-64)
+	- INLINE ASM (contracts/libraries/FullMath.sol#67-69)
+	- INLINE ASM (contracts/libraries/FullMath.sol#73-75)
+TickMath.getTickAtSqrtRatio(uint160) (contracts/libraries/TickMath.sol#61-204) uses assembly
+	- INLINE ASM (contracts/libraries/TickMath.sol#69-73)
+	- INLINE ASM (contracts/libraries/TickMath.sol#74-78)
+	- INLINE ASM (contracts/libraries/TickMath.sol#79-83)
+	- INLINE ASM (contracts/libraries/TickMath.sol#84-88)
+	- INLINE ASM (contracts/libraries/TickMath.sol#89-93)
+	- INLINE ASM (contracts/libraries/TickMath.sol#94-98)
+	- INLINE ASM (contracts/libraries/TickMath.sol#99-103)
+	- INLINE ASM (contracts/libraries/TickMath.sol#104-107)
+	- INLINE ASM (contracts/libraries/TickMath.sol#114-119)
+	- INLINE ASM (contracts/libraries/TickMath.sol#120-125)
+	- INLINE ASM (contracts/libraries/TickMath.sol#126-131)
+	- INLINE ASM (contracts/libraries/TickMath.sol#132-137)
+	- INLINE ASM (contracts/libraries/TickMath.sol#138-143)
+	- INLINE ASM (contracts/libraries/TickMath.sol#144-149)
+	- INLINE ASM (contracts/libraries/TickMath.sol#150-155)
+	- INLINE ASM (contracts/libraries/TickMath.sol#156-161)
+	- INLINE ASM (contracts/libraries/TickMath.sol#162-167)
+	- INLINE ASM (contracts/libraries/TickMath.sol#168-173)
+	- INLINE ASM (contracts/libraries/TickMath.sol#174-179)
+	- INLINE ASM (contracts/libraries/TickMath.sol#180-185)
+	- INLINE ASM (contracts/libraries/TickMath.sol#186-191)
+	- INLINE ASM (contracts/libraries/TickMath.sol#192-196)
+UnsafeMath.divRoundingUp(uint256,uint256) (contracts/libraries/UnsafeMath.sol#12-16) uses assembly
+	- INLINE ASM (contracts/libraries/UnsafeMath.sol#13-15)
+Address.isContract(address) (lib/openzeppelin-contracts/contracts/utils/Address.sol#26-35) uses assembly
+	- INLINE ASM (lib/openzeppelin-contracts/contracts/utils/Address.sol#33)
+Address._verifyCallResult(bool,bytes,string) (lib/openzeppelin-contracts/contracts/utils/Address.sol#171-188) uses assembly
+	- INLINE ASM (lib/openzeppelin-contracts/contracts/utils/Address.sol#180-183)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+INFO:Detectors:
+Different versions of Solidity are used:
+	- Version used: ['=0.7.6', '>=0.4.0', '>=0.4.0<0.8.0', '>=0.5.0', '>=0.5.0<0.8.0', '>=0.6.0', '>=0.6.0<0.8.0', '>=0.6.8<0.8.0', '>=0.7.0', '>=0.7.0<0.8.0', '>=0.7.5', '>=0.7.6', '^0.7.0']
+	- =0.7.6 (contracts/NoDelegateCall.sol#2)
+	- =0.7.6 (contracts/NonfungiblePositionManager.sol#2)
+	- =0.7.6 (contracts/NonfungibleTokenPositionDescriptor.sol#2)
+	- =0.7.6 (contracts/SwapRouter.sol#2)
+	- =0.7.6 (contracts/ThrusterGas.sol#2)
+	- =0.7.6 (contracts/ThrusterPool.sol#2)
+	- =0.7.6 (contracts/ThrusterPoolDeployer.sol#2)
+	- =0.7.6 (contracts/ThrusterPoolFactory.sol#2)
+	- =0.7.6 (contracts/base/BlockTimestamp.sol#2)
+	- =0.7.6 (contracts/base/ERC721Permit.sol#2)
+	- =0.7.6 (contracts/base/LiquidityManagement.sol#2)
+	- =0.7.6 (contracts/base/Multicall.sol#2)
+	- =0.7.6 (contracts/base/PeripheryImmutableState.sol#2)
+	- =0.7.6 (contracts/base/PeripheryValidation.sol#2)
+	- =0.7.6 (contracts/base/PoolInitializer.sol#2)
+	- =0.7.6 (contracts/lens/Quoter.sol#2)
+	- =0.7.6 (contracts/lens/QuoterV2.sol#2)
+	- =0.7.6 (contracts/lens/ThrusterMulticall.sol#2)
+	- =0.7.6 (contracts/libraries/CallbackValidation.sol#2)
+	- =0.7.6 (contracts/libraries/HexStrings.sol#2)
+	- =0.7.6 (contracts/libraries/TokenRatioSortOrder.sol#2)
+	- =0.7.6 (interfaces/external/IWETH9.sol#2)
+	- >=0.4.0 (contracts/libraries/FixedPoint128.sol#2)
+	- >=0.4.0 (contracts/libraries/FixedPoint96.sol#2)
+	- >=0.4.0<0.8.0 (contracts/libraries/FullMath.sol#2)
+	- >=0.5.0 (contracts/base/SelfPermit.sol#2)
+	- >=0.5.0 (contracts/lens/TickLens.sol#2)
+	- >=0.5.0 (contracts/libraries/BitMath.sol#2)
+	- >=0.5.0 (contracts/libraries/LiquidityAmounts.sol#2)
+	- >=0.5.0 (contracts/libraries/LiquidityMath.sol#2)
+	- >=0.5.0 (contracts/libraries/PositionKey.sol#2)
+	- >=0.5.0 (contracts/libraries/SafeCast.sol#2)
+	- >=0.5.0 (contracts/libraries/SqrtPriceMath.sol#2)
+	- >=0.5.0 (contracts/libraries/SqrtPriceMathPartial.sol#2)
+	- >=0.5.0 (contracts/libraries/SwapMath.sol#2)
+	- >=0.5.0 (contracts/libraries/UnsafeMath.sol#2)
+	- >=0.5.0 (interfaces/IBlast.sol#2)
+	- >=0.5.0 (interfaces/IERC20Minimal.sol#2)
+	- >=0.5.0 (interfaces/IERC20Rebasing.sol#2)
+	- >=0.5.0 (interfaces/INonfungibleTokenPositionDescriptor.sol#2)
+	- >=0.5.0 (interfaces/IPeripheryImmutableState.sol#2)
+	- >=0.5.0 (interfaces/IThrusterGas.sol#2)
+	- >=0.5.0 (interfaces/IThrusterGauge.sol#2)
+	- >=0.5.0 (interfaces/IThrusterPool.sol#2)
+	- >=0.5.0 (interfaces/IThrusterPoolDeployer.sol#2)
+	- >=0.5.0 (interfaces/IThrusterPoolFactory.sol#2)
+	- >=0.5.0 (interfaces/callback/IThrusterFlashCallback.sol#2)
+	- >=0.5.0 (interfaces/callback/IThrusterMintCallback.sol#2)
+	- >=0.5.0 (interfaces/callback/IThrusterSwapCallback.sol#2)
+	- >=0.5.0 (interfaces/external/IERC1271.sol#2)
+	- >=0.5.0 (interfaces/external/IERC20PermitAllowed.sol#2)
+	- >=0.5.0 (interfaces/pool/IThrusterPoolActions.sol#2)
+	- >=0.5.0 (interfaces/pool/IThrusterPoolDerivedState.sol#2)
+	- >=0.5.0 (interfaces/pool/IThrusterPoolEvents.sol#2)
+	- >=0.5.0 (interfaces/pool/IThrusterPoolImmutables.sol#2)
+	- >=0.5.0 (interfaces/pool/IThrusterPoolOwnerActions.sol#2)
+	- >=0.5.0 (interfaces/pool/IThrusterPoolState.sol#2)
+	- >=0.5.0 (lib/solidity-lib/contracts/libraries/SafeERC20Namer.sol#3)
+	- >=0.5.0<0.8.0 (contracts/libraries/BytesLib.sol#9)
+	- >=0.5.0<0.8.0 (contracts/libraries/Oracle.sol#2)
+	- >=0.5.0<0.8.0 (contracts/libraries/OracleLibrary.sol#2)
+	- >=0.5.0<0.8.0 (contracts/libraries/PoolAddress.sol#2)
+	- >=0.5.0<0.8.0 (contracts/libraries/Position.sol#2)
+	- >=0.5.0<0.8.0 (contracts/libraries/Tick.sol#2)
+	- >=0.5.0<0.8.0 (contracts/libraries/TickBitmap.sol#2)
+	- >=0.5.0<0.8.0 (contracts/libraries/TickMath.sol#2)
+	- >=0.5.0<0.8.0 (lib/solidity-lib/contracts/libraries/AddressStringUtil.sol#3)
+	- >=0.6.0 (contracts/libraries/Path.sol#2)
+	- >=0.6.0 (contracts/libraries/TransferHelper.sol#2)
+	- >=0.6.0<0.8.0 (contracts/libraries/PoolTicksCounter.sol#2)
+	- >=0.6.0<0.8.0 (lib/openzeppelin-contracts/contracts/drafts/IERC20Permit.sol#3)
+	- >=0.6.0<0.8.0 (lib/openzeppelin-contracts/contracts/utils/Context.sol#3)
+	- >=0.6.8<0.8.0 (contracts/libraries/PositionValue.sol#2)
+	- >=0.7.0 (contracts/libraries/Base64.sol#2)
+	- >=0.7.0 (contracts/libraries/LowGasSafeMath.sol#2)
+	- >=0.7.0 (contracts/libraries/NFTDescriptor.sol#2)
+	- >=0.7.0<0.8.0 (contracts/libraries/ChainId.sol#2)
+	- >=0.7.5 (contracts/base/PeripheryPayments.sol#2)
+	- >=0.7.5 (contracts/base/PeripheryPaymentsWithFee.sol#2)
+	- >=0.7.5 (interfaces/IERC721Permit.sol#2)
+	- >=0.7.5 (interfaces/IMulticall.sol#2)
+	- >=0.7.5 (interfaces/INonfungiblePositionManager.sol#2)
+	- >=0.7.5 (interfaces/IPeripheryPayments.sol#2)
+	- >=0.7.5 (interfaces/IPeripheryPaymentsWithFee.sol#2)
+	- >=0.7.5 (interfaces/IPoolInitializer.sol#2)
+	- >=0.7.5 (interfaces/IQuoter.sol#2)
+	- >=0.7.5 (interfaces/IQuoterV2.sol#2)
+	- >=0.7.5 (interfaces/ISelfPermit.sol#2)
+	- >=0.7.5 (interfaces/ISwapRouter.sol#2)
+	- >=0.7.5 (interfaces/ITickLens.sol#2)
+	- >=0.7.6 (contracts/libraries/NFTSVG.sol#2)
+	- ^0.7.0 (interfaces/IERC20Metadata.sol#2)
+	- ^0.7.0 (lib/openzeppelin-contracts/contracts/introspection/ERC165.sol#3)
+	- ^0.7.0 (lib/openzeppelin-contracts/contracts/introspection/IERC165.sol#3)
+	- ^0.7.0 (lib/openzeppelin-contracts/contracts/math/SafeMath.sol#3)
+	- ^0.7.0 (lib/openzeppelin-contracts/contracts/math/SignedSafeMath.sol#3)
+	- ^0.7.0 (lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol#3)
+	- ^0.7.0 (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#3)
+	- ^0.7.0 (lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol#3)
+	- ^0.7.0 (lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Enumerable.sol#3)
+	- ^0.7.0 (lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Metadata.sol#3)
+	- ^0.7.0 (lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol#3)
+	- ^0.7.0 (lib/openzeppelin-contracts/contracts/utils/Address.sol#3)
+	- ^0.7.0 (lib/openzeppelin-contracts/contracts/utils/EnumerableMap.sol#3)
+	- ^0.7.0 (lib/openzeppelin-contracts/contracts/utils/EnumerableSet.sol#3)
+	- ^0.7.0 (lib/openzeppelin-contracts/contracts/utils/Strings.sol#3)
+	- v2 (contracts/NonfungiblePositionManager.sol#3)
+	- v2 (contracts/NonfungibleTokenPositionDescriptor.sol#3)
+	- v2 (contracts/SwapRouter.sol#3)
+	- v2 (contracts/base/LiquidityManagement.sol#3)
+	- v2 (contracts/base/Multicall.sol#3)
+	- v2 (contracts/lens/Quoter.sol#3)
+	- v2 (contracts/lens/QuoterV2.sol#3)
+	- v2 (contracts/lens/ThrusterMulticall.sol#3)
+	- v2 (contracts/lens/TickLens.sol#3)
+	- v2 (contracts/libraries/NFTDescriptor.sol#3)
+	- v2 (interfaces/IMulticall.sol#3)
+	- v2 (interfaces/INonfungiblePositionManager.sol#3)
+	- v2 (interfaces/IPoolInitializer.sol#3)
+	- v2 (interfaces/IQuoter.sol#3)
+	- v2 (interfaces/IQuoterV2.sol#3)
+	- v2 (interfaces/ISwapRouter.sol#3)
+	- v2 (interfaces/ITickLens.sol#3)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#different-pragma-directives-are-used
+INFO:Detectors:
+Quoter.quoteExactOutputSingle(address,address,uint24,uint256,uint160) (contracts/lens/Quoter.sol#114-137) has costly operations inside a loop:
+	- amountOutCached = amountOut (contracts/lens/Quoter.sol#124)
+Quoter.quoteExactOutputSingle(address,address,uint24,uint256,uint160) (contracts/lens/Quoter.sol#114-137) has costly operations inside a loop:
+	- delete amountOutCached (contracts/lens/Quoter.sol#134)
+QuoterV2.quoteExactOutputSingle(IQuoterV2.QuoteExactOutputSingleParams) (contracts/lens/QuoterV2.sol#168-192) has costly operations inside a loop:
+	- amountOutCached = params.amount (contracts/lens/QuoterV2.sol#177)
+QuoterV2.quoteExactOutputSingle(IQuoterV2.QuoteExactOutputSingleParams) (contracts/lens/QuoterV2.sol#168-192) has costly operations inside a loop:
+	- delete amountOutCached (contracts/lens/QuoterV2.sol#189)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#costly-operations-inside-a-loop
+INFO:Detectors:
+ThrusterPool.swap(address,bool,int256,uint160,bytes) (contracts/ThrusterPool.sol#567-761) has a high cyclomatic complexity (30).
+SwapMath.computeSwapStep(uint160,uint160,uint128,int256,uint24) (contracts/libraries/SwapMath.sol#21-86) has a high cyclomatic complexity (13).
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) has a high cyclomatic complexity (24).
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#cyclomatic-complexity
+INFO:Detectors:
+LiquidityAmounts.getAmount0ForLiquidity(uint160,uint160,uint128) (contracts/libraries/LiquidityAmounts.sol#82-92) is never used and should be removed
+LiquidityAmounts.getAmount1ForLiquidity(uint160,uint160,uint128) (contracts/libraries/LiquidityAmounts.sol#99-107) is never used and should be removed
+LiquidityAmounts.getAmountsForLiquidity(uint160,uint160,uint160,uint128) (contracts/libraries/LiquidityAmounts.sol#117-133) is never used and should be removed
+LowGasSafeMath.sub(uint256,uint256) (contracts/libraries/LowGasSafeMath.sol#19-21) is never used and should be removed
+OracleLibrary.consult(address,uint32) (contracts/libraries/OracleLibrary.sol#17-42) is never used and should be removed
+OracleLibrary.getBlockStartingTickAndLiquidity(address) (contracts/libraries/OracleLibrary.sol#93-125) is never used and should be removed
+OracleLibrary.getChainedPrice(address[],int24[]) (contracts/libraries/OracleLibrary.sol#167-178) is never used and should be removed
+OracleLibrary.getOldestObservationSecondsAgo(address) (contracts/libraries/OracleLibrary.sol#74-88) is never used and should be removed
+OracleLibrary.getQuoteAtTick(int24,uint128,address,address) (contracts/libraries/OracleLibrary.sol#50-69) is never used and should be removed
+OracleLibrary.getWeightedArithmeticMeanTick(OracleLibrary.WeightedTickData[]) (contracts/libraries/OracleLibrary.sol#139-159) is never used and should be removed
+PositionValue._fees(INonfungiblePositionManager,PositionValue.FeeParams) (contracts/libraries/PositionValue.sol#107-134) is never used and should be removed
+PositionValue._getFeeGrowthInside(IThrusterPool,int24,int24) (contracts/libraries/PositionValue.sol#136-157) is never used and should be removed
+PositionValue.fees(INonfungiblePositionManager,uint256) (contracts/libraries/PositionValue.sol#70-105) is never used and should be removed
+PositionValue.principal(INonfungiblePositionManager,uint256,uint160) (contracts/libraries/PositionValue.sol#40-50) is never used and should be removed
+PositionValue.total(INonfungiblePositionManager,uint256,uint160) (contracts/libraries/PositionValue.sol#23-31) is never used and should be removed
+SqrtPriceMathPartial.getAmount0Delta(uint160,uint160,uint128,bool) (contracts/libraries/SqrtPriceMathPartial.sol#20-35) is never used and should be removed
+SqrtPriceMathPartial.getAmount1Delta(uint160,uint160,uint128,bool) (contracts/libraries/SqrtPriceMathPartial.sol#44-54) is never used and should be removed
+TransferHelper.safeApprove(address,address,uint256) (contracts/libraries/TransferHelper.sol#34-37) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+INFO:Detectors:
+Pragma version=0.7.6 (contracts/NoDelegateCall.sol#2) allows old versions
+Pragma version=0.7.6 (contracts/NonfungiblePositionManager.sol#2) allows old versions
+Pragma version=0.7.6 (contracts/NonfungibleTokenPositionDescriptor.sol#2) allows old versions
+Pragma version=0.7.6 (contracts/SwapRouter.sol#2) allows old versions
+Pragma version=0.7.6 (contracts/ThrusterGas.sol#2) allows old versions
+Pragma version=0.7.6 (contracts/ThrusterPool.sol#2) allows old versions
+Pragma version=0.7.6 (contracts/ThrusterPoolDeployer.sol#2) allows old versions
+Pragma version=0.7.6 (contracts/ThrusterPoolFactory.sol#2) allows old versions
+Pragma version=0.7.6 (contracts/base/BlockTimestamp.sol#2) allows old versions
+Pragma version=0.7.6 (contracts/base/ERC721Permit.sol#2) allows old versions
+Pragma version=0.7.6 (contracts/base/LiquidityManagement.sol#2) allows old versions
+Pragma version=0.7.6 (contracts/base/Multicall.sol#2) allows old versions
+Pragma version=0.7.6 (contracts/base/PeripheryImmutableState.sol#2) allows old versions
+Pragma version>=0.7.5 (contracts/base/PeripheryPayments.sol#2) allows old versions
+Pragma version>=0.7.5 (contracts/base/PeripheryPaymentsWithFee.sol#2) allows old versions
+Pragma version=0.7.6 (contracts/base/PeripheryValidation.sol#2) allows old versions
+Pragma version=0.7.6 (contracts/base/PoolInitializer.sol#2) allows old versions
+Pragma version>=0.5.0 (contracts/base/SelfPermit.sol#2) allows old versions
+Pragma version=0.7.6 (contracts/lens/Quoter.sol#2) allows old versions
+Pragma version=0.7.6 (contracts/lens/QuoterV2.sol#2) allows old versions
+Pragma version=0.7.6 (contracts/lens/ThrusterMulticall.sol#2) allows old versions
+Pragma version>=0.5.0 (contracts/lens/TickLens.sol#2) allows old versions
+Pragma version>=0.7.0 (contracts/libraries/Base64.sol#2) allows old versions
+Pragma version>=0.5.0 (contracts/libraries/BitMath.sol#2) allows old versions
+Pragma version>=0.5.0<0.8.0 (contracts/libraries/BytesLib.sol#9) is too complex
+Pragma version=0.7.6 (contracts/libraries/CallbackValidation.sol#2) allows old versions
+Pragma version>=0.7.0<0.8.0 (contracts/libraries/ChainId.sol#2) is too complex
+Pragma version>=0.4.0 (contracts/libraries/FixedPoint128.sol#2) allows old versions
+Pragma version>=0.4.0 (contracts/libraries/FixedPoint96.sol#2) allows old versions
+Pragma version>=0.4.0<0.8.0 (contracts/libraries/FullMath.sol#2) is too complex
+Pragma version=0.7.6 (contracts/libraries/HexStrings.sol#2) allows old versions
+Pragma version>=0.5.0 (contracts/libraries/LiquidityAmounts.sol#2) allows old versions
+Pragma version>=0.5.0 (contracts/libraries/LiquidityMath.sol#2) allows old versions
+Pragma version>=0.7.0 (contracts/libraries/LowGasSafeMath.sol#2) allows old versions
+Pragma version>=0.7.0 (contracts/libraries/NFTDescriptor.sol#2) allows old versions
+Pragma version>=0.7.6 (contracts/libraries/NFTSVG.sol#2) allows old versions
+Pragma version>=0.5.0<0.8.0 (contracts/libraries/Oracle.sol#2) is too complex
+Pragma version>=0.5.0<0.8.0 (contracts/libraries/OracleLibrary.sol#2) is too complex
+Pragma version>=0.6.0 (contracts/libraries/Path.sol#2) allows old versions
+Pragma version>=0.5.0<0.8.0 (contracts/libraries/PoolAddress.sol#2) is too complex
+Pragma version>=0.6.0<0.8.0 (contracts/libraries/PoolTicksCounter.sol#2) is too complex
+Pragma version>=0.5.0<0.8.0 (contracts/libraries/Position.sol#2) is too complex
+Pragma version>=0.5.0 (contracts/libraries/PositionKey.sol#2) allows old versions
+Pragma version>=0.6.8<0.8.0 (contracts/libraries/PositionValue.sol#2) is too complex
+Pragma version>=0.5.0 (contracts/libraries/SafeCast.sol#2) allows old versions
+Pragma version>=0.5.0 (contracts/libraries/SqrtPriceMath.sol#2) allows old versions
+Pragma version>=0.5.0 (contracts/libraries/SqrtPriceMathPartial.sol#2) allows old versions
+Pragma version>=0.5.0 (contracts/libraries/SwapMath.sol#2) allows old versions
+Pragma version>=0.5.0<0.8.0 (contracts/libraries/Tick.sol#2) is too complex
+Pragma version>=0.5.0<0.8.0 (contracts/libraries/TickBitmap.sol#2) is too complex
+Pragma version>=0.5.0<0.8.0 (contracts/libraries/TickMath.sol#2) is too complex
+Pragma version=0.7.6 (contracts/libraries/TokenRatioSortOrder.sol#2) allows old versions
+Pragma version>=0.6.0 (contracts/libraries/TransferHelper.sol#2) allows old versions
+Pragma version>=0.5.0 (contracts/libraries/UnsafeMath.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IBlast.sol#2) allows old versions
+Pragma version^0.7.0 (interfaces/IERC20Metadata.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IERC20Minimal.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IERC20Rebasing.sol#2) allows old versions
+Pragma version>=0.7.5 (interfaces/IERC721Permit.sol#2) allows old versions
+Pragma version>=0.7.5 (interfaces/IMulticall.sol#2) allows old versions
+Pragma version>=0.7.5 (interfaces/INonfungiblePositionManager.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/INonfungibleTokenPositionDescriptor.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IPeripheryImmutableState.sol#2) allows old versions
+Pragma version>=0.7.5 (interfaces/IPeripheryPayments.sol#2) allows old versions
+Pragma version>=0.7.5 (interfaces/IPeripheryPaymentsWithFee.sol#2) allows old versions
+Pragma version>=0.7.5 (interfaces/IPoolInitializer.sol#2) allows old versions
+Pragma version>=0.7.5 (interfaces/IQuoter.sol#2) allows old versions
+Pragma version>=0.7.5 (interfaces/IQuoterV2.sol#2) allows old versions
+Pragma version>=0.7.5 (interfaces/ISelfPermit.sol#2) allows old versions
+Pragma version>=0.7.5 (interfaces/ISwapRouter.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IThrusterGas.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IThrusterGauge.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IThrusterPool.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IThrusterPoolDeployer.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/IThrusterPoolFactory.sol#2) allows old versions
+Pragma version>=0.7.5 (interfaces/ITickLens.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/callback/IThrusterFlashCallback.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/callback/IThrusterMintCallback.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/callback/IThrusterSwapCallback.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/external/IERC1271.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/external/IERC20PermitAllowed.sol#2) allows old versions
+Pragma version=0.7.6 (interfaces/external/IWETH9.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/pool/IThrusterPoolActions.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/pool/IThrusterPoolDerivedState.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/pool/IThrusterPoolEvents.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/pool/IThrusterPoolImmutables.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/pool/IThrusterPoolOwnerActions.sol#2) allows old versions
+Pragma version>=0.5.0 (interfaces/pool/IThrusterPoolState.sol#2) allows old versions
+Pragma version>=0.6.0<0.8.0 (lib/openzeppelin-contracts/contracts/drafts/IERC20Permit.sol#3) is too complex
+Pragma version^0.7.0 (lib/openzeppelin-contracts/contracts/introspection/ERC165.sol#3) allows old versions
+Pragma version^0.7.0 (lib/openzeppelin-contracts/contracts/introspection/IERC165.sol#3) allows old versions
+Pragma version^0.7.0 (lib/openzeppelin-contracts/contracts/math/SafeMath.sol#3) allows old versions
+Pragma version^0.7.0 (lib/openzeppelin-contracts/contracts/math/SignedSafeMath.sol#3) allows old versions
+Pragma version^0.7.0 (lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol#3) allows old versions
+Pragma version^0.7.0 (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#3) allows old versions
+Pragma version^0.7.0 (lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol#3) allows old versions
+Pragma version^0.7.0 (lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Enumerable.sol#3) allows old versions
+Pragma version^0.7.0 (lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Metadata.sol#3) allows old versions
+Pragma version^0.7.0 (lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol#3) allows old versions
+Pragma version^0.7.0 (lib/openzeppelin-contracts/contracts/utils/Address.sol#3) allows old versions
+Pragma version>=0.6.0<0.8.0 (lib/openzeppelin-contracts/contracts/utils/Context.sol#3) is too complex
+Pragma version^0.7.0 (lib/openzeppelin-contracts/contracts/utils/EnumerableMap.sol#3) allows old versions
+Pragma version^0.7.0 (lib/openzeppelin-contracts/contracts/utils/EnumerableSet.sol#3) allows old versions
+Pragma version^0.7.0 (lib/openzeppelin-contracts/contracts/utils/Strings.sol#3) allows old versions
+Pragma version>=0.5.0<0.8.0 (lib/solidity-lib/contracts/libraries/AddressStringUtil.sol#3) is too complex
+Pragma version>=0.5.0 (lib/solidity-lib/contracts/libraries/SafeERC20Namer.sol#3) allows old versions
+solc-0.7.6 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+INFO:Detectors:
+Low level call in ThrusterPool.balance0() (contracts/ThrusterPool.sol#149-154):
+	- (success,data) = token0.staticcall(abi.encodeWithSelector(IERC20Minimal.balanceOf.selector,address(this))) (contracts/ThrusterPool.sol#150-151)
+Low level call in ThrusterPool.balance1() (contracts/ThrusterPool.sol#159-164):
+	- (success,data) = token1.staticcall(abi.encodeWithSelector(IERC20Minimal.balanceOf.selector,address(this))) (contracts/ThrusterPool.sol#160-161)
+Low level call in Multicall.multicall(bytes[]) (contracts/base/Multicall.sol#11-27):
+	- (success,result) = address(this).delegatecall(data[i]) (contracts/base/Multicall.sol#14)
+Low level call in ThrusterMulticall.multicall(ThrusterMulticall.Call[]) (contracts/lens/ThrusterMulticall.sol#31-42):
+	- (success,ret) = target.call{gas: gasLimit}(callData) (contracts/lens/ThrusterMulticall.sol#38)
+Low level call in TransferHelper.safeTransferFrom(address,address,address,uint256) (contracts/libraries/TransferHelper.sol#13-17):
+	- (success,data) = token.call(abi.encodeWithSelector(IERC20.transferFrom.selector,from,to,value)) (contracts/libraries/TransferHelper.sol#14-15)
+Low level call in TransferHelper.safeTransfer(address,address,uint256) (contracts/libraries/TransferHelper.sol#24-27):
+	- (success,data) = token.call(abi.encodeWithSelector(IERC20.transfer.selector,to,value)) (contracts/libraries/TransferHelper.sol#25)
+Low level call in TransferHelper.safeApprove(address,address,uint256) (contracts/libraries/TransferHelper.sol#34-37):
+	- (success,data) = token.call(abi.encodeWithSelector(IERC20.approve.selector,to,value)) (contracts/libraries/TransferHelper.sol#35)
+Low level call in TransferHelper.safeTransferETH(address,uint256) (contracts/libraries/TransferHelper.sol#43-46):
+	- (success) = to.call{value: value}(new bytes(0)) (contracts/libraries/TransferHelper.sol#44)
+Low level call in Address.sendValue(address,uint256) (lib/openzeppelin-contracts/contracts/utils/Address.sol#53-59):
+	- (success) = recipient.call{value: amount}() (lib/openzeppelin-contracts/contracts/utils/Address.sol#57)
+Low level call in Address.functionCallWithValue(address,bytes,uint256,string) (lib/openzeppelin-contracts/contracts/utils/Address.sol#114-121):
+	- (success,returndata) = target.call{value: value}(data) (lib/openzeppelin-contracts/contracts/utils/Address.sol#119)
+Low level call in Address.functionStaticCall(address,bytes,string) (lib/openzeppelin-contracts/contracts/utils/Address.sol#139-145):
+	- (success,returndata) = target.staticcall(data) (lib/openzeppelin-contracts/contracts/utils/Address.sol#143)
+Low level call in Address.functionDelegateCall(address,bytes,string) (lib/openzeppelin-contracts/contracts/utils/Address.sol#163-169):
+	- (success,returndata) = target.delegatecall(data) (lib/openzeppelin-contracts/contracts/utils/Address.sol#167)
+Low level call in SafeERC20Namer.callAndParseStringReturn(address,bytes4) (lib/solidity-lib/contracts/libraries/SafeERC20Namer.sol#57-71):
+	- (success,data) = token.staticcall(abi.encodeWithSelector(selector)) (lib/solidity-lib/contracts/libraries/SafeERC20Namer.sol#58)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+INFO:Detectors:
+Variable NonfungibleTokenPositionDescriptor.WETH9 (contracts/NonfungibleTokenPositionDescriptor.sol#22) is not in mixedCase
+Parameter SwapRouter.thrusterSwapCallback(int256,int256,bytes)._data (contracts/SwapRouter.sol#58) is not in mixedCase
+Parameter ThrusterGas.claimGas(address,uint256)._recipient (contracts/ThrusterGas.sol#21) is not in mixedCase
+Parameter ThrusterGas.claimGas(address,uint256)._minClaimRateBips (contracts/ThrusterGas.sol#21) is not in mixedCase
+Parameter ThrusterGas.setManager(address)._manager (contracts/ThrusterGas.sol#35) is not in mixedCase
+Parameter ThrusterPool.setGauge(address)._gauge (contracts/ThrusterPool.sol#798) is not in mixedCase
+Parameter ThrusterPool.claimYieldAll(address,uint256,uint256,uint256)._recipient (contracts/ThrusterPool.sol#804) is not in mixedCase
+Parameter ThrusterPool.claimYieldAll(address,uint256,uint256,uint256)._amountETH (contracts/ThrusterPool.sol#804) is not in mixedCase
+Parameter ThrusterPool.claimYieldAll(address,uint256,uint256,uint256)._amountWETH (contracts/ThrusterPool.sol#804) is not in mixedCase
+Parameter ThrusterPool.claimYieldAll(address,uint256,uint256,uint256)._amountUSDB (contracts/ThrusterPool.sol#804) is not in mixedCase
+Parameter ThrusterPoolDeployer.deploy(address,address,address,uint24,int24)._factory (contracts/ThrusterPoolDeployer.sol#34) is not in mixedCase
+Parameter ThrusterPoolDeployer.claimGas(address)._recipient (contracts/ThrusterPoolDeployer.sol#45) is not in mixedCase
+Parameter ThrusterPoolFactory.setOwner(address)._owner (contracts/ThrusterPoolFactory.sol#64) is not in mixedCase
+Parameter ThrusterPoolFactory.setDeployer(address)._deployer (contracts/ThrusterPoolFactory.sol#71) is not in mixedCase
+Parameter ThrusterPoolFactory.claimDeployerGas(address)._recipient (contracts/ThrusterPoolFactory.sol#90) is not in mixedCase
+Function ERC721Permit.DOMAIN_SEPARATOR() (contracts/base/ERC721Permit.sol#32-43) is not in mixedCase
+Variable PeripheryImmutableState.WETH9 (contracts/base/PeripheryImmutableState.sol#12) is not in mixedCase
+Parameter BytesLib.slice(bytes,uint256,uint256)._bytes (contracts/libraries/BytesLib.sol#12) is not in mixedCase
+Parameter BytesLib.slice(bytes,uint256,uint256)._start (contracts/libraries/BytesLib.sol#12) is not in mixedCase
+Parameter BytesLib.slice(bytes,uint256,uint256)._length (contracts/libraries/BytesLib.sol#12) is not in mixedCase
+Parameter BytesLib.toAddress(bytes,uint256)._bytes (contracts/libraries/BytesLib.sol#72) is not in mixedCase
+Parameter BytesLib.toAddress(bytes,uint256)._start (contracts/libraries/BytesLib.sol#72) is not in mixedCase
+Parameter BytesLib.toUint24(bytes,uint256)._bytes (contracts/libraries/BytesLib.sol#84) is not in mixedCase
+Parameter BytesLib.toUint24(bytes,uint256)._start (contracts/libraries/BytesLib.sol#84) is not in mixedCase
+Constant NFTDescriptor.sqrt10X128 (contracts/libraries/NFTDescriptor.sol#27) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant NFTSVG.curve1 (contracts/libraries/NFTSVG.sol#14) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant NFTSVG.curve2 (contracts/libraries/NFTSVG.sol#15) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant NFTSVG.curve3 (contracts/libraries/NFTSVG.sol#16) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant NFTSVG.curve4 (contracts/libraries/NFTSVG.sol#17) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant NFTSVG.curve5 (contracts/libraries/NFTSVG.sol#18) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant NFTSVG.curve6 (contracts/libraries/NFTSVG.sol#19) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant NFTSVG.curve7 (contracts/libraries/NFTSVG.sol#20) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant NFTSVG.curve8 (contracts/libraries/NFTSVG.sol#21) is not in UPPER_CASE_WITH_UNDERSCORES
+Function IERC721Permit.PERMIT_TYPEHASH() (interfaces/IERC721Permit.sol#11) is not in mixedCase
+Function IERC721Permit.DOMAIN_SEPARATOR() (interfaces/IERC721Permit.sol#15) is not in mixedCase
+Function IPeripheryImmutableState.WETH9() (interfaces/IPeripheryImmutableState.sol#11) is not in mixedCase
+Function IERC20Permit.DOMAIN_SEPARATOR() (lib/openzeppelin-contracts/contracts/drafts/IERC20Permit.sol#50) is not in mixedCase
+Parameter ERC721.safeTransferFrom(address,address,uint256,bytes)._data (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#245) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+INFO:Detectors:
+Redundant expression "this (lib/openzeppelin-contracts/contracts/utils/Context.sol#21)" inContext (lib/openzeppelin-contracts/contracts/utils/Context.sol#15-24)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#redundant-statements
+INFO:Detectors:
+Variable NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).amount0Collect (contracts/NonfungiblePositionManager.sol#337) is too similar to NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).amount1Collect (contracts/NonfungiblePositionManager.sol#337)
+Variable LiquidityManagement.thrusterMintCallback(uint256,uint256,bytes).amount0Owed (contracts/base/LiquidityManagement.sol#25) is too similar to IThrusterMintCallback.thrusterMintCallback(uint256,uint256,bytes).amount1Owed (interfaces/callback/IThrusterMintCallback.sol#13)
+Variable LiquidityManagement.thrusterMintCallback(uint256,uint256,bytes).amount0Owed (contracts/base/LiquidityManagement.sol#25) is too similar to LiquidityManagement.thrusterMintCallback(uint256,uint256,bytes).amount1Owed (contracts/base/LiquidityManagement.sol#25)
+Variable IThrusterMintCallback.thrusterMintCallback(uint256,uint256,bytes).amount0Owed (interfaces/callback/IThrusterMintCallback.sol#13) is too similar to IThrusterMintCallback.thrusterMintCallback(uint256,uint256,bytes).amount1Owed (interfaces/callback/IThrusterMintCallback.sol#13)
+Variable IThrusterMintCallback.thrusterMintCallback(uint256,uint256,bytes).amount0Owed (interfaces/callback/IThrusterMintCallback.sol#13) is too similar to LiquidityManagement.thrusterMintCallback(uint256,uint256,bytes).amount1Owed (contracts/base/LiquidityManagement.sol#25)
+Variable INonfungiblePositionManager.positions(uint256).feeGrowthInside0LastX128 (interfaces/INonfungiblePositionManager.sol#78) is too similar to NonfungiblePositionManager.positions(uint256).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#96)
+Variable NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#157) is too similar to NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#157)
+Variable NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#270) is too similar to NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#318)
+Variable NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#225) is too similar to NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#318)
+Variable INonfungiblePositionManager.positions(uint256).feeGrowthInside0LastX128 (interfaces/INonfungiblePositionManager.sol#78) is too similar to NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#318)
+Variable NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#225) is too similar to NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#225)
+Variable NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#157) is too similar to NonfungiblePositionManager.positions(uint256).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#96)
+Variable NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#270) is too similar to NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#225)
+Variable INonfungiblePositionManager.positions(uint256).feeGrowthInside0LastX128 (interfaces/INonfungiblePositionManager.sol#78) is too similar to NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#225)
+Variable NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#157) is too similar to NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#318)
+Variable NonfungiblePositionManager.positions(uint256).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#95) is too similar to NonfungiblePositionManager.positions(uint256).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#96)
+Variable NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#318) is too similar to NonfungiblePositionManager.positions(uint256).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#96)
+Variable NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#270) is too similar to NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#270)
+Variable NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#270) is too similar to NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#157)
+Variable NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#157) is too similar to NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#225)
+Variable INonfungiblePositionManager.positions(uint256).feeGrowthInside0LastX128 (interfaces/INonfungiblePositionManager.sol#78) is too similar to NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#270)
+Variable INonfungiblePositionManager.positions(uint256).feeGrowthInside0LastX128 (interfaces/INonfungiblePositionManager.sol#78) is too similar to NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#157)
+Variable NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#225) is too similar to NonfungiblePositionManager.positions(uint256).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#96)
+Variable NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#270) is too similar to NonfungiblePositionManager.positions(uint256).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#96)
+Variable NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#157) is too similar to NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#270)
+Variable NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#225) is too similar to NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#157)
+Variable NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#225) is too similar to INonfungiblePositionManager.positions(uint256).feeGrowthInside1LastX128 (interfaces/INonfungiblePositionManager.sol#79)
+Variable INonfungiblePositionManager.positions(uint256).feeGrowthInside0LastX128 (interfaces/INonfungiblePositionManager.sol#78) is too similar to INonfungiblePositionManager.positions(uint256).feeGrowthInside1LastX128 (interfaces/INonfungiblePositionManager.sol#79)
+Variable NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#318) is too similar to INonfungiblePositionManager.positions(uint256).feeGrowthInside1LastX128 (interfaces/INonfungiblePositionManager.sol#79)
+Variable NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#318) is too similar to NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#157)
+Variable NonfungiblePositionManager.positions(uint256).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#95) is too similar to INonfungiblePositionManager.positions(uint256).feeGrowthInside1LastX128 (interfaces/INonfungiblePositionManager.sol#79)
+Variable NonfungiblePositionManager.positions(uint256).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#95) is too similar to NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#157)
+Variable NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#270) is too similar to INonfungiblePositionManager.positions(uint256).feeGrowthInside1LastX128 (interfaces/INonfungiblePositionManager.sol#79)
+Variable NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#318) is too similar to NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#318)
+Variable NonfungiblePositionManager.positions(uint256).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#95) is too similar to NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#318)
+Variable NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#225) is too similar to NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#270)
+Variable NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#318) is too similar to NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#225)
+Variable NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#318) is too similar to NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#270)
+Variable NonfungiblePositionManager.positions(uint256).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#95) is too similar to NonfungiblePositionManager.increaseLiquidity(INonfungiblePositionManager.IncreaseLiquidityParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#225)
+Variable NonfungiblePositionManager.mint(INonfungiblePositionManager.MintParams).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#157) is too similar to INonfungiblePositionManager.positions(uint256).feeGrowthInside1LastX128 (interfaces/INonfungiblePositionManager.sol#79)
+Variable NonfungiblePositionManager.positions(uint256).feeGrowthInside0LastX128 (contracts/NonfungiblePositionManager.sol#95) is too similar to NonfungiblePositionManager.decreaseLiquidity(INonfungiblePositionManager.DecreaseLiquidityParams).feeGrowthInside1LastX128 (contracts/NonfungiblePositionManager.sol#270)
+Variable LiquidityManagement.addLiquidity(LiquidityManagement.AddLiquidityParams).sqrtRatioAX96 (contracts/base/LiquidityManagement.sol#59) is too similar to LiquidityManagement.addLiquidity(LiquidityManagement.AddLiquidityParams).sqrtRatioBX96 (contracts/base/LiquidityManagement.sol#60)
+Variable INonfungiblePositionManager.positions(uint256).tokensOwed0 (interfaces/INonfungiblePositionManager.sol#80) is too similar to INonfungiblePositionManager.positions(uint256).tokensOwed1 (interfaces/INonfungiblePositionManager.sol#81)
+Variable INonfungiblePositionManager.positions(uint256).tokensOwed0 (interfaces/INonfungiblePositionManager.sol#80) is too similar to NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).tokensOwed1 (contracts/NonfungiblePositionManager.sol#313)
+Variable NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).tokensOwed0 (contracts/NonfungiblePositionManager.sol#313) is too similar to NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).tokensOwed1 (contracts/NonfungiblePositionManager.sol#313)
+Variable INonfungiblePositionManager.positions(uint256).tokensOwed0 (interfaces/INonfungiblePositionManager.sol#80) is too similar to NonfungiblePositionManager.positions(uint256).tokensOwed1 (contracts/NonfungiblePositionManager.sol#98)
+Variable NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).tokensOwed0 (contracts/NonfungiblePositionManager.sol#313) is too similar to NonfungiblePositionManager.positions(uint256).tokensOwed1 (contracts/NonfungiblePositionManager.sol#98)
+Variable NonfungiblePositionManager.positions(uint256).tokensOwed0 (contracts/NonfungiblePositionManager.sol#97) is too similar to NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).tokensOwed1 (contracts/NonfungiblePositionManager.sol#313)
+Variable NonfungiblePositionManager.positions(uint256).tokensOwed0 (contracts/NonfungiblePositionManager.sol#97) is too similar to INonfungiblePositionManager.positions(uint256).tokensOwed1 (interfaces/INonfungiblePositionManager.sol#81)
+Variable NonfungiblePositionManager.positions(uint256).tokensOwed0 (contracts/NonfungiblePositionManager.sol#97) is too similar to NonfungiblePositionManager.positions(uint256).tokensOwed1 (contracts/NonfungiblePositionManager.sol#98)
+Variable NonfungiblePositionManager.collect(INonfungiblePositionManager.CollectParams).tokensOwed0 (contracts/NonfungiblePositionManager.sol#313) is too similar to INonfungiblePositionManager.positions(uint256).tokensOwed1 (interfaces/INonfungiblePositionManager.sol#81)
+Variable SwapRouter.exactOutputInternal(uint256,address,uint160,SwapRouter.SwapCallbackData).amount0Delta (contracts/SwapRouter.sol#176) is too similar to IThrusterSwapCallback.thrusterSwapCallback(int256,int256,bytes).amount1Delta (interfaces/callback/IThrusterSwapCallback.sol#16)
+Variable SwapRouter.thrusterSwapCallback(int256,int256,bytes).amount0Delta (contracts/SwapRouter.sol#58) is too similar to IThrusterSwapCallback.thrusterSwapCallback(int256,int256,bytes).amount1Delta (interfaces/callback/IThrusterSwapCallback.sol#16)
+Variable IThrusterSwapCallback.thrusterSwapCallback(int256,int256,bytes).amount0Delta (interfaces/callback/IThrusterSwapCallback.sol#16) is too similar to IThrusterSwapCallback.thrusterSwapCallback(int256,int256,bytes).amount1Delta (interfaces/callback/IThrusterSwapCallback.sol#16)
+Variable SwapRouter.thrusterSwapCallback(int256,int256,bytes).amount0Delta (contracts/SwapRouter.sol#58) is too similar to SwapRouter.thrusterSwapCallback(int256,int256,bytes).amount1Delta (contracts/SwapRouter.sol#58)
+Variable SwapRouter.exactOutputInternal(uint256,address,uint160,SwapRouter.SwapCallbackData).amount0Delta (contracts/SwapRouter.sol#176) is too similar to SwapRouter.thrusterSwapCallback(int256,int256,bytes).amount1Delta (contracts/SwapRouter.sol#58)
+Variable SwapRouter.thrusterSwapCallback(int256,int256,bytes).amount0Delta (contracts/SwapRouter.sol#58) is too similar to SwapRouter.exactOutputInternal(uint256,address,uint160,SwapRouter.SwapCallbackData).amount1Delta (contracts/SwapRouter.sol#176)
+Variable IThrusterSwapCallback.thrusterSwapCallback(int256,int256,bytes).amount0Delta (interfaces/callback/IThrusterSwapCallback.sol#16) is too similar to SwapRouter.thrusterSwapCallback(int256,int256,bytes).amount1Delta (contracts/SwapRouter.sol#58)
+Variable SwapRouter.exactOutputInternal(uint256,address,uint160,SwapRouter.SwapCallbackData).amount0Delta (contracts/SwapRouter.sol#176) is too similar to SwapRouter.exactOutputInternal(uint256,address,uint160,SwapRouter.SwapCallbackData).amount1Delta (contracts/SwapRouter.sol#176)
+Variable IThrusterSwapCallback.thrusterSwapCallback(int256,int256,bytes).amount0Delta (interfaces/callback/IThrusterSwapCallback.sol#16) is too similar to SwapRouter.exactOutputInternal(uint256,address,uint160,SwapRouter.SwapCallbackData).amount1Delta (contracts/SwapRouter.sol#176)
+Variable ThrusterPool._updatePosition(address,int24,int24,int128,int24)._feeGrowthGlobal0X128 (contracts/ThrusterPool.sol#369) is too similar to ThrusterPool._updatePosition(address,int24,int24,int128,int24)._feeGrowthGlobal1X128 (contracts/ThrusterPool.sol#370)
+Variable IThrusterPoolActions.collect(address,int24,int24,uint128,uint128).amount0Requested (interfaces/pool/IThrusterPoolActions.sol#43) is too similar to IThrusterPoolOwnerActions.collectProtocol(address,uint128,uint128).amount1Requested (interfaces/pool/IThrusterPoolOwnerActions.sol#18)
+Variable ThrusterPool.collectProtocol(address,uint128,uint128).amount0Requested (contracts/ThrusterPool.sol#773) is too similar to IThrusterPoolOwnerActions.collectProtocol(address,uint128,uint128).amount1Requested (interfaces/pool/IThrusterPoolOwnerActions.sol#18)
+Variable ThrusterPool.collectProtocol(address,uint128,uint128).amount0Requested (contracts/ThrusterPool.sol#773) is too similar to IThrusterPoolActions.collect(address,int24,int24,uint128,uint128).amount1Requested (interfaces/pool/IThrusterPoolActions.sol#44)
+Variable IThrusterPoolActions.collect(address,int24,int24,uint128,uint128).amount0Requested (interfaces/pool/IThrusterPoolActions.sol#43) is too similar to IThrusterPoolActions.collect(address,int24,int24,uint128,uint128).amount1Requested (interfaces/pool/IThrusterPoolActions.sol#44)
+Variable IThrusterPoolOwnerActions.collectProtocol(address,uint128,uint128).amount0Requested (interfaces/pool/IThrusterPoolOwnerActions.sol#18) is too similar to IThrusterPoolActions.collect(address,int24,int24,uint128,uint128).amount1Requested (interfaces/pool/IThrusterPoolActions.sol#44)
+Variable ThrusterPool.collect(address,int24,int24,uint128,uint128).amount0Requested (contracts/ThrusterPool.sol#467) is too similar to IThrusterPoolOwnerActions.collectProtocol(address,uint128,uint128).amount1Requested (interfaces/pool/IThrusterPoolOwnerActions.sol#18)
+Variable IThrusterPoolActions.collect(address,int24,int24,uint128,uint128).amount0Requested (interfaces/pool/IThrusterPoolActions.sol#43) is too similar to ThrusterPool.collectProtocol(address,uint128,uint128).amount1Requested (contracts/ThrusterPool.sol#773)
+Variable ThrusterPool.collectProtocol(address,uint128,uint128).amount0Requested (contracts/ThrusterPool.sol#773) is too similar to ThrusterPool.collectProtocol(address,uint128,uint128).amount1Requested (contracts/ThrusterPool.sol#773)
+Variable ThrusterPool.collect(address,int24,int24,uint128,uint128).amount0Requested (contracts/ThrusterPool.sol#467) is too similar to IThrusterPoolActions.collect(address,int24,int24,uint128,uint128).amount1Requested (interfaces/pool/IThrusterPoolActions.sol#44)
+Variable IThrusterPoolActions.collect(address,int24,int24,uint128,uint128).amount0Requested (interfaces/pool/IThrusterPoolActions.sol#43) is too similar to ThrusterPool.collect(address,int24,int24,uint128,uint128).amount1Requested (contracts/ThrusterPool.sol#468)
+Variable IThrusterPoolOwnerActions.collectProtocol(address,uint128,uint128).amount0Requested (interfaces/pool/IThrusterPoolOwnerActions.sol#18) is too similar to ThrusterPool.collectProtocol(address,uint128,uint128).amount1Requested (contracts/ThrusterPool.sol#773)
+Variable ThrusterPool.collectProtocol(address,uint128,uint128).amount0Requested (contracts/ThrusterPool.sol#773) is too similar to ThrusterPool.collect(address,int24,int24,uint128,uint128).amount1Requested (contracts/ThrusterPool.sol#468)
+Variable IThrusterPoolOwnerActions.collectProtocol(address,uint128,uint128).amount0Requested (interfaces/pool/IThrusterPoolOwnerActions.sol#18) is too similar to IThrusterPoolOwnerActions.collectProtocol(address,uint128,uint128).amount1Requested (interfaces/pool/IThrusterPoolOwnerActions.sol#18)
+Variable IThrusterPoolOwnerActions.collectProtocol(address,uint128,uint128).amount0Requested (interfaces/pool/IThrusterPoolOwnerActions.sol#18) is too similar to ThrusterPool.collect(address,int24,int24,uint128,uint128).amount1Requested (contracts/ThrusterPool.sol#468)
+Variable ThrusterPool.collect(address,int24,int24,uint128,uint128).amount0Requested (contracts/ThrusterPool.sol#467) is too similar to ThrusterPool.collectProtocol(address,uint128,uint128).amount1Requested (contracts/ThrusterPool.sol#773)
+Variable ThrusterPool.collect(address,int24,int24,uint128,uint128).amount0Requested (contracts/ThrusterPool.sol#467) is too similar to ThrusterPool.collect(address,int24,int24,uint128,uint128).amount1Requested (contracts/ThrusterPool.sol#468)
+Variable ThrusterPool.mint(address,int24,int24,uint128,bytes).balance0Before (contracts/ThrusterPool.sol#451) is too similar to ThrusterPool.mint(address,int24,int24,uint128,bytes).balance1Before (contracts/ThrusterPool.sol#452)
+Variable ThrusterPool.swap(address,bool,int256,uint160,bytes).balance0Before (contracts/ThrusterPool.sol#745) is too similar to ThrusterPool.swap(address,bool,int256,uint160,bytes).balance1Before (contracts/ThrusterPool.sol#751)
+Variable ThrusterPool.mint(address,int24,int24,uint128,bytes).balance0Before (contracts/ThrusterPool.sol#451) is too similar to ThrusterPool.swap(address,bool,int256,uint160,bytes).balance1Before (contracts/ThrusterPool.sol#751)
+Variable ThrusterPool.swap(address,bool,int256,uint160,bytes).balance0Before (contracts/ThrusterPool.sol#745) is too similar to ThrusterPool.mint(address,int24,int24,uint128,bytes).balance1Before (contracts/ThrusterPool.sol#452)
+Variable ThrusterPool.feeGrowthGlobal0X128 (contracts/ThrusterPool.sol#83) is too similar to ThrusterPool.feeGrowthGlobal1X128 (contracts/ThrusterPool.sol#85)
+Variable ThrusterPool._updatePosition(address,int24,int24,int128,int24).feeGrowthInside0X128 (contracts/ThrusterPool.sol#414) is too similar to ThrusterPool._updatePosition(address,int24,int24,int128,int24).feeGrowthInside1X128 (contracts/ThrusterPool.sol#414)
+Variable IThrusterPoolState.positions(bytes32).feeGrowthInside0LastX128 (interfaces/pool/IThrusterPoolState.sol#93) is too similar to IThrusterPoolState.positions(bytes32).feeGrowthInside1LastX128 (interfaces/pool/IThrusterPoolState.sol#94)
+Variable IThrusterPoolState.ticks(int24).feeGrowthOutside0X128 (interfaces/pool/IThrusterPoolState.sol#70) is too similar to IThrusterPoolState.ticks(int24).feeGrowthOutside1X128 (interfaces/pool/IThrusterPoolState.sol#71)
+Variable IThrusterPoolOwnerActions.setFeeProtocol(uint8,uint8).feeProtocol0 (interfaces/pool/IThrusterPoolOwnerActions.sol#10) is too similar to IThrusterPoolOwnerActions.setFeeProtocol(uint8,uint8).feeProtocol1 (interfaces/pool/IThrusterPoolOwnerActions.sol#10)
+Variable IThrusterPoolOwnerActions.setFeeProtocol(uint8,uint8).feeProtocol0 (interfaces/pool/IThrusterPoolOwnerActions.sol#10) is too similar to ThrusterPool.setFeeProtocol(uint8,uint8).feeProtocol1 (contracts/ThrusterPool.sol#764)
+Variable ThrusterPool.setFeeProtocol(uint8,uint8).feeProtocol0 (contracts/ThrusterPool.sol#764) is too similar to ThrusterPool.setFeeProtocol(uint8,uint8).feeProtocol1 (contracts/ThrusterPool.sol#764)
+Variable ThrusterPool.setFeeProtocol(uint8,uint8).feeProtocol0 (contracts/ThrusterPool.sol#764) is too similar to IThrusterPoolOwnerActions.setFeeProtocol(uint8,uint8).feeProtocol1 (interfaces/pool/IThrusterPoolOwnerActions.sol#10)
+Variable ThrusterPool.snapshotCumulativesInside(int24,int24).secondsPerLiquidityOutsideLowerX128 (contracts/ThrusterPool.sol#178) is too similar to ThrusterPool.snapshotCumulativesInside(int24,int24).secondsPerLiquidityOutsideUpperX128 (contracts/ThrusterPool.sol#179)
+Variable IThrusterPoolState.positions(bytes32).tokensOwed0 (interfaces/pool/IThrusterPoolState.sol#95) is too similar to IThrusterPoolState.positions(bytes32).tokensOwed1 (interfaces/pool/IThrusterPoolState.sol#96)
+Variable Quoter.thrusterSwapCallback(int256,int256,bytes).amount0Delta (contracts/lens/Quoter.sol#34) is too similar to IThrusterSwapCallback.thrusterSwapCallback(int256,int256,bytes).amount1Delta (interfaces/callback/IThrusterSwapCallback.sol#16)
+Variable Quoter.thrusterSwapCallback(int256,int256,bytes).amount0Delta (contracts/lens/Quoter.sol#34) is too similar to Quoter.thrusterSwapCallback(int256,int256,bytes).amount1Delta (contracts/lens/Quoter.sol#34)
+Variable IThrusterSwapCallback.thrusterSwapCallback(int256,int256,bytes).amount0Delta (interfaces/callback/IThrusterSwapCallback.sol#16) is too similar to Quoter.thrusterSwapCallback(int256,int256,bytes).amount1Delta (contracts/lens/Quoter.sol#34)
+Variable IThrusterSwapCallback.thrusterSwapCallback(int256,int256,bytes).amount0Delta (interfaces/callback/IThrusterSwapCallback.sol#16) is too similar to QuoterV2.thrusterSwapCallback(int256,int256,bytes).amount1Delta (contracts/lens/QuoterV2.sol#37)
+Variable QuoterV2.thrusterSwapCallback(int256,int256,bytes).amount0Delta (contracts/lens/QuoterV2.sol#37) is too similar to QuoterV2.thrusterSwapCallback(int256,int256,bytes).amount1Delta (contracts/lens/QuoterV2.sol#37)
+Variable QuoterV2.thrusterSwapCallback(int256,int256,bytes).amount0Delta (contracts/lens/QuoterV2.sol#37) is too similar to IThrusterSwapCallback.thrusterSwapCallback(int256,int256,bytes).amount1Delta (interfaces/callback/IThrusterSwapCallback.sol#16)
+Variable LiquidityAmounts.getAmount1ForLiquidity(uint160,uint160,uint128).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#99) is too similar to LiquidityAmounts.getAmount1ForLiquidity(uint160,uint160,uint128).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#99)
+Variable LiquidityAmounts.getLiquidityForAmount0(uint160,uint160,uint256).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#23) is too similar to LiquidityAmounts.getLiquidityForAmount1(uint160,uint160,uint256).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#39)
+Variable LiquidityAmounts.getLiquidityForAmount0(uint160,uint160,uint256).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#23) is too similar to LiquidityAmounts.getAmountsForLiquidity(uint160,uint160,uint160,uint128).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#120)
+Variable LiquidityAmounts.getAmount0ForLiquidity(uint160,uint160,uint128).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#82) is too similar to LiquidityAmounts.getAmount1ForLiquidity(uint160,uint160,uint128).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#99)
+Variable LiquidityAmounts.getAmountsForLiquidity(uint160,uint160,uint160,uint128).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#119) is too similar to LiquidityAmounts.getAmount1ForLiquidity(uint160,uint160,uint128).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#99)
+Variable LiquidityAmounts.getLiquidityForAmounts(uint160,uint160,uint160,uint256,uint256).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#58) is too similar to LiquidityAmounts.getLiquidityForAmount1(uint160,uint160,uint256).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#39)
+Variable LiquidityAmounts.getAmount1ForLiquidity(uint160,uint160,uint128).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#99) is too similar to LiquidityAmounts.getLiquidityForAmounts(uint160,uint160,uint160,uint256,uint256).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#59)
+Variable LiquidityAmounts.getAmount0ForLiquidity(uint160,uint160,uint128).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#82) is too similar to LiquidityAmounts.getAmount0ForLiquidity(uint160,uint160,uint128).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#82)
+Variable LiquidityAmounts.getAmountsForLiquidity(uint160,uint160,uint160,uint128).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#119) is too similar to LiquidityAmounts.getAmount0ForLiquidity(uint160,uint160,uint128).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#82)
+Variable LiquidityAmounts.getLiquidityForAmounts(uint160,uint160,uint160,uint256,uint256).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#58) is too similar to LiquidityAmounts.getAmountsForLiquidity(uint160,uint160,uint160,uint128).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#120)
+Variable LiquidityAmounts.getAmount0ForLiquidity(uint160,uint160,uint128).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#82) is too similar to LiquidityAmounts.getLiquidityForAmounts(uint160,uint160,uint160,uint256,uint256).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#59)
+Variable LiquidityAmounts.getAmountsForLiquidity(uint160,uint160,uint160,uint128).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#119) is too similar to LiquidityAmounts.getLiquidityForAmounts(uint160,uint160,uint160,uint256,uint256).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#59)
+Variable LiquidityAmounts.getAmount0ForLiquidity(uint160,uint160,uint128).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#82) is too similar to LiquidityAmounts.getLiquidityForAmount0(uint160,uint160,uint256).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#23)
+Variable LiquidityAmounts.getAmountsForLiquidity(uint160,uint160,uint160,uint128).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#119) is too similar to LiquidityAmounts.getLiquidityForAmount0(uint160,uint160,uint256).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#23)
+Variable LiquidityAmounts.getLiquidityForAmount0(uint160,uint160,uint256).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#23) is too similar to LiquidityAmounts.getAmount1ForLiquidity(uint160,uint160,uint128).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#99)
+Variable LiquidityAmounts.getLiquidityForAmount0(uint160,uint160,uint256).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#23) is too similar to LiquidityAmounts.getAmount0ForLiquidity(uint160,uint160,uint128).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#82)
+Variable LiquidityAmounts.getAmount0ForLiquidity(uint160,uint160,uint128).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#82) is too similar to LiquidityAmounts.getLiquidityForAmount1(uint160,uint160,uint256).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#39)
+Variable LiquidityAmounts.getAmountsForLiquidity(uint160,uint160,uint160,uint128).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#119) is too similar to LiquidityAmounts.getLiquidityForAmount1(uint160,uint160,uint256).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#39)
+Variable LiquidityAmounts.getLiquidityForAmount0(uint160,uint160,uint256).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#23) is too similar to LiquidityAmounts.getLiquidityForAmounts(uint160,uint160,uint160,uint256,uint256).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#59)
+Variable LiquidityAmounts.getLiquidityForAmounts(uint160,uint160,uint160,uint256,uint256).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#58) is too similar to LiquidityAmounts.getAmount1ForLiquidity(uint160,uint160,uint128).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#99)
+Variable LiquidityAmounts.getAmount0ForLiquidity(uint160,uint160,uint128).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#82) is too similar to LiquidityAmounts.getAmountsForLiquidity(uint160,uint160,uint160,uint128).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#120)
+Variable LiquidityAmounts.getLiquidityForAmount0(uint160,uint160,uint256).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#23) is too similar to LiquidityAmounts.getLiquidityForAmount0(uint160,uint160,uint256).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#23)
+Variable LiquidityAmounts.getAmountsForLiquidity(uint160,uint160,uint160,uint128).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#119) is too similar to LiquidityAmounts.getAmountsForLiquidity(uint160,uint160,uint160,uint128).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#120)
+Variable LiquidityAmounts.getLiquidityForAmounts(uint160,uint160,uint160,uint256,uint256).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#58) is too similar to LiquidityAmounts.getAmount0ForLiquidity(uint160,uint160,uint128).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#82)
+Variable LiquidityAmounts.getLiquidityForAmounts(uint160,uint160,uint160,uint256,uint256).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#58) is too similar to LiquidityAmounts.getLiquidityForAmounts(uint160,uint160,uint160,uint256,uint256).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#59)
+Variable LiquidityAmounts.getLiquidityForAmounts(uint160,uint160,uint160,uint256,uint256).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#58) is too similar to LiquidityAmounts.getLiquidityForAmount0(uint160,uint160,uint256).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#23)
+Variable LiquidityAmounts.getAmount1ForLiquidity(uint160,uint160,uint128).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#99) is too similar to LiquidityAmounts.getLiquidityForAmount0(uint160,uint160,uint256).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#23)
+Variable LiquidityAmounts.getAmount1ForLiquidity(uint160,uint160,uint128).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#99) is too similar to LiquidityAmounts.getLiquidityForAmount1(uint160,uint160,uint256).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#39)
+Variable LiquidityAmounts.getLiquidityForAmount1(uint160,uint160,uint256).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#39) is too similar to LiquidityAmounts.getAmount1ForLiquidity(uint160,uint160,uint128).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#99)
+Variable LiquidityAmounts.getLiquidityForAmount1(uint160,uint160,uint256).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#39) is too similar to LiquidityAmounts.getAmountsForLiquidity(uint160,uint160,uint160,uint128).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#120)
+Variable LiquidityAmounts.getLiquidityForAmount1(uint160,uint160,uint256).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#39) is too similar to LiquidityAmounts.getAmount0ForLiquidity(uint160,uint160,uint128).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#82)
+Variable LiquidityAmounts.getAmount1ForLiquidity(uint160,uint160,uint128).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#99) is too similar to LiquidityAmounts.getAmountsForLiquidity(uint160,uint160,uint160,uint128).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#120)
+Variable LiquidityAmounts.getLiquidityForAmount1(uint160,uint160,uint256).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#39) is too similar to LiquidityAmounts.getLiquidityForAmount0(uint160,uint160,uint256).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#23)
+Variable LiquidityAmounts.getLiquidityForAmount1(uint160,uint160,uint256).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#39) is too similar to LiquidityAmounts.getLiquidityForAmount1(uint160,uint160,uint256).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#39)
+Variable LiquidityAmounts.getLiquidityForAmount1(uint160,uint160,uint256).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#39) is too similar to LiquidityAmounts.getLiquidityForAmounts(uint160,uint160,uint160,uint256,uint256).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#59)
+Variable LiquidityAmounts.getAmount1ForLiquidity(uint160,uint160,uint128).sqrtRatioAX96 (contracts/libraries/LiquidityAmounts.sol#99) is too similar to LiquidityAmounts.getAmount0ForLiquidity(uint160,uint160,uint128).sqrtRatioBX96 (contracts/libraries/LiquidityAmounts.sol#82)
+Variable Position.update(Position.Info,int128,uint256,uint256).feeGrowthInside0X128 (contracts/libraries/Position.sol#46) is too similar to Position.update(Position.Info,int128,uint256,uint256).feeGrowthInside1X128 (contracts/libraries/Position.sol#47)
+Variable Position.update(Position.Info,int128,uint256,uint256).tokensOwed0 (contracts/libraries/Position.sol#60-62) is too similar to Position.update(Position.Info,int128,uint256,uint256).tokensOwed1 (contracts/libraries/Position.sol#63-65)
+Variable PositionValue.total(INonfungiblePositionManager,uint256,uint160).amount0Principal (contracts/libraries/PositionValue.sol#28) is too similar to PositionValue.total(INonfungiblePositionManager,uint256,uint160).amount1Principal (contracts/libraries/PositionValue.sol#28)
+Variable PositionValue._getFeeGrowthInside(IThrusterPool,int24,int24).feeGrowthGlobal0X128 (contracts/libraries/PositionValue.sol#149) is too similar to PositionValue._getFeeGrowthInside(IThrusterPool,int24,int24).feeGrowthGlobal1X128 (contracts/libraries/PositionValue.sol#150)
+Variable PositionValue._getFeeGrowthInside(IThrusterPool,int24,int24).feeGrowthInside0X128 (contracts/libraries/PositionValue.sol#139) is too similar to PositionValue._getFeeGrowthInside(IThrusterPool,int24,int24).feeGrowthInside1X128 (contracts/libraries/PositionValue.sol#139)
+Variable PositionValue._getFeeGrowthInside(IThrusterPool,int24,int24).lowerFeeGrowthOutside0X128 (contracts/libraries/PositionValue.sol#142) is too similar to PositionValue._getFeeGrowthInside(IThrusterPool,int24,int24).lowerFeeGrowthOutside1X128 (contracts/libraries/PositionValue.sol#142)
+Variable PositionValue._fees(INonfungiblePositionManager,PositionValue.FeeParams).poolFeeGrowthInside0LastX128 (contracts/libraries/PositionValue.sol#112) is too similar to PositionValue._fees(INonfungiblePositionManager,PositionValue.FeeParams).poolFeeGrowthInside1LastX128 (contracts/libraries/PositionValue.sol#112)
+Variable PositionValue.fees(INonfungiblePositionManager,uint256).positionFeeGrowthInside0LastX128 (contracts/libraries/PositionValue.sol#84) is too similar to PositionValue.fees(INonfungiblePositionManager,uint256).positionFeeGrowthInside1LastX128 (contracts/libraries/PositionValue.sol#85)
+Variable PositionValue.fees(INonfungiblePositionManager,uint256).tokensOwed0 (contracts/libraries/PositionValue.sol#86) is too similar to PositionValue.fees(INonfungiblePositionManager,uint256).tokensOwed1 (contracts/libraries/PositionValue.sol#87)
+Variable PositionValue._getFeeGrowthInside(IThrusterPool,int24,int24).upperFeeGrowthOutside0X128 (contracts/libraries/PositionValue.sol#143) is too similar to PositionValue._getFeeGrowthInside(IThrusterPool,int24,int24).upperFeeGrowthOutside1X128 (contracts/libraries/PositionValue.sol#143)
+Variable SqrtPriceMath.getAmount0Delta(uint160,uint160,uint128,bool).sqrtRatioAX96 (contracts/libraries/SqrtPriceMath.sol#145) is too similar to SqrtPriceMath.getAmount1Delta(uint160,uint160,uint128,bool).sqrtRatioBX96 (contracts/libraries/SqrtPriceMath.sol#169)
+Variable SqrtPriceMath.getAmount1Delta(uint160,uint160,int128).sqrtRatioAX96 (contracts/libraries/SqrtPriceMath.sol#201) is too similar to SqrtPriceMath.getAmount1Delta(uint160,uint160,int128).sqrtRatioBX96 (contracts/libraries/SqrtPriceMath.sol#201)
+Variable SqrtPriceMath.getAmount0Delta(uint160,uint160,uint128,bool).sqrtRatioAX96 (contracts/libraries/SqrtPriceMath.sol#145) is too similar to SqrtPriceMath.getAmount0Delta(uint160,uint160,uint128,bool).sqrtRatioBX96 (contracts/libraries/SqrtPriceMath.sol#145)
+Variable SqrtPriceMath.getAmount0Delta(uint160,uint160,int128).sqrtRatioAX96 (contracts/libraries/SqrtPriceMath.sol#186) is too similar to SqrtPriceMath.getAmount0Delta(uint160,uint160,uint128,bool).sqrtRatioBX96 (contracts/libraries/SqrtPriceMath.sol#145)
+Variable SqrtPriceMath.getAmount0Delta(uint160,uint160,int128).sqrtRatioAX96 (contracts/libraries/SqrtPriceMath.sol#186) is too similar to SqrtPriceMath.getAmount0Delta(uint160,uint160,int128).sqrtRatioBX96 (contracts/libraries/SqrtPriceMath.sol#186)
+Variable SqrtPriceMath.getAmount0Delta(uint160,uint160,uint128,bool).sqrtRatioAX96 (contracts/libraries/SqrtPriceMath.sol#145) is too similar to SqrtPriceMath.getAmount0Delta(uint160,uint160,int128).sqrtRatioBX96 (contracts/libraries/SqrtPriceMath.sol#186)
+Variable SqrtPriceMath.getAmount1Delta(uint160,uint160,int128).sqrtRatioAX96 (contracts/libraries/SqrtPriceMath.sol#201) is too similar to SqrtPriceMath.getAmount1Delta(uint160,uint160,uint128,bool).sqrtRatioBX96 (contracts/libraries/SqrtPriceMath.sol#169)
+Variable SqrtPriceMath.getAmount0Delta(uint160,uint160,int128).sqrtRatioAX96 (contracts/libraries/SqrtPriceMath.sol#186) is too similar to SqrtPriceMath.getAmount1Delta(uint160,uint160,int128).sqrtRatioBX96 (contracts/libraries/SqrtPriceMath.sol#201)
+Variable SqrtPriceMath.getAmount0Delta(uint160,uint160,uint128,bool).sqrtRatioAX96 (contracts/libraries/SqrtPriceMath.sol#145) is too similar to SqrtPriceMath.getAmount1Delta(uint160,uint160,int128).sqrtRatioBX96 (contracts/libraries/SqrtPriceMath.sol#201)
+Variable SqrtPriceMath.getAmount1Delta(uint160,uint160,uint128,bool).sqrtRatioAX96 (contracts/libraries/SqrtPriceMath.sol#169) is too similar to SqrtPriceMath.getAmount1Delta(uint160,uint160,uint128,bool).sqrtRatioBX96 (contracts/libraries/SqrtPriceMath.sol#169)
+Variable SqrtPriceMath.getAmount0Delta(uint160,uint160,int128).sqrtRatioAX96 (contracts/libraries/SqrtPriceMath.sol#186) is too similar to SqrtPriceMath.getAmount1Delta(uint160,uint160,uint128,bool).sqrtRatioBX96 (contracts/libraries/SqrtPriceMath.sol#169)
+Variable SqrtPriceMath.getAmount1Delta(uint160,uint160,int128).sqrtRatioAX96 (contracts/libraries/SqrtPriceMath.sol#201) is too similar to SqrtPriceMath.getAmount0Delta(uint160,uint160,int128).sqrtRatioBX96 (contracts/libraries/SqrtPriceMath.sol#186)
+Variable SqrtPriceMath.getAmount1Delta(uint160,uint160,uint128,bool).sqrtRatioAX96 (contracts/libraries/SqrtPriceMath.sol#169) is too similar to SqrtPriceMath.getAmount1Delta(uint160,uint160,int128).sqrtRatioBX96 (contracts/libraries/SqrtPriceMath.sol#201)
+Variable SqrtPriceMath.getAmount1Delta(uint160,uint160,uint128,bool).sqrtRatioAX96 (contracts/libraries/SqrtPriceMath.sol#169) is too similar to SqrtPriceMath.getAmount0Delta(uint160,uint160,int128).sqrtRatioBX96 (contracts/libraries/SqrtPriceMath.sol#186)
+Variable SqrtPriceMath.getAmount1Delta(uint160,uint160,uint128,bool).sqrtRatioAX96 (contracts/libraries/SqrtPriceMath.sol#169) is too similar to SqrtPriceMath.getAmount0Delta(uint160,uint160,uint128,bool).sqrtRatioBX96 (contracts/libraries/SqrtPriceMath.sol#145)
+Variable SqrtPriceMath.getAmount1Delta(uint160,uint160,int128).sqrtRatioAX96 (contracts/libraries/SqrtPriceMath.sol#201) is too similar to SqrtPriceMath.getAmount0Delta(uint160,uint160,uint128,bool).sqrtRatioBX96 (contracts/libraries/SqrtPriceMath.sol#145)
+Variable SqrtPriceMathPartial.getAmount1Delta(uint160,uint160,uint128,bool).sqrtRatioAX96 (contracts/libraries/SqrtPriceMathPartial.sol#44) is too similar to SqrtPriceMathPartial.getAmount1Delta(uint160,uint160,uint128,bool).sqrtRatioBX96 (contracts/libraries/SqrtPriceMathPartial.sol#44)
+Variable SqrtPriceMathPartial.getAmount0Delta(uint160,uint160,uint128,bool).sqrtRatioAX96 (contracts/libraries/SqrtPriceMathPartial.sol#20) is too similar to SqrtPriceMathPartial.getAmount1Delta(uint160,uint160,uint128,bool).sqrtRatioBX96 (contracts/libraries/SqrtPriceMathPartial.sol#44)
+Variable SqrtPriceMathPartial.getAmount0Delta(uint160,uint160,uint128,bool).sqrtRatioAX96 (contracts/libraries/SqrtPriceMathPartial.sol#20) is too similar to SqrtPriceMathPartial.getAmount0Delta(uint160,uint160,uint128,bool).sqrtRatioBX96 (contracts/libraries/SqrtPriceMathPartial.sol#20)
+Variable SqrtPriceMathPartial.getAmount1Delta(uint160,uint160,uint128,bool).sqrtRatioAX96 (contracts/libraries/SqrtPriceMathPartial.sol#44) is too similar to SqrtPriceMathPartial.getAmount0Delta(uint160,uint160,uint128,bool).sqrtRatioBX96 (contracts/libraries/SqrtPriceMathPartial.sol#20)
+Variable Tick.getFeeGrowthInside(mapping(int24 => Tick.Info),int24,int24,int24,uint256,uint256).feeGrowthAbove0X128 (contracts/libraries/Tick.sol#82) is too similar to Tick.getFeeGrowthInside(mapping(int24 => Tick.Info),int24,int24,int24,uint256,uint256).feeGrowthAbove1X128 (contracts/libraries/Tick.sol#83)
+Variable Tick.getFeeGrowthInside(mapping(int24 => Tick.Info),int24,int24,int24,uint256,uint256).feeGrowthBelow0X128 (contracts/libraries/Tick.sol#71) is too similar to Tick.getFeeGrowthInside(mapping(int24 => Tick.Info),int24,int24,int24,uint256,uint256).feeGrowthBelow1X128 (contracts/libraries/Tick.sol#72)
+Variable Tick.update(mapping(int24 => Tick.Info),int24,int24,int128,uint256,uint256,uint160,int56,uint32,bool,uint128).feeGrowthGlobal0X128 (contracts/libraries/Tick.sol#114) is too similar to Tick.getFeeGrowthInside(mapping(int24 => Tick.Info),int24,int24,int24,uint256,uint256).feeGrowthGlobal1X128 (contracts/libraries/Tick.sol#65)
+Variable Tick.update(mapping(int24 => Tick.Info),int24,int24,int128,uint256,uint256,uint160,int56,uint32,bool,uint128).feeGrowthGlobal0X128 (contracts/libraries/Tick.sol#114) is too similar to Tick.cross(mapping(int24 => Tick.Info),int24,uint256,uint256,uint160,int56,uint32).feeGrowthGlobal1X128 (contracts/libraries/Tick.sol#171)
+Variable Tick.cross(mapping(int24 => Tick.Info),int24,uint256,uint256,uint160,int56,uint32).feeGrowthGlobal0X128 (contracts/libraries/Tick.sol#170) is too similar to Tick.getFeeGrowthInside(mapping(int24 => Tick.Info),int24,int24,int24,uint256,uint256).feeGrowthGlobal1X128 (contracts/libraries/Tick.sol#65)
+Variable Tick.cross(mapping(int24 => Tick.Info),int24,uint256,uint256,uint160,int56,uint32).feeGrowthGlobal0X128 (contracts/libraries/Tick.sol#170) is too similar to Tick.cross(mapping(int24 => Tick.Info),int24,uint256,uint256,uint160,int56,uint32).feeGrowthGlobal1X128 (contracts/libraries/Tick.sol#171)
+Variable Tick.getFeeGrowthInside(mapping(int24 => Tick.Info),int24,int24,int24,uint256,uint256).feeGrowthGlobal0X128 (contracts/libraries/Tick.sol#64) is too similar to Tick.cross(mapping(int24 => Tick.Info),int24,uint256,uint256,uint160,int56,uint32).feeGrowthGlobal1X128 (contracts/libraries/Tick.sol#171)
+Variable Tick.cross(mapping(int24 => Tick.Info),int24,uint256,uint256,uint160,int56,uint32).feeGrowthGlobal0X128 (contracts/libraries/Tick.sol#170) is too similar to Tick.update(mapping(int24 => Tick.Info),int24,int24,int128,uint256,uint256,uint160,int56,uint32,bool,uint128).feeGrowthGlobal1X128 (contracts/libraries/Tick.sol#115)
+Variable Tick.getFeeGrowthInside(mapping(int24 => Tick.Info),int24,int24,int24,uint256,uint256).feeGrowthGlobal0X128 (contracts/libraries/Tick.sol#64) is too similar to Tick.update(mapping(int24 => Tick.Info),int24,int24,int128,uint256,uint256,uint160,int56,uint32,bool,uint128).feeGrowthGlobal1X128 (contracts/libraries/Tick.sol#115)
+Variable Tick.update(mapping(int24 => Tick.Info),int24,int24,int128,uint256,uint256,uint160,int56,uint32,bool,uint128).feeGrowthGlobal0X128 (contracts/libraries/Tick.sol#114) is too similar to Tick.update(mapping(int24 => Tick.Info),int24,int24,int128,uint256,uint256,uint160,int56,uint32,bool,uint128).feeGrowthGlobal1X128 (contracts/libraries/Tick.sol#115)
+Variable Tick.getFeeGrowthInside(mapping(int24 => Tick.Info),int24,int24,int24,uint256,uint256).feeGrowthGlobal0X128 (contracts/libraries/Tick.sol#64) is too similar to Tick.getFeeGrowthInside(mapping(int24 => Tick.Info),int24,int24,int24,uint256,uint256).feeGrowthGlobal1X128 (contracts/libraries/Tick.sol#65)
+Variable Tick.getFeeGrowthInside(mapping(int24 => Tick.Info),int24,int24,int24,uint256,uint256).feeGrowthInside0X128 (contracts/libraries/Tick.sol#66) is too similar to Tick.getFeeGrowthInside(mapping(int24 => Tick.Info),int24,int24,int24,uint256,uint256).feeGrowthInside1X128 (contracts/libraries/Tick.sol#66)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#variable-names-too-similar
+INFO:Detectors:
+ThrusterPoolFactory.enableFeeAmount(uint24,int24) (contracts/ThrusterPoolFactory.sol#77-88) uses literals with too many digits:
+	- require(bool)(fee < 1000000) (contracts/ThrusterPoolFactory.sol#79)
+BitMath.mostSignificantBit(uint256) (contracts/libraries/BitMath.sol#13-45) uses literals with too many digits:
+	- x >= 0x100000000000000000000000000000000 (contracts/libraries/BitMath.sol#16)
+BitMath.mostSignificantBit(uint256) (contracts/libraries/BitMath.sol#13-45) uses literals with too many digits:
+	- x >= 0x10000000000000000 (contracts/libraries/BitMath.sol#20)
+BitMath.mostSignificantBit(uint256) (contracts/libraries/BitMath.sol#13-45) uses literals with too many digits:
+	- x >= 0x100000000 (contracts/libraries/BitMath.sol#24)
+BytesLib.toAddress(bytes,uint256) (contracts/libraries/BytesLib.sol#72-82) uses literals with too many digits:
+	- tempAddress = mload(uint256)(_bytes + 0x20 + _start) / 0x1000000000000000000000000 (contracts/libraries/BytesLib.sol#78)
+FixedPoint128.slitherConstructorConstantVariables() (contracts/libraries/FixedPoint128.sol#6-8) uses literals with too many digits:
+	- Q128 = 0x100000000000000000000000000000000 (contracts/libraries/FixedPoint128.sol#7)
+FixedPoint96.slitherConstructorConstantVariables() (contracts/libraries/FixedPoint96.sol#7-10) uses literals with too many digits:
+	- Q96 = 0x1000000000000000000000000 (contracts/libraries/FixedPoint96.sol#9)
+NFTDescriptor.sigfigsRounded(uint256,uint8) (contracts/libraries/NFTDescriptor.sol#249-265) uses literals with too many digits:
+	- value == 100000 (contracts/libraries/NFTDescriptor.sol#260)
+TickMath.getSqrtRatioAtTick(int24) (contracts/libraries/TickMath.sol#23-54) uses literals with too many digits:
+	- ratio = 0x100000000000000000000000000000000 (contracts/libraries/TickMath.sol#27)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+INFO:Detectors:
+ThrusterPoolFactory.pointsAdmin (contracts/ThrusterPoolFactory.sol#18) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:. analyzed (106 contracts with 93 detectors), 557 result(s) found

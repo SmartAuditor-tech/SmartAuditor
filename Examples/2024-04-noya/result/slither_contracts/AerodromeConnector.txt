@@ -1,0 +1,55 @@
+'forge config --json' running
+Could not detect solc version from Foundry config. Falling back to system version...
+'solc --version' running
+'solc @openzeppelin/=node_modules/@openzeppelin/ eth-gas-reporter/=node_modules/eth-gas-reporter/ hardhat/=node_modules/hardhat/ forge-std/=lib/forge-std/src/ ds-test/=node_modules/ds-test/src/ @uniswap/=node_modules/@uniswap/ @gearbox-protocol/=node_modules/@gearbox-protocol/ @balancer-labs/=node_modules/@balancer-labs/ @layerzerolabs/=node_modules/@layerzerolabs/ base64-sol/=node_modules/base64-sol/ hardhat-deploy/=node_modules/hardhat-deploy/ solidity-bytes-utils/=node_modules/solidity-bytes-utils/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-noya/contracts/connectors/AerodromeConnector.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 200 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-noya/contracts/connectors' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-noya/contracts/connectors/AerodromeConnector.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> contracts/external/interfaces/Aerodrome/IGauge.sol
+
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> contracts/external/interfaces/Aerodrome/IPool.sol
+
+Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> contracts/connectors/AerodromeConnector.sol:117:35:
+    |
+117 |     function _getUnderlyingTokens(uint256 p, bytes memory data) public view override returns (address[] memory) {
+    |                                   ^^^^^^^^^
+
+
+INFO:Detectors:
+BaseConnector._getValue(address,address,uint256) (contracts/helpers/BaseConnector.sol#253-261) uses a dangerous strict equality:
+	- amount == 0 (contracts/helpers/BaseConnector.sol#257)
+BaseConnector._updateTokenInRegistry(address) (contracts/helpers/BaseConnector.sol#158-160) uses a dangerous strict equality:
+	- _updateTokenInRegistry(token,IERC20(token).balanceOf(address(this)) == 0) (contracts/helpers/BaseConnector.sol#159)
+AerodromeConnector.withdraw(WithdrawData) (contracts/connectors/AerodromeConnector.sol#79-98) uses a dangerous strict equality:
+	- IERC20(data.pool).balanceOf(address(this)) == 0 (contracts/connectors/AerodromeConnector.sol#92)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+BaseConnector.sendTokensToTrustedAddress(address,uint256,address,bytes) (contracts/helpers/BaseConnector.sol#84-108) ignores return value by (accountingManager,None) = registry.getVaultAddresses(vaultId) (contracts/helpers/BaseConnector.sol#89)
+BaseConnector.sendTokensToTrustedAddress(address,uint256,address,bytes) (contracts/helpers/BaseConnector.sol#84-108) ignores return value by (None,None,None,None,watcherContract,None) = registry.getGovernanceAddresses(vaultId) (contracts/helpers/BaseConnector.sol#91)
+BaseConnector._updateTokenInRegistry(address,bool) (contracts/helpers/BaseConnector.sol#135-146) ignores return value by (accountingManager,None) = registry.getVaultAddresses(vaultId) (contracts/helpers/BaseConnector.sol#136)
+BaseConnector._updateTokenInRegistry(address,bool) (contracts/helpers/BaseConnector.sol#135-146) ignores return value by registry.updateHoldingPosition(vaultId,positionId,abi.encode(address(this)),,remove) (contracts/helpers/BaseConnector.sol#144)
+BaseConnector.addLiquidity(address[],uint256[],bytes) (contracts/helpers/BaseConnector.sol#169-193) ignores return value by ITokenTransferCallBack(msg.sender).sendTokensToTrustedAddress(tokens[i],amounts[i],msg.sender,) (contracts/helpers/BaseConnector.sol#181)
+AerodromeConnector.supply(DepositData) (contracts/connectors/AerodromeConnector.sol#53-73) ignores return value by aerodromeRouter.addLiquidity(IPool(data.pool).token0(),IPool(data.pool).token1(),IPool(data.pool).stable(),data.amount0,data.amount1,data.min0Min,data.min1Min,address(this),data.deadline) (contracts/connectors/AerodromeConnector.sol#57-67)
+AerodromeConnector.supply(DepositData) (contracts/connectors/AerodromeConnector.sol#53-73) ignores return value by registry.updateHoldingPosition(vaultId,positionId,,,false) (contracts/connectors/AerodromeConnector.sol#68)
+AerodromeConnector.withdraw(WithdrawData) (contracts/connectors/AerodromeConnector.sol#79-98) ignores return value by aerodromeRouter.removeLiquidity(IPool(data.pool).token0(),IPool(data.pool).token1(),IPool(data.pool).stable(),data.amountLiquidity,data.min0Min,data.min1Min,address(this),data.deadline) (contracts/connectors/AerodromeConnector.sol#82-91)
+AerodromeConnector.withdraw(WithdrawData) (contracts/connectors/AerodromeConnector.sol#79-98) ignores return value by registry.updateHoldingPosition(vaultId,positionId,,,true) (contracts/connectors/AerodromeConnector.sol#93)
+AerodromeConnector._getPositionTVL(HoldingPI,address) (contracts/connectors/AerodromeConnector.sol#125-134) ignores return value by (reserve0,reserve1,None) = IPool(pool).getReserves() (contracts/connectors/AerodromeConnector.sol#130)
+NoyaGovernanceBase.onlyManager() (contracts/governance/NoyaGovernanceBase.sol#31-37) ignores return value by (None,None,None,keeperContract,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#32)
+NoyaGovernanceBase.onlyEmergency() (contracts/governance/NoyaGovernanceBase.sol#43-47) ignores return value by (None,None,None,None,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#44)
+NoyaGovernanceBase.onlyEmergencyOrWatcher() (contracts/governance/NoyaGovernanceBase.sol#53-59) ignores return value by (None,None,None,None,watcherContract,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#54)
+NoyaGovernanceBase.onlyMaintainerOrEmergency() (contracts/governance/NoyaGovernanceBase.sol#65-69) ignores return value by (None,maintainer,None,None,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#66)
+NoyaGovernanceBase.onlyMaintainer() (contracts/governance/NoyaGovernanceBase.sol#75-79) ignores return value by (None,maintainer,None,None,None,None) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#76)
+NoyaGovernanceBase.onlyGovernance() (contracts/governance/NoyaGovernanceBase.sol#85-89) ignores return value by (governer,None,None,None,None,None) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#86)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Detectors:
+BaseConnector.DUST_LEVEL (contracts/helpers/BaseConnector.sol#31) should be constant 
+BaseConnector.MINIMUM_HEALTH_FACTOR (contracts/helpers/BaseConnector.sol#28) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+INFO:Detectors:
+AerodromeConnector.aerodromeRouter (contracts/connectors/AerodromeConnector.sol#33) should be immutable 
+AerodromeConnector.voter (contracts/connectors/AerodromeConnector.sol#34) should be immutable 
+NoyaGovernanceBase.registry (contracts/governance/NoyaGovernanceBase.sol#7) should be immutable 
+NoyaGovernanceBase.vaultId (contracts/governance/NoyaGovernanceBase.sol#8) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-04-noya/contracts/connectors/AerodromeConnector.sol analyzed (41 contracts with 58 detectors), 25 result(s) found

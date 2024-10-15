@@ -1,0 +1,22 @@
+'forge config --json' running
+Could not detect solc version from Foundry config. Falling back to system version...
+'solc --version' running
+'solc @openzeppelin/contracts/security/=lib/openzeppelin-contracts/contracts/utils/ account-abstraction/=lib/account-abstraction/contracts/ ds-test/=lib/openzeppelin-contracts/lib/forge-std/lib/ds-test/src/ erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/ forge-std/=lib/forge-std/src/ openzeppelin-contracts/=lib/openzeppelin-contracts/ solady/=lib/solady/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-coinbase/src/MagicSpend/MagicSpend.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 200 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-coinbase/src/MagicSpend' running
+INFO:Detectors:
+SafeTransferLib.permit2(address,address,address,uint256,uint256,uint8,bytes32,bytes32).success (lib/solady/src/utils/SafeTransferLib.sol#464) is written in both
+	success = call(uint256,uint256,uint256,uint256,uint256,uint256,uint256)(gas()(),token,0,m_permit2_asm_0 + 0x10,0x104,codesize()(),0x00) (lib/solady/src/utils/SafeTransferLib.sol#491)
+	success = call(uint256,uint256,uint256,uint256,uint256,uint256,uint256)(gas()(),token,0,m_permit2_asm_0 + 0x10,0xe4,codesize()(),0x00) (lib/solady/src/utils/SafeTransferLib.sol#499)
+SignatureCheckerLib.isValidSignatureNow(address,bytes32,bytes).isValid (lib/solady/src/utils/SignatureCheckerLib.sol#35) is written in both
+	isValid = 1 (lib/solady/src/utils/SignatureCheckerLib.sol#79)
+	isValid = mload(uint256)(d_isValidSignatureNow_asm_0) == f_isValidSignatureNow_asm_0 & staticcall(uint256,uint256,uint256,uint256,uint256,uint256)(gas()(),signer,m_isValidSignatureNow_asm_0,returndatasize()() + 0x44,d_isValidSignatureNow_asm_0,0x20) (lib/solady/src/utils/SignatureCheckerLib.sol#97-111)
+SignatureCheckerLib.isValidSignatureNowCalldata(address,bytes32,bytes).isValid (lib/solady/src/utils/SignatureCheckerLib.sol#123) is written in both
+	isValid = 1 (lib/solady/src/utils/SignatureCheckerLib.sol#167)
+	isValid = mload(uint256)(d_isValidSignatureNowCalldata_asm_0) == f_isValidSignatureNowCalldata_asm_0 & staticcall(uint256,uint256,uint256,uint256,uint256,uint256)(gas()(),signer,m_isValidSignatureNowCalldata_asm_0,signature + 0x64,d_isValidSignatureNowCalldata_asm_0,0x20) (lib/solady/src/utils/SignatureCheckerLib.sol#185-199)
+SignatureCheckerLib.isValidSignatureNow(address,bytes32,bytes32,bytes32).isValid (lib/solady/src/utils/SignatureCheckerLib.sol#211) is written in both
+	isValid = 1 (lib/solady/src/utils/SignatureCheckerLib.sol#233)
+	isValid = mload(uint256)(d_isValidSignatureNow_asm_0) == f_isValidSignatureNow_asm_0 & staticcall(uint256,uint256,uint256,uint256,uint256,uint256)(gas()(),signer,m_isValidSignatureNow_asm_0,0xa5,d_isValidSignatureNow_asm_0,0x20) (lib/solady/src/utils/SignatureCheckerLib.sol#249-263)
+SignatureCheckerLib.isValidSignatureNow(address,bytes32,uint8,bytes32,bytes32).isValid (lib/solady/src/utils/SignatureCheckerLib.sol#277) is written in both
+	isValid = 1 (lib/solady/src/utils/SignatureCheckerLib.sol#299)
+	isValid = mload(uint256)(d_isValidSignatureNow_asm_0) == f_isValidSignatureNow_asm_0 & staticcall(uint256,uint256,uint256,uint256,uint256,uint256)(gas()(),signer,m_isValidSignatureNow_asm_0,0xa5,d_isValidSignatureNow_asm_0,0x20) (lib/solady/src/utils/SignatureCheckerLib.sol#315-329)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#write-after-write
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-coinbase/src/MagicSpend/MagicSpend.sol analyzed (10 contracts with 58 detectors), 5 result(s) found

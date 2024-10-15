@@ -1,0 +1,3 @@
+'solc --version' running
+'solc /Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-taiko/packages/protocol/contracts/thirdparty/optimism/trie/SecureMerkleTrie.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-taiko/packages/protocol/contracts/thirdparty/optimism/trie' running
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-taiko/packages/protocol/contracts/thirdparty/optimism/trie/SecureMerkleTrie.sol analyzed (4 contracts with 58 detectors), 0 result(s) found

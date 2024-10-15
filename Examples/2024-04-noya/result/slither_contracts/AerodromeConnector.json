@@ -1,0 +1,319 @@
+{
+    "success": true,
+    "finding_length": 25,
+    "findings": [
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "AerodromeConnector.withdraw(WithdrawData) (contracts/connectors/AerodromeConnector.sol#79-98) uses a dangerous strict equality:\n\t- IERC20(data.pool).balanceOf(address(this)) == 0 (contracts/connectors/AerodromeConnector.sol#92)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [],
+            "function": "withdraw",
+            "contract": "AerodromeConnector",
+            "line": 92
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "BaseConnector._updateTokenInRegistry(address) (contracts/helpers/BaseConnector.sol#158-160) uses a dangerous strict equality:\n\t- _updateTokenInRegistry(token,IERC20(token).balanceOf(address(this)) == 0) (contracts/helpers/BaseConnector.sol#159)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [],
+            "function": "_updateTokenInRegistry",
+            "contract": "BaseConnector",
+            "line": 159
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "BaseConnector._getValue(address,address,uint256) (contracts/helpers/BaseConnector.sol#253-261) uses a dangerous strict equality:\n\t- amount == 0 (contracts/helpers/BaseConnector.sol#257)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [],
+            "function": "_getValue",
+            "contract": "BaseConnector",
+            "line": 257
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyGovernance() (contracts/governance/NoyaGovernanceBase.sol#85-89) ignores return value by (governer,None,None,None,None,None) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#86)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyGovernance",
+            "contract": "NoyaGovernanceBase",
+            "line": 86
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector.sendTokensToTrustedAddress(address,uint256,address,bytes) (contracts/helpers/BaseConnector.sol#84-108) ignores return value by (None,None,None,None,watcherContract,None) = registry.getGovernanceAddresses(vaultId) (contracts/helpers/BaseConnector.sol#91)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "sendTokensToTrustedAddress",
+            "contract": "BaseConnector",
+            "line": 91
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyMaintainer() (contracts/governance/NoyaGovernanceBase.sol#75-79) ignores return value by (None,maintainer,None,None,None,None) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#76)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyMaintainer",
+            "contract": "NoyaGovernanceBase",
+            "line": 76
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyEmergency() (contracts/governance/NoyaGovernanceBase.sol#43-47) ignores return value by (None,None,None,None,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#44)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyEmergency",
+            "contract": "NoyaGovernanceBase",
+            "line": 44
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyMaintainerOrEmergency() (contracts/governance/NoyaGovernanceBase.sol#65-69) ignores return value by (None,maintainer,None,None,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#66)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyMaintainerOrEmergency",
+            "contract": "NoyaGovernanceBase",
+            "line": 66
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector.addLiquidity(address[],uint256[],bytes) (contracts/helpers/BaseConnector.sol#169-193) ignores return value by ITokenTransferCallBack(msg.sender).sendTokensToTrustedAddress(tokens[i],amounts[i],msg.sender,) (contracts/helpers/BaseConnector.sol#181)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "addLiquidity",
+            "contract": "BaseConnector",
+            "line": 181
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "AerodromeConnector._getPositionTVL(HoldingPI,address) (contracts/connectors/AerodromeConnector.sol#125-134) ignores return value by (reserve0,reserve1,None) = IPool(pool).getReserves() (contracts/connectors/AerodromeConnector.sol#130)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_getPositionTVL",
+            "contract": "AerodromeConnector",
+            "line": 130
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "AerodromeConnector.withdraw(WithdrawData) (contracts/connectors/AerodromeConnector.sol#79-98) ignores return value by registry.updateHoldingPosition(vaultId,positionId,,,true) (contracts/connectors/AerodromeConnector.sol#93)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "withdraw",
+            "contract": "AerodromeConnector",
+            "line": 93
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "AerodromeConnector.withdraw(WithdrawData) (contracts/connectors/AerodromeConnector.sol#79-98) ignores return value by aerodromeRouter.removeLiquidity(IPool(data.pool).token0(),IPool(data.pool).token1(),IPool(data.pool).stable(),data.amountLiquidity,data.min0Min,data.min1Min,address(this),data.deadline) (contracts/connectors/AerodromeConnector.sol#82-91)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "withdraw",
+            "contract": "AerodromeConnector",
+            "line": 82,
+            "line_end": 91
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector._updateTokenInRegistry(address,bool) (contracts/helpers/BaseConnector.sol#135-146) ignores return value by registry.updateHoldingPosition(vaultId,positionId,abi.encode(address(this)),,remove) (contracts/helpers/BaseConnector.sol#144)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_updateTokenInRegistry",
+            "contract": "BaseConnector",
+            "line": 144
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector.sendTokensToTrustedAddress(address,uint256,address,bytes) (contracts/helpers/BaseConnector.sol#84-108) ignores return value by (accountingManager,None) = registry.getVaultAddresses(vaultId) (contracts/helpers/BaseConnector.sol#89)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "sendTokensToTrustedAddress",
+            "contract": "BaseConnector",
+            "line": 89
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "AerodromeConnector.supply(DepositData) (contracts/connectors/AerodromeConnector.sol#53-73) ignores return value by registry.updateHoldingPosition(vaultId,positionId,,,false) (contracts/connectors/AerodromeConnector.sol#68)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "supply",
+            "contract": "AerodromeConnector",
+            "line": 68
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector._updateTokenInRegistry(address,bool) (contracts/helpers/BaseConnector.sol#135-146) ignores return value by (accountingManager,None) = registry.getVaultAddresses(vaultId) (contracts/helpers/BaseConnector.sol#136)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_updateTokenInRegistry",
+            "contract": "BaseConnector",
+            "line": 136
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyManager() (contracts/governance/NoyaGovernanceBase.sol#31-37) ignores return value by (None,None,None,keeperContract,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#32)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyManager",
+            "contract": "NoyaGovernanceBase",
+            "line": 32
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "AerodromeConnector.supply(DepositData) (contracts/connectors/AerodromeConnector.sol#53-73) ignores return value by aerodromeRouter.addLiquidity(IPool(data.pool).token0(),IPool(data.pool).token1(),IPool(data.pool).stable(),data.amount0,data.amount1,data.min0Min,data.min1Min,address(this),data.deadline) (contracts/connectors/AerodromeConnector.sol#57-67)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "supply",
+            "contract": "AerodromeConnector",
+            "line": 57,
+            "line_end": 67
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyEmergencyOrWatcher() (contracts/governance/NoyaGovernanceBase.sol#53-59) ignores return value by (None,None,None,None,watcherContract,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#54)\n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyEmergencyOrWatcher",
+            "contract": "NoyaGovernanceBase",
+            "line": 54
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "BaseConnector.DUST_LEVEL (contracts/helpers/BaseConnector.sol#31) should be constant \n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [],
+            "line": 31
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "BaseConnector.MINIMUM_HEALTH_FACTOR (contracts/helpers/BaseConnector.sol#28) should be constant \n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [],
+            "line": 28
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "AerodromeConnector.aerodromeRouter (contracts/connectors/AerodromeConnector.sol#33) should be immutable \n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [],
+            "line": 33
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "NoyaGovernanceBase.vaultId (contracts/governance/NoyaGovernanceBase.sol#8) should be immutable \n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [],
+            "line": 8
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "AerodromeConnector.voter (contracts/connectors/AerodromeConnector.sol#34) should be immutable \n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [],
+            "line": 34
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "NoyaGovernanceBase.registry (contracts/governance/NoyaGovernanceBase.sol#7) should be immutable \n",
+            "filename": "AerodromeConnector.sol",
+            "classification": [],
+            "line": 7
+        }
+    ]
+}

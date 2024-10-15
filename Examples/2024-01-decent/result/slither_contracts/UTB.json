@@ -1,0 +1,112 @@
+{
+    "success": true,
+    "finding_length": 8,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "UTB.callBridge(uint256,uint256,BridgeInstructions) (src/UTB.sol#282-301) sends eth to arbitrary user\n\tDangerous calls:\n\t- IBridgeAdapter(bridgeAdapters[instructions.bridgeId]).bridge{value: bridgeFee + amt2Bridge}(amt2Bridge,instructions.postBridge,instructions.dstChainId,instructions.target,instructions.paymentOperator,instructions.payload,instructions.additionalArgs,instructions.refund) (src/UTB.sol#288-300)\n\t- IBridgeAdapter(bridgeAdapters[instructions.bridgeId]).bridge{value: bridgeFee + 0}(amt2Bridge,instructions.postBridge,instructions.dstChainId,instructions.target,instructions.paymentOperator,instructions.payload,instructions.additionalArgs,instructions.refund) (src/UTB.sol#288-300)\n",
+            "filename": "UTB.sol",
+            "classification": [],
+            "function": "callBridge",
+            "contract": "UTB",
+            "line": 288,
+            "line_end": 300
+        },
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "UTB._swapAndExecute(SwapInstructions,address,address,bytes,address) (src/UTB.sol#134-162) sends eth to arbitrary user\n\tDangerous calls:\n\t- executor.execute{value: amountOut}(target,paymentOperator,payload,tokenOut,amountOut,refund) (src/UTB.sol#143-150)\n",
+            "filename": "UTB.sol",
+            "classification": [],
+            "function": "_swapAndExecute",
+            "contract": "UTB",
+            "line": 143,
+            "line_end": 150
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "UTB.retrieveAndCollectFees(FeeStructure,bytes,bytes) (src/UTB.sol#228-251) ignores return value by IERC20(fees.feeToken).transferFrom(msg.sender,address(this),fees.feeAmount) (src/UTB.sol#236-240)\n",
+            "filename": "UTB.sol",
+            "classification": [],
+            "function": "retrieveAndCollectFees",
+            "contract": "UTB",
+            "line": 236,
+            "line_end": 240
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "UTB.performSwap(SwapInstructions,bool) (src/UTB.sol#63-100) ignores return value by IERC20(swapParams.tokenIn).transferFrom(msg.sender,address(this),swapParams.amountIn) (src/UTB.sol#83-87)\n",
+            "filename": "UTB.sol",
+            "classification": [],
+            "function": "performSwap",
+            "contract": "UTB",
+            "line": 83,
+            "line_end": 87
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "UTB.retrieveAndCollectFees(FeeStructure,bytes,bytes) (src/UTB.sol#228-251) ignores return value by IERC20(fees.feeToken).approve(address(feeCollector),fees.feeAmount) (src/UTB.sol#241-244)\n",
+            "filename": "UTB.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "retrieveAndCollectFees",
+            "contract": "UTB",
+            "line": 241,
+            "line_end": 244
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "UTB.performSwap(SwapInstructions,bool) (src/UTB.sol#63-100) ignores return value by IERC20(swapParams.tokenIn).approve(address(swapper),swapParams.amountIn) (src/UTB.sol#90-93)\n",
+            "filename": "UTB.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "performSwap",
+            "contract": "UTB",
+            "line": 90,
+            "line_end": 93
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "UTB.approveAndCheckIfNative(BridgeInstructions,uint256) (src/UTB.sol#207-220) ignores return value by IERC20(bridgeToken).approve(address(bridgeAdapter),amt2Bridge) (src/UTB.sol#216)\n",
+            "filename": "UTB.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "approveAndCheckIfNative",
+            "contract": "UTB",
+            "line": 216
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "UTB._swapAndExecute(SwapInstructions,address,address,bytes,address) (src/UTB.sol#134-162) ignores return value by IERC20(tokenOut).approve(address(executor),amountOut) (src/UTB.sol#152)\n",
+            "filename": "UTB.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_swapAndExecute",
+            "contract": "UTB",
+            "line": 152
+        }
+    ]
+}

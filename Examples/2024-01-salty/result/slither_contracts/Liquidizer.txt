@@ -1,0 +1,103 @@
+'forge config --json' running
+Could not detect solc version from Foundry config. Falling back to system version...
+'solc --version' running
+'solc chainlink/=lib/chainlink/ ds-test/=lib/openzeppelin-contracts/lib/forge-std/lib/ds-test/src/ erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/ forge-std/=lib/openzeppelin-contracts/lib/forge-std/src/ openzeppelin-contracts/=lib/openzeppelin-contracts/ openzeppelin/=lib/openzeppelin-contracts/contracts/ v3-core/=lib/v3-core/contracts/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/stable/Liquidizer.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20000 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/stable' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/stable/Liquidizer.sol:
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> src/pools/PoolUtils.sol
+
+
+INFO:Detectors:
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) has bitwise-xor operator ^ instead of the exponentiation operator **: 
+	 - inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-exponentiation
+INFO:Detectors:
+Reentrancy in Liquidizer._possiblyBurnUSDS() (src/stable/Liquidizer.sol#101-126):
+	External calls:
+	- _burnUSDS(usdsThatShouldBeBurned) (src/stable/Liquidizer.sol#112)
+		- returndata = address(token).functionCall(data,SafeERC20: low-level call failed) (lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol#122)
+		- usds.safeTransfer(address(usds),amountToBurn) (src/stable/Liquidizer.sol#94)
+		- usds.burnTokensInContract() (src/stable/Liquidizer.sol#95)
+		- (success,returndata) = target.call{value: value}(data) (lib/openzeppelin-contracts/contracts/utils/Address.sol#135)
+	External calls sending eth:
+	- _burnUSDS(usdsThatShouldBeBurned) (src/stable/Liquidizer.sol#112)
+		- (success,returndata) = target.call{value: value}(data) (lib/openzeppelin-contracts/contracts/utils/Address.sol#135)
+	State variables written after the call(s):
+	- usdsThatShouldBeBurned = 0 (src/stable/Liquidizer.sol#113)
+	Liquidizer.usdsThatShouldBeBurned (src/stable/Liquidizer.sol#46) can be used in cross function reentrancies:
+	- Liquidizer._possiblyBurnUSDS() (src/stable/Liquidizer.sol#101-126)
+	- Liquidizer.incrementBurnableUSDS(uint256) (src/stable/Liquidizer.sol#81-88)
+	- Liquidizer.usdsThatShouldBeBurned (src/stable/Liquidizer.sol#46)
+Reentrancy in Liquidizer._possiblyBurnUSDS() (src/stable/Liquidizer.sol#101-126):
+	External calls:
+	- _burnUSDS(usdsBalance) (src/stable/Liquidizer.sol#118)
+		- returndata = address(token).functionCall(data,SafeERC20: low-level call failed) (lib/openzeppelin-contracts/contracts/token/ERC20/utils/SafeERC20.sol#122)
+		- usds.safeTransfer(address(usds),amountToBurn) (src/stable/Liquidizer.sol#94)
+		- usds.burnTokensInContract() (src/stable/Liquidizer.sol#95)
+		- (success,returndata) = target.call{value: value}(data) (lib/openzeppelin-contracts/contracts/utils/Address.sol#135)
+	External calls sending eth:
+	- _burnUSDS(usdsBalance) (src/stable/Liquidizer.sol#118)
+		- (success,returndata) = target.call{value: value}(data) (lib/openzeppelin-contracts/contracts/utils/Address.sol#135)
+	State variables written after the call(s):
+	- usdsThatShouldBeBurned -= usdsBalance (src/stable/Liquidizer.sol#119)
+	Liquidizer.usdsThatShouldBeBurned (src/stable/Liquidizer.sol#46) can be used in cross function reentrancies:
+	- Liquidizer._possiblyBurnUSDS() (src/stable/Liquidizer.sol#101-126)
+	- Liquidizer.incrementBurnableUSDS(uint256) (src/stable/Liquidizer.sol#81-88)
+	- Liquidizer.usdsThatShouldBeBurned (src/stable/Liquidizer.sol#46)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+INFO:Detectors:
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#120)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#121)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#122)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#124)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#125)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- prod0 = prod0 / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#104)
+	- result = prod0 * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#131)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+Liquidizer._possiblyBurnUSDS() (src/stable/Liquidizer.sol#101-126) uses a dangerous strict equality:
+	- usdsThatShouldBeBurned == 0 (src/stable/Liquidizer.sol#104)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+Reentrancy in Liquidizer.setContracts(ICollateralAndLiquidity,IPools,IDAO) (src/stable/Liquidizer.sol#63-77):
+	External calls:
+	- wbtc.approve(address(pools),type()(uint256).max) (src/stable/Liquidizer.sol#71)
+	- weth.approve(address(pools),type()(uint256).max) (src/stable/Liquidizer.sol#72)
+	- dai.approve(address(pools),type()(uint256).max) (src/stable/Liquidizer.sol#73)
+	State variables written after the call(s):
+	- renounceOwnership() (src/stable/Liquidizer.sol#76)
+		- _owner = newOwner (lib/openzeppelin-contracts/contracts/access/Ownable.sol#80)
+	Ownable._owner (lib/openzeppelin-contracts/contracts/access/Ownable.sol#21) can be used in cross function reentrancies:
+	- Ownable._transferOwnership(address) (lib/openzeppelin-contracts/contracts/access/Ownable.sol#78-82)
+	- Ownable.owner() (lib/openzeppelin-contracts/contracts/access/Ownable.sol#43-45)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+INFO:Detectors:
+PoolUtils._placeInternalSwap(IPools,IERC20,IERC20,uint256,uint256) (src/pools/PoolUtils.sol#54-68) ignores return value by (reservesIn,None) = pools.getPoolReserves(tokenIn,tokenOut) (src/pools/PoolUtils.sol#59)
+Liquidizer.setContracts(ICollateralAndLiquidity,IPools,IDAO) (src/stable/Liquidizer.sol#63-77) ignores return value by wbtc.approve(address(pools),type()(uint256).max) (src/stable/Liquidizer.sol#71)
+Liquidizer.setContracts(ICollateralAndLiquidity,IPools,IDAO) (src/stable/Liquidizer.sol#63-77) ignores return value by weth.approve(address(pools),type()(uint256).max) (src/stable/Liquidizer.sol#72)
+Liquidizer.setContracts(ICollateralAndLiquidity,IPools,IDAO) (src/stable/Liquidizer.sol#63-77) ignores return value by dai.approve(address(pools),type()(uint256).max) (src/stable/Liquidizer.sol#73)
+Liquidizer.performUpkeep() (src/stable/Liquidizer.sol#132-152) ignores return value by PoolUtils._placeInternalSwap(pools,wbtc,usds,wbtc.balanceOf(address(this)),maximumInternalSwapPercentTimes1000) (src/stable/Liquidizer.sol#139)
+Liquidizer.performUpkeep() (src/stable/Liquidizer.sol#132-152) ignores return value by PoolUtils._placeInternalSwap(pools,weth,usds,weth.balanceOf(address(this)),maximumInternalSwapPercentTimes1000) (src/stable/Liquidizer.sol#140)
+Liquidizer.performUpkeep() (src/stable/Liquidizer.sol#132-152) ignores return value by PoolUtils._placeInternalSwap(pools,dai,usds,dai.balanceOf(address(this)),maximumInternalSwapPercentTimes1000) (src/stable/Liquidizer.sol#141)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Detectors:
+Liquidizer.exchangeConfig (src/stable/Liquidizer.sol#37) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-salty/src/stable/Liquidizer.sol analyzed (32 contracts with 58 detectors), 21 result(s) found

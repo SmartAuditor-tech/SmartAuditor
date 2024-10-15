@@ -1,0 +1,118 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 24 Code Findings │
+└──────────────────┘
+                                        
+    /g4b/src/rollup/RollupUserLogic.sol 
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           21┆ require(isValidator[msg.sender] || validatorWhitelistDisabled,   
+  "NOT_VALIDATOR");                                                             
+            ⋮┆----------------------------------------
+           28┆ require(_stakeToken != address(0), "NEED_STAKE_TOKEN");
+            ⋮┆----------------------------------------
+           63┆ require(!validatorWhitelistDisabled, "WHITELIST_DISABLED");
+            ⋮┆----------------------------------------
+           64┆ require(_chainIdChanged(), "CHAIN_ID_NOT_CHANGED");
+            ⋮┆----------------------------------------
+           72┆ require(!validatorWhitelistDisabled, "WHITELIST_DISABLED");
+            ⋮┆----------------------------------------
+           73┆ require(_validatorIsAfk(), "VALIDATOR_NOT_AFK");
+            ⋮┆----------------------------------------
+          110┆ require(block.number >= assertion.createdAtBlock +               
+  prevConfig.confirmPeriodBlocks, "BEFORE_DEADLINE");                           
+            ⋮┆----------------------------------------
+          113┆ require(prevAssertionHash == latestConfirmed(),                  
+  "PREV_NOT_LATEST_CONFIRMED");                                                 
+            ⋮┆----------------------------------------
+          118┆ require(winningEdge.claimId == assertionHash, "NOT_WINNER");
+            ⋮┆----------------------------------------
+          119┆ require(winningEdge.status == EdgeStatus.Confirmed,              
+  "EDGE_NOT_CONFIRMED");                                                        
+            ⋮┆----------------------------------------
+          120┆ require(winningEdge.confirmedAtBlock != 0,                       
+  "ZERO_CONFIRMED_AT_BLOCK");                                                   
+            ⋮┆----------------------------------------
+          124┆ require(
+          125┆     block.number >= winningEdge.confirmedAtBlock +               
+  challengeGracePeriodBlocks,                                                   
+          126┆     "CHALLENGE_GRACE_PERIOD_NOT_PASSED"
+          127┆ );
+            ⋮┆----------------------------------------
+          139┆ require(!isStaked(msg.sender), "ALREADY_STAKED");
+            ⋮┆----------------------------------------
+          169┆ require(
+          170┆     expectedAssertionHash == bytes32(0)
+          171┆         || getAssertionStorage(expectedAssertionHash).status ==  
+  AssertionStatus.NoAssertion,                                                  
+          172┆     "EXPECTED_ASSERTION_SEEN"
+          173┆ );
+            ⋮┆----------------------------------------
+          175┆ require(isStaked(msg.sender), "NOT_STAKED");
+            ⋮┆----------------------------------------
+          182┆ require(amountStaked(msg.sender) >=                              
+  assertion.beforeStateData.configData.requiredStake, "INSUFFICIENT_STAKE");    
+            ⋮┆----------------------------------------
+          195┆ require(
+          196┆     lastAssertion == prevAssertion ||                            
+  getAssertionStorage(lastAssertion).firstChildBlock > 0,                       
+          197┆     "STAKED_ON_ANOTHER_BRANCH"
+          198┆ );
+            ⋮┆----------------------------------------
+          207┆ require(timeSincePrev >= minimumAssertionPeriod, "TIME_DELTA");
+            ⋮┆----------------------------------------
+          233┆ require(isStaked(stakerAddress), "NOT_STAKED");
+            ⋮┆----------------------------------------
+          258┆ require(msg.sender == anyTrustFastConfirmer,                     
+  "NOT_FAST_CONFIRMER");                                                        
+            ⋮┆----------------------------------------
+          278┆ require(expectedAssertionHash != bytes32(0),                     
+  "EXPECTED_ASSERTION_HASH");                                                   
+            ⋮┆----------------------------------------
+          337┆ require(withdrawalAddress != address(0),                         
+  "EMPTY_WITHDRAWAL_ADDRESS");                                                  
+            ⋮┆----------------------------------------
+          360┆ require(amount > 0, "NO_FUNDS_TO_WITHDRAW");
+            ⋮┆----------------------------------------
+       solidity.performance.use-short-revert-string.use-short-revert-string     
+          Shortening revert strings to fit in 32 bytes will decrease gas costs  
+  for deployment and  gas                                                       
+          costs when the revert condition has been met.                         
+          Details: https://sg.run/E9LB                                          
+                                                                                
+          124┆ require(
+          125┆     block.number >= winningEdge.confirmedAtBlock +               
+  challengeGracePeriodBlocks,                                                   
+          126┆     "CHALLENGE_GRACE_PERIOD_NOT_PASSED"
+          127┆ );
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 24 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

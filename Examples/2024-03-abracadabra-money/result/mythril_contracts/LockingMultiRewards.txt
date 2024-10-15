@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Expected '=>' but got identifier
+  --> /g4b/src/staking/LockingMultiRewards.sol:89:21:
+   |
+89 |     mapping(address token => Reward info) private _rewardData;
+   |                     ^^^^^
+
+

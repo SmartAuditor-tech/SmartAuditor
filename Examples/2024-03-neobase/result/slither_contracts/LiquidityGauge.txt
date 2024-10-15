@@ -1,0 +1,8 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.17/solc-0.8.17 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.17/solc-0.8.17 ds-test/=lib/ds-test/src/ @openzeppelin/=lib/openzeppelin-contracts/ forge-std/=lib/forge-std/src/ erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/ openzeppelin-contracts/=lib/openzeppelin-contracts/ openzeppelin/=lib/openzeppelin-contracts/contracts/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-neobase/src/LiquidityGauge.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 1000 --via-ir --evm-version london --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-neobase/src' running
+INFO:Detectors:
+LiquidityGauge.lendingLedger (src/LiquidityGauge.sol#15) should be immutable 
+LiquidityGauge.underlyingToken (src/LiquidityGauge.sol#16) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-neobase/src/LiquidityGauge.sol analyzed (10 contracts with 58 detectors), 2 result(s) found

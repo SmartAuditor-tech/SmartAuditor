@@ -1,0 +1,8 @@
+'solc --version' running
+'solc /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-clmm/contracts/NonfungiblePositionManager.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-clmm/contracts' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-clmm/contracts/NonfungiblePositionManager.sol:
+/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-clmm/contracts/NonfungiblePositionManager.sol:2:1: Error: Source file requires different compiler version (current compiler is 0.5.16+commit.9c3226ce.Darwin.appleclang - note that nightly builds are considered to be strictly less than the released version
+pragma solidity =0.7.6;
+^---------------------^
+
+ERROR:Slither:Unable to compile all targets.

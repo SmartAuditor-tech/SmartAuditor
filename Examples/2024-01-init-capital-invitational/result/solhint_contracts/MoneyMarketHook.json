@@ -1,0 +1,150 @@
+{
+    "success": false,
+    "finding_length": 18,
+    "findings": [
+        {
+            "filename": "MoneyMarketHook.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version ^0.8.19 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "MoneyMarketHook.sol",
+            "line": 4,
+            "column": 8,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MoneyMarketHook.sol",
+            "line": 5,
+            "column": 8,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MoneyMarketHook.sol",
+            "line": 6,
+            "column": 24,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MoneyMarketHook.sol",
+            "line": 7,
+            "column": 25,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MoneyMarketHook.sol",
+            "line": 8,
+            "column": 26,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MoneyMarketHook.sol",
+            "line": 9,
+            "column": 27,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MoneyMarketHook.sol",
+            "line": 10,
+            "column": 28,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MoneyMarketHook.sol",
+            "line": 11,
+            "column": 24,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MoneyMarketHook.sol",
+            "line": 12,
+            "column": 29,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MoneyMarketHook.sol",
+            "line": 13,
+            "column": 32,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MoneyMarketHook.sol",
+            "line": 29,
+            "column": 51,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        },
+        {
+            "filename": "MoneyMarketHook.sol",
+            "line": 33,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MoneyMarketHook.sol",
+            "line": 35,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MoneyMarketHook.sol",
+            "line": 37,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "MoneyMarketHook.sol",
+            "line": 54,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "MoneyMarketHook.sol",
+            "line": 100,
+            "column": 35,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        },
+        {
+            "filename": "MoneyMarketHook.sol",
+            "line": 100,
+            "column": 90,
+            "message": "Use double quotes for string literals",
+            "level": "error",
+            "name": "quotes"
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+
+/g4b/src/VotingEscrow.sol
+    2:1   error    Compiler version ^0.8.16 does not satisfy the ^0.5.8 semver requirement                            compiler-version
+   71:9   warning  Provide an error message for require                                                               reason-string
+   79:5   warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+   84:73  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  156:34  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  158:89  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  160:34  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  162:89  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  174:31  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  193:64  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  204:13  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  205:75  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  217:33  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  218:33  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  239:34  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  270:34  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  278:34  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  296:9   warning  Variable name must be in mixedCase                                                                 var-name-mixedcase
+  296:44  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  310:74  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  321:31  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  328:38  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  342:35  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  347:81  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  349:62  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  357:32  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  373:28  warning  Avoid to use low level calls                                                                       avoid-low-level-calls
+  375:70  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  446:76  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  480:21  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  500:37  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+  524:52  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+
+✖ 32 problems (1 error, 31 warnings)
+

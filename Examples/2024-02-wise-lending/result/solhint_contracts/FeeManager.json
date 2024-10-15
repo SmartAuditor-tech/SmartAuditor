@@ -1,0 +1,262 @@
+{
+    "success": true,
+    "finding_length": 32,
+    "findings": [
+        {
+            "filename": "FeeManager.sol",
+            "line": 3,
+            "column": 1,
+            "message": "Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 27,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 43,
+            "column": 5,
+            "message": "Code contains empty blocks",
+            "level": "warning",
+            "name": "no-empty-blocks"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 90,
+            "column": 9,
+            "message": "Avoid to use letters 'I', 'l', 'O' as identifiers",
+            "level": "warning",
+            "name": "use-forbidden-name"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 127,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 143,
+            "column": 9,
+            "message": "Avoid to use letters 'I', 'l', 'O' as identifiers",
+            "level": "warning",
+            "name": "use-forbidden-name"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 159,
+            "column": 17,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 187,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 206,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 224,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 242,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 255,
+            "column": 9,
+            "message": "Avoid to use letters 'I', 'l', 'O' as identifiers",
+            "level": "warning",
+            "name": "use-forbidden-name"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 277,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 301,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 344,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 381,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 404,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 430,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 480,
+            "column": 17,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 506,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 529,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 546,
+            "column": 9,
+            "message": "Avoid to use letters 'I', 'l', 'O' as identifiers",
+            "level": "warning",
+            "name": "use-forbidden-name"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 563,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 579,
+            "column": 9,
+            "message": "Avoid to use letters 'I', 'l', 'O' as identifiers",
+            "level": "warning",
+            "name": "use-forbidden-name"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 596,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 607,
+            "column": 9,
+            "message": "Avoid to use letters 'I', 'l', 'O' as identifiers",
+            "level": "warning",
+            "name": "use-forbidden-name"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 620,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 680,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 720,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 807,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 857,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "FeeManager.sol",
+            "line": 902,
+            "column": 9,
+            "message": "Avoid to use letters 'I', 'l', 'O' as identifiers",
+            "level": "warning",
+            "name": "use-forbidden-name"
+        }
+    ]
+}

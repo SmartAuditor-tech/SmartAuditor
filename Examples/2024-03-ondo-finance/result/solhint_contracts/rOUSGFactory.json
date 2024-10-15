@@ -1,0 +1,54 @@
+{
+    "success": true,
+    "finding_length": 6,
+    "findings": [
+        {
+            "filename": "rOUSGFactory.sol",
+            "line": 16,
+            "column": 1,
+            "message": "Compiler version 0.8.16 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "rOUSGFactory.sol",
+            "line": 47,
+            "column": 3,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "rOUSGFactory.sol",
+            "line": 76,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "rOUSGFactory.sol",
+            "line": 126,
+            "column": 42,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        },
+        {
+            "filename": "rOUSGFactory.sol",
+            "line": 141,
+            "column": 3,
+            "message": "Event name must be in CamelCase",
+            "level": "warning",
+            "name": "event-name-camelcase"
+        },
+        {
+            "filename": "rOUSGFactory.sol",
+            "line": 150,
+            "column": 5,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        }
+    ]
+}

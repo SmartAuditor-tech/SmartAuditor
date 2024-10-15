@@ -1,0 +1,82 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.17/solc-0.8.17 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.17/solc-0.8.17 ds-test/=lib/ds-test/src/ @openzeppelin/=lib/openzeppelin-contracts/ forge-std/=lib/forge-std/src/ erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/ openzeppelin-contracts/=lib/openzeppelin-contracts/ openzeppelin/=lib/openzeppelin-contracts/contracts/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-neobase/src/GaugeController.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 1000 --via-ir --evm-version london --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-neobase/src' running
+INFO:Detectors:
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) has bitwise-xor operator ^ instead of the exponentiation operator **: 
+	 - inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-exponentiation
+INFO:Detectors:
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#120)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#121)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#122)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#124)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#125)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- prod0 = prod0 / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#104)
+	- result = prod0 * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#131)
+GaugeController.constructor(address,address) (src/GaugeController.sol#69-74) performs a multiplication on the result of a division:
+	- last_epoch = (block.timestamp / WEEK) * WEEK (src/GaugeController.sol#72)
+GaugeController.add_gauge(address,int128) (src/GaugeController.sol#206-219) performs a multiplication on the result of a division:
+	- next_time = ((block.timestamp + WEEK) / WEEK) * WEEK (src/GaugeController.sol#211)
+GaugeController._gauge_relative_weight(address,uint256) (src/GaugeController.sol#249-260) performs a multiplication on the result of a division:
+	- t = (_time / WEEK) * WEEK (src/GaugeController.sol#250)
+GaugeController._change_type_weight(int128,uint256) (src/GaugeController.sol#287-298) performs a multiplication on the result of a division:
+	- next_time = ((block.timestamp + WEEK) / WEEK) * WEEK (src/GaugeController.sol#291)
+GaugeController._change_gauge_weight(address,uint256) (src/GaugeController.sol#323-341) performs a multiplication on the result of a division:
+	- next_time = ((block.timestamp + WEEK) / WEEK) * WEEK (src/GaugeController.sol#329)
+GaugeController._remove_gauge_weight(address) (src/GaugeController.sol#350-374) performs a multiplication on the result of a division:
+	- next_time = ((block.timestamp + WEEK) / WEEK) * WEEK (src/GaugeController.sol#352)
+GaugeController.vote_for_gauge_weights(address,uint256) (src/GaugeController.sol#385-467) performs a multiplication on the result of a division:
+	- next_time = ((block.timestamp + WEEK) / WEEK) * WEEK (src/GaugeController.sol#398)
+VotingEscrow._floorToWeek(uint256) (src/VotingEscrow.sol#391-393) performs a multiplication on the result of a division:
+	- (_t / WEEK) * WEEK (src/VotingEscrow.sol#392)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+GaugeController.add_gauge(address,int128) (src/GaugeController.sol#206-219) uses a dangerous strict equality:
+	- time_sum[gauge_type] == 0 (src/GaugeController.sol#215)
+VotingEscrow._checkpoint(address,VotingEscrow.LockedBalance,VotingEscrow.LockedBalance) (src/VotingEscrow.sol#142-286) uses a dangerous strict equality:
+	- _newLocked.end == _oldLocked.end (src/VotingEscrow.sol#185)
+VotingEscrow._checkpoint(address,VotingEscrow.LockedBalance,VotingEscrow.LockedBalance) (src/VotingEscrow.sol#142-286) uses a dangerous strict equality:
+	- iterativeTime == block.timestamp (src/VotingEscrow.sol#239)
+VotingEscrow._checkpoint(address,VotingEscrow.LockedBalance,VotingEscrow.LockedBalance) (src/VotingEscrow.sol#142-286) uses a dangerous strict equality:
+	- _newLocked.end == _oldLocked.end (src/VotingEscrow.sol#273)
+VotingEscrow._supplyAt(VotingEscrow.Point,uint256) (src/VotingEscrow.sol#534-563) uses a dangerous strict equality:
+	- iterativeTime == _t (src/VotingEscrow.sol#552)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+GaugeController.vote_for_gauge_weights(address,uint256) (src/GaugeController.sol#385-467) contains a tautology or contradiction:
+	- require(bool,string)(_user_weight >= 0 && _user_weight <= 10_000,Invalid user weight) (src/GaugeController.sol#386)
+GaugeController.vote_for_gauge_weights(address,uint256) (src/GaugeController.sol#385-467) contains a tautology or contradiction:
+	- require(bool,string)(power_used >= 0 && power_used <= 10_000,Used too much power) (src/GaugeController.sol#419)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#tautology-or-contradiction
+INFO:Detectors:
+VotingEscrow._checkpoint(address,VotingEscrow.LockedBalance,VotingEscrow.LockedBalance).userNewPoint (src/VotingEscrow.sol#148) is a local variable never initialized
+VotingEscrow._checkpoint(address,VotingEscrow.LockedBalance,VotingEscrow.LockedBalance).userOldPoint (src/VotingEscrow.sol#147) is a local variable never initialized
+VotingEscrow.checkpoint().empty (src/VotingEscrow.sol#290) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+INFO:Detectors:
+GaugeController.vote_for_gauge_weights(address,uint256) (src/GaugeController.sol#385-467) ignores return value by (None,slope_,None) = ve.getLastUserPoint(msg.sender) (src/GaugeController.sol#389-394)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Detectors:
+VotingEscrow.decimals (src/VotingEscrow.sol#27) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+INFO:Detectors:
+GaugeController.votingEscrow (src/GaugeController.sol#24) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-neobase/src/GaugeController.sol analyzed (4 contracts with 58 detectors), 30 result(s) found

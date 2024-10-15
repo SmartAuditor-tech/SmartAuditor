@@ -1,0 +1,83 @@
+{
+    "success": true,
+    "finding_length": 6,
+    "findings": [
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "Upkeep.step3() (src/Upkeep.sol#145-154) uses a dangerous strict equality:\n\t- wethBalance == 0 (src/Upkeep.sol#148)\n",
+            "filename": "Upkeep.sol",
+            "classification": [],
+            "function": "step3",
+            "contract": "Upkeep",
+            "line": 148
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "Upkeep.step4() (src/Upkeep.sol#158-167) uses a dangerous strict equality:\n\t- wethBalance == 0 (src/Upkeep.sol#161)\n",
+            "filename": "Upkeep.sol",
+            "classification": [],
+            "function": "step4",
+            "contract": "Upkeep",
+            "line": 161
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "Upkeep.step5() (src/Upkeep.sol#171-180) uses a dangerous strict equality:\n\t- wethBalance == 0 (src/Upkeep.sol#174)\n",
+            "filename": "Upkeep.sol",
+            "classification": [],
+            "function": "step5",
+            "contract": "Upkeep",
+            "line": 174
+        },
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in Upkeep.step8() (src/Upkeep.sol#205-213):\n\tExternal calls:\n\t- saltRewards.stakingRewardsEmitter().performUpkeep(timeSinceLastUpkeep) (src/Upkeep.sol#209)\n\t- saltRewards.liquidityRewardsEmitter().performUpkeep(timeSinceLastUpkeep) (src/Upkeep.sol#210)\n\tState variables written after the call(s):\n\t- lastUpkeepTimeRewardsEmitters = block.timestamp (src/Upkeep.sol#212)\n\tUpkeep.lastUpkeepTimeRewardsEmitters (src/Upkeep.sol#64) can be used in cross function reentrancies:\n\t- Upkeep.constructor(IPools,IExchangeConfig,IPoolsConfig,IDAOConfig,IStableConfig,IPriceAggregator,ISaltRewards,ICollateralAndLiquidity,IEmissions,IDAO) (src/Upkeep.sol#67-92)\n\t- Upkeep.lastUpkeepTimeRewardsEmitters (src/Upkeep.sol#64)\n\t- Upkeep.step8() (src/Upkeep.sol#205-213)\n",
+            "filename": "Upkeep.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "step8",
+            "contract": "Upkeep",
+            "line": 205,
+            "line_end": 213
+        },
+        {
+            "name": "reentrancy-no-eth",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Reentrancy in Upkeep.step6() (src/Upkeep.sol#184-190):\n\tExternal calls:\n\t- emissions.performUpkeep(timeSinceLastUpkeep) (src/Upkeep.sol#187)\n\tState variables written after the call(s):\n\t- lastUpkeepTimeEmissions = block.timestamp (src/Upkeep.sol#189)\n\tUpkeep.lastUpkeepTimeEmissions (src/Upkeep.sol#63) can be used in cross function reentrancies:\n\t- Upkeep.constructor(IPools,IExchangeConfig,IPoolsConfig,IDAOConfig,IStableConfig,IPriceAggregator,ISaltRewards,ICollateralAndLiquidity,IEmissions,IDAO) (src/Upkeep.sol#67-92)\n\t- Upkeep.lastUpkeepTimeEmissions (src/Upkeep.sol#63)\n\t- Upkeep.step6() (src/Upkeep.sol#184-190)\n",
+            "filename": "Upkeep.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "step6",
+            "contract": "Upkeep",
+            "line": 184,
+            "line_end": 190
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Upkeep.constructor(IPools,IExchangeConfig,IPoolsConfig,IDAOConfig,IStableConfig,IPriceAggregator,ISaltRewards,ICollateralAndLiquidity,IEmissions,IDAO) (src/Upkeep.sol#67-92) ignores return value by weth.approve(address(pools),type()(uint256).max) (src/Upkeep.sol#91)\n",
+            "filename": "Upkeep.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "constructor",
+            "contract": "Upkeep",
+            "line": 91
+        }
+    ]
+}

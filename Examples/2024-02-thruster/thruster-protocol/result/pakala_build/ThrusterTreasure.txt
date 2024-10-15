@@ -1,0 +1,9 @@
+Analyzing contract at 0xDEADBEEF00000000000000000000000000000000 with balance 1.337000 ether.
+Starting symbolic execution step...
+Symbolic execution finished with coverage 0%.
+Outcomes: 0 interesting. 1 total and 2 unfinished paths.
+
+Starting analysis step...
+Nothing to report.
+2024-09-23 20:38:04 tanzezhongdeMBP pakala.sm[40404] INFO Analysis finished with 1 outcomes (0 interesting, 2 unfinished), coverage is 0%
+2024-09-23 20:38:04 tanzezhongdeMBP pakala.sm[40404] INFO Interpreter errors encountered: [("InterpreterError('Unknown opcode 0x5f')", 2)]

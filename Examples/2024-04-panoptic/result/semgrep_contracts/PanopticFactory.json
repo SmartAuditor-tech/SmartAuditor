@@ -1,0 +1,153 @@
+{
+    "success": true,
+    "finding_length": 21,
+    "findings": [
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 115
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 116
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 117
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 118
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 119
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 120
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 121
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 122
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 123
+        },
+        {
+            "classification": [],
+            "name": "non-payable-constructor",
+            "category": "performance",
+            "message": "Consider making costructor payable to save gas. Details: https://sg.run/wRBd",
+            "line": 124
+        },
+        {
+            "classification": [],
+            "name": "use-nested-if",
+            "category": "performance",
+            "message": "Using nested is cheaper than using && multiple check combinations. There are more advantages, such as easier to read code and better coverage reports. Details: https://sg.run/dXw0",
+            "line": 224
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 172
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 173
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 174
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 175
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 176
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 177
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 178
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 179
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 180
+        },
+        {
+            "classification": [],
+            "name": "uniswap-callback-not-protected",
+            "category": "security",
+            "message": "tected Uniswap callback is not protected Details: https://sg.run/r4JJ",
+            "line": 181
+        }
+    ]
+}

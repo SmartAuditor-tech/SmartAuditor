@@ -1,0 +1,18 @@
+{
+    "success": true,
+    "finding_length": 1,
+    "findings": [
+        {
+            "name": "locked-ether",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "Contract locking ether found:\n\tContract MockLpETH (src/mock/MockLpETH.sol#7-14) has payable functions:\n\t - ILpETH.deposit(address) (src/interfaces/ILpETH.sol#7)\n\t - MockLpETH.deposit(address) (src/mock/MockLpETH.sol#10-13)\n\tBut does not have a function to withdraw the ether\n",
+            "filename": "MockLpETH.sol",
+            "classification": [
+                "DASP-5"
+            ],
+            "line": 10,
+            "line_end": 13
+        }
+    ]
+}

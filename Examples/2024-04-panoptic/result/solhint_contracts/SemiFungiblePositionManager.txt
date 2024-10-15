@@ -1,0 +1,17 @@
+
+/g4b/contracts/SemiFungiblePositionManager.sol
+  145:20  error  Parse error: extraneous input 'univ3pool' expecting '=>'
+  145:41  error  Parse error: extraneous input 'poolIdData' expecting ')'
+  150:19  error  Parse error: extraneous input 'poolId' expecting '=>'
+  150:48  error  Parse error: extraneous input 'contextData' expecting ')'
+  177:20  error  Parse error: extraneous input 'positionKey' expecting '=>'
+  177:53  error  Parse error: extraneous input 'removedAndNetLiquidity' expecting ')'
+  287:20  error  Parse error: extraneous input 'positionKey' expecting '=>'
+  287:53  error  Parse error: extraneous input 'accountPremium' expecting ')'
+  289:20  error  Parse error: extraneous input 'positionKey' expecting '=>'
+  289:53  error  Parse error: extraneous input 'accountPremium' expecting ')'
+  295:20  error  Parse error: extraneous input 'positionKey' expecting '=>'
+  295:51  error  Parse error: extraneous input 'baseFees0And1' expecting ')'
+
+✖ 12 problems (12 errors, 0 warnings)
+

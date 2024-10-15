@@ -1,0 +1,24 @@
+{
+    "success": true,
+    "finding_length": 2,
+    "findings": [
+        {
+            "name": "erc20-interface",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "IERC20Partial (contracts/tokens/interfaces/IERC20Partial.sol#11-28) has incorrect ERC20 function interface:IERC20Partial.transfer(address,uint256) (contracts/tokens/interfaces/IERC20Partial.sol#27)\n",
+            "filename": "IERC20Partial.sol",
+            "classification": [],
+            "line": 27
+        },
+        {
+            "name": "erc20-interface",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "IERC20Partial (contracts/tokens/interfaces/IERC20Partial.sol#11-28) has incorrect ERC20 function interface:IERC20Partial.approve(address,uint256) (contracts/tokens/interfaces/IERC20Partial.sol#22)\n",
+            "filename": "IERC20Partial.sol",
+            "classification": [],
+            "line": 22
+        }
+    ]
+}

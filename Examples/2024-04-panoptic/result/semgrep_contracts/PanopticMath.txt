@@ -1,0 +1,110 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 7 Code Findings │
+└─────────────────┘
+                                              
+    /g4b/contracts/libraries/PanopticMath.sol 
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+          781┆ for (uint256 i = 0; i < positionIdList.length; ++i) {
+            ⋮┆----------------------------------------
+          860┆ for (uint256 i = 0; i < positionIdList.length; i++) {
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          218┆ if ((below) && (lastObservedTick > entry)) {
+          219┆     shift += 1;
+          220┆     below = false;
+          221┆ }
+            ⋮┆----------------------------------------
+          704┆ if (!(paid0 > balance0 && paid1 > balance1)) {
+          705┆     // liquidatee cannot pay back the liquidator fully in either 
+  token, so no protocol loss can be avoided                                     
+          706┆     if ((paid0 > balance0)) {
+          707┆         // liquidatee has insufficient token0 but some token1    
+  left over, so we use what they have left to mitigate token0 losses            
+          708┆         // we do this by substituting an equivalent value of     
+  token1 in our refund to the liquidator, plus a bonus, for the token0 we       
+  convert                                                                       
+          709┆         // we want to convert the minimum amount of tokens       
+  required to achieve the lowest possible protocol loss (to avoid overpaying on 
+  the conversion bonus)                                                         
+          710┆         // the maximum level of protocol loss mitigation that can
+  be achieved is the liquidatee's excess token1 balance: balance1 - paid1       
+          711┆         // and paid0 - balance0 is the amount of token0 that the 
+  liquidatee is missing, i.e the protocol loss                                  
+          712┆         // if the protocol loss is lower than the excess token1  
+  balance, then we can fully mitigate the loss and we should only convert the   
+  loss amount                                                                   
+          713┆         // if the protocol loss is higher than the excess token1 
+  balance, we can only mitigate part of the loss, so we should convert only the 
+  excess token1 bal ... [0m                                                     
+            [shortened a long line from output, adjust with                     
+  --max-chars-per-line]                                                         
+             [hid 29 additional lines, adjust with --max-lines-per-finding] 
+          797┆ if (
+          798┆     longPremium.rightSlot() < collateralDelta0 &&
+          799┆     longPremium.leftSlot() > collateralDelta1
+          800┆ ) {
+          801┆     int256 protocolLoss1 = collateralDelta1;
+          802┆     (collateralDelta0, collateralDelta1) = (
+          803┆         -Math.min(
+          804┆             collateralDelta0 - longPremium.rightSlot(),
+          805┆             PanopticMath.convert1to0(
+          806┆                 longPremium.leftSlot() - collateralDelta1,
+             [hid 46 additional lines, adjust with --max-lines-per-finding] 
+          821┆ } else if (
+          822┆     longPremium.leftSlot() < collateralDelta1 &&
+          823┆     longPremium.rightSlot() > collateralDelta0
+          824┆ ) {
+          825┆     int256 protocolLoss0 = collateralDelta0;
+          826┆     (collateralDelta0, collateralDelta1) = (
+          827┆         Math.min(
+          828┆             longPremium.rightSlot() - collateralDelta0,
+          829┆             PanopticMath.convert1to0(
+          830┆                 collateralDelta1 - longPremium.leftSlot(),
+             [hid 22 additional lines, adjust with --max-lines-per-finding] 
+       solidity.performance.use-prefix-increment-not-postfix.use-prefix-incremen
+  t-not-postfix                                                                 
+          Consider using the prefix increment expression whenever the return    
+  value is not needed. The                                                      
+          prefix increment expression is cheaper in terms of gas.               
+          Details: https://sg.run/nxLr                                          
+                                                                                
+          860┆ for (uint256 i = 0; i < positionIdList.length; i++) {
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+Some files were skipped or only partially analyzed.
+  Partially scanned: 1 files only partially analyzed due to parsing or internal Semgrep errors
+
+Ran 50 rules on 1 file: 7 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

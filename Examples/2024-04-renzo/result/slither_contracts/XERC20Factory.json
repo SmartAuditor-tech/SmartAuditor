@@ -1,0 +1,205 @@
+{
+    "success": true,
+    "finding_length": 17,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "XERC20Lockbox._withdraw(address,uint256) (contracts/Bridge/xERC20/contracts/XERC20Lockbox.sol#125-136) sends eth to arbitrary user\n\tDangerous calls:\n\t- (_success,None) = address(_to).call{value: _amount}() (contracts/Bridge/xERC20/contracts/XERC20Lockbox.sol#131)\n",
+            "filename": "XERC20Factory.sol",
+            "classification": [],
+            "function": "_withdraw",
+            "contract": "XERC20Lockbox",
+            "line": 131
+        },
+        {
+            "name": "encode-packed-collision",
+            "impact": "High",
+            "confidence": "High",
+            "message": "XERC20Factory._deployXERC20(string,string,uint256[],uint256[],address[],address) (contracts/Bridge/xERC20/contracts/XERC20Factory.sol#135-172) calls abi.encodePacked() with multiple dynamic arguments:\n\t- _salt = keccak256(bytes)(abi.encodePacked(_name,_symbol,msg.sender)) (contracts/Bridge/xERC20/contracts/XERC20Factory.sol#147)\n",
+            "filename": "XERC20Factory.sol",
+            "classification": [],
+            "function": "_deployXERC20",
+            "contract": "XERC20Factory",
+            "line": 147
+        },
+        {
+            "name": "incorrect-exp",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "MathUpgradeable.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#55-134) has bitwise-xor operator ^ instead of the exponentiation operator **: \n\t - inverse = (3 * denominator) ^ 2 (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#116)\n",
+            "filename": "XERC20Factory.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "MathUpgradeable",
+            "line": 116
+        },
+        {
+            "name": "incorrect-return",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "TransparentUpgradeableProxy._fallback() (node_modules/@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol#84-107) calls Proxy._fallback() (node_modules/@openzeppelin/contracts/proxy/Proxy.sol#58-61) which halt the execution return(uint256,uint256)(0,returndatasize()()) (node_modules/@openzeppelin/contracts/proxy/Proxy.sol#42)\n",
+            "filename": "XERC20Factory.sol",
+            "classification": [],
+            "function": "_fallback",
+            "contract": "TransparentUpgradeableProxy",
+            "line": 42
+        },
+        {
+            "name": "incorrect-return",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "TransparentUpgradeableProxy.ifAdmin() (node_modules/@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol#73-79) calls TransparentUpgradeableProxy._fallback() (node_modules/@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol#84-107) which halt the execution return(uint256,uint256)(0,returndatasize()()) (node_modules/@openzeppelin/contracts/proxy/Proxy.sol#42)\n",
+            "filename": "XERC20Factory.sol",
+            "classification": [],
+            "function": "ifAdmin",
+            "contract": "TransparentUpgradeableProxy",
+            "line": 42
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MathUpgradeable.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#101)\n\t- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#121)\n",
+            "filename": "XERC20Factory.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "MathUpgradeable",
+            "line": 121
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MathUpgradeable.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#101)\n\t- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#124)\n",
+            "filename": "XERC20Factory.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "MathUpgradeable",
+            "line": 124
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MathUpgradeable.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#101)\n\t- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#120)\n",
+            "filename": "XERC20Factory.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "MathUpgradeable",
+            "line": 120
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MathUpgradeable.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#101)\n\t- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#125)\n",
+            "filename": "XERC20Factory.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "MathUpgradeable",
+            "line": 125
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MathUpgradeable.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#101)\n\t- inverse = (3 * denominator) ^ 2 (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#116)\n",
+            "filename": "XERC20Factory.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "MathUpgradeable",
+            "line": 116
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MathUpgradeable.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#101)\n\t- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#122)\n",
+            "filename": "XERC20Factory.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "MathUpgradeable",
+            "line": 122
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MathUpgradeable.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#55-134) performs a multiplication on the result of a division:\n\t- prod0 = prod0 / twos (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#104)\n\t- result = prod0 * inverse (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#131)\n",
+            "filename": "XERC20Factory.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "MathUpgradeable",
+            "line": 131
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MathUpgradeable.mulDiv(uint256,uint256,uint256) (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#55-134) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#101)\n\t- inverse *= 2 - denominator * inverse (node_modules/@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol#123)\n",
+            "filename": "XERC20Factory.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "MathUpgradeable",
+            "line": 123
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "XERC20Factory._deployLockbox(address,address,bool,address) (contracts/Bridge/xERC20/contracts/XERC20Factory.sol#184-211) ignores return value by EnumerableSetUpgradeable.add(_lockboxRegistryArray,_lockbox) (contracts/Bridge/xERC20/contracts/XERC20Factory.sol#209)\n",
+            "filename": "XERC20Factory.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_deployLockbox",
+            "contract": "XERC20Factory",
+            "line": 209
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "ERC1967Upgrade._upgradeBeaconToAndCall(address,bytes,bool) (node_modules/@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol#150-156) ignores return value by Address.functionDelegateCall(IBeacon(newBeacon).implementation(),data) (node_modules/@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol#154)\n",
+            "filename": "XERC20Factory.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_upgradeBeaconToAndCall",
+            "contract": "ERC1967Upgrade",
+            "line": 154
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "XERC20Factory._deployXERC20(string,string,uint256[],uint256[],address[],address) (contracts/Bridge/xERC20/contracts/XERC20Factory.sol#135-172) ignores return value by EnumerableSetUpgradeable.add(_xerc20RegistryArray,_xerc20) (contracts/Bridge/xERC20/contracts/XERC20Factory.sol#165)\n",
+            "filename": "XERC20Factory.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_deployXERC20",
+            "contract": "XERC20Factory",
+            "line": 165
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "ERC1967Upgrade._upgradeToAndCall(address,bytes,bool) (node_modules/@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol#59-64) ignores return value by Address.functionDelegateCall(newImplementation,data) (node_modules/@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol#62)\n",
+            "filename": "XERC20Factory.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_upgradeToAndCall",
+            "contract": "ERC1967Upgrade",
+            "line": 62
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "GaugeController.sol",
+        "incomplete instruction": "8001",
+        "coverage": "0.3%",
+        "warnings": []
+    }
+}

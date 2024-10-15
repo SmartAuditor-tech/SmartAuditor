@@ -1,0 +1,17 @@
+/usr/local/lib/node_modules/solhint/lib/index.js:40
+      throw e
+      ^
+
+RangeError: index parameter must be between >= 0 and <= number of children.
+    at SimpleStatementContext.getChild (/usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:9347:15)
+    at ASTBuilder.visitSimpleStatement (/usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:35540:27)
+    at SimpleStatementContext.accept (/usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:33675:22)
+    at ASTBuilder.visit (/usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:17669:19)
+    at ASTBuilder.visitStatement (/usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:35537:17)
+    at /usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:35573:51
+    at Array.map (<anonymous>)
+    at ASTBuilder.visitBlock (/usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:35573:35)
+    at BlockContext.accept (/usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:33405:22)
+    at ASTBuilder.visit (/usr/local/lib/node_modules/solhint/node_modules/@solidity-parser/parser/dist/index.cjs.js:17669:19)
+
+Node.js v18.14.0

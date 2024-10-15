@@ -1,0 +1,150 @@
+{
+    "success": true,
+    "finding_length": 13,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "WrapperHelper._wrapETH(uint256) (contracts/TransferHub/WrapperHelper.sol#24-32) sends eth to arbitrary user\n\tDangerous calls:\n\t- WETH.deposit{value: _value}() (contracts/TransferHub/WrapperHelper.sol#29-31)\n",
+            "filename": "PoolManager.sol",
+            "classification": [],
+            "function": "_wrapETH",
+            "contract": "WrapperHelper",
+            "line": 29,
+            "line_end": 31
+        },
+        {
+            "name": "uninitialized-state",
+            "impact": "High",
+            "confidence": "High",
+            "message": "WiseLendingDeclaration.positionLocked (contracts/WiseLendingDeclaration.sol#286) is never initialized. It is used in:\n\t- WiseCore._checkPositionLocked(uint256,address) (contracts/WiseCore.sol#193-209)\n\t- MainHelper._validateIsolationPoolLiquidation(address,uint256,uint256) (contracts/MainHelper.sol#232-256)\n\t- MainHelper._checkLiquidatorNft(uint256,uint256) (contracts/MainHelper.sol#258-276)\n",
+            "filename": "PoolManager.sol",
+            "classification": [
+                "SWC-109"
+            ],
+            "line": 258,
+            "line_end": 276
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MainHelper._updatePseudoTotalAmounts(address) (contracts/MainHelper.sol#500-577) performs a multiplication on the result of a division:\n\t- amountInterest = bareIncrease / PRECISION_FACTOR_YEAR (contracts/MainHelper.sol#525-526)\n\t- feeAmount = amountInterest * globalPoolData[_poolToken].poolFee / PRECISION_FACTOR_E18 (contracts/MainHelper.sol#528-530)\n",
+            "filename": "PoolManager.sol",
+            "classification": [],
+            "function": "_updatePseudoTotalAmounts",
+            "contract": "MainHelper",
+            "line": 528,
+            "line_end": 530
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MainHelper._updatePseudoTotalAmounts(address) (contracts/MainHelper.sol#500-577) performs a multiplication on the result of a division:\n\t- feeAmount = amountInterest * globalPoolData[_poolToken].poolFee / PRECISION_FACTOR_E18 (contracts/MainHelper.sol#528-530)\n\t- feeShares = feeAmount * lendingPoolData[_poolToken].totalDepositShares / (lendingPoolData[_poolToken].pseudoTotalPool - feeAmount) (contracts/MainHelper.sol#550-552)\n",
+            "filename": "PoolManager.sol",
+            "classification": [],
+            "function": "_updatePseudoTotalAmounts",
+            "contract": "MainHelper",
+            "line": 550,
+            "line_end": 552
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "MainHelper._updatePseudoTotalAmounts(address) (contracts/MainHelper.sol#500-577) uses a dangerous strict equality:\n\t- feeShares == 0 (contracts/MainHelper.sol#554)\n",
+            "filename": "PoolManager.sol",
+            "classification": [],
+            "function": "_updatePseudoTotalAmounts",
+            "contract": "MainHelper",
+            "line": 554
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "CallOptionalReturn._callOptionalReturn(address,bytes) (contracts/TransferHub/CallOptionalReturn.sol#12-38) uses a dangerous strict equality:\n\t- success == false (contracts/TransferHub/CallOptionalReturn.sol#31)\n",
+            "filename": "PoolManager.sol",
+            "classification": [],
+            "function": "_callOptionalReturn",
+            "contract": "CallOptionalReturn",
+            "line": 31
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "MainHelper._updatePseudoTotalAmounts(address) (contracts/MainHelper.sol#500-577) uses a dangerous strict equality:\n\t- feeAmount == 0 (contracts/MainHelper.sol#542)\n",
+            "filename": "PoolManager.sol",
+            "classification": [],
+            "function": "_updatePseudoTotalAmounts",
+            "contract": "MainHelper",
+            "line": 542
+        },
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "CallOptionalReturn._callOptionalReturn(address,bytes) (contracts/TransferHub/CallOptionalReturn.sol#12-38) uses a dangerous strict equality:\n\t- results = returndata.length == 0 || abi.decode(returndata,(bool)) (contracts/TransferHub/CallOptionalReturn.sol#26-29)\n",
+            "filename": "PoolManager.sol",
+            "classification": [],
+            "function": "_callOptionalReturn",
+            "contract": "CallOptionalReturn",
+            "line": 26,
+            "line_end": 29
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MainHelper._removePositionData(uint256,address,function(uint256) returns(uint256),function(uint256,uint256) returns(address),function(uint256,address),bool).i (contracts/MainHelper.sol#690) is a local variable never initialized\n",
+            "filename": "PoolManager.sol",
+            "classification": [],
+            "line": 690
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "WiseCore._calculateReceiveAmount(uint256,uint256,address,uint256).potentialPureExtraCashout (contracts/WiseCore.sol#560) is a local variable never initialized\n",
+            "filename": "PoolManager.sol",
+            "classification": [],
+            "line": 560
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MainHelper._whileLoopCurveSecurity(address[]).i (contracts/MainHelper.sol#478) is a local variable never initialized\n",
+            "filename": "PoolManager.sol",
+            "classification": [],
+            "line": 478
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "MainHelper._prepareTokens(address,address[]).i (contracts/MainHelper.sol#425) is a local variable never initialized\n",
+            "filename": "PoolManager.sol",
+            "classification": [],
+            "line": 425
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "WiseCore._checkDeposit(uint256,address,address,uint256) (contracts/WiseCore.sol#236-269) ignores return value by WISE_SECURITY.checkPoolWithMinDeposit(_poolToken,_amount) (contracts/WiseCore.sol#260-263)\n",
+            "filename": "PoolManager.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_checkDeposit",
+            "contract": "WiseCore",
+            "line": 260,
+            "line_end": 263
+        }
+    ]
+}

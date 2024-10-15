@@ -1,0 +1,78 @@
+{
+    "success": true,
+    "finding_length": 8,
+    "findings": [
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FeeManagerHelper._prepareBorrows(uint256).i (contracts/FeeManager/FeeManagerHelper.sol#20) is a local variable never initialized\n",
+            "filename": "FeeManagerHelper.sol",
+            "classification": [],
+            "line": 20
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FeeManagerHelper._distributeIncentives(uint256,address,address).reduceAmount (contracts/FeeManager/FeeManagerHelper.sol#300) is a local variable never initialized\n",
+            "filename": "FeeManagerHelper.sol",
+            "classification": [],
+            "line": 300
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "FeeManagerHelper._prepareCollaterals(uint256).i (contracts/FeeManager/FeeManagerHelper.sol#52) is a local variable never initialized\n",
+            "filename": "FeeManagerHelper.sol",
+            "classification": [],
+            "line": 52
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "DeclarationsFeeManager.proposedIncentiveMaster (contracts/FeeManager/DeclarationsFeeManager.sol#129) should be constant \n",
+            "filename": "FeeManagerHelper.sol",
+            "classification": [],
+            "line": 129
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "DeclarationsFeeManager.incentiveOwnerA (contracts/FeeManager/DeclarationsFeeManager.sol#132) should be immutable \n",
+            "filename": "FeeManagerHelper.sol",
+            "classification": [],
+            "line": 132
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "DeclarationsFeeManager.incentiveOwnerB (contracts/FeeManager/DeclarationsFeeManager.sol#135) should be immutable \n",
+            "filename": "FeeManagerHelper.sol",
+            "classification": [],
+            "line": 135
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "DeclarationsFeeManager.incentiveMaster (contracts/FeeManager/DeclarationsFeeManager.sol#126) should be immutable \n",
+            "filename": "FeeManagerHelper.sol",
+            "classification": [],
+            "line": 126
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "DeclarationsFeeManager.paybackIncentive (contracts/FeeManager/DeclarationsFeeManager.sol#120) should be immutable \n",
+            "filename": "FeeManagerHelper.sol",
+            "classification": [],
+            "line": 120
+        }
+    ]
+}

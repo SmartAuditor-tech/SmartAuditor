@@ -1,0 +1,30 @@
+{
+    "success": true,
+    "finding_length": 3,
+    "findings": [
+        {
+            "filename": "Multicall.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version ^0.8.18 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "Multicall.sol",
+            "line": 15,
+            "column": 51,
+            "message": "Avoid to use low level calls",
+            "level": "warning",
+            "name": "avoid-low-level-calls"
+        },
+        {
+            "filename": "Multicall.sol",
+            "line": 25,
+            "column": 17,
+            "message": "Avoid to use inline assembly. It is acceptable only in rare cases",
+            "level": "warning",
+            "name": "no-inline-assembly"
+        }
+    ]
+}

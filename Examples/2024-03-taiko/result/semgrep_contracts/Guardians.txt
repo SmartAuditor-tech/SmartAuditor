@@ -1,0 +1,78 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 13 Code Findings │
+└──────────────────┘
+                                                              
+    /g4b/packages/protocol/contracts/L1/provers/Guardians.sol 
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+           74┆ for (uint256 i; i < guardians.length; ++i) {
+            ⋮┆----------------------------------------
+           80┆ for (uint256 i = 0; i < _newGuardians.length; ++i) {
+            ⋮┆----------------------------------------
+           88┆ guardianIds[guardian] = guardians.length;
+            ⋮┆----------------------------------------
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+           74┆ for (uint256 i; i < guardians.length; ++i) {
+            ⋮┆----------------------------------------
+           75┆ delete guardianIds[guardians[i]];
+            ⋮┆----------------------------------------
+           75┆ delete guardianIds[guardians[i]];
+            ⋮┆----------------------------------------
+           84┆ if (guardianIds[guardian] != 0) revert INVALID_GUARDIAN_SET();
+            ⋮┆----------------------------------------
+           87┆ guardians.push(guardian);
+            ⋮┆----------------------------------------
+           88┆ guardianIds[guardian] = guardians.length;
+            ⋮┆----------------------------------------
+           88┆ guardianIds[guardian] = guardians.length;
+            ⋮┆----------------------------------------
+          135┆ if (count == minGuardians) return true;
+            ⋮┆----------------------------------------
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+           74┆ for (uint256 i; i < guardians.length; ++i) {
+            ⋮┆----------------------------------------
+           80┆ for (uint256 i = 0; i < _newGuardians.length; ++i) {
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+Some files were skipped or only partially analyzed.
+  Partially scanned: 1 files only partially analyzed due to parsing or internal Semgrep errors
+
+Ran 50 rules on 1 file: 13 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

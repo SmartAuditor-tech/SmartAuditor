@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "BlastPoints.sol",
+        "coverage": "8.3%",
+        "warnings": []
+    }
+}

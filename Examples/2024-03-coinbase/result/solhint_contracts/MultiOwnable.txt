@@ -1,0 +1,9 @@
+
+/g4b/src/SmartWallet/MultiOwnable.sol
+  21:20  error  Parse error: extraneous input 'index' expecting '=>'
+  21:35  error  Parse error: extraneous input 'owner' expecting ')'
+  24:18  error  Parse error: extraneous input 'account' expecting '=>'
+  24:34  error  Parse error: extraneous input 'isOwner_' expecting ')'
+
+✖ 4 problems (4 errors, 0 warnings)
+

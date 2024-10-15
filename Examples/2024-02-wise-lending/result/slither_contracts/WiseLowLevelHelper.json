@@ -1,0 +1,99 @@
+{
+    "success": true,
+    "finding_length": 8,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "WrapperHelper._wrapETH(uint256) (contracts/TransferHub/WrapperHelper.sol#24-32) sends eth to arbitrary user\n\tDangerous calls:\n\t- WETH.deposit{value: _value}() (contracts/TransferHub/WrapperHelper.sol#29-31)\n",
+            "filename": "WiseLowLevelHelper.sol",
+            "classification": [],
+            "function": "_wrapETH",
+            "contract": "WrapperHelper",
+            "line": 29,
+            "line_end": 31
+        },
+        {
+            "name": "uninitialized-state",
+            "impact": "High",
+            "confidence": "High",
+            "message": "WiseLendingDeclaration.positionLendTokenData (contracts/WiseLendingDeclaration.sol#270) is never initialized. It is used in:\n\t- WiseLowLevelHelper.getPositionLendingTokenByIndex(uint256,uint256) (contracts/WiseLowLevelHelper.sol#144-153)\n\t- WiseLowLevelHelper.getPositionLendingTokenLength(uint256) (contracts/WiseLowLevelHelper.sol#155-163)\n",
+            "filename": "WiseLowLevelHelper.sol",
+            "classification": [
+                "SWC-109"
+            ],
+            "line": 155,
+            "line_end": 163
+        },
+        {
+            "name": "uninitialized-state",
+            "impact": "High",
+            "confidence": "High",
+            "message": "WiseLendingDeclaration.positionBorrowTokenData (contracts/WiseLendingDeclaration.sol#271) is never initialized. It is used in:\n\t- WiseLowLevelHelper.getPositionBorrowTokenByIndex(uint256,uint256) (contracts/WiseLowLevelHelper.sol#165-174)\n\t- WiseLowLevelHelper.getPositionBorrowTokenLength(uint256) (contracts/WiseLowLevelHelper.sol#176-184)\n",
+            "filename": "WiseLowLevelHelper.sol",
+            "classification": [
+                "SWC-109"
+            ],
+            "line": 176,
+            "line_end": 184
+        },
+        {
+            "name": "uninitialized-state",
+            "impact": "High",
+            "confidence": "High",
+            "message": "WiseLendingDeclaration.verifiedIsolationPool (contracts/WiseLendingDeclaration.sol#288) is never initialized. It is used in:\n\t- WiseLowLevelHelper._byPassCase(address) (contracts/WiseLowLevelHelper.sol#393-405)\n",
+            "filename": "WiseLowLevelHelper.sol",
+            "classification": [
+                "SWC-109"
+            ],
+            "line": 393,
+            "line_end": 405
+        },
+        {
+            "name": "uninitialized-state",
+            "impact": "High",
+            "confidence": "High",
+            "message": "WiseLendingDeclaration.userLendingData (contracts/WiseLendingDeclaration.sol#275) is never initialized. It is used in:\n\t- WiseLowLevelHelper.getPositionLendingShares(uint256,address) (contracts/WiseLowLevelHelper.sol#99-108)\n",
+            "filename": "WiseLowLevelHelper.sol",
+            "classification": [
+                "SWC-109"
+            ],
+            "line": 99,
+            "line_end": 108
+        },
+        {
+            "name": "uninitialized-state",
+            "impact": "High",
+            "confidence": "High",
+            "message": "WiseLendingDeclaration.userBorrowShares (contracts/WiseLendingDeclaration.sol#273) is never initialized. It is used in:\n\t- WiseLowLevelHelper.getPositionBorrowShares(uint256,address) (contracts/WiseLowLevelHelper.sol#110-119)\n",
+            "filename": "WiseLowLevelHelper.sol",
+            "classification": [
+                "SWC-109"
+            ],
+            "line": 110,
+            "line_end": 119
+        },
+        {
+            "name": "uninitialized-state",
+            "impact": "High",
+            "confidence": "High",
+            "message": "WiseLendingDeclaration.pureCollateralAmount (contracts/WiseLendingDeclaration.sol#274) is never initialized. It is used in:\n\t- WiseLowLevelHelper.getPureCollateralAmount(uint256,address) (contracts/WiseLowLevelHelper.sol#121-130)\n",
+            "filename": "WiseLowLevelHelper.sol",
+            "classification": [
+                "SWC-109"
+            ],
+            "line": 121,
+            "line_end": 130
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "WiseLendingDeclaration.powerFarmCheck (contracts/WiseLendingDeclaration.sol#186) should be constant \n",
+            "filename": "WiseLowLevelHelper.sol",
+            "classification": [],
+            "line": 186
+        }
+    ]
+}

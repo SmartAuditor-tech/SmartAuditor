@@ -1,0 +1,14 @@
+
+/g4b/src/staking/Liquidity.sol
+    2:1   error    Compiler version =0.8.22 does not satisfy the ^0.5.8 semver requirement                            compiler-version
+   31:2   warning  Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)  func-visibility
+   42:11  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+   62:77  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+   72:77  warning  Avoid making time-based decisions in your business logic                                           not-rely-on-time
+   85:3   warning  Error message for require is too long                                                              reason-string
+  124:3   warning  Error message for require is too long                                                              reason-string
+  148:3   warning  Error message for require is too long                                                              reason-string
+  159:3   warning  Error message for require is too long                                                              reason-string
+
+✖ 9 problems (1 error, 8 warnings)
+

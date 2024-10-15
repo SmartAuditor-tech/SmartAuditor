@@ -1,0 +1,11 @@
+
+/g4b/contracts/WiseCore.sol
+    3:1   error    Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement  compiler-version
+   83:17  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+   92:17  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+  162:13  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+  404:17  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+  413:17  warning  Avoid making time-based decisions in your business logic                 not-rely-on-time
+
+✖ 6 problems (1 error, 5 warnings)
+

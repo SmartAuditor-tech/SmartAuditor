@@ -1,0 +1,29 @@
+{
+    "success": true,
+    "finding_length": 2,
+    "findings": [
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "EdgeChallengeManagerLib.bisectEdge(EdgeStore,bytes32,bytes32,bytes).lowerChildAdded (src/challengeV2/libraries/EdgeChallengeManagerLib.sol#630) is a local variable never initialized\n",
+            "filename": "EdgeChallengeManagerLib.sol",
+            "classification": [],
+            "line": 630
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "EdgeChallengeManagerLib.nextEdgeLevel(uint8,uint8) (src/challengeV2/libraries/EdgeChallengeManagerLib.sol#674-681) ignores return value by ChallengeEdgeLib.levelToType(nextLevel,numBigStepLevel) (src/challengeV2/libraries/EdgeChallengeManagerLib.sol#678)\n",
+            "filename": "EdgeChallengeManagerLib.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "nextEdgeLevel",
+            "contract": "EdgeChallengeManagerLib",
+            "line": 678
+        }
+    ]
+}

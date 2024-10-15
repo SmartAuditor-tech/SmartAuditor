@@ -1,0 +1,385 @@
+{
+    "success": true,
+    "finding_length": 33,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "PrelaunchPoints._fillQuote(IERC20,uint256,bytes) (src/PrelaunchPoints.sol#491-505) sends eth to arbitrary user\n\tDangerous calls:\n\t- (success,None) = address(exchangeProxy).call{value: 0}(_swapCallData) (src/PrelaunchPoints.sol#497)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "function": "_fillQuote",
+            "contract": "PrelaunchPoints",
+            "line": 497
+        },
+        {
+            "name": "incorrect-exp",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123-202) has bitwise-xor operator ^ instead of the exponentiation operator **: \n\t - inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#184)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 184
+        },
+        {
+            "name": "reentrancy-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "Reentrancy in PrelaunchPoints.convertAllETH() (src/PrelaunchPoints.sol#315-330):\n\tExternal calls:\n\t- lpETH.deposit{value: totalBalance}(address(this)) (src/PrelaunchPoints.sol#322)\n\tState variables written after the call(s):\n\t- startClaimDate = uint32(block.timestamp) (src/PrelaunchPoints.sol#327)\n\tPrelaunchPoints.startClaimDate (src/PrelaunchPoints.sol#46) can be used in cross function reentrancies:\n\t- PrelaunchPoints.claim(address,uint8,PrelaunchPoints.Exchange,bytes) (src/PrelaunchPoints.sol#211-216)\n\t- PrelaunchPoints.claimAndStake(address,uint8,PrelaunchPoints.Exchange,bytes) (src/PrelaunchPoints.sol#226-235)\n\t- PrelaunchPoints.constructor(address,address,address[]) (src/PrelaunchPoints.sol#97-114)\n\t- PrelaunchPoints.convertAllETH() (src/PrelaunchPoints.sol#315-330)\n\t- PrelaunchPoints.startClaimDate (src/PrelaunchPoints.sol#46)\n\t- PrelaunchPoints.withdraw(address) (src/PrelaunchPoints.sol#274-306)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [
+                "SWC-107",
+                " DASP-1"
+            ],
+            "function": "convertAllETH",
+            "contract": "PrelaunchPoints",
+            "line": 274,
+            "line_end": 306
+        },
+        {
+            "name": "shadowing-state",
+            "impact": "High",
+            "confidence": "High",
+            "message": "StdCheats.vm (lib/forge-std/src/StdCheats.sol#643) shadows:\n\t- StdCheatsSafe.vm (lib/forge-std/src/StdCheats.sol#11)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [
+                "SWC-119"
+            ],
+            "line": 11
+        },
+        {
+            "name": "uninitialized-state",
+            "impact": "High",
+            "confidence": "High",
+            "message": "PrelaunchPointsScript.allowedTokens (script/PrelaunchPoints.s.sol#11) is never initialized. It is used in:\n\t- PrelaunchPointsScript.run() (script/PrelaunchPoints.s.sol#15-22)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [
+                "SWC-109"
+            ],
+            "line": 15,
+            "line_end": 22
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123-202) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#169)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#190)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 190
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123-202) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#169)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#193)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 193
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123-202) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#169)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#188)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 188
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123-202) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#169)\n\t- inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#184)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 184
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123-202) performs a multiplication on the result of a division:\n\t- prod0 = prod0 / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#172)\n\t- result = prod0 * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#199)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 199
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123-202) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#169)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#192)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 192
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123-202) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#169)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#191)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 191
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123-202) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#169)\n\t- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#189)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "function": "mulDiv",
+            "contract": "Math",
+            "line": 189
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "StdCheatsSafe.rawToConvertedEIPTx1559(StdCheatsSafe.RawTx1559).transaction (lib/forge-std/src/StdCheats.sol#381) is a local variable never initialized\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "line": 381
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "StdCheatsSafe.readEIP1559ScriptArtifact(string).artifact (lib/forge-std/src/StdCheats.sol#361) is a local variable never initialized\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "line": 361
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PrelaunchPoints._validateData(address,uint256,PrelaunchPoints.Exchange,bytes).recipient (src/PrelaunchPoints.sol#409) is a local variable never initialized\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "line": 409
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PrelaunchPoints._validateData(address,uint256,PrelaunchPoints.Exchange,bytes).inputTokenAmount (src/PrelaunchPoints.sol#408) is a local variable never initialized\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "line": 408
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "StdCheatsSafe.rawToConvertedEIP1559Detail(StdCheatsSafe.RawTx1559Detail).txDetail (lib/forge-std/src/StdCheats.sol#397) is a local variable never initialized\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "line": 397
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PrelaunchPoints._validateData(address,uint256,PrelaunchPoints.Exchange,bytes).outputToken (src/PrelaunchPoints.sol#407) is a local variable never initialized\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "line": 407
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PrelaunchPoints._validateData(address,uint256,PrelaunchPoints.Exchange,bytes).inputToken (src/PrelaunchPoints.sol#406) is a local variable never initialized\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "line": 406
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "stdStorageSafe.root(StdStorage).root_slot (lib/forge-std/src/StdStorage.sol#195) is a local variable never initialized\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "line": 195
+        },
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "StdCheatsSafe.rawToConvertedReceipt(StdCheatsSafe.RawReceipt).receipt (lib/forge-std/src/StdCheats.sol#449) is a local variable never initialized\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "line": 449
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "stdStorage.parent(StdStorage) (lib/forge-std/src/StdStorage.sol#346-348) ignores return value by stdStorageSafe.parent(self) (lib/forge-std/src/StdStorage.sol#347)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "parent",
+            "contract": "stdStorage",
+            "line": 347
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PrelaunchPoints._claim(address,address,uint8,PrelaunchPoints.Exchange,bytes) (src/PrelaunchPoints.sol#240-266) ignores return value by lpETH.deposit{value: claimedAmount}(_receiver) (src/PrelaunchPoints.sol#263)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_claim",
+            "contract": "PrelaunchPoints",
+            "line": 263
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "StdUtils.getTokenBalances(address,address[]) (lib/forge-std/src/StdUtils.sol#151-178) ignores return value by (None,returnData) = multicall.aggregate(calls) (lib/forge-std/src/StdUtils.sol#171)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "getTokenBalances",
+            "contract": "StdUtils",
+            "line": 171
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PrelaunchPoints.claimAndStake(address,uint8,PrelaunchPoints.Exchange,bytes) (src/PrelaunchPoints.sol#226-235) ignores return value by lpETH.approve(address(lpETHVault),claimedAmount) (src/PrelaunchPoints.sol#231)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "claimAndStake",
+            "contract": "PrelaunchPoints",
+            "line": 231
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "StdCheatsSafe.isFork() (lib/forge-std/src/StdCheats.sol#576-580) ignores return value by vm.activeFork() (lib/forge-std/src/StdCheats.sol#577-579)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "isFork",
+            "contract": "StdCheatsSafe",
+            "line": 577,
+            "line_end": 579
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PrelaunchPoints.claimAndStake(address,uint8,PrelaunchPoints.Exchange,bytes) (src/PrelaunchPoints.sol#226-235) ignores return value by lpETHVault.stake(claimedAmount,msg.sender) (src/PrelaunchPoints.sol#232)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "claimAndStake",
+            "contract": "PrelaunchPoints",
+            "line": 232
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "stdStorageSafe.find(StdStorage) (lib/forge-std/src/StdStorage.sol#32-109) ignores return value by (reads,None) = vm.accesses(address(who)) (lib/forge-std/src/StdStorage.sol#50)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "find",
+            "contract": "stdStorageSafe",
+            "line": 50
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "PrelaunchPoints.convertAllETH() (src/PrelaunchPoints.sol#315-330) ignores return value by lpETH.deposit{value: totalBalance}(address(this)) (src/PrelaunchPoints.sol#322)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "convertAllETH",
+            "contract": "PrelaunchPoints",
+            "line": 322
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "stdStorageSafe.root(StdStorage) (lib/forge-std/src/StdStorage.sol#189-208) ignores return value by (found,None,parent_slot) = vm.getMappingKeyAndParentOf(who,bytes32(root_slot)) (lib/forge-std/src/StdStorage.sol#205)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "root",
+            "contract": "stdStorageSafe",
+            "line": 205
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "stdStorageSafe.root(StdStorage) (lib/forge-std/src/StdStorage.sol#189-208) ignores return value by (found,None,parent_slot) = vm.getMappingKeyAndParentOf(who,bytes32(child)) (lib/forge-std/src/StdStorage.sol#197)\n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "root",
+            "contract": "stdStorageSafe",
+            "line": 197
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "Script.IS_SCRIPT (lib/forge-std/src/Script.sol#26) should be constant \n",
+            "filename": "PrelaunchPoints.s.sol",
+            "classification": [],
+            "line": 26
+        }
+    ]
+}

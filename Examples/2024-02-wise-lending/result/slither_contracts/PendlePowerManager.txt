@@ -1,0 +1,50 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/PowerFarms/PendlePowerFarm/PendlePowerManager.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20 --evm-version shanghai --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/PowerFarms/PendlePowerFarm' running
+INFO:Detectors:
+WrapperHelper._wrapETH(uint256) (contracts/TransferHub/WrapperHelper.sol#24-32) sends eth to arbitrary user
+	Dangerous calls:
+	- WETH.deposit{value: _value}() (contracts/TransferHub/WrapperHelper.sol#29-31)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+INFO:Detectors:
+IPendleMarket (contracts/InterfaceHub/IPendle.sol#139-251) has incorrect ERC20 function interface:IPendleMarket.transferFrom(address,address,uint256) (contracts/InterfaceHub/IPendle.sol#157-162)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface
+INFO:Detectors:
+CallOptionalReturn._callOptionalReturn(address,bytes) (contracts/TransferHub/CallOptionalReturn.sol#12-38) uses a dangerous strict equality:
+	- results = returndata.length == 0 || abi.decode(returndata,(bool)) (contracts/TransferHub/CallOptionalReturn.sol#26-29)
+CallOptionalReturn._callOptionalReturn(address,bytes) (contracts/TransferHub/CallOptionalReturn.sol#12-38) uses a dangerous strict equality:
+	- success == false (contracts/TransferHub/CallOptionalReturn.sol#31)
+PendlePowerFarmLeverageLogic._coreLiquidation(uint256,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#560-605) uses a dangerous strict equality:
+	- _checkDebtRatio(_nftId) == true (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#571)
+PendlePowerFarmLeverageLogic._logicOpenPosition(bool,uint256,uint256,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#414-529) uses a dangerous strict equality:
+	- _checkDebtRatio(_nftId) == false (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#520)
+PendlePowerFarm._openPosition(bool,uint256,uint256,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarm.sol#185-219) uses a dangerous strict equality:
+	- _notBelowMinDepositAmount(leveragedAmount) == false (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarm.sol#203)
+SendValueHelper._sendValue(address,uint256) (contracts/TransferHub/SendValueHelper.sol#12-36) uses a dangerous strict equality:
+	- success == false (contracts/TransferHub/SendValueHelper.sol#33)
+PendlePowerFarm.getLiveDebtRatio(uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarm.sol#57-87) uses a dangerous strict equality:
+	- totalCollateral == 0 (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarm.sol#80)
+PendlePowerManager.manuallyWithdrawShares(uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerManager.sol#274-301) uses a dangerous strict equality:
+	- _checkDebtRatio(wiseLendingNFT) == false (contracts/PowerFarms/PendlePowerFarm/PendlePowerManager.sol#291)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+PendlePowerFarmMathLogic.getPositionBorrowETH(uint256).borrowTokenAmount (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmMathLogic.sol#181) is a local variable never initialized
+PendlePowerFarmMathLogic.getPositionBorrowETH(uint256).borrowTokenAmountAave (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmMathLogic.sol#196) is a local variable never initialized
+PendlePowerFarmMathLogic.getPositionBorrowETH(uint256).tokenValueEth (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmMathLogic.sol#204) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+INFO:Detectors:
+PendlePowerFarm._manuallyPaybackShares(uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarm.sol#119-148) ignores return value by WISE_LENDING.paybackExactShares(_nftId,poolAddress,_paybackShares) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarm.sol#143-147)
+PendlePowerFarmLeverageLogic._logicClosePosition(uint256,uint256,uint256,uint256,uint256,address,bool,bool) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#134-230) ignores return value by (netSyOut,None) = PENDLE_ROUTER.removeLiquiditySingleSy({_receiver:address(this),_market:address(PENDLE_MARKET),_netLpToRemove:withdrawnLpsAmount,_minSyOut:0}) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#162-172)
+PendlePowerFarmLeverageLogic._paybackExactShares(bool,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#326-348) ignores return value by AAVE_HUB.paybackExactShares(_nftId,WETH_ADDRESS,_borrowShares) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#334-338)
+PendlePowerFarmLeverageLogic._paybackExactShares(bool,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#326-348) ignores return value by WISE_LENDING.paybackExactShares(_nftId,WETH_ADDRESS,_borrowShares) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#343-347)
+PendlePowerFarmLeverageLogic._logicOpenPosition(bool,uint256,uint256,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#414-529) ignores return value by (None,netPtFromSwap,None,None,None,None) = PENDLE_ROUTER_STATIC.addLiquiditySingleSyStatic(address(PENDLE_MARKET),syReceived) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#454-462)
+PendlePowerFarmLeverageLogic._logicOpenPosition(bool,uint256,uint256,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#414-529) ignores return value by (netLpOut,None) = PENDLE_ROUTER.addLiquiditySingleSy({_receiver:address(this),_market:address(PENDLE_MARKET),_netSyIn:syReceived,_minLpOut:0,_guessPtReceivedFromSy:ApproxParams({guessMin:netPtFromSwap - 100,guessMax:netPtFromSwap + 100,guessOffchain:0,maxIteration:50,eps:1e15})}) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#464-483)
+PendlePowerFarmLeverageLogic._logicOpenPosition(bool,uint256,uint256,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#414-529) ignores return value by (receivedShares,None) = IPendleChild(PENDLE_CHILD).depositExactAmount(netLpOut) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#490-495)
+PendlePowerFarmLeverageLogic._logicOpenPosition(bool,uint256,uint256,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#414-529) ignores return value by WISE_LENDING.depositExactAmount(_nftId,PENDLE_CHILD,receivedShares) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#508-512)
+PendlePowerFarmLeverageLogic._borrowExactAmount(bool,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#531-553) ignores return value by AAVE_HUB.borrowExactAmount(_nftId,WETH_ADDRESS,_totalDebtBalancer) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#539-543)
+PendlePowerFarmLeverageLogic._borrowExactAmount(bool,uint256,uint256) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#531-553) ignores return value by WISE_LENDING.borrowExactAmount(_nftId,WETH_ADDRESS,_totalDebtBalancer) (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmLeverageLogic.sol#548-552)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Detectors:
+PendlePowerFarmDeclarations.collateralFactor (contracts/PowerFarms/PendlePowerFarm/PendlePowerFarmDeclarations.sol#49) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/PowerFarms/PendlePowerFarm/PendlePowerManager.sol analyzed (37 contracts with 58 detectors), 24 result(s) found

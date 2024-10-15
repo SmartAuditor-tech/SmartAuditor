@@ -1,0 +1,58 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 2 Code Findings │
+└─────────────────┘
+                                                  
+    /g4b/contracts/TransferHub/TransferHelper.sol 
+       solidity.best-practice.use-abi-encodecall-instead-of-encodewithselector.u
+  se-abi-encodecall-instead-of-                                                 
+       encodewithselector                                                       
+          To guarantee arguments type safety it is recommended to use           
+  `abi.encodeCall` instead of                                                   
+          `abi.encodeWithSelector`.                                             
+          Details: https://sg.run/9K1y                                          
+                                                                                
+           20┆ _callOptionalReturn(
+           21┆     _token,
+           22┆     abi.encodeWithSelector(
+           23┆         IERC20.transfer.selector,
+           24┆         _to,
+           25┆         _value
+           26┆     )
+           27┆ );
+            ⋮┆----------------------------------------
+           42┆ _callOptionalReturn(
+           43┆     _token,
+           44┆     abi.encodeWithSelector(
+           45┆         IERC20.transferFrom.selector,
+           46┆         _from,
+           47┆         _to,
+           48┆         _value
+           49┆     )
+           50┆ );
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 2 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

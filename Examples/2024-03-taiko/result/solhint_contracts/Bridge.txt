@@ -1,0 +1,11 @@
+
+/g4b/packages/protocol/contracts/bridge/Bridge.sol
+  35:20  error  Parse error: extraneous input 'msgHash' expecting '=>'
+  35:38  error  Parse error: extraneous input 'status' expecting ')'
+  42:20  error  Parse error: extraneous input 'addr' expecting '=>'
+  42:33  error  Parse error: extraneous input 'banned' expecting ')'
+  46:20  error  Parse error: extraneous input 'msgHash' expecting '=>'
+  46:44  error  Parse error: extraneous input 'receipt' expecting ')'
+
+✖ 6 problems (6 errors, 0 warnings)
+

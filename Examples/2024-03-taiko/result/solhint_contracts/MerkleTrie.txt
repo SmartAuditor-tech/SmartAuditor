@@ -1,0 +1,18 @@
+
+/g4b/packages/protocol/contracts/thirdparty/optimism/trie/MerkleTrie.sol
+    2:1   error    Compiler version 0.8.24 does not satisfy the ^0.5.8 semver requirement  compiler-version
+   89:13  warning  Error message for require is too long                                   reason-string
+   99:17  warning  Error message for require is too long                                   reason-string
+  105:17  warning  Error message for require is too long                                   reason-string
+  119:21  warning  Error message for require is too long                                   reason-string
+  125:21  warning  Error message for require is too long                                   reason-string
+  150:17  warning  Error message for require is too long                                   reason-string
+  162:21  warning  Error message for require is too long                                   reason-string
+  172:21  warning  Error message for require is too long                                   reason-string
+  178:21  warning  Error message for require is too long                                   reason-string
+  191:21  warning  Error message for revert is too long                                    reason-string
+  194:17  warning  Error message for revert is too long                                    reason-string
+  198:9   warning  Error message for revert is too long                                    reason-string
+
+✖ 13 problems (1 error, 12 warnings)
+

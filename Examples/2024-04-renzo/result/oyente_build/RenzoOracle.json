@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "RenzoOracle.sol",
+        "coverage": "0.4%",
+        "warnings": []
+    }
+}

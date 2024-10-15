@@ -1,0 +1,58 @@
+==== Exception State ====
+SWC ID: 110
+Severity: Medium
+Contract: WiseLendingDeclaration
+Function name: constructor
+PC address: 14
+Estimated Gas Usage: 39 - 134
+An assertion violation was triggered.
+It is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).
+--------------------
+In file: /g4b/contracts/WiseLendingDeclaration.sol:105
+
+constructor(
+        address _master,
+        address _wiseOracleHub,
+        address _nftContract
+    )
+        OwnableMaster(
+            _master
+        )
+        WrapperHelper(
+            IWiseOracleHub(
+                _wiseOracleHub
+            ).WETH_ADDRESS()
+        )
+    {
+        if (_wiseOracleHub == ZERO_ADDRESS) {
+            revert NoValue();
+        }
+
+        if (_nftContract == ZERO_ADDRESS) {
+            revert NoValue();
+        }
+
+        WISE_ORACLE = IWiseOracleHub(
+            _wiseOracleHub
+        );
+
+        WETH_ADDRESS = WISE_ORACLE.WETH_ADDRESS();
+
+        POSITION_NFT = IPositionNFTs(
+            _nftContract
+        );
+
+        FEE_MANAGER_NFT = POSITION_NFT.FEE_MANAGER_NFT();
+    }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x1
+
+

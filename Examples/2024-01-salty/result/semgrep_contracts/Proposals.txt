@@ -1,0 +1,279 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 60 Code Findings │
+└──────────────────┘
+                               
+    /g4b/src/dao/Proposals.sol 
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+          423┆ for( uint256 i = 0; i <                                          
+  _openBallotsForTokenWhitelisting.length(); i++ )                              
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           70┆     constructor( IStaking _staking, IExchangeConfig              
+  _exchangeConfig, IPoolsConfig _poolsConfig, IDAOConfig _daoConfig )           
+           71┆  
+  {             
+           72┆            staking 
+  = _staking;                     
+           73┆            exchangeConfig =      
+  _exchangeConfig;                              
+           74┆            poolsConfig =   
+  _poolsConfig;                           
+           75┆            daoConfig = 
+  _daoConfig;                         
+           76┆ 
+           77┆            salt =            
+  exchangeConfig.salt();                    
+           78┆         }
+            ⋮┆----------------------------------------
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+          423┆ for( uint256 i = 0; i <                                          
+  _openBallotsForTokenWhitelisting.length(); i++ )                              
+            ⋮┆----------------------------------------
+          425┆ uint256 ballotID = _openBallotsForTokenWhitelisting.at(i);
+            ⋮┆----------------------------------------
+          426┆ uint256 yesTotal = _votesCastForBallot[ballotID][Vote.YES];
+            ⋮┆----------------------------------------
+          427┆ uint256 noTotal = _votesCastForBallot[ballotID][Vote.NO];
+            ⋮┆----------------------------------------
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+          423┆ for( uint256 i = 0; i <                                          
+  _openBallotsForTokenWhitelisting.length(); i++ )                              
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           83┆ require( block.timestamp >= firstPossibleProposalTimestamp,      
+  "Cannot propose ballots within the first 45 days of deployment" );            
+            ⋮┆----------------------------------------
+           92┆ require( requiredXSalt > 0, "requiredXSalt cannot be zero" );
+            ⋮┆----------------------------------------
+           95┆ require( userXSalt >= requiredXSalt, "Sender does not have enough
+  xSALT to make the proposal" );                                                
+            ⋮┆----------------------------------------
+           98┆ require( ! _userHasActiveProposal[msg.sender], "Users can only   
+  have one active proposal at a time" );                                        
+            ⋮┆----------------------------------------
+          102┆ require( openBallotsByName[ballotName] == 0, "Cannot create a    
+  proposal similar to a ballot that is still open" );                           
+            ⋮┆----------------------------------------
+          103┆ require( openBallotsByName[ string.concat(ballotName,            
+  "_confirm")] == 0, "Cannot create a proposal for a ballot with a secondary    
+  confirmation" );                                                              
+            ⋮┆----------------------------------------
+          124┆ require( msg.sender == address(exchangeConfig.dao()), "Only the  
+  DAO can create a confirmation proposal" );                                    
+            ⋮┆----------------------------------------
+          132┆ require( msg.sender == address(exchangeConfig.dao()), "Only the  
+  DAO can mark a ballot as finalized" );                                        
+            ⋮┆----------------------------------------
+          164┆ require( address(token) != address(0), "token cannot be          
+  address(0)" );                                                                
+            ⋮┆----------------------------------------
+          165┆ require( token.totalSupply() < type(uint112).max, "Token supply  
+  cannot exceed uint112.max" ); // 5 quadrillion max supply with 18 decimals of 
+  precision                                                                     
+            ⋮┆----------------------------------------
+          167┆ require( _openBallotsForTokenWhitelisting.length() <             
+  daoConfig.maxPendingTokensForWhitelisting(), "The maximum number of token     
+  whitelisting proposals are alread ... [0m                                     
+            [shortened a long line from output, adjust with                     
+  --max-chars-per-line]                                                         
+            ⋮┆----------------------------------------
+          168┆ require( poolsConfig.numberOfWhitelistedPools() <                
+  poolsConfig.maximumWhitelistedPools(), "Maximum number of whitelisted pools   
+  already reached" );                                                           
+            ⋮┆----------------------------------------
+          169┆ require( ! poolsConfig.tokenHasBeenWhitelisted(token,            
+  exchangeConfig.wbtc(), exchangeConfig.weth()), "The token has already been    
+  whitelisted" );                                                               
+            ⋮┆----------------------------------------
+          182┆ require( poolsConfig.tokenHasBeenWhitelisted(token,              
+  exchangeConfig.wbtc(), exchangeConfig.weth()), "Can only unwhitelist a        
+  whitelisted token" );                                                         
+            ⋮┆----------------------------------------
+          183┆ require( address(token) != address(exchangeConfig.wbtc()),       
+  "Cannot unwhitelist WBTC" );                                                  
+            ⋮┆----------------------------------------
+          184┆ require( address(token) != address(exchangeConfig.weth()),       
+  "Cannot unwhitelist WETH" );                                                  
+            ⋮┆----------------------------------------
+          185┆ require( address(token) != address(exchangeConfig.dai()), "Cannot
+  unwhitelist DAI" );                                                           
+            ⋮┆----------------------------------------
+          186┆ require( address(token) != address(exchangeConfig.usds()),       
+  "Cannot unwhitelist USDS" );                                                  
+            ⋮┆----------------------------------------
+          187┆ require( address(token) != address(exchangeConfig.salt()),       
+  "Cannot unwhitelist SALT" );                                                  
+            ⋮┆----------------------------------------
+          198┆ require( wallet != address(0), "Cannot send SALT to address(0)"  
+  );                                                                            
+            ⋮┆----------------------------------------
+          203┆ require( amount <= maxSendable, "Cannot send more than 5% of the 
+  DAO SALT balance" );                                                          
+            ⋮┆----------------------------------------
+          215┆ require( contractAddress != address(0), "Contract address cannot 
+  be address(0)" );                                                             
+            ⋮┆----------------------------------------
+          224┆ require( bytes(country).length == 2, "Country must be an ISO 3166
+  Alpha-2 Code" );                                                              
+            ⋮┆----------------------------------------
+          233┆ require( bytes(country).length == 2, "Country must be an ISO 3166
+  Alpha-2 Code" );                                                              
+            ⋮┆----------------------------------------
+          242┆ require( newAddress != address(0), "Proposed address cannot be   
+  address(0)" );                                                                
+            ⋮┆----------------------------------------
+          251┆ require( keccak256(abi.encodePacked(newWebsiteURL)) !=           
+  keccak256(abi.encodePacked("")), "newWebsiteURL cannot be empty" );           
+            ⋮┆----------------------------------------
+          264┆ require( ballot.ballotIsLive, "The specified ballot is not open  
+  for voting" );                                                                
+            ⋮┆----------------------------------------
+          268┆ require( (vote == Vote.INCREASE) || (vote == Vote.DECREASE) ||   
+  (vote == Vote.NO_CHANGE), "Invalid VoteType for Parameter Ballot" );          
+            ⋮┆----------------------------------------
+          270┆ require( (vote == Vote.YES) || (vote == Vote.NO), "Invalid       
+  VoteType for Approval Ballot" );                                              
+            ⋮┆----------------------------------------
+          277┆ require( userVotingPower > 0, "Staked SALT required to vote" );
+            ⋮┆----------------------------------------
+          321┆ require( totalStaked != 0, "SALT staked cannot be zero to        
+  determine quorum" );                                                          
+            ⋮┆----------------------------------------
+       solidity.performance.use-prefix-increment-not-postfix.use-prefix-incremen
+  t-not-postfix                                                                 
+          Consider using the prefix increment expression whenever the return    
+  value is not needed. The                                                      
+          prefix increment expression is cheaper in terms of gas.               
+          Details: https://sg.run/nxLr                                          
+                                                                                
+          423┆ for( uint256 i = 0; i <                                          
+  _openBallotsForTokenWhitelisting.length(); i++ )                              
+            ⋮┆----------------------------------------
+       solidity.performance.use-short-revert-string.use-short-revert-string     
+          Shortening revert strings to fit in 32 bytes will decrease gas costs  
+  for deployment and  gas                                                       
+          costs when the revert condition has been met.                         
+          Details: https://sg.run/E9LB                                          
+                                                                                
+           83┆ require( block.timestamp >= firstPossibleProposalTimestamp,      
+  "Cannot propose ballots within the first 45 days of deployment" );            
+            ⋮┆----------------------------------------
+           95┆ require( userXSalt >= requiredXSalt, "Sender does not have enough
+  xSALT to make the proposal" );                                                
+            ⋮┆----------------------------------------
+           98┆ require( ! _userHasActiveProposal[msg.sender], "Users can only   
+  have one active proposal at a time" );                                        
+            ⋮┆----------------------------------------
+          102┆ require( openBallotsByName[ballotName] == 0, "Cannot create a    
+  proposal similar to a ballot that is still open" );                           
+            ⋮┆----------------------------------------
+          103┆ require( openBallotsByName[ string.concat(ballotName,            
+  "_confirm")] == 0, "Cannot create a proposal for a ballot with a secondary    
+  confirmation" );                                                              
+            ⋮┆----------------------------------------
+          124┆ require( msg.sender == address(exchangeConfig.dao()), "Only the  
+  DAO can create a confirmation proposal" );                                    
+            ⋮┆----------------------------------------
+          132┆ require( msg.sender == address(exchangeConfig.dao()), "Only the  
+  DAO can mark a ballot as finalized" );                                        
+            ⋮┆----------------------------------------
+          165┆ require( token.totalSupply() < type(uint112).max, "Token supply  
+  cannot exceed uint112.max" ); // 5 quadrillion max supply with 18 decimals of 
+  precision                                                                     
+            ⋮┆----------------------------------------
+          167┆ require( _openBallotsForTokenWhitelisting.length() <             
+  daoConfig.maxPendingTokensForWhitelisting(), "The maximum number of token     
+  whitelisting proposals are alread ... [0m                                     
+            [shortened a long line from output, adjust with                     
+  --max-chars-per-line]                                                         
+            ⋮┆----------------------------------------
+          168┆ require( poolsConfig.numberOfWhitelistedPools() <                
+  poolsConfig.maximumWhitelistedPools(), "Maximum number of whitelisted pools   
+  already reached" );                                                           
+            ⋮┆----------------------------------------
+          169┆ require( ! poolsConfig.tokenHasBeenWhitelisted(token,            
+  exchangeConfig.wbtc(), exchangeConfig.weth()), "The token has already been    
+  whitelisted" );                                                               
+            ⋮┆----------------------------------------
+          182┆ require( poolsConfig.tokenHasBeenWhitelisted(token,              
+  exchangeConfig.wbtc(), exchangeConfig.weth()), "Can only unwhitelist a        
+  whitelisted token" );                                                         
+            ⋮┆----------------------------------------
+          203┆ require( amount <= maxSendable, "Cannot send more than 5% of the 
+  DAO SALT balance" );                                                          
+            ⋮┆----------------------------------------
+          215┆ require( contractAddress != address(0), "Contract address cannot 
+  be address(0)" );                                                             
+            ⋮┆----------------------------------------
+          224┆ require( bytes(country).length == 2, "Country must be an ISO 3166
+  Alpha-2 Code" );                                                              
+            ⋮┆----------------------------------------
+          233┆ require( bytes(country).length == 2, "Country must be an ISO 3166
+  Alpha-2 Code" );                                                              
+            ⋮┆----------------------------------------
+          242┆ require( newAddress != address(0), "Proposed address cannot be   
+  address(0)" );                                                                
+            ⋮┆----------------------------------------
+          264┆ require( ballot.ballotIsLive, "The specified ballot is not open  
+  for voting" );                                                                
+            ⋮┆----------------------------------------
+          268┆ require( (vote == Vote.INCREASE) || (vote == Vote.DECREASE) ||   
+  (vote == Vote.NO_CHANGE), "Invalid VoteType for Parameter Ballot" );          
+            ⋮┆----------------------------------------
+          270┆ require( (vote == Vote.YES) || (vote == Vote.NO), "Invalid       
+  VoteType for Approval Ballot" );                                              
+            ⋮┆----------------------------------------
+          321┆ require( totalStaked != 0, "SALT staked cannot be zero to        
+  determine quorum" );                                                          
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 60 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

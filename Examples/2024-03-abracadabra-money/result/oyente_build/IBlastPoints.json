@@ -1,0 +1,9 @@
+{
+    "success": false,
+    "findings": {
+        "vul": [],
+        "filename": "IBlastPoints.sol",
+        "coverage": "",
+        "warnings": []
+    }
+}

@@ -1,0 +1,13 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.24/solc-0.8.24 ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/DerivativeOracles/PtOracleDerivative.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 20 --evm-version shanghai --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/DerivativeOracles' running
+INFO:Detectors:
+PtOracleDerivative.latestAnswer() (contracts/DerivativeOracles/PtOracleDerivative.sol#81-129) performs a multiplication on the result of a division:
+	- uint256(answerUsdFeed) * PRECISION_FACTOR_E18 / POW_USD_FEED * POW_ETH_USD_FEED / uint256(answerEthUsdFeed) * ptToAssetRate / PRECISION_FACTOR_E18 (contracts/DerivativeOracles/PtOracleDerivative.sol#122-128)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+PtOracleDerivative.latestAnswer() (contracts/DerivativeOracles/PtOracleDerivative.sol#81-129) ignores return value by (None,answerUsdFeed,None,None,None) = USD_FEED_ASSET.latestRoundData() (contracts/DerivativeOracles/PtOracleDerivative.sol#86-91)
+PtOracleDerivative.latestAnswer() (contracts/DerivativeOracles/PtOracleDerivative.sol#81-129) ignores return value by (None,answerEthUsdFeed,None,None,None) = ETH_FEED_ASSET.latestRoundData() (contracts/DerivativeOracles/PtOracleDerivative.sol#93-98)
+PtOracleDerivative.latestAnswer() (contracts/DerivativeOracles/PtOracleDerivative.sol#81-129) ignores return value by (increaseCardinalityRequired,None,oldestObservationSatisfied) = ORACLE_PENDLE_PT.getOracleState(PENDLE_MARKET_ADDRESS,TWAP_DURATION) (contracts/DerivativeOracles/PtOracleDerivative.sol#100-107)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-wise-lending/contracts/DerivativeOracles/PtOracleDerivative.sol analyzed (3 contracts with 58 detectors), 4 result(s) found

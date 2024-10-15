@@ -1,0 +1,1725 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q1-2024 / wiselending-feb21
+==============================================================
+
+[02/14/2024 16:35] kartoonjoy (pinned)
+👋 Hello and welcome to the audit channel for the $200,000 in USDC **Wise Lending** audit!
+
+📆 Audit opens 02/21/2024 20:00 (20:00 UTC) and runs through 03/11/2024 20:00 (20:00 UTC) (19 days).
+
+Please give a warm welcome to the Wise Lending team, particularly @vitally.eth, @hodldoor , and @Foon, who will be available for questions either here in the channel or via a PRIVATE thread in Germany and Thailand timezone(s).
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this audit, consider enabling notifications for this channel. 🐺 ⏰
+
+Audit Page: https://code4rena.com/audits/2024-02-wise-lending
+
+
+❗️❗️ Please note: if ANY valid High severity issues are found, the Total Prize Pool increases to $200,000 USDC.  The HM award will increase to $154,565.  All other awards will be capped at the amounts listed above.
+
+{Embed}
+https://code4rena.com/audits/2024-02-wise-lending
+Wise Lending  | Code4rena
+$200,000 in USDC
+21 February 8:00 PM—11 March 8:00 PM
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/c4-og-banner-59F8E.png
+
+{Reactions}
+🔥 (3) 
+
+[02/14/2024 16:36] kartoonjoy
+Pinned a message.
+
+
+[02/14/2024 17:43] devblixt_
+welcome team! are we having the same codebase as on hats finance?
+
+
+[02/14/2024 17:51] stormy0998
+the issues found on the hats contest will be ineligible for awards here, right?
+
+
+[02/14/2024 17:52] stormy0998
+👀
+
+
+[02/14/2024 17:52] kartoonjoy
+Let's limit questions and comments, please.
+
+{Reactions}
+🫡 (2) 
+
+[02/16/2024 17:30] wiseowl
+Slightly updated to reflect some minor fixes. Hats event has not found and legitimate mediums or highs, but a couple lows that we are adjusting our code for. We will add all the findings to oos.
+
+{Reactions}
+fence (6) chefskiss (8) code4rena (7) 
+
+[02/19/2024 04:00] 0xstalin
+Does the protocol intend to be compatible with erc777? If not, could it be possible to add that info in the readme before the contest starts?, it would be very helpful for all of us 🙏
+
+{Reactions}
+👍 
+
+[02/19/2024 17:11] hodldoor
+Hi Stalin :pepe_thug: . DEFINETLY NOT 😉 no fancy schmancy ercs which have reentracny issues are planned
+
+{Reactions}
+🫡 (3) 🤣 (13) 
+
+[02/19/2024 18:37] 0xstalin
+awesome, that's what I thought, but just wanted to ask before the contest starts in case that was not already stated on the contest's readme 🫡
+
+{Reactions}
+pepe_happy (3) 
+
+[02/21/2024 15:53] hash01011122
+Can anyone share resources of previous audit of protocol as I am unable to find its [audit](https://wiselending.com/omni-audit-v1.pdf) because this link isn't working
+
+
+[02/21/2024 16:13] saint6704
+https://app.wiselending.com/omni-audit-v1.pdf
+
+{Reactions}
+thankyou 
+
+[02/21/2024 20:02] C4 (pinned)
+**Automated Findings / Publicly Known Issues**
+
+Reminder: all [Automated Findings / Publicly Known Issues](https://github.com/code-423n4/2024-02-wise-lending#automated-findings--publicly-known-issues) are out of scope and ineligible for awards.
+
+{Embed}
+https://github.com/code-423n4/2024-02-wise-lending
+GitHub - code-423n4/2024-02-wise-lending
+Contribute to code-423n4/2024-02-wise-lending development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/c6e29d02-7b50-4798-a0ee-c29a20f4fa71-BED62
+
+
+[02/21/2024 20:03] pfapostol
+Links for files in scope are broken.
+
+{Reactions}
+thankyou 
+
+[02/21/2024 20:04] thebrittfactor
+We're looking into it!
+
+
+[02/21/2024 20:06] thebrittfactor
+Pinned a message.
+
+
+[02/21/2024 20:12] kartoonjoy
+Thanks for the flag. Should be good now.
+
+
+[02/21/2024 20:14] wiseowl (pinned)
+For anyone who has questions, I'm the founder and can answer general questions and roadmap questions, but not specific technical questions about the code. @vitally.eth is our lead solidity dev and will be taking point on the technical questions. @hodldoor and @Foon are expert solidity contributors to the codebase, but less available. However we will ping them if Vitally or myself needs assistance. 
+
+Happy hunting!
+
+{Reactions}
+👋 (20) 
+
+[02/21/2024 20:14] kartoonjoy
+Pinned a message.
+
+
+[02/21/2024 20:18] 0xtendency
+what's @vitally.eth timezone?
+
+{Reactions}
+💯 
+
+[02/21/2024 20:18] wiseowl
+Vitally is GMT +7 (Asia) and I'm PST (California)
+
+{Reactions}
+thankyou 
+
+[02/21/2024 20:19] wiseowl
+Other 2 guys are Germany GMT +1
+
+
+[02/21/2024 20:21] Deleted User
+``Encountered invalid solc version in src/contracts/WiseOracleHub/Libraries/OracleLibrary.sol: No solc version exists that matches the version requirement: =0.8.24``   i have install  using  solc-select  install 0.8.24 but still this error
+
+
+[02/21/2024 22:38] hodldoor
+when i cloned  the repo on my side with foundry no problem compiling and running tests
+
+
+[02/21/2024 23:15] kirkeelee
+You may need to update your foundry.
+
+
+[02/22/2024 00:39] tamayonft
+is this codebase different from the live?
+
+
+[02/22/2024 00:39] tamayonft
+the previus issue in past audit including hat finance are already resolved in the code4arena codebase?
+
+{Reactions}
+👍 
+
+[02/22/2024 00:39] tamayonft
+thanks so much
+
+
+[02/22/2024 03:36] forgebyola
+This codebase is beautiful :chefskiss:
+
+{Reactions}
+ethereumcolor (9) 🙏 (2) 
+
+[02/22/2024 05:03] nonseodion
+Na beauty we go chop? 😂😂
+
+{Reactions}
+😂 (4) 
+
+[02/22/2024 06:22] shealtielanz
+is it me or is the c4 site not loading?
+
+
+[02/22/2024 06:25] 0xsl1
+works for me
+
+
+[02/22/2024 06:26] shealtielanz
+this is what mine keeps showing although, everything else keeps loading
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/Screenshot_from_2024-02-22_07-25-56-24E80.png
+
+
+[02/22/2024 06:47] protocol33
+u can try VPn or use chrome or change the DNS TO 1.1.1.1
+
+
+[02/22/2024 07:00] wiseowl
+We have devs who truly write in Solidity as an art form tbh 🙂
+
+{Reactions}
+❤️ (2) 
+
+[02/22/2024 07:10] shealtielanz
+thanks friends works now
+
+{Reactions}
+👍 
+
+[02/22/2024 08:17] sa3083
+Have anyone else run into this issue when trying to run the tests ?
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/image-C6988.png
+
+
+[02/22/2024 09:14] forgebyola
+It's an art tbh
+
+{Reactions}
+👍 
+
+[02/22/2024 09:15] forgebyola
+just appreciating art
+
+
+[02/22/2024 10:50] saint6704
+facing the same issue, unable to run tests
+
+
+[02/22/2024 10:57] hodldoor
+The javascript tests folder includes also tests with parts of code which have been abandoned. We just wanted to include them to show what we already tested. If you want to run tests you can run the foundry tests with npm run foundry-test as in the readme stated I believe ( or comment out the parts with missing artifacts in javascript tests)
+
+
+[02/22/2024 11:00] noro9954
+there is no instructions about tests in readme
+
+
+[02/22/2024 11:01] hodldoor
+ah ok then that was missed I guess so yea just run npm run foundry-test
+
+{Reactions}
+👌 
+
+[02/22/2024 13:01] tamayonft
+Is the other audits fixed in this codebase including hat finance?
+
+
+[02/22/2024 14:33] t0x1c.c0de
+Is this working for everyone?
+
+
+[02/22/2024 14:33] t0x1c.c0de
+I get this:
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/image-36A10.png
+
+
+[02/22/2024 14:43] t0x1c.c0de
+`.gitmodules` missing?
+
+
+[02/22/2024 14:44] kirkeelee
+Did you do npm install before that?
+
+{Reactions}
+🙏🏻 
+
+[02/22/2024 14:48] hodldoor
+or yarn install
+
+{Reactions}
+🙏🏻 
+
+[02/22/2024 14:57] scoolj
+follow these steps:
+1.   Run  npm/yarn install 
+2.   Go to your infura . get your api-key
+3.   Open foundry.toml and replace  PUT_YOUR_INFURA_KEY with your api-key 
+4.  Run  "npm run foundry-test"
+
+{Reactions}
+🫡 (4) 
+
+[02/22/2024 15:09] hodldoor
+maybe pin that message?
+
+
+[02/22/2024 15:57] scoolj
+Okay.
+
+{Reactions}
+👍 
+
+[02/22/2024 17:56] scoolj
+Who has been able to run slither on this project?
+
+
+[02/22/2024 17:57] scoolj
+i am having this error message
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/Screenshot_from_2024-02-22_18-57-13-4E0E7.png
+
+
+[02/22/2024 18:24] hunterx461
+I did run slither on this project.got some nice things 🙂
+
+
+[02/22/2024 18:29] foun256
+slither is always a good start
+
+
+[02/22/2024 18:57] scoolj
+How did you do it. I was having error
+
+
+[02/22/2024 18:57] scoolj
+any lead way?
+
+
+[02/22/2024 19:01] hodldoor
+I would say point slither directly to a file
+
+
+[02/22/2024 19:01] hodldoor
+instead of broad
+
+
+[02/22/2024 19:01] hodldoor
+like WIseLending.sol and then it automatically checks all inherited stuff
+
+
+[02/22/2024 19:02] scoolj
+Okay. Thanks
+
+
+[02/22/2024 19:45] tamayonft
+Is the other audits issues already fixed in this codebase? Specially hat finance audit
+
+
+[02/22/2024 19:49] hodldoor
+some yes.. but readme states any findings from hats is out of scope anyway
+
+
+[02/22/2024 20:00] Message Wolf#0225 (pinned)
+**Automated Findings / Publicly Known Issues**
+
+Automated findings output for the audit can be found [here](https://github.com/code-423n4/2024-02-wise-lending/blob/main/bot-report.md).
+
+*Note for C4 wardens: Anything included in the automated findings output is considered a publicly known issue and is ineligible for awards.*
+
+
+[02/22/2024 20:13] 0xsorrynotsorry
+Pinned a message.
+
+{Reactions}
+thankyou (2) 
+
+[02/22/2024 20:30] 0xstalin
+What does totalBareToken and pseudoTotalPool represents?
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/image-7E283.png
+
+
+[02/22/2024 20:41] foun256
+totalBareToken is the sum of all token from solely deposit per pool.
+pseudoTotalPool is the sum of all lending tokens - from normal deposit - inside the pool plus accumulated interest. (borrowed out tokens are not subtracted)
+totalpool is the actual current amount of lending tokens inside the pool (minus borrowed tokens)
+
+
+[02/22/2024 20:44] 0xstalin
+totalPool doesn't consider the accrued interests of the lending tokens?
+
+
+[02/22/2024 20:49] tychaios.
+Anyone else getting:
+```
+Error: 
+Unknown version provided
+```
+When trying to build? Looks like it's something with foundry and I alredy went as far as reinstalling the whole thing
+
+
+[02/22/2024 20:51] foun256
+Correct. Total pool only indicates the current amount of token inside the pool.
+
+{Reactions}
+🫡 
+
+[02/22/2024 21:01] hodldoor
+without solely
+
+{Reactions}
+☝️ 🫡 
+
+[02/22/2024 22:29] 0xstalin
+roger that, that means that `totalPool + totalBareToken = current exact amount of tokens inside the pool`, right?
+
+
+[02/22/2024 23:36] 0xstalin
+Does `pseudoTotalBorrowAmount` represent the total borrowedAmount from a pool, plus accumulated interest?
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/image-4C202.png
+
+
+[02/23/2024 00:03] tamayonft
+the api-key can be my alchemy key right? it does not necesary be infura
+
+
+[02/23/2024 00:03] tamayonft
+?
+
+{Reactions}
+yes_cat (4) 
+
+[02/23/2024 03:58] scoolj
+I think you can only use infura api-key except you want to change entire endpoint.
+
+
+[02/23/2024 06:04] afourthway
+i'm reading the past audit on Omni:
+https://app.wiselending.com/omni-audit-v1.pdf
+however, the links in it (to click where it redirects to Omni's website to exmplain it, its behind a password. E.g.:
+https://omniscia.io/reports/wise-protocol-subset-650d735b8c8ce30014275d69/manual-review/PositionNFTs-PNF#PNF-06M 
+
+I want to read the full writeup, prefereably with PoCs included. how do i do this?
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/image-3410E.png
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/image-5181C.png
+
+
+[02/23/2024 06:06] afourthway
+for the automated findings, are these patched pre-audit?
+
+
+[02/23/2024 06:07] mctoady
+for automated findings now, they'll still be in the code but not eligible for rewards
+
+
+[02/23/2024 06:07] afourthway
+thanks for clarification!
+
+
+[02/23/2024 13:10] sp1cymeatball
+Why reserve NFTs instead of minting them right away?
+
+
+[02/23/2024 13:34] foun256
+The idea was to save gas for the users on ETH. Minting is much more expensive than reserving. The user only need the nft minted when they want to transfer it to somewhere else.
+
+{Reactions}
+thankyou (6) 
+
+[02/23/2024 23:02] 0xstalin
+What is the difference between funds being collateralized and uncollateralized?
+
+
+[02/23/2024 23:07] wiseowl
+You cannot borrow against uncollateralized assets I believe.
+
+{Reactions}
+🙏 
+
+[02/24/2024 05:48] scoolj
+Hi @The Wise Admiral @vitally.eth  , there are functions that have natspec " @Todo :  delete later ... "  and they are not being used. like this.  still deleting or what?
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/Screenshot_from_2024-02-24_06-44-18-146A7.png
+
+
+[02/24/2024 05:57] vitally.eth
+sure, if not used anywhere then can consider removing.
+
+
+[02/24/2024 08:29] scoolj
+Okay. Thanks
+
+
+[02/24/2024 15:54] t0x1c.c0de
+Hey @vitally.eth, @hodldoor , @The Wise Admiral  any valid issues mentioned [here](https://app.hats.finance/audit-competitions/wise-lending-0xa2ca45d6e249641e595d50d1d9c69c9e3cd22573/submissions) are to be considered under known issues, even if not fixed yet?
+
+{Embed}
+https://app.hats.finance/audit-competitions/wise-lending-0xa2ca45d6e249641e595d50d1d9c69c9e3cd22573/submissions
+Web3 Audit Competitions and Bug Bounties | HatsFinance
+Hats.Finance is a decentralized smart bug bounty and audit competitions marketplace. Permissionless, scalable, and allows anyone to provide liquidity.
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/hats_og-118A8.png
+
+
+[02/24/2024 16:38] forgebyola
+Yes
+
+
+[02/24/2024 17:36] 0xceletia
+codebase contains lots of typos btw
+
+
+[02/24/2024 18:04] 0xciphky
+So these three are the valid submissions from Hats right?
+https://github.com/hats-finance/Wise-Lending-0xa2ca45d6e249641e595d50d1d9c69c9e3cd22573/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
+
+
+[02/25/2024 04:38] marklin2289
+try ``` foundryup    ``` . it may helps.
+
+
+[02/25/2024 15:35] tychaios.
+It was due to multiple installations of foundry, I removed them and reinstalled it.
+
+{Reactions}
+👍 
+
+[02/25/2024 15:35] tychaios.
+And it works now
+
+
+[02/25/2024 15:35] tychaios.
+Thanks, tho
+
+
+[02/25/2024 19:53] mansa11
+Yeah once installed globally you only need to run foundryup  to initialize a new project
+
+
+[02/25/2024 21:21] forgebyola
+Hey, so the wise oracle aggregates chainlink and twap. Twap is a uniswap pool right?
+
+
+[02/25/2024 21:25] forgebyola
+is there a reason or positives for aggregating from 2 sources?
+
+
+[02/26/2024 02:39] wiseowl
+Greater protection if Chainlink feed goes haywire as it does sometimes.
+
+{Reactions}
+💯 
+
+[02/26/2024 07:20] mansa11
+But twap is like a backup right?
+
+
+[02/26/2024 07:28] wiseowl
+No, not as a fallback, but rather a sanity check.
+
+
+[02/26/2024 07:35] forgebyola
+Thanks
+
+
+[02/26/2024 07:36] forgebyola
+Yeah according to the code, twap  just seems to be used to validate the chainlink price
+
+{Reactions}
+👍 
+
+[02/26/2024 07:38] forgebyola
+Are the functions "to be deleted later" in scope or would they be considered oos since they'd be deleted soon anyway?
+
+
+[02/26/2024 07:38] wiseowl
+oos 👍
+
+{Reactions}
+thankyou 
+
+[02/26/2024 14:58] afourthway
+are there instructions on running the Wise L2 protocol? should i use `anvil`?
+
+
+[02/26/2024 15:47] wiseowl
+To be more clear about our oracle system: We always use chinlink. TWAP is only a sanity check in such that if price deviates by more than 2.5% between the two, that asset is frozen, creating a state where that asset cannot be bought or borrowed against, and can only be paid back if in a leveraged position. After 30 minutes if the TWAP is within 2.5% of Chainlink, things go to normal and any liquidations that need to happen will happen. If not within 2.5% the process repeats.
+
+{Reactions}
+pepeyes thankyou 
+
+[02/26/2024 15:58] mansa11
+Understood! Thanks for the detailed explanation
+
+{Reactions}
+👍 
+
+[02/26/2024 17:12] scoolj
+@The Wise Admiral @vitally.eth  Please, can you explain this natspec .   if other users cannot access but you also said the owner will be able to  withdraw even if all funds are borrowed. my question is who has access to borrow the fund? 
+
+```
+    /**
+     * @dev Allows to supply funds using ERC20 in solely mode,
+     * which does not earn APY, but keeps the funds private.
+     * Other users are restricted from borrowing these funds,
+     * owner can always withdraw even if all funds are borrowed.
+     * Also mints position to avoid extra transaction.
+     */
+```
+
+
+[02/26/2024 17:13] scoolj
+this statement is repeated on other 4 functions
+
+
+[02/26/2024 17:55] vitally.eth
+the one who supplies will have access to the supplied funds since these are in private pool, the one who supplied can also use it as collateral to borrow funds from public pools. this seems straight forward, what exactly not clear?
+
+
+[02/26/2024 17:56] vitally.eth
+@0xweb3boy can explain to you, he had exactly same question and based on response it is now clear
+
+
+[02/26/2024 18:27] scoolj
+What you said is clear but where it get confusing is here " owner can always withdraw even if all funds are borrowed."
+
+
+[02/26/2024 18:29] asui0944
+I think owner here is the user who deposited the funds.
+No??
+
+
+[02/26/2024 18:29] scoolj
+Yes . that is my thought too
+
+
+[02/26/2024 18:29] vitally.eth
+yes if all funds from public pool is borrowed he will be still able to get their initiail deposit
+
+
+[02/26/2024 18:29] vitally.eth
+because they are stored separately
+
+
+[02/26/2024 18:30] scoolj
+Okay.  Clear!! thank you.
+
+{Stickers}
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/816087074310193162-5ECC7.json
+
+
+[02/26/2024 19:46] hodldoor
+solelydeposit funds are stored different completly .. all funds are borrowed referrs to "normal" pools to highlight that they are seperated
+
+{Reactions}
+✅ 
+
+[02/26/2024 22:12] 0xstalin
+What version of Aave will the AaveHub works with?
+
+
+[02/27/2024 04:00] vitally.eth
+I’d say V3 should be compatible I think in some tests there’s reference when deploying AaveHub and parameter has value pointing to Aave
+
+{Reactions}
+👀 
+
+[02/27/2024 23:17] 0xbinchook
+@vitally.eth , @hodldoor  or @Foon,
+
+Is WiseLenging a Ethereum mainnet deployment only ...or should other chains be considered when reviewing the contracts too?
+
+
+[02/28/2024 00:50] wiseowl
+It is currently only deployed on Arbitrum. We plan to deploy on Ethereum as well after this audit and expand to other chains too.
+
+{Reactions}
+thankyou 
+
+[02/28/2024 05:44] foun256
+But scope for this bug bounty is only eth and arb
+
+{Reactions}
+☝️ 🫡 
+
+[02/28/2024 06:12] saint6704
+Hey as far as I understood 
+A depositor has 2 options to deposit 
+1. Normal mode
+2. Solely Mode
+
+The only advantage solely mode has over normal mode is their funds are isolated and can't be borrowed/used as a capital by other users except the depositor.
+The depositor can borrow against his own deposited capital in the solely deposited pool which will be used as a collateral.
+
+Depositor can withdraw his funds anytime he wants since his funds are in an isolated pool.
+Also solely mode doesn't earn any APY
+
+{Reactions}
+👌🏼 (5) 
+
+[02/28/2024 06:12] saint6704
+@scoolj (GMT+1)
+
+
+[02/28/2024 07:40] sa3083
+@The Wise Admiral    @vitally.eth  @hodldoor   @Foon  When you get some time please check my threads
+
+
+[02/28/2024 09:38] scoolj
+Thank you.
+
+{Stickers}
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/816086882823831613-3C537.json
+
+{Reactions}
+✅ 
+
+[02/28/2024 09:38] _polex
+Same for me please👏🏻 @The Wise Admiral @vitally.eth @hodldoor @Foon
+
+
+[02/28/2024 20:32] mansa11
+@The Wise Admiral @vitally.eth  @hodldoor  @0xweb3boy 
+
+please check my thread also
+
+
+[02/29/2024 12:23] auditwolf
+Hi, anyone who knows how to fix this error please help   [FAIL. Reason: EvmError: Revert]
+
+
+[02/29/2024 12:31] foun256
+Hmm maybe a little bit more context may be helpful?
+
+
+[02/29/2024 12:34] auditwolf
+Tried running some tests but they failed due to that error
+
+
+[03/01/2024 13:34] pryvate_eth
+Hi, Please what exactly does PowerFarm.sol  do @The Wise Admiral@vitally.eth@hodldoor@Foon
+
+
+[03/01/2024 13:40] foun256
+Power farms are a second layer for wiseLending with which we offer yield maximazion for useres by using pool funds to leverage positions for external yield sources. The idea is to arbitrage good yield opertunities (borrow apy < external yield apy)
+
+{Reactions}
+☝️ 💯 
+
+[03/01/2024 14:12] pryvate_eth
+Thank you
+
+
+[03/02/2024 07:55] 0xceletia
+on which chain PendlePowerFarm will be deployed
+
+
+[03/02/2024 17:43] 0xceletia
+what TWAP actually means, i saw in various areas in codebase but didn't quite grasp it
+
+
+[03/02/2024 18:13] ronpetamgas666
+https://docs.uniswap.org/contracts/v2/concepts/core-concepts/oracles
+
+
+[03/02/2024 18:13] ronpetamgas666
+And search for TWAP using Ctrl + F
+
+
+[03/02/2024 18:30] 0xceletia
+thanks friend
+
+
+[03/03/2024 19:19] hodldoor
+I also highly encourage everyone to start building their own liquidation and compounding bots would be very appreciated :pepe_perfect:
+
+{Reactions}
+💡 (7) ☝️ (3) 💯 (4) 
+
+[03/03/2024 19:19] hodldoor
+Not related to audit. I mean for after launch
+
+
+[03/04/2024 01:46] tamayonft
+is someone getting this error, [FAIL. Reason: Could not instantiate forked environment with fork url: https://mainnet.infura.io/v3/xxxxxxxxxx/]
+
+
+[03/04/2024 01:46] tamayonft
+?
+
+
+[03/04/2024 01:46] tamayonft
+when testing
+
+
+[03/04/2024 08:34] scoolj
+It means that you have not added your api-key
+
+
+[03/04/2024 13:28] tamayonft
+i actually did but still getting some fork not active errors
+
+
+[03/04/2024 13:28] tamayonft
+there is no test for wiselending main contract?
+
+
+[03/04/2024 16:24] scoolj
+I just ran it again.  make sure you are using your own api-key.
+
+
+[03/05/2024 01:17] tamayonft
+What powerfarm state variable is used to determine whether the overall collateral is bare or weighted
+
+
+[03/05/2024 01:17] tamayonft
+?
+
+
+[03/05/2024 05:23] mansa11
+There’re  is.
+lending.js
+
+
+[03/05/2024 10:18] auditwolf
+@hodldoor  @Foon @The Wise Admiral @vitally.eth  please check private thread
+
+
+[03/05/2024 11:52] blckhv
+Someone managed to run the hardhat tests?
+
+
+[03/05/2024 15:20] tamayonft
+I just saw a hack that was made it yesterday on wise lending
+
+
+[03/05/2024 15:20] tamayonft
+Is this the same codebase?
+
+
+[03/05/2024 15:52] deliriusz
+you mean this: https://blog.solidityscan.com/wise-lending-hack-analysis-f652f389e397 ? https://etherscan.io/address/0x37e49bf3749513a02fa535f0cbc383796e8107e4#code#F10#L46 - the code of MainHelper is updated in the contract in scope
+
+{Embed}
+https://blog.solidityscan.com/wise-lending-hack-analysis-f652f389e397
+Wise Lending Hack Analysis
+Overview:
+
+{Embed}
+https://etherscan.io/address/0x37e49bf3749513a02fa535f0cbc383796e8107e4
+WiseLending | Address 0x37e49bf3749513a02fa535f0cbc383796e8107e4 | ...
+The Contract Address 0x37e49bf3749513a02fa535f0cbc383796e8107e4 page allows users to view the source code, transactions, balances, and analytics for the contract address. Users can also interact and make transactions to the contract directly on Etherscan.
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/etherscan-logo-circle-A29B1.jpg
+
+
+[03/05/2024 16:15] wiseowl
+Better writeup here: https://x.com/danielvf/status/1746303616778981402?s=20
+
+{Embed}
+https://twitter.com/danielvf/status/1746303616778981402?s=20
+Daniel Von Fange (@danielvf) on X
+Yesterday's complete hack of Wise Lending was far more complex than reported. Very worth examining.
+
+The protocol had added explicit defenses against this style of attack, which the attack then either bypassed or used against the protocol.    🧵 1/21
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/GDwdmYpWAAEMa1G-EDAA7.jpg%3Alarge
+Twitter
+
+{Reactions}
+empathy (2) 
+
+[03/05/2024 16:49] tamayonft
+Yes sr
+
+
+[03/05/2024 16:49] tamayonft
+Ah ok so we don't have to worry about it
+
+{Reactions}
+👍 
+
+[03/07/2024 04:17] tamayonft
+the power farm is or will be deployed on arbitrum too?
+
+
+[03/07/2024 06:32] foun256
+yep, on both chains
+
+
+[03/07/2024 06:53] 0xstalin
+In the PowerFarms, what would be an example of a `ENTRY_ASSET`?
+
+
+[03/07/2024 07:44] forgebyola
+@Foon Please check my private thread
+
+
+[03/07/2024 08:26] hodldoor
+the asset with which you can enter into the sy
+
+
+[03/07/2024 11:11] forgebyola
+why's nobody answering my private thread🥲
+
+
+[03/07/2024 16:11] tamayonft
+What powerfarmFarmCheck state variable is used for?
+
+
+[03/07/2024 16:58] tamayonft
+There is a reason why liquidator can get an extra cash out?
+
+
+[03/07/2024 18:58] foun256
+what do you mean by that? the incentive for a liquidator to liquidate?
+
+
+[03/07/2024 19:08] tamayonft
+I Just asking because I saw that if the liquidatee have pure and lending share collateral they get reduced the both collateral
+
+
+[03/07/2024 19:16] foun256
+yep. depending when the pure collateral can cover the receiving token we take it first. If not we take from both collat types the calculated percentage.
+
+
+[03/07/2024 19:16] tamayonft
+Thanks so much sr
+
+
+[03/08/2024 07:19] auditwolf
+@hodldoor check private thread
+
+
+[03/08/2024 10:28] mansa11
+@hodldoor @Foon 
+Please check private thread 🧵
+
+
+[03/08/2024 16:39] hodldoor
+I dont see a thread from you
+
+
+[03/08/2024 20:44] mansa11
+It’s a private thread. Kindly check again
+
+
+[03/09/2024 10:25] skodinger
+just so yk you need to manually add them into the thread
+
+
+[03/09/2024 11:19] mansa11
+Yes I did but still no response
+
+
+[03/09/2024 11:26] foun256
+You need to add @vitally.eth  as well.
+
+
+[03/09/2024 11:26] foun256
+He is the expert for nft minting and reservations.
+
+
+[03/09/2024 21:14] acegawd
+@Foon @vitally.eth check private thread
+
+
+[03/10/2024 17:36] acegawd
+Sent you a follow up message @Foon
+
+
+[03/10/2024 22:55] tamayonft
+is someone getting this error trying to run some hardhat test?
+
+
+[03/10/2024 23:20] forgebyola
+I wish this had more time tbh
+
+
+[03/11/2024 17:03] acegawd
+Check private thread @Foon
+
+
+[03/11/2024 19:13] forgebyola
+Needs more time. I feel like I've only gone through 60% of the protocol:thisisfine:
+
+
+[03/11/2024 19:45] forgebyola
+Once again, beautiful codebase, wish I had more time to keep staring at it. Huge props to the Devs
+Good luck everyone
+
+
+[03/11/2024 19:47] forgebyola
+@Foon @hodldoor  @vitally.eth  thank you for answering my incessant questions. I appreciate💯
+
+{Reactions}
+🙏 (7) 
+
+[03/11/2024 19:49] foun256
+Appreciate your time and effort!
+
+{Reactions}
+thankyou 
+
+[03/11/2024 19:52] hodldoor
+ty ser for diving in 🙂  appreciated  !
+
+{Reactions}
+hi5 
+
+[03/11/2024 20:06] knownfactc4_29311
+🚨 AUDIT ALERT   
+
+@🐺Wardens  The **Wise Lending** audit is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: The sponsor team and judge will review the findings over the next couple of weeks. Keep an eye on #📢announcements for regular updates on how the audit is progressing through awarding 🤑🏆, judging 🧑‍⚖️ and reporting 📜. Feel free to ping a Contest-Admin if you have questions along the way!
+
+{Reactions}
+✅ (5) 🚀 (6) 🎉 (4) 
+
+[03/11/2024 20:06] 0xstalin
+just in time to submit my findings 😮‍💨 
+
+Incredible work by the devs on the cleanliness of the code, a very well-structured and reusable code across all the contracts of the codebase. All the core and periphery contracts work seamlessly together as well as a good integration with all the external protocols, awesome work.
+
+Thanks a lot to the team for answering my questions in this channel as well as in the private thread, it really helped me a lot to speed up understanding the codebase.
+
+My best wishes for all the future endeavors of the protocol, many more successes to come 🫡
+
+{Reactions}
+❤️ (2) 
+
+[03/11/2024 20:09] foun256
+Thank you very mush ser and the time you spent improving our contracts! 🙂
+
+{Reactions}
+🫡 (3) 
+
+[03/11/2024 20:16] 0xsorrynotsorry
+One of the most clean codebases ever visited to C4.
+Hats off to the team 🙌🫡
+
+{Reactions}
+🙏 (4) 💯 (6) 🙌 (2) 
+
+[03/12/2024 00:35] tamayonft
+Thought code base, see that some stars auditor went for this codebase , so glad to participate in
+
+
+[03/12/2024 05:23] saint6704
+Expressing my thanks to the team, and yes this was one of the cleanest codebase and well structured one I've audited 
+Dev team is G.O.A.T
+
+
+[03/12/2024 05:23] saint6704
+All the best to the team
+
+
+[03/12/2024 05:43] foun256
+Thanks for the nice words and your help securing our contracts!
+
+{Reactions}
+🫡 (2) 
+
+[03/19/2024 17:11] forgebyola
+How many submissions?
+
+
+[03/19/2024 17:20] blckhv
+~300
+
+{Reactions}
+thankyou (2) 
+
+[03/22/2024 09:48] burhan_khaja
+Any updates🙌
+
+
+[03/30/2024 07:26] mansa11
+Any updates???🫠
+
+
+[03/30/2024 07:43] haxatron1
+PJQA so result is soon
+
+{Reactions}
+✅ (3) 
+
+[04/01/2024 01:57] dany_armstrong
+In general, how many days does 'soon' mean? @haxatron
+
+
+[04/01/2024 02:56] haxatron1
+This wewk
+
+
+[04/01/2024 03:17] dany_armstrong
+👍
+
+
+[04/01/2024 19:16] josephdara
+GG
+
+{Reactions}
+🥲 
+
+[04/01/2024 22:13] 0x11singh99
+today ?
+
+{Reactions}
+10_10 (2) 
+
+[04/02/2024 04:50] josephdara
+Possibly
+
+{Reactions}
+4739_Skeletor (2) 
+
+[04/02/2024 16:12] 0x11singh99
+https://tenor.com/view/mr-bean-gif-24453457
+
+{Embed}
+https://tenor.com/view/mr-bean-gif-24453457
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/mr-bean-3498D.png
+
+{Reactions}
+psyduck (3) 🦥 (3) 
+
+[04/02/2024 17:28] mansa11
+https://tenor.com/view/waiting-waiting-patiently-waiting-for-you-waiting-on-you-gif-15489516379864441176
+
+{Embed}
+https://tenor.com/view/waiting-waiting-patiently-waiting-for-you-waiting-on-you-gif-15489516379864441176
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/waiting-waiting-patiently-C8F8A.png
+
+{Reactions}
+psyduck (6) 
+
+[04/03/2024 13:19] 0x11singh99
+Hi @thebrittfactor | C4  Why result is not coming is there any new problem ? Since it should be declared till yesterday while finding numbers label already placed with coinbase.
+
+
+[04/03/2024 13:51] forgebyola
+Are escalations done?
+
+
+[04/03/2024 14:04] 0x11singh99
+Yes and icons also appearing on profiles since monday
+
+{Reactions}
+👍 
+
+[04/03/2024 14:34] sa3083
+Wondering the same thing, would be great if contest admins would drop an update from time to time especially in cases like this
+
+
+[04/03/2024 14:37] sa3083
+Strange that we can not see anything about it here either.
+
+{Attachments}
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/IMG_4008-F4F71.png
+
+
+[04/03/2024 14:56] haxatron1
+Maybe we might have another unistaker situation again 😬
+
+
+[04/03/2024 15:01] 0x11singh99
+Maybe but why🤷‍♂️
+
+
+[04/03/2024 15:03] sockdrawermoney
+This is correct. Sponsor has requested an appeal. We'll provide updates when we have more information.
+
+{Reactions}
+👀 (7) 🫢 (2) 
+
+[04/03/2024 15:05] haxatron1
+Because there is additional 60k if a high is found
+
+{Reactions}
+🫨 
+
+[04/03/2024 16:06] 0xstalin
+https://tenor.com/view/war-is-coming-cat-of-war-cat-cats-gif-10315471693685787999
+
+{Embed}
+https://tenor.com/view/war-is-coming-cat-of-war-cat-cats-gif-10315471693685787999
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/war-is-coming-cat-of-war-BD4C5.png
+
+
+[04/03/2024 16:10] haxatron1
+the war will be fought in a private discord chat and not github discussions
+
+
+[04/03/2024 16:16] kaveyjoe
+https://tenor.com/view/argument-vakeel-saab-pawan-kalyan-pspk-pk-gif-15499774239051889053
+
+{Embed}
+https://tenor.com/view/argument-vakeel-saab-pawan-kalyan-pspk-pk-gif-15499774239051889053
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/argument-vakeel-saab-18C14.png
+
+
+[04/03/2024 16:18] sa3083
+https://tenor.com/view/this-is-going-to-be-a-disaster-popcorn-stephen-colbert-drama-gif-11562428
+
+{Embed}
+https://tenor.com/view/this-is-going-to-be-a-disaster-popcorn-stephen-colbert-drama-gif-11562428
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/this-is-going-to-be-a-disaster-popcorn-2D745.png
+
+
+[04/03/2024 16:21] 0xstalin
+https://tenor.com/view/movie-spongebob-watching-eating-popcorn-binge-watching-gif-4713512
+
+{Embed}
+https://tenor.com/view/movie-spongebob-watching-eating-popcorn-binge-watching-gif-4713512
+A movie and popcorn
+Code4rena - ARCHIVE-Q1-2024 - wiselending-feb21 [1204157559963914331].txt_Files/movie-spongebob-F8C25.png
+
+{Reactions}
+😂 (3) 
+
+[04/03/2024 16:22] matin6517
+April 1 prank? 👀
+
+
+[04/03/2024 16:24] haxatron1
+its April 2 bro
+
+{Reactions}
+😂 
+
+[04/03/2024 16:24] sockdrawermoney
+Are you sure? Maybe the entire universe is playing a joke on us
+
+{Reactions}
+😂 (11) 👀 (4) 💯 (2) 
+
+[04/03/2024 16:32] mansa11
+😂😂 Someone please explain the unistaker situation they’re referring to
+
+
+[04/03/2024 16:35] sockdrawermoney
+basically just sponsor going to appeals court to ask a panel of judges to review the submissions.
+
+
+[04/03/2024 16:37] mansa11
+Oh alright thanks.
+They should be glad a high was found so they can better secure their protocol XD
+
+
+[04/03/2024 16:40] sa3083
+happened never :))
+
+{Reactions}
+😂 (2) 
+
+[04/03/2024 16:40] sockdrawermoney
+In this case, they are not disputing all highs, so has actually zero impact on the state of the full pool but more how the individual awards shape up
+
+
+[04/03/2024 16:42] sa3083
+an ETA when this will be finished maybe ?
+
+
+[04/03/2024 16:47] itsmetechjay
+We are working to get these finalized as soon as we can, but it will take some time for the appeals court to assemble and review the issues.
+
+{Reactions}
+Metapod 
+
+[04/03/2024 17:20] forgebyola
+"all highs" Okay that's interesting
+
+
+[04/03/2024 17:21] forgebyola
+Ah sh*t here we go again
+
+
+[04/03/2024 17:47] auditor_79099
+when result?
+
+
+[04/03/2024 17:50] 0xsorrynotsorry
+https://discord.com/channels/810916927919620096/1204157559963914331/1225124627211223070
+
+
+[04/03/2024 21:45] tamayonft
+I see this coming jajaja
+
+
+[04/03/2024 23:36] 0xstalin
+why?
+
+
+[04/04/2024 00:04] tamayonft
+The comment by the team in the QA
+
+{Reactions}
+👀 
+
+[04/04/2024 00:04] tamayonft
+Jaja
+
+
+[04/04/2024 00:22] 0xstalin
+which one?
+
+
+[04/04/2024 00:26] tamayonft
+Just in general bro, sponsor wanted invalidated a lot findings (no saying that's bad )
+
+{Reactions}
+👀 (2) 
+
+[04/04/2024 17:35] itsmetechjay
+ℹ️ The Appeals Committee has been assembled and will start reviewing the findings.
+
+{Reactions}
+🔥 (5) chefskiss (4) 
+
+[04/04/2024 18:22] _polex
+Where can you see that?
+
+{Reactions}
+👀 
+
+[04/04/2024 19:43] mansa11
+How do one get backstage role?
+
+
+[04/04/2024 20:27] nonseodion
+https://docs.code4rena.com/roles/certified-contributors/backstage-wardens
+
+{Embed}
+https://docs.code4rena.com/roles/certified-contributors/backstage-wardens
++Backstage wardens | Code4rena
+
+
+[04/05/2024 08:16] mansa11
+Thanks
+
+
+[04/07/2024 09:30] kaveyjoe
+This is against C4 Rules.
+
+
+[04/07/2024 09:38] mansa11
+Alright my bad.
+
+
+[04/08/2024 12:08] forgebyola
+What's going on with the appeal?
+
+{Reactions}
+spongePog 
+
+[04/08/2024 14:50] itsmetechjay
+ℹ️ Appeals Committee deliberations are still ongoing.
+
+{Reactions}
+thankyou (7) 👍 
+
+[04/08/2024 18:03] nonseodion
+We'd really appreciate it if we get thorough explanations on why issues may get downgraded when the Committee is done.
+
+{Reactions}
+💯 (3) 
+
+[04/09/2024 12:13] cloudellie
+The appeals courts will publish their decisions in the findings repo.
+
+
+[04/09/2024 14:09] mansa11
+When?????????
+
+
+[04/09/2024 14:47] daniel526
+Please humble up, I believe c4 staff are doing the best they can.
+
+
+[04/09/2024 14:47] mansa11
+Lol I’m just asking a question
+
+
+[04/09/2024 15:32] wiseowl
+Our last deliberations are in, it appears the supreme court is very close to finalizing everything.
+
+
+[04/09/2024 15:39] mansa11
+Alright thank you
+
+{Reactions}
+👍 
+
+[04/09/2024 17:10] forgebyola
+Oh you'll learn patience in this space lol
+
+
+[04/09/2024 17:10] forgebyola
+Just get prepared
+
+
+[04/09/2024 17:12] mansa11
+Yeah! I’m getting used to it
+
+
+[04/11/2024 18:37] 0xciphky
+Any chance this will be wrapped up before the weekend, or are we looking at early next week?
+
+
+[04/11/2024 20:13] josephdara
+Seems this will take quite a while. Or atleast it is taking quite some time
+
+{Reactions}
+👍 
+
+[04/12/2024 20:42] sandraa0250
+ℹ️ Appeals Committee deliberations are nearing the end and we hope to wrap up by early next week.
+
+{Reactions}
+👀 (10) 🫡 (6) chefskiss (5) 4739_Skeletor (3) 
+
+[04/15/2024 16:44] thebrittfactor
+🤑 🎉  Awards for **Wise Lending**:
+
+$37,528.12 USDC » @nonseodion 
+$21,136.58 USDC » @0xStalin 
+$20,400.35 USDC » Dup1337 (@sorryNotsorry and @deliriusz) 
+$15,460.18 USDC » @0xCiphky 
+$10,899.43 USDC » @serial-coder 
+$8,036.27 USDC » @NentoR 
+$7,970.35 USDC » @Draiakoo 
+$7,312.25 USDC » @00xSEV 
+$7,145.11 USDC » @t0x1c 
+$5,772.78 USDC » SBSecurity (Blckhv and @Slavcheww) 
+$5,431.96 USDC » @Matin 
+$3,299.91 USDC » @JCN 
+$2,331.72 USDC » @Aariiif 
+$1,793.63 USDC » @myd8418 
+$1,466.63 USDC » @WoolCentaur 
+$1,377.99 USDC » @Jorgect 
+$1,128.18 USDC » AM (@SA and 0xmatei) 
+$1,018.09 USDC » @0x11singh99 
+$940.15 USDC » DanielArmstrong 
+$896.66 USDC » @cheatc0d3 
+$790.83 USDC » @0xAnah 
+$608.33 USDC » @K42 Ψ 
+$608.33 USDC » @dharma09 
+$319.93 USDC » @0xepley 
+$319.93 USDC » @Fouzantanveer 
+$319.93 USDC » @foxb868 
+$319.93 USDC » @kaveyjoe 
+$249.82 USDC » @Mrxstrange 
+$249.82 USDC » @josephdara 
+$249.82 USDC » @unix515 
+$159.94 USDC » @shealtielanz 
+$124.91 USDC » @Rhaydden 
+$123.08 USDC » @0xhacksmithh 
+$123.08 USDC » @Albahaca 
+
+🏁 Findings summary
+--------------------------------------—
+High risk findings: 5 unique (11 total)
+Med risk findings: 17 unique (34 total)
+Gas reports: 6 (Best: 0xAnah)
+QA reports: 7 (Best: Dup1337)
+Advanced analysis reports: 7 (Best: aariiif)
+
+Awards will be distributed on Polygon within the next week. Congratulations all!  💸 💸 💸
+
+*Note: If you participated in this audit and don’t see your name on this list, please wait until the report is published and the findings repo is made public to check on your submissions.*
+
+{Reactions}
+🎉 (4) 🚀 (4) ✅ (4) 🙏 (3) chefskiss (3) 
+
+[04/15/2024 16:45] tamayonft
+Damn @0xStalin
+
+{Reactions}
+🫡 (2) 
+
+[04/15/2024 16:45] tamayonft
+Congratulations
+
+
+[04/15/2024 16:45] _polex
+Gg
+
+
+[04/15/2024 16:45] _polex
+Congrats everyone!
+
+
+[04/15/2024 16:46] _k42
+Congratulations 4 all!!! Worth the wait always ✅ 2 all Enjoy!!! 🫡
+
+
+[04/15/2024 16:48] 0x11singh99
+My first 4 digit🥳 . Thanks C4:thankyou:  for the oppurtunity and great platform.🫡
+
+{Reactions}
+🚀 (7) 
+
+[04/15/2024 16:53] t0x1c.c0de
+Congrats everyone!! 👏🏻
+
+
+[04/15/2024 16:58] josephdara
+Bro. @nonseodion 
+Congrats, big up🙌🏾🙌🏾
+
+{Reactions}
+thankyou 
+
+[04/15/2024 17:06] jvorex
+@DanielArmstrong 🫡
+
+
+[04/15/2024 17:06] adeolu
+LFG @nonseodion !
+
+{Reactions}
+thankyou 
+
+[04/15/2024 17:07] olanre_waju
+🎊  Congratulations @nonseodion
+
+{Reactions}
+thankyou 
+
+[04/15/2024 17:07] woolcentaur
+Wow! Congrats everyone!
+
+
+[04/15/2024 17:08] olanre_waju
+Congratulations 🎊  @0xStalin
+
+{Reactions}
+thankyou 
+
+[04/15/2024 17:09] 0xstalin
+congratulations to everyone, I learned a lot from the highs I missed, great work to all the wardens who found unique findings, C4 at its best :chefskiss:
+
+{Reactions}
+❤️ (9) 10_10 (7) 
+
+[04/15/2024 17:09] 0x_serial_coder
+Congratulations bro
+
+{Reactions}
+🙏 (4) thankyou (3) 
+
+[04/15/2024 17:32] sin1st3r__
+The guy who got 2nd place is my friend
+
+{Reactions}
+❤️ (4) 
+
+[04/15/2024 17:32] sin1st3r__
+Congrats chad @0xStalin 🫡
+
+{Reactions}
+chefskiss (2) 
+
+[04/15/2024 17:34] nonseodion
+Skipped 4 figures to 5 figures. Congratulations guys :hi5:
+
+{Reactions}
+😈 (7) party_skeletor (6) hi5 (5) 
+
+[04/15/2024 17:58] saint6704
+Congratulations @0xStalin 
+So proud of you ser 🤩
+You're a Chad
+
+{Reactions}
+❤️ 💯 
+
+[04/15/2024 18:12] matin6517
+Congratulations @0xStalin 🎊 🥳
+
+{Reactions}
+thankyou 
+
+[04/15/2024 18:38] forgebyola
+Congrats everyone
+
+
+[04/15/2024 18:39] auditor_79099
+@nonseodion, congratulate!!!👍🏻
+
+{Reactions}
+thankyou 
+
+[04/15/2024 19:07] wiseowl
+Congrats on the bounties 🎉
+
+{Reactions}
+thankyou 
+
+[04/15/2024 19:11] unix515_315
+Congratulations to everyone. When will the report be made public?
+
+
+[04/15/2024 20:00] wiseowl
+They told us 1-2 weeks and that they’d prioritize us.
+
+
+[04/15/2024 22:14] 0xstalin
+@stockmart Will we also have Warden cards for this contest?
+
+
+[04/15/2024 22:15] stockmart
+Yes! Will be posting them as a thread here tomorrow. Likely around 12pm ET
+
+{Reactions}
+🔥 
+
+[04/15/2024 22:16] 0xstalin
+greaaat, thanks 🙏
+
+{Reactions}
+🤝 AngryCat 
+
+[04/16/2024 00:11] unix515_315
+Thanks
+
+
+[04/16/2024 00:27] olanre_waju
+@🦖 eric (ninek) | C4 you're owing alot of money 💰  💀 speed up
+
+{Reactions}
+👁️ (2) 😂 
+
+[04/16/2024 00:28] nine_k
+😅 on it my friend 🫡
+
+{Reactions}
+10_10 (4) chefskiss (3) 
+
+[04/16/2024 01:06] burhan_khaja
+I think judges have deliberately ignored tons of reports , i submitted Exhaustive list of unique gas-findings and shit, even my name doesnt exist in leaderboard
+
+{Reactions}
+😂 (3) 
+
+[04/16/2024 01:07] burhan_khaja
+Do you feel the same ?
+
+
+[04/16/2024 01:16] burhan_khaja
+🌀 there are 6 wardens who are on leaderboard for gas findings, interestingly all of them have participated in more than 15 audits some even in 39
+
+🌀 It seems for the low and gas findings they have ignored submissions from new wardens, quite unfair
+
+{Reactions}
+😂 (2) 
+
+[04/16/2024 01:17] burhan_khaja
+@🦖 eric (ninek) | C4
+
+
+[04/16/2024 01:48] shealtielanz
+Avoid statements with emotions, there are guidelines for all this🙂
+
+
+[04/16/2024 02:20] xyzbtchunt
+this reward been sent?
+
+
+[04/16/2024 02:37] mtberi
+Congratulation @0x11singh99
+
+{Reactions}
+❤️ 
+
+[04/16/2024 03:04] burhan_khaja
+Guidelines for what?
+
+
+[04/16/2024 03:11] ihtishamsudo
+judge never ignore your submission, maybe your findings got invalidated.
+
+{Reactions}
+👆 
+
+[04/16/2024 03:28] shealtielanz
+If you want to address an issue, there are well formatted ways provided by c4 to address those issues backed with facts.
+Making a statement here may be seen as breaking guidelines and might cause you issues if care isn’t taken.
+
+github.com/code-423n4/org/issues
+
+
+[04/16/2024 07:21] mansa11
+So we aren’t allowed to express our opinions?
+
+
+[04/16/2024 07:46] angry_mustache_man
+Congratulation @0xStalin  ser.
+
+{Reactions}
+thankyou ❤️ 
+
+[04/16/2024 09:19] burhan_khaja
+I totally get your POV, i understand what makes good quality reports even i had previously submitted few valid mediums and highs 
+
+Gas report that i submitted followed exact style that top gas reports have on C4
+
+🌀 thing is first wiselending took so long to finalize reports even though there werent tons of  submission which kinda points out there might have been some overlooking done on behalf of judges as the deadline kept coming closer and closer (maybe) 🤥
+
+
+[04/16/2024 10:49] mrxstrange
+Finally get my first bounty  @Mrxstrange
+
+{Reactions}
+🔥 (5) 🎉 (3) 
+
+[04/16/2024 15:41] stockmart
+Started a thread.
+
+{Reactions}
+thankyou 
+
+[04/25/2024 02:14] itsmetechjay
+ℹ️ This channel is pending archive.   As a result, any private threads will be permanently deleted on Friday, 03 May 2024. Please make sure to grab anything you might need before then.
+
+
+[05/03/2024 15:25] itsmetechjay
+ℹ️ Reminder: this channel will be deleted in 24 hours.
+
+
+==============================================================
+Exported 318 message(s)
+==============================================================

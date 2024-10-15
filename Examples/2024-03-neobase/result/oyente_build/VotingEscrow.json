@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "VotingEscrow.sol",
+        "coverage": "0.3%",
+        "warnings": []
+    }
+}

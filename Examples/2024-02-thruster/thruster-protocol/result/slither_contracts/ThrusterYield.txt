@@ -1,0 +1,11 @@
+'solc --version' running
+'solc /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-cfmm/contracts/ThrusterYield.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes,compact-format --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-cfmm/contracts' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-cfmm/contracts/ThrusterYield.sol:
+/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-treasure/interfaces/IBlast.sol:2:1: Error: Source file requires different compiler version (current compiler is 0.5.16+commit.9c3226ce.Darwin.appleclang - note that nightly builds are considered to be strictly less than the released version
+pragma solidity >=0.8.20;
+^-----------------------^
+/Users/tanzezhong/GPT4Bugs-main/Examples/2024-02-thruster/thruster-protocol/thruster-treasure/interfaces/IERC20Rebasing.sol:2:1: Error: Source file requires different compiler version (current compiler is 0.5.16+commit.9c3226ce.Darwin.appleclang - note that nightly builds are considered to be strictly less than the released version
+pragma solidity >=0.8.20;
+^-----------------------^
+
+ERROR:Slither:Unable to compile all targets.

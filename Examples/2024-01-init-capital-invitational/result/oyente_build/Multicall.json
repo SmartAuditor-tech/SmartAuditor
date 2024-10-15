@@ -1,0 +1,9 @@
+{
+    "success": false,
+    "findings": {
+        "vul": [],
+        "filename": "Multicall.sol",
+        "coverage": "",
+        "warnings": []
+    }
+}

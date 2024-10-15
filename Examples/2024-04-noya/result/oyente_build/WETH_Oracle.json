@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "WETH_Oracle.sol",
+        "coverage": "23.8%",
+        "warnings": []
+    }
+}

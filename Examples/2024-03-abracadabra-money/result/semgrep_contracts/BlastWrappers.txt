@@ -1,0 +1,67 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                   
+                   
+┌─────────────────┐
+│ 3 Code Findings │
+└─────────────────┘
+                                     
+    /g4b/src/blast/BlastWrappers.sol 
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           20┆ constructor(IWETH weth_, IFactory factory, address governor_)    
+  Router(weth_, factory) {                                                      
+           21┆     if (governor_ == address(0)) {
+           22┆         revert ErrZeroAddress();
+           23┆     }
+           24┆     BlastYields.configureDefaultClaimables(governor_);
+           25┆ }
+            ⋮┆----------------------------------------
+           29┆ constructor(
+           30┆     address implementation_,
+           31┆     IFeeRateModel maintainerFeeRateModel_,
+           32┆     address owner_,
+           33┆     address governor_
+           34┆ ) Factory(implementation_, maintainerFeeRateModel_, owner_) {
+           35┆     if (governor_ == address(0)) {
+           36┆         revert ErrZeroAddress();
+           37┆     }
+           38┆     BlastYields.configureDefaultClaimables(governor_);
+             [hid 1 additional lines, adjust with --max-lines-per-finding] 
+           47┆ constructor(address box_, address mim_, address governor_)       
+  CauldronV4(IBentoBoxV1(box_), IERC20(mim_)) {                                 
+           48┆     if (governor_ == address(0)) {
+           49┆         revert ErrZeroAddress();
+           50┆     }
+           51┆     if (governor_ == address(this)) {
+           52┆         revert ErrInvalidGovernorAddress();
+           53┆     }
+           54┆ 
+           55┆     _governor = governor_;
+           56┆     _setupBlacklist();
+             [hid 1 additional lines, adjust with --max-lines-per-finding] 
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 3 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

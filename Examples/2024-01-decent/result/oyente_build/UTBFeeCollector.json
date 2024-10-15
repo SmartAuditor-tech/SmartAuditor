@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "UTBFeeCollector.sol",
+        "incomplete instruction": "4378",
+        "coverage": "3.1%",
+        "warnings": []
+    }
+}

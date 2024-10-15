@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "XERC20.sol",
+        "incomplete instruction": "18403",
+        "coverage": "0.2%",
+        "warnings": []
+    }
+}

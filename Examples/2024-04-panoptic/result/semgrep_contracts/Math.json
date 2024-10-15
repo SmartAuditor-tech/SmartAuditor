@@ -1,0 +1,55 @@
+{
+    "success": true,
+    "finding_length": 7,
+    "findings": [
+        {
+            "classification": [],
+            "name": "use-prefix-decrement-not-postfix",
+            "category": "performance",
+            "message": "t-not-postfix Consider using the prefix decrement expression whenever the return value is not needed. The prefix decrement expression is cheaper in terms of gas. Details: https://sg.run/Z024",
+            "line": 761
+        },
+        {
+            "classification": [],
+            "name": "use-prefix-decrement-not-postfix",
+            "category": "performance",
+            "message": "t-not-postfix Consider using the prefix decrement expression whenever the return value is not needed. The prefix decrement expression is cheaper in terms of gas. Details: https://sg.run/Z024",
+            "line": 765
+        },
+        {
+            "classification": [],
+            "name": "use-prefix-increment-not-postfix",
+            "category": "performance",
+            "message": "t-not-postfix Consider using the prefix increment expression whenever the return value is not needed. The prefix increment expression is cheaper in terms of gas. Details: https://sg.run/nxLr",
+            "line": 449
+        },
+        {
+            "classification": [],
+            "name": "use-prefix-increment-not-postfix",
+            "category": "performance",
+            "message": "t-not-postfix Consider using the prefix increment expression whenever the return value is not needed. The prefix increment expression is cheaper in terms of gas. Details: https://sg.run/nxLr",
+            "line": 589
+        },
+        {
+            "classification": [],
+            "name": "use-prefix-increment-not-postfix",
+            "category": "performance",
+            "message": "t-not-postfix Consider using the prefix increment expression whenever the return value is not needed. The prefix increment expression is cheaper in terms of gas. Details: https://sg.run/nxLr",
+            "line": 666
+        },
+        {
+            "classification": [],
+            "name": "use-prefix-increment-not-postfix",
+            "category": "performance",
+            "message": "t-not-postfix Consider using the prefix increment expression whenever the return value is not needed. The prefix increment expression is cheaper in terms of gas. Details: https://sg.run/nxLr",
+            "line": 760
+        },
+        {
+            "classification": [],
+            "name": "use-prefix-increment-not-postfix",
+            "category": "performance",
+            "message": "t-not-postfix Consider using the prefix increment expression whenever the return value is not needed. The prefix increment expression is cheaper in terms of gas. Details: https://sg.run/nxLr",
+            "line": 764
+        }
+    ]
+}

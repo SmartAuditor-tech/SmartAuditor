@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "CoreUniswapFeed.sol",
+        "coverage": "0.5%",
+        "warnings": []
+    }
+}

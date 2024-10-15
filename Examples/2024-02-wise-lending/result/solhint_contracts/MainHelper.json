@@ -1,0 +1,78 @@
+{
+    "success": true,
+    "finding_length": 9,
+    "findings": [
+        {
+            "filename": "MainHelper.sol",
+            "line": 3,
+            "column": 1,
+            "message": "Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "MainHelper.sol",
+            "line": 357,
+            "column": 34,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "MainHelper.sol",
+            "line": 426,
+            "column": 9,
+            "message": "Avoid to use letters 'I', 'l', 'O' as identifiers",
+            "level": "warning",
+            "name": "use-forbidden-name"
+        },
+        {
+            "filename": "MainHelper.sol",
+            "line": 479,
+            "column": 9,
+            "message": "Avoid to use letters 'I', 'l', 'O' as identifiers",
+            "level": "warning",
+            "name": "use-forbidden-name"
+        },
+        {
+            "filename": "MainHelper.sol",
+            "line": 505,
+            "column": 31,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "MainHelper.sol",
+            "line": 903,
+            "column": 16,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "MainHelper.sol",
+            "line": 979,
+            "column": 13,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "MainHelper.sol",
+            "line": 1104,
+            "column": 16,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        },
+        {
+            "filename": "MainHelper.sol",
+            "line": 1133,
+            "column": 16,
+            "message": "Avoid making time-based decisions in your business logic",
+            "level": "warning",
+            "name": "not-rely-on-time"
+        }
+    ]
+}

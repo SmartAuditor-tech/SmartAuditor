@@ -1,0 +1,28 @@
+{
+    "success": true,
+    "finding_length": 2,
+    "findings": [
+        {
+            "filaname": "NoyaFeeReceiver.sol",
+            "SWC ID": " 110",
+            "Severity": " Medium",
+            "Contract": " NoyaFeeReceiver",
+            "Function name": " constructor",
+            "PC address": " 12",
+            "Estimated Gas Usage": " 39 - 134",
+            "description": "It is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).",
+            "line": "14"
+        },
+        {
+            "filaname": "NoyaFeeReceiver.sol",
+            "SWC ID": " 110",
+            "Severity": " Medium",
+            "Contract": " NoyaFeeReceiver",
+            "Function name": " constructor",
+            "PC address": " 831",
+            "Estimated Gas Usage": " 163 - 2750",
+            "description": "It is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).",
+            "line": "14"
+        }
+    ]
+}

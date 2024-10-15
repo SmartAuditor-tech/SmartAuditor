@@ -1,0 +1,14 @@
+'solc --version' running
+'solc /Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-taiko/packages/protocol/contracts/L1/libs/LibVerifying.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-taiko/packages/protocol/contracts/L1/libs' running
+INFO:Detectors:
+LibVerifying.verifyBlocks(TaikoData.State,TaikoData.Config,IAddressResolver,uint64) (packages/protocol/contracts/L1/libs/LibVerifying.sol#85-222) ignores return value by tko.transfer(ts.prover,bondToReturn) (packages/protocol/contracts/L1/libs/LibVerifying.sol#189)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+INFO:Detectors:
+LibVerifying.verifyBlocks(TaikoData.State,TaikoData.Config,IAddressResolver,uint64).tierProvider (packages/protocol/contracts/L1/libs/LibVerifying.sol#118) is a local variable never initialized
+LibVerifying.verifyBlocks(TaikoData.State,TaikoData.Config,IAddressResolver,uint64).numBlocksVerified (packages/protocol/contracts/L1/libs/LibVerifying.sol#117) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+INFO:Detectors:
+LibVerifying._syncChainData(TaikoData.Config,IAddressResolver,uint64,bytes32) (packages/protocol/contracts/L1/libs/LibVerifying.sol#224-243) ignores return value by (lastSyncedBlock,None) = signalService.getSyncedChainData(_config.chainId,LibSignals.STATE_ROOT,0) (packages/protocol/contracts/L1/libs/LibVerifying.sol#234-236)
+LibVerifying._syncChainData(TaikoData.Config,IAddressResolver,uint64,bytes32) (packages/protocol/contracts/L1/libs/LibVerifying.sol#224-243) ignores return value by signalService.syncChainData(_config.chainId,LibSignals.STATE_ROOT,_lastVerifiedBlockId,_stateRoot) (packages/protocol/contracts/L1/libs/LibVerifying.sol#239-241)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Slither:/Users/tanzezhong/GPT4Bugs-main/Examples/2024-03-taiko/packages/protocol/contracts/L1/libs/LibVerifying.sol analyzed (10 contracts with 58 detectors), 5 result(s) found

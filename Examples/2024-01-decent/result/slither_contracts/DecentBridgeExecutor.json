@@ -1,0 +1,82 @@
+{
+    "success": true,
+    "finding_length": 7,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "DecentBridgeExecutor._executeEth(address,address,uint256,bytes) (lib/decent-bridge/src/DecentBridgeExecutor.sol#54-65) sends eth to arbitrary user\n\tDangerous calls:\n\t- (success,None) = target.call{value: amount}(callPayload) (lib/decent-bridge/src/DecentBridgeExecutor.sol#61)\n\t- address(from).transfer(amount) (lib/decent-bridge/src/DecentBridgeExecutor.sol#63)\n",
+            "filename": "DecentBridgeExecutor.sol",
+            "classification": [],
+            "function": "_executeEth",
+            "contract": "DecentBridgeExecutor",
+            "line": 63
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "DecentBridgeExecutor._executeWeth(address,address,uint256,bytes) (lib/decent-bridge/src/DecentBridgeExecutor.sol#24-45) ignores return value by weth.transfer(from,amount) (lib/decent-bridge/src/DecentBridgeExecutor.sol#36)\n",
+            "filename": "DecentBridgeExecutor.sol",
+            "classification": [],
+            "function": "_executeWeth",
+            "contract": "DecentBridgeExecutor",
+            "line": 36
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "DecentBridgeExecutor._executeWeth(address,address,uint256,bytes) (lib/decent-bridge/src/DecentBridgeExecutor.sol#24-45) ignores return value by weth.transfer(from,remainingAfterCall) (lib/decent-bridge/src/DecentBridgeExecutor.sol#44)\n",
+            "filename": "DecentBridgeExecutor.sol",
+            "classification": [],
+            "function": "_executeWeth",
+            "contract": "DecentBridgeExecutor",
+            "line": 44
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "DecentBridgeExecutor.execute(address,address,bool,uint256,bytes) (lib/decent-bridge/src/DecentBridgeExecutor.sol#68-82) ignores return value by weth.transferFrom(msg.sender,address(this),amount) (lib/decent-bridge/src/DecentBridgeExecutor.sol#75)\n",
+            "filename": "DecentBridgeExecutor.sol",
+            "classification": [],
+            "function": "execute",
+            "contract": "DecentBridgeExecutor",
+            "line": 75
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "DecentBridgeExecutor._executeWeth(address,address,uint256,bytes) (lib/decent-bridge/src/DecentBridgeExecutor.sol#24-45) ignores return value by weth.approve(target,amount) (lib/decent-bridge/src/DecentBridgeExecutor.sol#31)\n",
+            "filename": "DecentBridgeExecutor.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_executeWeth",
+            "contract": "DecentBridgeExecutor",
+            "line": 31
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "DecentBridgeExecutor.gasCurrencyIsEth (lib/decent-bridge/src/DecentBridgeExecutor.sol#10) should be immutable \n",
+            "filename": "DecentBridgeExecutor.sol",
+            "classification": [],
+            "line": 10
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "DecentBridgeExecutor.weth (lib/decent-bridge/src/DecentBridgeExecutor.sol#9) should be immutable \n",
+            "filename": "DecentBridgeExecutor.sol",
+            "classification": [],
+            "line": 9
+        }
+    ]
+}

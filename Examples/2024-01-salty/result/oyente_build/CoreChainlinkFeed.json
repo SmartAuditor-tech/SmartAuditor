@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "CoreChainlinkFeed.sol",
+        "incomplete instruction": "1476",
+        "coverage": "2.2%",
+        "warnings": []
+    }
+}

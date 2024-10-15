@@ -1,0 +1,32 @@
+{
+    "success": true,
+    "finding_length": 2,
+    "findings": [
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "WithdrawQueue.claim(uint256) (contracts/Withdraw/WithdrawQueue.sol#279-312) ignores return value by IERC20(_withdrawRequest.collateralToken).transfer(msg.sender,_withdrawRequest.amountToRedeem) (contracts/Withdraw/WithdrawQueue.sol#305-308)\n",
+            "filename": "WithdrawQueue.sol",
+            "classification": [],
+            "function": "claim",
+            "contract": "WithdrawQueue",
+            "line": 305,
+            "line_end": 308
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "WithdrawQueue.withdraw(uint256,address) (contracts/Withdraw/WithdrawQueue.sol#206-263) ignores return value by (None,None,totalTVL) = restakeManager.calculateTVLs() (contracts/Withdraw/WithdrawQueue.sol#217)\n",
+            "filename": "WithdrawQueue.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "withdraw",
+            "contract": "WithdrawQueue",
+            "line": 217
+        }
+    ]
+}

@@ -1,0 +1,320 @@
+{
+    "success": true,
+    "finding_length": 24,
+    "findings": [
+        {
+            "name": "incorrect-equality",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "BaseConnector._updateTokenInRegistry(address) (contracts/helpers/BaseConnector.sol#158-160) uses a dangerous strict equality:\n\t- _updateTokenInRegistry(token,IERC20(token).balanceOf(address(this)) == 0) (contracts/helpers/BaseConnector.sol#159)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [],
+            "function": "_updateTokenInRegistry",
+            "contract": "BaseConnector",
+            "line": 159
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyGovernance() (contracts/governance/NoyaGovernanceBase.sol#85-89) ignores return value by (governer,None,None,None,None,None) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#86)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyGovernance",
+            "contract": "NoyaGovernanceBase",
+            "line": 86
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "UNIv3Connector.increasePosition(IncreaseLiquidityParams) (contracts/connectors/UNIv3Connector.sol#87-96) ignores return value by positionManager.increaseLiquidity(p) (contracts/connectors/UNIv3Connector.sol#92)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "increasePosition",
+            "contract": "UNIv3Connector",
+            "line": 92
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector.sendTokensToTrustedAddress(address,uint256,address,bytes) (contracts/helpers/BaseConnector.sol#84-108) ignores return value by (None,None,None,None,watcherContract,None) = registry.getGovernanceAddresses(vaultId) (contracts/helpers/BaseConnector.sol#91)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "sendTokensToTrustedAddress",
+            "contract": "BaseConnector",
+            "line": 91
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyMaintainer() (contracts/governance/NoyaGovernanceBase.sol#75-79) ignores return value by (None,maintainer,None,None,None,None) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#76)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyMaintainer",
+            "contract": "NoyaGovernanceBase",
+            "line": 76
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "UNIv3Connector.openPosition(MintParams) (contracts/connectors/UNIv3Connector.sol#40-57) ignores return value by (tokenId,None,None,None) = positionManager.mint(p) (contracts/connectors/UNIv3Connector.sol#49)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "openPosition",
+            "contract": "UNIv3Connector",
+            "line": 49
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyEmergency() (contracts/governance/NoyaGovernanceBase.sol#43-47) ignores return value by (None,None,None,None,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#44)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyEmergency",
+            "contract": "NoyaGovernanceBase",
+            "line": 44
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyMaintainerOrEmergency() (contracts/governance/NoyaGovernanceBase.sol#65-69) ignores return value by (None,maintainer,None,None,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#66)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyMaintainerOrEmergency",
+            "contract": "NoyaGovernanceBase",
+            "line": 66
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector.addLiquidity(address[],uint256[],bytes) (contracts/helpers/BaseConnector.sol#169-193) ignores return value by ITokenTransferCallBack(msg.sender).sendTokensToTrustedAddress(tokens[i],amounts[i],msg.sender,) (contracts/helpers/BaseConnector.sol#181)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "addLiquidity",
+            "contract": "BaseConnector",
+            "line": 181
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "UNIv3Connector.openPosition(MintParams) (contracts/connectors/UNIv3Connector.sol#40-57) ignores return value by registry.updateHoldingPosition(vaultId,positionId,positionData,abi.encode(p.tickLower,p.tickUpper,p.fee),false) (contracts/connectors/UNIv3Connector.sol#51-53)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "openPosition",
+            "contract": "UNIv3Connector",
+            "line": 51,
+            "line_end": 53
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "UNIv3Connector.decreasePosition(DecreaseLiquidityParams) (contracts/connectors/UNIv3Connector.sol#63-81) ignores return value by registry.updateHoldingPosition(vaultId,positionId,positionData,,true) (contracts/connectors/UNIv3Connector.sol#78)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "decreasePosition",
+            "contract": "UNIv3Connector",
+            "line": 78
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector._updateTokenInRegistry(address,bool) (contracts/helpers/BaseConnector.sol#135-146) ignores return value by registry.updateHoldingPosition(vaultId,positionId,abi.encode(address(this)),,remove) (contracts/helpers/BaseConnector.sol#144)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_updateTokenInRegistry",
+            "contract": "BaseConnector",
+            "line": 144
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector.sendTokensToTrustedAddress(address,uint256,address,bytes) (contracts/helpers/BaseConnector.sol#84-108) ignores return value by (accountingManager,None) = registry.getVaultAddresses(vaultId) (contracts/helpers/BaseConnector.sol#89)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "sendTokensToTrustedAddress",
+            "contract": "BaseConnector",
+            "line": 89
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "BaseConnector._updateTokenInRegistry(address,bool) (contracts/helpers/BaseConnector.sol#135-146) ignores return value by (accountingManager,None) = registry.getVaultAddresses(vaultId) (contracts/helpers/BaseConnector.sol#136)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_updateTokenInRegistry",
+            "contract": "BaseConnector",
+            "line": 136
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "UNIv3Connector.getCurrentLiquidity(uint256) (contracts/connectors/UNIv3Connector.sol#116-119) ignores return value by (None,None,token0,token1,None,None,None,liquidity,None,None,None,None) = positionManager.positions(tokenId) (contracts/connectors/UNIv3Connector.sol#117)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "getCurrentLiquidity",
+            "contract": "UNIv3Connector",
+            "line": 117
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyManager() (contracts/governance/NoyaGovernanceBase.sol#31-37) ignores return value by (None,None,None,keeperContract,None,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#32)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyManager",
+            "contract": "NoyaGovernanceBase",
+            "line": 32
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "UNIv3Connector._getPositionTVL(HoldingPI,address) (contracts/connectors/UNIv3Connector.sol#127-150) ignores return value by (liquidity,None,None,tokensOwed0,tokensOwed1) = pool.positions(key) (contracts/connectors/UNIv3Connector.sol#138)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_getPositionTVL",
+            "contract": "UNIv3Connector",
+            "line": 138
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "UNIv3Connector._getPositionTVL(HoldingPI,address) (contracts/connectors/UNIv3Connector.sol#127-150) ignores return value by (sqrtPriceX96,None,None,None,None,None,None) = pool.slot0() (contracts/connectors/UNIv3Connector.sol#140)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "_getPositionTVL",
+            "contract": "UNIv3Connector",
+            "line": 140
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "NoyaGovernanceBase.onlyEmergencyOrWatcher() (contracts/governance/NoyaGovernanceBase.sol#53-59) ignores return value by (None,None,None,None,watcherContract,emergencyManager) = registry.getGovernanceAddresses(vaultId) (contracts/governance/NoyaGovernanceBase.sol#54)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "onlyEmergencyOrWatcher",
+            "contract": "NoyaGovernanceBase",
+            "line": 54
+        },
+        {
+            "name": "unused-return",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "UNIv3Connector.decreasePosition(DecreaseLiquidityParams) (contracts/connectors/UNIv3Connector.sol#63-81) ignores return value by positionManager.decreaseLiquidity(p) (contracts/connectors/UNIv3Connector.sol#68)\n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [
+                "SWC-104",
+                " DASP-4"
+            ],
+            "function": "decreasePosition",
+            "contract": "UNIv3Connector",
+            "line": 68
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "BaseConnector.DUST_LEVEL (contracts/helpers/BaseConnector.sol#31) should be constant \n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [],
+            "line": 31
+        },
+        {
+            "name": "constable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "BaseConnector.MINIMUM_HEALTH_FACTOR (contracts/helpers/BaseConnector.sol#28) should be constant \n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [],
+            "line": 28
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "NoyaGovernanceBase.vaultId (contracts/governance/NoyaGovernanceBase.sol#8) should be immutable \n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [],
+            "line": 8
+        },
+        {
+            "name": "immutable-states",
+            "impact": "Optimization",
+            "confidence": "High",
+            "message": "NoyaGovernanceBase.registry (contracts/governance/NoyaGovernanceBase.sol#7) should be immutable \n",
+            "filename": "UNIv3Connector.sol",
+            "classification": [],
+            "line": 7
+        }
+    ]
+}

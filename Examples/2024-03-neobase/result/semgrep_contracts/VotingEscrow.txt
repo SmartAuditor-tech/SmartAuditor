@@ -1,0 +1,153 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 31 findings.
+┌──────────────────┐
+│ 31 Code Findings │
+└──────────────────┘
+                              
+    /g4b/src/VotingEscrow.sol 
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           79┆ constructor(
+           80┆     string memory _name,
+           81┆     string memory _symbol,
+           82┆     address _governance
+           83┆ ) {
+           84┆     pointHistory[0] = Point({bias: int128(0), slope: int128(0),  
+  ts: block.timestamp, blk: block.number});                                     
+           85┆     name = _name;
+           86┆     symbol = _symbol;
+           87┆     governance = _governance;
+           88┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+          220┆ dSlope = slopeChanges[iterativeTime];
+            ⋮┆----------------------------------------
+          243┆ pointHistory[epoch] = lastPoint;
+            ⋮┆----------------------------------------
+          406┆ if (pointHistory[mid].blk <= _block) {
+            ⋮┆----------------------------------------
+          426┆ if (userPointHistory[_addr][mid].blk <= _block) {
+            ⋮┆----------------------------------------
+          548┆ dSlope = slopeChanges[iterativeTime];
+            ⋮┆----------------------------------------
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+          212┆ for (uint256 i = 0; i < 255; i++) {
+            ⋮┆----------------------------------------
+          403┆ for (uint256 i = 0; i < 128; i++) {
+            ⋮┆----------------------------------------
+          421┆ for (uint256 i = 0; i < 128; i++) {
+            ⋮┆----------------------------------------
+          539┆ for (uint256 i = 0; i < 255; i++) {
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+          299┆ require(_value > 0, "Only non zero amount");
+            ⋮┆----------------------------------------
+          300┆ require(msg.value == _value, "Invalid value");
+            ⋮┆----------------------------------------
+          301┆ require(locked_.amount == 0, "Lock exists");
+            ⋮┆----------------------------------------
+          318┆ require(_value > 0, "Only non zero amount");
+            ⋮┆----------------------------------------
+          319┆ require(msg.value == _value, "Invalid value");
+            ⋮┆----------------------------------------
+          320┆ require(locked_.amount > 0, "No lock");
+            ⋮┆----------------------------------------
+          321┆ require(locked_.end > block.timestamp, "Lock expired");
+            ⋮┆----------------------------------------
+          341┆ require(locked_.amount > 0, "Delegatee has no lock");
+            ⋮┆----------------------------------------
+          342┆ require(locked_.end > block.timestamp, "Delegatee lock expired");
+            ⋮┆----------------------------------------
+          356┆ require(locked_.amount > 0, "No lock");
+            ⋮┆----------------------------------------
+          357┆ require(locked_.end <= block.timestamp || unlockOverride, "Lock  
+  not expired");                                                                
+            ⋮┆----------------------------------------
+          358┆ require(locked_.delegatee == msg.sender, "Lock delegated");
+            ⋮┆----------------------------------------
+          374┆ require(success, "Failed to send CANTO");
+            ⋮┆----------------------------------------
+          455┆ require(_blockNumber <= block.number, "Only past block number");
+            ⋮┆----------------------------------------
+          505┆ require(_blockNumber <= block.number, "Only past block number");
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          156┆ if (_oldLocked.end > block.timestamp && _oldLocked.delegated > 0)
+  {                                                                             
+          157┆     userOldPoint.slope = _oldLocked.delegated /                  
+  int128(int256(LOCKTIME));                                                     
+          158┆     userOldPoint.bias = userOldPoint.slope *                     
+  int128(int256(_oldLocked.end - block.timestamp));                             
+          159┆ }
+            ⋮┆----------------------------------------
+          160┆ if (_newLocked.end > block.timestamp && _newLocked.delegated > 0)
+  {                                                                             
+          161┆     userNewPoint.slope = _newLocked.delegated /                  
+  int128(int256(LOCKTIME));                                                     
+          162┆     userNewPoint.bias = userNewPoint.slope *                     
+  int128(int256(_newLocked.end - block.timestamp));                             
+          163┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.use-prefix-increment-not-postfix.use-prefix-incremen
+  t-not-postfix                                                                 
+          Consider using the prefix increment expression whenever the return    
+  value is not needed. The                                                      
+          prefix increment expression is cheaper in terms of gas.               
+          Details: https://sg.run/nxLr                                          
+                                                                                
+          212┆ for (uint256 i = 0; i < 255; i++) {
+            ⋮┆----------------------------------------
+          403┆ for (uint256 i = 0; i < 128; i++) {
+            ⋮┆----------------------------------------
+          421┆ for (uint256 i = 0; i < 128; i++) {
+            ⋮┆----------------------------------------
+          539┆ for (uint256 i = 0; i < 255; i++) {
+
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

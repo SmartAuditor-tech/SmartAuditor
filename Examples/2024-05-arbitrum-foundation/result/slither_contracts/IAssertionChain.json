@@ -1,0 +1,15 @@
+{
+    "success": true,
+    "finding_length": 1,
+    "findings": [
+        {
+            "name": "uninitialized-local",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "AssertionNodeLib.createAssertion(bool,bytes32).assertion (src/rollup/Assertion.sol#74) is a local variable never initialized\n",
+            "filename": "IAssertionChain.sol",
+            "classification": [],
+            "line": 74
+        }
+    ]
+}

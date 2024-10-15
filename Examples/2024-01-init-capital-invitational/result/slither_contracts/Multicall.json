@@ -1,0 +1,17 @@
+{
+    "success": true,
+    "finding_length": 1,
+    "findings": [
+        {
+            "name": "delegatecall-loop",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "Multicall.multicall(bytes[]) (contracts/common/Multicall.sol#12-27) has delegatecall inside a loop in a payable function: (success,result) = address(this).delegatecall(_data[i]) (contracts/common/Multicall.sol#15)\n",
+            "filename": "Multicall.sol",
+            "classification": [],
+            "function": "multicall",
+            "contract": "Multicall",
+            "line": 15
+        }
+    ]
+}

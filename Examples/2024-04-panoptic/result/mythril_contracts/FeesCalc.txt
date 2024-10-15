@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "Math.sol" not found: File not found. Searched the following locations: "".
+ --> /g4b/contracts/libraries/FeesCalc.sol:7:1:
+  |
+7 | import   {Math} from "Math.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

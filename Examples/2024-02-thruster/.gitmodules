@@ -1,0 +1,3 @@
+[submodule "thruster-protocol/thruster-treasure/lib/openzeppelin-contracts"]
+	path = thruster-protocol/thruster-treasure/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts

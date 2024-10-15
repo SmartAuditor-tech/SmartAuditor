@@ -1,0 +1,8 @@
+
+/g4b/packages/protocol/contracts/automata-attestation/utils/RsaVerify.sol
+    3:1  error    Compiler version 0.8.24 does not satisfy the ^0.5.8 semver requirement  compiler-version
+   99:9  warning  Avoid to use inline assembly. It is acceptable only in rare cases       no-inline-assembly
+  247:9  warning  Avoid to use inline assembly. It is acceptable only in rare cases       no-inline-assembly
+
+✖ 3 problems (1 error, 2 warnings)
+

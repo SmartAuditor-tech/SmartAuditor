@@ -1,0 +1,9 @@
+{
+    "success": false,
+    "findings": {
+        "vul": [],
+        "filename": "ISequencerInbox.sol",
+        "coverage": "",
+        "warnings": []
+    }
+}

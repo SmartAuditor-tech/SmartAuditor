@@ -1,0 +1,128 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 22 Code Findings │
+└──────────────────┘
+                                                
+    /g4b/contracts/wrapper/WLpMoeMasterChef.sol 
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+           71┆ for (uint i; i < ___rewardTokens.length; i = i.uinc()) {
+            ⋮┆----------------------------------------
+           78┆ for (uint i; i < ___rewardTokens.length; i = i.uinc()) {
+            ⋮┆----------------------------------------
+          134┆ for (uint i; i < ___rewardTokens.length; i = i.uinc()) {
+            ⋮┆----------------------------------------
+          247┆ for (uint i; i < tokens.length; i = i.uinc()) {
+            ⋮┆----------------------------------------
+          262┆ for (uint i; i < tokens.length; i = i.uinc()) {
+            ⋮┆----------------------------------------
+          317┆ for (uint i; i < tokens.length; i = i.uinc()) {
+            ⋮┆----------------------------------------
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           91┆ constructor(address _chef, address _factory, address _wNative) {
+           92┆     _disableInitializers();
+           93┆     MASTER_CHEF = _chef;
+           94┆     MOE_FACTORY = _factory;
+           95┆     WNATIVE = _wNative;
+           96┆     MOE = address(IMasterChef(_chef).getMoe());
+           97┆ }
+            ⋮┆----------------------------------------
+       solidity.performance.state-variable-read-in-a-loop.state-variable-read-in
+  -a-loop                                                                       
+          Replace state variable reads and writes within loops with local       
+  variable reads and writes.                                                    
+          Details: https://sg.run/xADy                                          
+                                                                                
+           74┆ _pidAccRewardPerShares_e18[i] =                                  
+  pidAccRewardPerShares_e18[_pid][rewardToken];                                 
+            ⋮┆----------------------------------------
+           86┆ pidAccRewardPerShares_e18[_pid][rewardToken] =                   
+  _pidAccRewardPerShares_e18[i];                                                
+            ⋮┆----------------------------------------
+          136┆ idAccRewardPerShares_e18[id][rewardToken] =                      
+  pidAccRewardPerShares_e18[pid][rewardToken];                                  
+            ⋮┆----------------------------------------
+          136┆ idAccRewardPerShares_e18[id][rewardToken] =                      
+  pidAccRewardPerShares_e18[pid][rewardToken];                                  
+            ⋮┆----------------------------------------
+          234┆ tokens[i] = __rewardTokens[pid].at(i);
+            ⋮┆----------------------------------------
+          250┆ pidAccRewardPerShares_e18[pid][MOE] + moeRewards[0] * ONE_E18 /  
+  lpSupply;                                                                     
+            ⋮┆----------------------------------------
+          253┆ pidAccRewardPerShares_e18[pid][extraToken] + extraRewards[0] *   
+  ONE_E18 / lpSupply;                                                           
+            ⋮┆----------------------------------------
+          255┆ currentAccRewardPerShares_e18[i] =                               
+  pidAccRewardPerShares_e18[pid][tokens[i]];                                    
+            ⋮┆----------------------------------------
+          263┆ amts[i] = (currentAccRewardPerShares_e18[i] -                    
+  idAccRewardPerShares_e18[_id][tokens[i]]) * __lpBalances[_id]                 
+            ⋮┆----------------------------------------
+          263┆ amts[i] = (currentAccRewardPerShares_e18[i] -                    
+  idAccRewardPerShares_e18[_id][tokens[i]]) * __lpBalances[_id]                 
+            ⋮┆----------------------------------------
+          319┆ uint amt = (pidAccRewardPerShares_e18[pid][rewardToken] -        
+  idAccRewardPerShares_e18[_id][rewardToken]) * _amt                            
+            ⋮┆----------------------------------------
+          319┆ uint amt = (pidAccRewardPerShares_e18[pid][rewardToken] -        
+  idAccRewardPerShares_e18[_id][rewardToken]) * _amt                            
+            ⋮┆----------------------------------------
+          323┆ idAccRewardPerShares_e18[_id][rewardToken] =                     
+  pidAccRewardPerShares_e18[pid][rewardToken];                                  
+            ⋮┆----------------------------------------
+          323┆ idAccRewardPerShares_e18[_id][rewardToken] =                     
+  pidAccRewardPerShares_e18[pid][rewardToken];                                  
+            ⋮┆----------------------------------------
+       solidity.performance.use-nested-if.use-nested-if                         
+          Using nested is cheaper than using && multiple check combinations.    
+  There are more                                                                
+          advantages, such as easier to read code and better coverage reports.  
+          Details: https://sg.run/dXw0                                          
+                                                                                
+          231┆ if (extraRewarder != address(0) &&                               
+  !__rewardTokens[pid].contains(extraToken)) {                                  
+          232┆     tokens = new address[](numToken + 1);
+          233┆     for (uint i; i < numToken; i = i.uinc()) {
+          234┆         tokens[i] = __rewardTokens[pid].at(i);
+          235┆     }
+          236┆     tokens[numToken] = extraToken;
+          237┆ } else {
+          238┆     // extraRewarder == address(0) or extraToken is alr in       
+  __rewardTokens[pid]                                                           
+          239┆     tokens = new address[](numToken);
+          240┆     tokens = __rewardTokens[pid].values();
+             [hid 1 additional lines, adjust with --max-lines-per-finding] 
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 22 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

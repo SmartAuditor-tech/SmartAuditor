@@ -1,0 +1,94 @@
+{
+    "success": true,
+    "finding_length": 11,
+    "findings": [
+        {
+            "filename": "WiseLendingDeclaration.sol",
+            "line": 3,
+            "column": 1,
+            "message": "Compiler version =0.8.24 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "WiseLendingDeclaration.sol",
+            "line": 30,
+            "column": 1,
+            "message": "Contract has 22 states declarations but allowed no more than 15",
+            "level": "warning",
+            "name": "max-states-count"
+        },
+        {
+            "filename": "WiseLendingDeclaration.sol",
+            "line": 105,
+            "column": 5,
+            "message": "Explicitly mark visibility in function (Set ignoreConstructors to true if using solidity >=0.7.0)",
+            "level": "warning",
+            "name": "func-visibility"
+        },
+        {
+            "filename": "WiseLendingDeclaration.sol",
+            "line": 162,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "WiseLendingDeclaration.sol",
+            "line": 165,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "WiseLendingDeclaration.sol",
+            "line": 168,
+            "column": 5,
+            "message": "Explicitly mark visibility of state",
+            "level": "warning",
+            "name": "state-visibility"
+        },
+        {
+            "filename": "WiseLendingDeclaration.sol",
+            "line": 168,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "WiseLendingDeclaration.sol",
+            "line": 174,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "WiseLendingDeclaration.sol",
+            "line": 177,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "WiseLendingDeclaration.sol",
+            "line": 180,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        },
+        {
+            "filename": "WiseLendingDeclaration.sol",
+            "line": 183,
+            "column": 5,
+            "message": "Variable name must be in mixedCase",
+            "level": "warning",
+            "name": "var-name-mixedcase"
+        }
+    ]
+}

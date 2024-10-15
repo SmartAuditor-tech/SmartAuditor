@@ -1,0 +1,14 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+DeclarationError: Identifier already declared.
+ --> /g4b/lib/decent-bridge/lib/solidity-examples/contracts/token/oft/v2/BaseOFTV2.sol:7:1:
+  |
+7 | import "../../../../../better-deployer/lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Note: The previous declaration is here:
+ --> /g4b/lib/forge-std/src/interfaces/IERC165.sol:4:1:
+  |
+4 | interface IERC165 {
+  | ^ (Relevant source part starts here and spans across multiple lines).
+
+

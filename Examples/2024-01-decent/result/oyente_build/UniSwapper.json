@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "UniSwapper.sol",
+        "incomplete instruction": "7991",
+        "coverage": "1.5%",
+        "warnings": []
+    }
+}

@@ -1,0 +1,145 @@
+{
+    "success": true,
+    "finding_length": 13,
+    "findings": [
+        {
+            "name": "arbitrary-send-eth",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "CoinbaseSmartWallet._call(address,uint256,bytes) (src/SmartWallet/CoinbaseSmartWallet.sol#272-279) sends eth to arbitrary user\n\tDangerous calls:\n\t- (success,result) = target.call{value: value}(data) (src/SmartWallet/CoinbaseSmartWallet.sol#273)\n",
+            "filename": "CoinbaseSmartWallet.sol",
+            "classification": [],
+            "function": "_call",
+            "contract": "CoinbaseSmartWallet",
+            "line": 273
+        },
+        {
+            "name": "incorrect-exp",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "LibString.eqs(string,bytes32) (lib/solady/src/utils/LibString.sol#1076-1091) has bitwise-xor operator ^ instead of the exponentiation operator **: \n\t - result = mload(uint256)(a) == ! x_eqs_asm_0 + 31 ^ r_eqs_asm_0 >> 3 > b >> 8 + r_eqs_asm_0 ^ mload(uint256)(a + 0x20) >> 8 + r_eqs_asm_0 (lib/solady/src/utils/LibString.sol#1088-1089)\n",
+            "filename": "CoinbaseSmartWallet.sol",
+            "classification": [],
+            "function": "eqs",
+            "contract": "LibString",
+            "line": 1088,
+            "line_end": 1089
+        },
+        {
+            "name": "incorrect-shift",
+            "impact": "High",
+            "confidence": "High",
+            "message": "LibString.toCase(string,bool) (lib/solady/src/utils/LibString.sol#888-914) contains an incorrect shift operation: flags_toCase_asm_0 = 0x3ffffff << 70 + toUpper << 5 (lib/solady/src/utils/LibString.sol#899)\n",
+            "filename": "CoinbaseSmartWallet.sol",
+            "classification": [],
+            "function": "toCase",
+            "contract": "LibString",
+            "line": 899
+        },
+        {
+            "name": "incorrect-shift",
+            "impact": "High",
+            "confidence": "High",
+            "message": "LibString.escapeJSON(string,bool) (lib/solady/src/utils/LibString.sol#1003-1060) contains an incorrect shift operation: ! 1 << c_escapeJSON_asm_0 & e_escapeJSON_asm_0 (lib/solady/src/utils/LibString.sol#1027-1032)\n",
+            "filename": "CoinbaseSmartWallet.sol",
+            "classification": [],
+            "function": "escapeJSON",
+            "contract": "LibString",
+            "line": 1027,
+            "line_end": 1032
+        },
+        {
+            "name": "incorrect-shift",
+            "impact": "High",
+            "confidence": "High",
+            "message": "LibString.escapeJSON(string,bool) (lib/solady/src/utils/LibString.sol#1003-1060) contains an incorrect shift operation: ! 1 << c_escapeJSON_asm_0 & 0x3700 (lib/solady/src/utils/LibString.sol#1038-1045)\n",
+            "filename": "CoinbaseSmartWallet.sol",
+            "classification": [],
+            "function": "escapeJSON",
+            "contract": "LibString",
+            "line": 1038,
+            "line_end": 1045
+        },
+        {
+            "name": "incorrect-shift",
+            "impact": "High",
+            "confidence": "High",
+            "message": "LibString.escapeHTML(string) (lib/solady/src/utils/LibString.sol#969-999) contains an incorrect shift operation: ! 1 << c_escapeHTML_asm_0 & 0x500000c400000000 (lib/solady/src/utils/LibString.sol#984-988)\n",
+            "filename": "CoinbaseSmartWallet.sol",
+            "classification": [],
+            "function": "escapeHTML",
+            "contract": "LibString",
+            "line": 984,
+            "line_end": 988
+        },
+        {
+            "name": "divide-before-multiply",
+            "impact": "Medium",
+            "confidence": "Medium",
+            "message": "Base64._encode(bytes,string,bool) (lib/openzeppelin-contracts/contracts/utils/Base64.sol#34-119) performs a multiplication on the result of a division:\n\t- resultLength = 4 * ((data.length + 2) / 3) (lib/openzeppelin-contracts/contracts/utils/Base64.sol#51)\n",
+            "filename": "CoinbaseSmartWallet.sol",
+            "classification": [],
+            "function": "_encode",
+            "contract": "Base64",
+            "line": 51
+        },
+        {
+            "name": "write-after-write",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "LibString.indexOf(string,string,uint256).result (lib/solady/src/utils/LibString.sol#499) is written in both\n\tresult = from (lib/solady/src/utils/LibString.sol#506)\n\tresult = subjectLength_indexOf_asm_0 (lib/solady/src/utils/LibString.sol#509)\n",
+            "filename": "CoinbaseSmartWallet.sol",
+            "classification": [],
+            "line": 509
+        },
+        {
+            "name": "write-after-write",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "SignatureCheckerLib.isValidSignatureNow(address,bytes32,bytes32,bytes32).isValid (lib/solady/src/utils/SignatureCheckerLib.sol#211) is written in both\n\tisValid = 1 (lib/solady/src/utils/SignatureCheckerLib.sol#233)\n\tisValid = mload(uint256)(d_isValidSignatureNow_asm_0) == f_isValidSignatureNow_asm_0 & staticcall(uint256,uint256,uint256,uint256,uint256,uint256)(gas()(),signer,m_isValidSignatureNow_asm_0,0xa5,d_isValidSignatureNow_asm_0,0x20) (lib/solady/src/utils/SignatureCheckerLib.sol#249-263)\n",
+            "filename": "CoinbaseSmartWallet.sol",
+            "classification": [],
+            "line": 249,
+            "line_end": 263
+        },
+        {
+            "name": "write-after-write",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "SignatureCheckerLib.isValidSignatureNow(address,bytes32,bytes).isValid (lib/solady/src/utils/SignatureCheckerLib.sol#35) is written in both\n\tisValid = 1 (lib/solady/src/utils/SignatureCheckerLib.sol#79)\n\tisValid = mload(uint256)(d_isValidSignatureNow_asm_0) == f_isValidSignatureNow_asm_0 & staticcall(uint256,uint256,uint256,uint256,uint256,uint256)(gas()(),signer,m_isValidSignatureNow_asm_0,returndatasize()() + 0x44,d_isValidSignatureNow_asm_0,0x20) (lib/solady/src/utils/SignatureCheckerLib.sol#97-111)\n",
+            "filename": "CoinbaseSmartWallet.sol",
+            "classification": [],
+            "line": 97,
+            "line_end": 111
+        },
+        {
+            "name": "write-after-write",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "SignatureCheckerLib.isValidSignatureNowCalldata(address,bytes32,bytes).isValid (lib/solady/src/utils/SignatureCheckerLib.sol#123) is written in both\n\tisValid = 1 (lib/solady/src/utils/SignatureCheckerLib.sol#167)\n\tisValid = mload(uint256)(d_isValidSignatureNowCalldata_asm_0) == f_isValidSignatureNowCalldata_asm_0 & staticcall(uint256,uint256,uint256,uint256,uint256,uint256)(gas()(),signer,m_isValidSignatureNowCalldata_asm_0,signature + 0x64,d_isValidSignatureNowCalldata_asm_0,0x20) (lib/solady/src/utils/SignatureCheckerLib.sol#185-199)\n",
+            "filename": "CoinbaseSmartWallet.sol",
+            "classification": [],
+            "line": 185,
+            "line_end": 199
+        },
+        {
+            "name": "write-after-write",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "SignatureCheckerLib.isValidSignatureNow(address,bytes32,uint8,bytes32,bytes32).isValid (lib/solady/src/utils/SignatureCheckerLib.sol#277) is written in both\n\tisValid = 1 (lib/solady/src/utils/SignatureCheckerLib.sol#299)\n\tisValid = mload(uint256)(d_isValidSignatureNow_asm_0) == f_isValidSignatureNow_asm_0 & staticcall(uint256,uint256,uint256,uint256,uint256,uint256)(gas()(),signer,m_isValidSignatureNow_asm_0,0xa5,d_isValidSignatureNow_asm_0,0x20) (lib/solady/src/utils/SignatureCheckerLib.sol#315-329)\n",
+            "filename": "CoinbaseSmartWallet.sol",
+            "classification": [],
+            "line": 315,
+            "line_end": 329
+        },
+        {
+            "name": "write-after-write",
+            "impact": "Medium",
+            "confidence": "High",
+            "message": "LibString.indexOf(string,string,uint256).result (lib/solady/src/utils/LibString.sol#499) is written in both\n\tresult = subjectLength_indexOf_asm_0 (lib/solady/src/utils/LibString.sol#509)\n\tresult = ~ 0 (lib/solady/src/utils/LibString.sol#515)\n",
+            "filename": "CoinbaseSmartWallet.sol",
+            "classification": [],
+            "line": 515
+        }
+    ]
+}

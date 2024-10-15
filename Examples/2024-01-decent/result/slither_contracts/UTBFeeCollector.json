@@ -1,0 +1,41 @@
+{
+    "success": true,
+    "finding_length": 3,
+    "findings": [
+        {
+            "name": "arbitrary-send-erc20",
+            "impact": "High",
+            "confidence": "High",
+            "message": "UTBFeeCollector.collectFees(FeeStructure,bytes,bytes) (src/UTBFeeCollector.sol#44-62) uses arbitrary from in transferFrom: IERC20(fees.feeToken).transferFrom(utb,address(this),fees.feeAmount) (src/UTBFeeCollector.sol#56-60)\n",
+            "filename": "UTBFeeCollector.sol",
+            "classification": [],
+            "function": "collectFees",
+            "contract": "UTBFeeCollector",
+            "line": 56,
+            "line_end": 60
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "UTBFeeCollector.collectFees(FeeStructure,bytes,bytes) (src/UTBFeeCollector.sol#44-62) ignores return value by IERC20(fees.feeToken).transferFrom(utb,address(this),fees.feeAmount) (src/UTBFeeCollector.sol#56-60)\n",
+            "filename": "UTBFeeCollector.sol",
+            "classification": [],
+            "function": "collectFees",
+            "contract": "UTBFeeCollector",
+            "line": 56,
+            "line_end": 60
+        },
+        {
+            "name": "unchecked-transfer",
+            "impact": "High",
+            "confidence": "Medium",
+            "message": "UTBFeeCollector.redeemFees(address,uint256) (src/UTBFeeCollector.sol#69-75) ignores return value by IERC20(token).transfer(owner,amount) (src/UTBFeeCollector.sol#73)\n",
+            "filename": "UTBFeeCollector.sol",
+            "classification": [],
+            "function": "redeemFees",
+            "contract": "UTBFeeCollector",
+            "line": 73
+        }
+    ]
+}

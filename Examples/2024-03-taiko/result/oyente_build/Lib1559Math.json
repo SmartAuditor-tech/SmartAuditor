@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "Lib1559Math.sol",
+        "coverage": "21.9%",
+        "warnings": []
+    }
+}

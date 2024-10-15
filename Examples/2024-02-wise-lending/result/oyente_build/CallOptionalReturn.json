@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "CallOptionalReturn.sol",
+        "incomplete instruction": "78",
+        "coverage": "43.6%",
+        "warnings": []
+    }
+}

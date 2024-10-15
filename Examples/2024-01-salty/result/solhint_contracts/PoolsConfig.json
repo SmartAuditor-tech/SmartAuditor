@@ -1,0 +1,38 @@
+{
+    "success": true,
+    "finding_length": 4,
+    "findings": [
+        {
+            "filename": "PoolsConfig.sol",
+            "line": 2,
+            "column": 1,
+            "message": "Compiler version =0.8.22 does not satisfy the ^0.5.8 semver requirement",
+            "level": "error",
+            "name": "compiler-version"
+        },
+        {
+            "filename": "PoolsConfig.sol",
+            "line": 16,
+            "column": 2,
+            "message": "Event name must be in CamelCase",
+            "level": "warning",
+            "name": "event-name-camelcase"
+        },
+        {
+            "filename": "PoolsConfig.sol",
+            "line": 47,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        },
+        {
+            "filename": "PoolsConfig.sol",
+            "line": 48,
+            "column": 3,
+            "message": "Error message for require is too long",
+            "level": "warning",
+            "name": "reason-string"
+        }
+    ]
+}

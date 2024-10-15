@@ -1,0 +1,48 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                  
+                  
+┌────────────────┐
+│ 1 Code Finding │
+└────────────────┘
+                                                
+    /g4b/contracts/connectors/LidoConnector.sol 
+       solidity.performance.non-payable-constructor.non-payable-constructor
+          Consider making costructor payable to save gas.                  
+          Details: https://sg.run/wRBd                                     
+                                                                           
+           20┆ constructor(address _lido, address _lidoW, address _steth,       
+  address w, BaseConnectorCP memory baseConnectorParams)                        
+           21┆     BaseConnector(baseConnectorParams)
+           22┆ {
+           23┆     require(_lido != address(0));
+           24┆     require(_lidoW != address(0));
+           25┆     require(_steth != address(0));
+           26┆     require(w != address(0));
+           27┆     lido = _lido;
+           28┆     lidoWithdrawal = _lidoW;
+           29┆     steth = _steth;
+             [hid 2 additional lines, adjust with --max-lines-per-finding] 
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 1 finding.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "FeeSplitter.sol",
+        "coverage": "0.6%",
+        "warnings": []
+    }
+}

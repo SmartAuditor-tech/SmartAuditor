@@ -1,0 +1,12 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [
+            "Callstack Depth Attack Vulnerability: DASP-5"
+        ],
+        "filename": "OptimismMintableXERC20Factory.sol",
+        "incomplete instruction": "16437",
+        "coverage": "0.2%",
+        "warnings": []
+    }
+}

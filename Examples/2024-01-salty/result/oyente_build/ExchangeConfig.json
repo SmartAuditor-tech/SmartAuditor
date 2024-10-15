@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "ExchangeConfig.sol",
+        "incomplete instruction": "5078",
+        "coverage": "0.8%",
+        "warnings": []
+    }
+}

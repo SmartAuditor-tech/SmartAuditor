@@ -1,0 +1,9 @@
+{
+    "success": false,
+    "findings": {
+        "vul": [],
+        "filename": "ITaikoL1.sol",
+        "coverage": "",
+        "warnings": []
+    }
+}

@@ -1,0 +1,7 @@
+
+/g4b/packages/protocol/contracts/L1/hooks/AssignmentHook.sol
+   2:1   error    Compiler version 0.8.24 does not satisfy the ^0.5.8 semver requirement  compiler-version
+  82:13  warning  Avoid making time-based decisions in your business logic                not-rely-on-time
+
+✖ 2 problems (1 error, 1 warning)
+

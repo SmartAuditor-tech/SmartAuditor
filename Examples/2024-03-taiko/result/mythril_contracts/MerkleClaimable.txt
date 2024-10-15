@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+DeclarationError: Function "tstore" not found.
+   --> /g4b/packages/protocol/contracts/common/EssentialContract.sol:122:17:
+    |
+122 |                 tstore(_REENTRY_SLOT, _reentry)
+    |                 ^^^^^^
+
+

@@ -1,0 +1,204 @@
+METRICS: Using configs from the Registry (like --config=p/ci) reports pseudonymous rule metrics to semgrep.dev.
+To disable Registry rule metrics, use "--metrics=off".
+Using configs only from local files (like --config=xyz.yml) does not enable metrics.
+
+More information: https://semgrep.dev/docs/metrics
+
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 1 file tracked by git with 50 Code rules:
+  Scanning 1 file with 50 solidity rules.
+                    
+                    
+┌──────────────────┐
+│ 40 Code Findings │
+└──────────────────┘
+                                                                             
+    /g4b/packages/protocol/contracts/thirdparty/optimism/trie/MerkleTrie.sol 
+       solidity.performance.array-length-outside-loop.array-length-outside-loop 
+          Caching the array length outside a loop saves reading it on each      
+  iteration, as long as the                                                     
+          array's length is not changed during the loop.                        
+          Details: https://sg.run/r4LJ                                          
+                                                                                
+           85┆ for (uint256 i = 0; i < proof.length; i++) {
+            ⋮┆----------------------------------------
+           89┆ require(currentKeyIndex <= key.length, "MerkleTrie: key index    
+  exceeds total key length");                                                   
+            ⋮┆----------------------------------------
+           97┆ } else if (currentNode.encoded.length >= 32) {
+            ⋮┆----------------------------------------
+          111┆ if (currentNode.decoded.length == BRANCH_NODE_LENGTH) {
+            ⋮┆----------------------------------------
+          112┆ if (currentKeyIndex == key.length) {
+            ⋮┆----------------------------------------
+          120┆ value_.length > 0,
+            ⋮┆----------------------------------------
+          126┆ i == proof.length - 1,
+            ⋮┆----------------------------------------
+          139┆ } else if (currentNode.decoded.length ==                         
+  LEAF_OR_EXTENSION_NODE_LENGTH) {                                              
+            ⋮┆----------------------------------------
+          151┆ pathRemainder.length == sharedNibbleLength,
+            ⋮┆----------------------------------------
+          163┆ keyRemainder.length == sharedNibbleLength,
+            ⋮┆----------------------------------------
+          173┆ value_.length > 0,
+            ⋮┆----------------------------------------
+          179┆ i == proof.length - 1,
+            ⋮┆----------------------------------------
+       solidity.performance.unnecessary-checked-arithmetic-in-loop.unnecessary-c
+  hecked-arithmetic-in-loop                                                     
+          A lot of times there is no risk that the loop counter can overflow.   
+  Using Solidity's                                                              
+          unchecked block saves the overflow checks.                            
+          Details: https://sg.run/OvDk                                          
+                                                                                
+           85┆ for (uint256 i = 0; i < proof.length; i++) {
+            ⋮┆----------------------------------------
+       solidity.performance.use-custom-error-not-require.use-custom-error-not-re
+  quire                                                                         
+          Consider using custom errors as they are more gas efficient while     
+  allowing developers  to                                                       
+          describe the error in detail using NatSpec.                           
+          Details: https://sg.run/ej3L                                          
+                                                                                
+           77┆ require(_key.length > 0, "MerkleTrie: empty key");
+            ⋮┆----------------------------------------
+           89┆ require(currentKeyIndex <= key.length, "MerkleTrie: key index    
+  exceeds total key length");                                                   
+            ⋮┆----------------------------------------
+           93┆ require(
+           94┆     Bytes.equal(abi.encodePacked(keccak256(currentNode.encoded)),
+  currentNodeID),                                                               
+           95┆     "MerkleTrie: invalid root hash"
+           96┆ );
+            ⋮┆----------------------------------------
+           99┆ require(
+          100┆     Bytes.equal(abi.encodePacked(keccak256(currentNode.encoded)),
+  currentNodeID),                                                               
+          101┆     "MerkleTrie: invalid large internal hash"
+          102┆ );
+            ⋮┆----------------------------------------
+          105┆ require(
+          106┆     Bytes.equal(currentNode.encoded, currentNodeID),
+          107┆     "MerkleTrie: invalid internal node hash"
+          108┆ );
+            ⋮┆----------------------------------------
+          119┆ require(
+          120┆     value_.length > 0,
+          121┆     "MerkleTrie: value length must be greater than zero (branch)"
+          122┆ );
+            ⋮┆----------------------------------------
+          125┆ require(
+          126┆     i == proof.length - 1,
+          127┆     "MerkleTrie: value node must be last node in proof (branch)"
+          128┆ );
+            ⋮┆----------------------------------------
+          150┆ require(
+          151┆     pathRemainder.length == sharedNibbleLength,
+          152┆     "MerkleTrie: path remainder must share all nibbles with key"
+          153┆ );
+            ⋮┆----------------------------------------
+          162┆ require(
+          163┆     keyRemainder.length == sharedNibbleLength,
+          164┆     "MerkleTrie: key remainder must be identical to path         
+  remainder"                                                                    
+          165┆ );
+            ⋮┆----------------------------------------
+          172┆ require(
+          173┆     value_.length > 0,
+          174┆     "MerkleTrie: value length must be greater than zero (leaf)"
+          175┆ );
+            ⋮┆----------------------------------------
+          178┆ require(
+          179┆     i == proof.length - 1,
+          180┆     "MerkleTrie: value node must be last node in proof (leaf)"
+          181┆ );
+            ⋮┆----------------------------------------
+          191┆ revert("MerkleTrie: received a node with an unknown prefix");
+            ⋮┆----------------------------------------
+          194┆ revert("MerkleTrie: received an unparseable node");
+            ⋮┆----------------------------------------
+          198┆ revert("MerkleTrie: ran out of proof elements");
+            ⋮┆----------------------------------------
+       solidity.performance.use-prefix-increment-not-postfix.use-prefix-incremen
+  t-not-postfix                                                                 
+          Consider using the prefix increment expression whenever the return    
+  value is not needed. The                                                      
+          prefix increment expression is cheaper in terms of gas.               
+          Details: https://sg.run/nxLr                                          
+                                                                                
+           85┆ for (uint256 i = 0; i < proof.length; i++) {
+            ⋮┆----------------------------------------
+       solidity.performance.use-short-revert-string.use-short-revert-string     
+          Shortening revert strings to fit in 32 bytes will decrease gas costs  
+  for deployment and  gas                                                       
+          costs when the revert condition has been met.                         
+          Details: https://sg.run/E9LB                                          
+                                                                                
+           89┆ require(currentKeyIndex <= key.length, "MerkleTrie: key index    
+  exceeds total key length");                                                   
+            ⋮┆----------------------------------------
+           99┆ require(
+          100┆     Bytes.equal(abi.encodePacked(keccak256(currentNode.encoded)),
+  currentNodeID),                                                               
+          101┆     "MerkleTrie: invalid large internal hash"
+          102┆ );
+            ⋮┆----------------------------------------
+          105┆ require(
+          106┆     Bytes.equal(currentNode.encoded, currentNodeID),
+          107┆     "MerkleTrie: invalid internal node hash"
+          108┆ );
+            ⋮┆----------------------------------------
+          119┆ require(
+          120┆     value_.length > 0,
+          121┆     "MerkleTrie: value length must be greater than zero (branch)"
+          122┆ );
+            ⋮┆----------------------------------------
+          125┆ require(
+          126┆     i == proof.length - 1,
+          127┆     "MerkleTrie: value node must be last node in proof (branch)"
+          128┆ );
+            ⋮┆----------------------------------------
+          150┆ require(
+          151┆     pathRemainder.length == sharedNibbleLength,
+          152┆     "MerkleTrie: path remainder must share all nibbles with key"
+          153┆ );
+            ⋮┆----------------------------------------
+          162┆ require(
+          163┆     keyRemainder.length == sharedNibbleLength,
+          164┆     "MerkleTrie: key remainder must be identical to path         
+  remainder"                                                                    
+          165┆ );
+            ⋮┆----------------------------------------
+          172┆ require(
+          173┆     value_.length > 0,
+          174┆     "MerkleTrie: value length must be greater than zero (leaf)"
+          175┆ );
+            ⋮┆----------------------------------------
+          178┆ require(
+          179┆     i == proof.length - 1,
+          180┆     "MerkleTrie: value node must be last node in proof (leaf)"
+          181┆ );
+            ⋮┆----------------------------------------
+          191┆ revert("MerkleTrie: received a node with an unknown prefix");
+            ⋮┆----------------------------------------
+          194┆ revert("MerkleTrie: received an unparseable node");
+            ⋮┆----------------------------------------
+          198┆ revert("MerkleTrie: ran out of proof elements");
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+
+Ran 50 rules on 1 file: 40 findings.
+
+A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+
+Versions prior to 1.43.0 will cease to work with Semgrep.dev after March 11th 2024, please upgrade.

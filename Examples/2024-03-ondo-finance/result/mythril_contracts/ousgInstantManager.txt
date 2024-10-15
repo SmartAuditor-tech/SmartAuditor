@@ -1,0 +1,9 @@
+mythril.interfaces.cli [ERROR]: Solc experienced a fatal error.
+
+ParserError: Source "/g4b/node_modules/@openzeppelin/contracts/access/AccessControlEnumerable.sol" not found: File outside of allowed directories. The following are allowed: ".", "/g4b/contracts/".
+  --> /g4b/contracts/ousg/ousgInstantManager.sol:18:1:
+   |
+18 | import "../../node_modules/@openzeppelin/contracts/access/AccessControlEnumerable.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+

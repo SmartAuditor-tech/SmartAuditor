@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "StableConfig.sol",
+        "coverage": "1.2%",
+        "warnings": []
+    }
+}

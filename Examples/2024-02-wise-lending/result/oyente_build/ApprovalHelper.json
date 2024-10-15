@@ -1,0 +1,9 @@
+{
+    "success": true,
+    "findings": {
+        "vul": [],
+        "filename": "ApprovalHelper.sol",
+        "coverage": "36.2%",
+        "warnings": []
+    }
+}

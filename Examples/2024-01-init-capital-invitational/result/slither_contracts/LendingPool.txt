@@ -1,0 +1,36 @@
+'forge config --json' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 --version' running
+'/Users/tanzezhong/.solc-select/artifacts/solc-0.8.19/solc-0.8.19 @forge-std/=lib/forge-std/src/ @openzeppelin-contracts/=contracts/.cache/OpenZeppelin/v4.9.3/ @openzeppelin-contracts-upgradeable/=contracts/.cache/OpenZeppelin-Upgradeable/v4.9.3/ ds-test/=lib/forge-std/lib/ds-test/src/ forge-std/=lib/forge-std/src/ /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-init-capital-invitational/contracts/lending_pool/LendingPool.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --optimize --optimize-runs 200 --evm-version paris --allow-paths .,/Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-init-capital-invitational/contracts/lending_pool' running
+Compilation warnings/errors on /Users/tanzezhong/GPT4Bugs-main/Examples/2024-01-init-capital-invitational/contracts/lending_pool/LendingPool.sol:
+Error: Source "contracts/.cache/OpenZeppelin-Upgradeable/v4.9.3/token/ERC20/ERC20Upgradeable.sol" not found: File not found. Searched the following locations: "".
+ --> contracts/lending_pool/LendingPool.sol:9:1:
+  |
+9 | import  {ERC20Upgradeable} from "../.cache/OpenZeppelin-Upgradeable/v4.9.3/token/ERC20/ERC20Upgradeable.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/token/ERC20/extensions/IERC20Metadata.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/lending_pool/LendingPool.sol:10:1:
+   |
+10 | import  {IERC20Metadata} from "../.cache/OpenZeppelin/v4.9.3/token/ERC20/extensions/IERC20Metadata.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/token/ERC20/utils/SafeERC20.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/lending_pool/LendingPool.sol:11:1:
+   |
+11 | import  {SafeERC20} from "../.cache/OpenZeppelin/v4.9.3/token/ERC20/utils/SafeERC20.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin/v4.9.3/token/ERC20/IERC20.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/lending_pool/LendingPool.sol:12:1:
+   |
+12 | import  {IERC20} from "../.cache/OpenZeppelin/v4.9.3/token/ERC20/IERC20.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Error: Source "contracts/.cache/OpenZeppelin-Upgradeable/v4.9.3/utils/math/MathUpgradeable.sol" not found: File not found. Searched the following locations: "".
+  --> contracts/lending_pool/LendingPool.sol:13:1:
+   |
+13 | import  {MathUpgradeable} from "../.cache/OpenZeppelin-Upgradeable/v4.9.3/utils/math/MathUpgradeable.sol";
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+ERROR:Slither:Unable to compile all targets.
