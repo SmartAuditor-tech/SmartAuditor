@@ -16,7 +16,7 @@ Linux\MacOS\Windows:
 ```bash
 pip3 install solc-select
 ```
-* Slither （根据官方github下载即可）
+* Slither
 ```bash
 python3 -m pip install slither-analyzer
 ```
